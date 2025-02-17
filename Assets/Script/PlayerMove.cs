@@ -6,12 +6,15 @@ public class PlayerMove : MonoBehaviour
 {
     private BoxCollider2D boxCollider;
     public LayerMask layerMask;
-    
-    public float speed ; // 이동 속도
+
+    [SerializeField]
+    private float speed_;
+    [SerializeField]
+    private float runSpeed_;
 
     private Vector3 vector;
 
-    public float runSpeed;
+  
     private float applyRunSpeed;
     private bool applyRunFlag= false;
 
@@ -24,8 +27,15 @@ public class PlayerMove : MonoBehaviour
 
      void Start()
     {
+     
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+
+        if (StatusManager.Instance != null && StatusManager.Instance.playerStatus != null)
+        {
+            speed_ = StatusManager.Instance.playerStatus.BaseSpeed;
+            runSpeed_ = StatusManager.Instance.playerStatus.RunSpeed;
+        }
     }
 
     IEnumerator MoveCoroutine()
@@ -36,7 +46,7 @@ public class PlayerMove : MonoBehaviour
             //Run
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                applyRunSpeed = runSpeed;
+                applyRunSpeed = runSpeed_;
                 applyRunFlag = true;
             }
             else
@@ -60,7 +70,7 @@ public class PlayerMove : MonoBehaviour
             //이동 불가 지역
             RaycastHit2D hit;
             Vector2 start=transform.position; //현재위치
-            Vector2 end=start+new Vector2(vector.x*speed*walkCount,vector.y*speed*walkCount);   //이동위치
+            Vector2 end=start+new Vector2(vector.x* speed_ * walkCount,vector.y* speed_ * walkCount);   //이동위치
 
             boxCollider.enabled = false; //플레이어 박스콜라이더에 인식되지 않게
             hit=Physics2D.Linecast(start,end,layerMask);
@@ -73,11 +83,11 @@ public class PlayerMove : MonoBehaviour
             {
                 if (vector.x != 0)
                 {
-                    transform.Translate(vector.x * (speed + applyRunSpeed), 0, 0);
+                    transform.Translate(vector.x * (speed_ + applyRunSpeed), 0, 0);
                 }
                 else if (vector.y != 0)
                 {
-                    transform.Translate(0, vector.y * (speed + applyRunSpeed), 0);
+                    transform.Translate(0, vector.y * (speed_ + applyRunSpeed), 0);
                 }
                 if (applyRunFlag)
                 {
