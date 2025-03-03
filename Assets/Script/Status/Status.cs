@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -18,15 +16,31 @@ public class Status : MonoBehaviour
     private float currentHealth_;
     public float CurrentHealth
     {
-        get => currentHealth_;
-        set
-        {
-            currentHealth_ = value > 0 ? value : 0; 
-        }
+        get { return currentHealth_; }
+        set { currentHealth_ = value > 0 ? value : 0; }
     }
-    public float MaxHealth => statusData.MaxHealth;
-    public float BaseSpeed => statusData.BaseSpeed;
-    public float RunSpeed => statusData.BaseSpeed * 2f;
+
+
+    private void Awake()
+    {
+        if(statusData == null)
+            statusData = Resources.Load<StatusData>("ScriptableObject/StatusData/HaruStatusData");
+    }
+
+    public float MaxHealth
+    {
+        get { return statusData != null ? statusData.MaxHealth : 0f; }
+    }
+
+    public float BaseSpeed
+    {
+        get { return statusData != null ? statusData.BaseSpeed : 0f; }
+    }
+
+    public float RunSpeed
+    {
+        get { return statusData != null ? statusData.BaseSpeed * 2f : 0f; }
+    }
 
     public void Init()
     {
@@ -36,6 +50,9 @@ public class Status : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth_ = Mathf.Clamp(currentHealth_ - amount, 0, MaxHealth);
+
+        if (currentHealth_ == 0)
+            UIManager.Instance.OpenGameOverUI();
     }
 
     public void Heal(float amount)

@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float runSpeed_;
 
-    private Vector3 vector;
+    public Vector3 vector;
 
   
     private float applyRunSpeed;
@@ -112,8 +112,13 @@ public class PlayerMove : MonoBehaviour
                 StartCoroutine(MoveCoroutine());
             }
         }
-    }
-        
 
- }
+        #region 플레이어 체력 깎기 
+        if (Input.GetKeyUp(KeyCode.Z))
+            StatusManager.Instance.playerStatus.TakeDamage(100);
+        #endregion
+    }
+
+
+}
 

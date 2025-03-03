@@ -104,8 +104,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  speed: 2.4
-  runSpeed: 2.4
+  speed_: 2.4
+  runSpeed_: 4.8
   walkCount: 20
 --- !u!95 &6252427472642593486
 Animator:
@@ -157,7 +157,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -1.9845045}

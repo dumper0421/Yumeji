@@ -3,8 +3,14 @@ using UnityEngine;
 public class StatusManager : Singleton<StatusManager>
 {
     public Status playerStatus;
+    protected override bool IsGlobal => false;
 
-    protected override void Init()
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    protected void Start()
     {
         if (playerStatus == null)
         {
@@ -17,7 +23,11 @@ public class StatusManager : Singleton<StatusManager>
         playerStatus = status;
     }
 
-    public float CurrentHealth => playerStatus != null ? playerStatus.CurrentHealth : 0f;
-    public float BaseSpeed => playerStatus != null ? playerStatus.BaseSpeed : 0f;
-    public float RunSpeed => playerStatus != null ? playerStatus.RunSpeed : 0f;
+    protected override void OnSingletonInit()
+    {
+    }
+
+    public float CurrentHealth => playerStatus.CurrentHealth;
+    public float BaseSpeed =>  playerStatus.BaseSpeed;
+    public float RunSpeed => playerStatus.RunSpeed;
 }
