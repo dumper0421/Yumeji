@@ -975,7 +975,7 @@ PrefabInstance:
       objectReference: {fileID: 7545569452688597077, guid: 48edd45a185c8654b9ab1a073ccbdaca, type: 3}
     - target: {fileID: 2678071618908635071, guid: 9e0841b82a4ebcd438730d23886e17e6, type: 3}
       propertyPath: startAutomatically
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6167349947878513351, guid: 9e0841b82a4ebcd438730d23886e17e6, type: 3}
       propertyPath: useResourcesFolders
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c36c1aaa59afd942a4ae1a782f07e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueRunner: {fileID: 0}
+  dialogueRunner: {fileID: 2110470238}
   startNodeName: Start
 --- !u!61 &1733335672
 BoxCollider2D:
