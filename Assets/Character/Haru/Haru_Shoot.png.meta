@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -113,19 +113,19 @@ TextureImporter:
       name: Haru_Shoot_0
       rect:
         serializedVersion: 2
-        x: 123
-        y: 3871
-        width: 435
-        height: 826
+        x: 51
+        y: 1539
+        width: 174
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46ea96cfacdb03743a210ee3407db908
-      internalID: -65206747
+      spriteID: 8a6a0570392c7e74598319f769d20106
+      internalID: -415583660
       vertices: []
       indices: 
       edges: []
@@ -134,19 +134,19 @@ TextureImporter:
       name: Haru_Shoot_1
       rect:
         serializedVersion: 2
-        x: 689
-        y: 3871
-        width: 436
-        height: 826
+        x: 274
+        y: 1539
+        width: 176
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78c9c8290cc7ea749b039d9e28bf5cad
-      internalID: -958171604
+      spriteID: 8b439bbd4dc1f694483d14070e0b34c4
+      internalID: -1759705000
       vertices: []
       indices: 
       edges: []
@@ -155,19 +155,19 @@ TextureImporter:
       name: Haru_Shoot_2
       rect:
         serializedVersion: 2
-        x: 1262
-        y: 3871
-        width: 435
-        height: 826
+        x: 507
+        y: 1539
+        width: 174
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56fd9c0e7e67ed948bd147585f1cdded
-      internalID: 963202635
+      spriteID: 42ca92df722230044a2e5a6e394ac07b
+      internalID: 1529977284
       vertices: []
       indices: 
       edges: []
@@ -176,19 +176,19 @@ TextureImporter:
       name: Haru_Shoot_3
       rect:
         serializedVersion: 2
-        x: 1823
-        y: 3871
-        width: 435
-        height: 814
+        x: 731
+        y: 1539
+        width: 174
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac0d43ca5cb45b64fa2b247f8a690ecf
-      internalID: 2087676364
+      spriteID: 1145dc24bc29e9d4f8b95cda5d8b15a6
+      internalID: -1634118264
       vertices: []
       indices: 
       edges: []
@@ -197,19 +197,19 @@ TextureImporter:
       name: Haru_Shoot_4
       rect:
         serializedVersion: 2
-        x: 2414
-        y: 3871
-        width: 436
-        height: 814
+        x: 967
+        y: 1539
+        width: 174
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc4930fe05deb6c4abf1e11f39be39f8
-      internalID: -492317510
+      spriteID: ad60ba0873e04ae45aca853b55420743
+      internalID: 1386271393
       vertices: []
       indices: 
       edges: []
@@ -218,19 +218,19 @@ TextureImporter:
       name: Haru_Shoot_5
       rect:
         serializedVersion: 2
-        x: 2998
-        y: 3871
-        width: 432
-        height: 814
+        x: 1198
+        y: 1539
+        width: 176
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3380ae04bff553849a615379e5101be5
-      internalID: -2004956273
+      spriteID: 9255588615c904245bf83c9723e30b26
+      internalID: -795318529
       vertices: []
       indices: 
       edges: []
@@ -239,19 +239,19 @@ TextureImporter:
       name: Haru_Shoot_6
       rect:
         serializedVersion: 2
-        x: 3567
-        y: 3871
-        width: 435
-        height: 814
+        x: 1427
+        y: 1539
+        width: 174
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68f7bb658e5aa904c883b98817b40759
-      internalID: 139774859
+      spriteID: ba923db0f9e69734d84fd1ced541d0ab
+      internalID: 1926820228
       vertices: []
       indices: 
       edges: []
@@ -260,19 +260,19 @@ TextureImporter:
       name: Haru_Shoot_7
       rect:
         serializedVersion: 2
-        x: 4133
-        y: 3871
-        width: 436
-        height: 826
+        x: 1655
+        y: 1539
+        width: 174
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99f06e81831c4ed4782619e8e02feaa9
-      internalID: 678825928
+      spriteID: 3e7729ce8959d4142916c0827f10d16d
+      internalID: 480353146
       vertices: []
       indices: 
       edges: []
@@ -281,19 +281,19 @@ TextureImporter:
       name: Haru_Shoot_8
       rect:
         serializedVersion: 2
-        x: 4686
-        y: 3871
-        width: 436
-        height: 826
+        x: 1875
+        y: 1539
+        width: 174
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78d01bfbc4204a449ae7c2b6e0c574f0
-      internalID: -1930569708
+      spriteID: f570e5790345074458fbe6f5a4892620
+      internalID: -1907933360
       vertices: []
       indices: 
       edges: []
@@ -302,19 +302,19 @@ TextureImporter:
       name: Haru_Shoot_9
       rect:
         serializedVersion: 2
-        x: 5239
-        y: 3871
-        width: 432
-        height: 826
+        x: 2094
+        y: 1539
+        width: 176
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 742765b7ff9567b4da767f7488af22b2
-      internalID: 1207408621
+      spriteID: f939d64538f279e48bddc9bd1fb69e74
+      internalID: -1261768775
       vertices: []
       indices: 
       edges: []
@@ -323,19 +323,19 @@ TextureImporter:
       name: Haru_Shoot_10
       rect:
         serializedVersion: 2
-        x: 137
-        y: 2927
-        width: 444
-        height: 826
+        x: 54
+        y: 1167
+        width: 179
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18d7eb54163405c4ea89400ae071e3e6
-      internalID: -1039581788
+      spriteID: 3d02057194a68b64291f262d399bbac3
+      internalID: -2042869001
       vertices: []
       indices: 
       edges: []
@@ -344,19 +344,19 @@ TextureImporter:
       name: Haru_Shoot_11
       rect:
         serializedVersion: 2
-        x: 698
-        y: 2927
-        width: 446
-        height: 826
+        x: 279
+        y: 1167
+        width: 178
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27167171a443b8c40a717de6a663b25a
-      internalID: 1784778
+      spriteID: fbb38e268e09763429ab6e3d268f708d
+      internalID: 970002507
       vertices: []
       indices: 
       edges: []
@@ -365,19 +365,19 @@ TextureImporter:
       name: Haru_Shoot_12
       rect:
         serializedVersion: 2
-        x: 1264
-        y: 2927
-        width: 444
-        height: 826
+        x: 507
+        y: 1167
+        width: 178
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0c70de8cb1ed334c929c1d95531e50d
-      internalID: 1557535740
+      spriteID: 93cd6b47ab062ff45829585156ac374b
+      internalID: 1777644091
       vertices: []
       indices: 
       edges: []
@@ -386,19 +386,19 @@ TextureImporter:
       name: Haru_Shoot_13
       rect:
         serializedVersion: 2
-        x: 1831
-        y: 2927
-        width: 446
-        height: 815
+        x: 735
+        y: 1167
+        width: 178
+        height: 330
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb802456b7571e441827baa15bad007e
-      internalID: 1450073015
+      spriteID: fe755c05ebca32645880dfe9c5e933ab
+      internalID: -678677744
       vertices: []
       indices: 
       edges: []
@@ -407,19 +407,40 @@ TextureImporter:
       name: Haru_Shoot_14
       rect:
         serializedVersion: 2
-        x: 2417
-        y: 2927
-        width: 447
-        height: 815
+        x: 967
+        y: 1167
+        width: 179
+        height: 330
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f49b8b3e1ae708c488c9df9ecea758d2
-      internalID: 1701502054
+      spriteID: 0a50ac689ba8db949a9455a82123ba42
+      internalID: -1383734034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_15
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1374
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b57d578f7f94abe49aaf51ed5ecab1ff
+      internalID: -79515512
       vertices: []
       indices: 
       edges: []
@@ -428,19 +449,19 @@ TextureImporter:
       name: Haru_Shoot_16
       rect:
         serializedVersion: 2
-        x: 2950
-        y: 2927
-        width: 483
-        height: 815
+        x: 1179
+        y: 1167
+        width: 195
+        height: 330
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55db91f0e6c65184d96f1eb1310a929d
-      internalID: -1859501115
+      spriteID: 1a0f2fa9de67fba4a8b44432d09f4228
+      internalID: 399534927
       vertices: []
       indices: 
       edges: []
@@ -449,19 +470,19 @@ TextureImporter:
       name: Haru_Shoot_17
       rect:
         serializedVersion: 2
-        x: 3567
-        y: 2927
-        width: 444
-        height: 815
+        x: 1427
+        y: 1167
+        width: 178
+        height: 330
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0d82c70adc6a73418ad879612db0169
-      internalID: 1257420159
+      spriteID: 13102bcaf8f0c184487915a5539d1958
+      internalID: 1458589123
       vertices: []
       indices: 
       edges: []
@@ -470,19 +491,19 @@ TextureImporter:
       name: Haru_Shoot_18
       rect:
         serializedVersion: 2
-        x: 4122
-        y: 2927
-        width: 447
-        height: 826
+        x: 1651
+        y: 1167
+        width: 178
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d850a2ce68f054f857d8d3e69052e7
-      internalID: 178350298
+      spriteID: 9930f598fdc5e754fa70c5bd1b88d08e
+      internalID: -909273496
       vertices: []
       indices: 
       edges: []
@@ -491,19 +512,19 @@ TextureImporter:
       name: Haru_Shoot_19
       rect:
         serializedVersion: 2
-        x: 4681
-        y: 2927
-        width: 443
-        height: 826
+        x: 1875
+        y: 1167
+        width: 178
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fad89e800b1e05442a032f9568127c9f
-      internalID: -1446964585
+      spriteID: a8cf516f026533c4b90303710863aa97
+      internalID: 1801686445
       vertices: []
       indices: 
       edges: []
@@ -512,19 +533,19 @@ TextureImporter:
       name: Haru_Shoot_20
       rect:
         serializedVersion: 2
-        x: 5205
-        y: 2927
-        width: 444
-        height: 826
+        x: 2083
+        y: 1167
+        width: 179
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a4887d0752e8c4459fe03e257140095
-      internalID: -2062237606
+      spriteID: 6a0abaec6ea40984685b63597fd2f7f0
+      internalID: -912022687
       vertices: []
       indices: 
       edges: []
@@ -533,19 +554,19 @@ TextureImporter:
       name: Haru_Shoot_21
       rect:
         serializedVersion: 2
-        x: 98
-        y: 1937
-        width: 443
-        height: 826
+        x: 39
+        y: 762
+        width: 178
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de2479b5cce23ee4cb1b16f2cf4067cc
-      internalID: 210293989
+      spriteID: 4875dfd44c76f6b4b9a1e95c30bcdb3a
+      internalID: -867600724
       vertices: []
       indices: 
       edges: []
@@ -554,19 +575,19 @@ TextureImporter:
       name: Haru_Shoot_22
       rect:
         serializedVersion: 2
-        x: 636
-        y: 1937
-        width: 447
-        height: 826
+        x: 254
+        y: 762
+        width: 179
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f65a24c4f2003a74b9fcd249635c1471
-      internalID: 387722221
+      spriteID: fae1d7065e1ac594ea097fb67e40b62f
+      internalID: -1724801273
       vertices: []
       indices: 
       edges: []
@@ -575,19 +596,19 @@ TextureImporter:
       name: Haru_Shoot_23
       rect:
         serializedVersion: 2
-        x: 1197
-        y: 1937
-        width: 444
-        height: 826
+        x: 479
+        y: 762
+        width: 178
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3e2059dace1fd74697a597ca7b43f12
-      internalID: 992221068
+      spriteID: c17a031dbc8949c4aa5fe04ae194b15e
+      internalID: -568852605
       vertices: []
       indices: 
       edges: []
@@ -596,19 +617,19 @@ TextureImporter:
       name: Haru_Shoot_24
       rect:
         serializedVersion: 2
-        x: 1756
-        y: 1937
-        width: 443
-        height: 814
+        x: 702
+        y: 762
+        width: 179
+        height: 331
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 632e0b890f18e9844adbf289502f5190
-      internalID: 1223370287
+      spriteID: 9ebf486a4d9ea0e4ab1720e40bb2620a
+      internalID: 1089176699
       vertices: []
       indices: 
       edges: []
@@ -617,19 +638,19 @@ TextureImporter:
       name: Haru_Shoot_25
       rect:
         serializedVersion: 2
-        x: 2347
-        y: 1937
-        width: 444
-        height: 814
+        x: 939
+        y: 762
+        width: 179
+        height: 331
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dc819a7a5fb3db4db85f5bcd8731ea7
-      internalID: -1573067493
+      spriteID: b7a574a9753456e4fbb56e7f2c2269c7
+      internalID: -1128080567
       vertices: []
       indices: 
       edges: []
@@ -638,19 +659,40 @@ TextureImporter:
       name: Haru_Shoot_26
       rect:
         serializedVersion: 2
-        x: 2931
-        y: 1937
-        width: 485
-        height: 814
+        x: 1175
+        y: 762
+        width: 194
+        height: 331
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 367824d1b935c26449de8d1a90b10e47
-      internalID: -160803695
+      spriteID: 8dd6f627cdbdbe34da12e3277591a389
+      internalID: -1863541518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_27
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 971
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa448ddf4ab04e043a18a1b10cade714
+      internalID: 70587672
       vertices: []
       indices: 
       edges: []
@@ -659,19 +701,19 @@ TextureImporter:
       name: Haru_Shoot_28
       rect:
         serializedVersion: 2
-        x: 3503
-        y: 1937
-        width: 443
-        height: 814
+        x: 1403
+        y: 762
+        width: 178
+        height: 331
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c2c55c46ef72a742a8ac5fe04b505ce
-      internalID: 2021167260
+      spriteID: f92bf27cf1e8d1949a79d49f9d08b578
+      internalID: 1624789096
       vertices: []
       indices: 
       edges: []
@@ -680,19 +722,19 @@ TextureImporter:
       name: Haru_Shoot_29
       rect:
         serializedVersion: 2
-        x: 4055
-        y: 1937
-        width: 444
-        height: 826
+        x: 1623
+        y: 762
+        width: 178
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c22aa526474eba14da6158c7d968a924
-      internalID: 1751413852
+      spriteID: 334db054cef2c4d4fb67a0320f5ed105
+      internalID: -525147024
       vertices: []
       indices: 
       edges: []
@@ -701,19 +743,19 @@ TextureImporter:
       name: Haru_Shoot_30
       rect:
         serializedVersion: 2
-        x: 4605
-        y: 1937
-        width: 444
-        height: 826
+        x: 1843
+        y: 762
+        width: 179
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70d956799fafa4542bb5aea3f6615e8e
-      internalID: -1377980409
+      spriteID: c57ffd48d32d11c47b78fecd9f5e901c
+      internalID: -862598757
       vertices: []
       indices: 
       edges: []
@@ -722,19 +764,19 @@ TextureImporter:
       name: Haru_Shoot_31
       rect:
         serializedVersion: 2
-        x: 5163
-        y: 1937
-        width: 444
-        height: 826
+        x: 2066
+        y: 762
+        width: 179
+        height: 335
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55c3fe2c449bbd34b80ca06b262bbcff
-      internalID: 1242119600
+      spriteID: e8b3e77e1588adb4db7b65a0e8a6a74a
+      internalID: 1565596864
       vertices: []
       indices: 
       edges: []
@@ -743,19 +785,19 @@ TextureImporter:
       name: Haru_Shoot_32
       rect:
         serializedVersion: 2
-        x: 114
-        y: 918
-        width: 436
-        height: 834
+        x: 46
+        y: 359
+        width: 176
+        height: 342
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff1abde385b898a438f5399eb27fbc5a
-      internalID: 1311302935
+      spriteID: 8ddfb03c8da98c047982cf5f68a8bb33
+      internalID: -730642995
       vertices: []
       indices: 
       edges: []
@@ -764,19 +806,19 @@ TextureImporter:
       name: Haru_Shoot_33
       rect:
         serializedVersion: 2
-        x: 636
-        y: 918
-        width: 433
-        height: 834
+        x: 254
+        y: 359
+        width: 176
+        height: 342
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1681006f577ef3429a5f277b93fdcf4
-      internalID: -797814054
+      spriteID: ddc6fc051ddceee459ff7e0049fae0cc
+      internalID: 2120026669
       vertices: []
       indices: 
       edges: []
@@ -785,19 +827,19 @@ TextureImporter:
       name: Haru_Shoot_34
       rect:
         serializedVersion: 2
-        x: 1169
-        y: 918
-        width: 436
-        height: 834
+        x: 466
+        y: 359
+        width: 176
+        height: 342
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 790508b66ea427c44a5b0f8ae70c7de2
-      internalID: -292294889
+      spriteID: 46060b6873a1c2b49a8f9dcc370016ba
+      internalID: -1808166811
       vertices: []
       indices: 
       edges: []
@@ -806,19 +848,19 @@ TextureImporter:
       name: Haru_Shoot_35
       rect:
         serializedVersion: 2
-        x: 1719
-        y: 918
-        width: 436
-        height: 823
+        x: 687
+        y: 359
+        width: 174
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4662a65066e55e4e935c83b430fd42f
-      internalID: -777891621
+      spriteID: 39f2b051384cc20478141beb72619e1e
+      internalID: -1663130720
       vertices: []
       indices: 
       edges: []
@@ -827,19 +869,19 @@ TextureImporter:
       name: Haru_Shoot_36
       rect:
         serializedVersion: 2
-        x: 2291
-        y: 918
-        width: 436
-        height: 823
+        x: 919
+        y: 359
+        width: 174
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f8181bf202703a47878b4d44b42e0a7
-      internalID: -1217041819
+      spriteID: bb3da8c5afdbd984abb6208adcf30af2
+      internalID: -1033594254
       vertices: []
       indices: 
       edges: []
@@ -848,19 +890,19 @@ TextureImporter:
       name: Haru_Shoot_37
       rect:
         serializedVersion: 2
-        x: 2852
-        y: 918
-        width: 433
-        height: 823
+        x: 1142
+        y: 359
+        width: 176
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b8c2b2f0277648479b3c984296f85bd
-      internalID: -74250679
+      spriteID: 615dc3ea62aea71438b8e3aab90c64e2
+      internalID: -1585275516
       vertices: []
       indices: 
       edges: []
@@ -869,19 +911,19 @@ TextureImporter:
       name: Haru_Shoot_38
       rect:
         serializedVersion: 2
-        x: 3464
-        y: 918
-        width: 435
-        height: 823
+        x: 1387
+        y: 359
+        width: 174
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06e4958640dd76949909e5099fea5b28
-      internalID: -1099305264
+      spriteID: 77524dc4279ce5f4cb363751c187dab0
+      internalID: 1995854425
       vertices: []
       indices: 
       edges: []
@@ -890,19 +932,19 @@ TextureImporter:
       name: Haru_Shoot_39
       rect:
         serializedVersion: 2
-        x: 4053
-        y: 918
-        width: 435
-        height: 834
+        x: 1623
+        y: 359
+        width: 174
+        height: 342
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5818593e71d8864abbe98788eaf8a66
-      internalID: 362284223
+      spriteID: a136fdb630dc1404dbe60c207edd17fc
+      internalID: -1851643065
       vertices: []
       indices: 
       edges: []
@@ -911,19 +953,19 @@ TextureImporter:
       name: Haru_Shoot_40
       rect:
         serializedVersion: 2
-        x: 4605
-        y: 918
-        width: 436
-        height: 834
+        x: 1843
+        y: 359
+        width: 174
+        height: 342
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc937e1307cfc6645badc70463ecf2f4
-      internalID: -1941853620
+      spriteID: f7ccca07dc9841849bc68f8bf0ada563
+      internalID: 501768604
       vertices: []
       indices: 
       edges: []
@@ -932,19 +974,19 @@ TextureImporter:
       name: Haru_Shoot_41
       rect:
         serializedVersion: 2
-        x: 5191
-        y: 918
-        width: 433
-        height: 834
+        x: 2079
+        y: 359
+        width: 174
+        height: 342
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 902c60b48d182974da238afd06cb7839
-      internalID: -1352870796
+      spriteID: dd28bb54cc517724c9a2be875ff352fa
+      internalID: 1176962172
       vertices: []
       indices: 
       edges: []
@@ -960,48 +1002,48 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Haru_Shoot_0: -65206747
-      Haru_Shoot_1: -958171604
-      Haru_Shoot_10: -1039581788
-      Haru_Shoot_11: 1784778
-      Haru_Shoot_12: 1557535740
-      Haru_Shoot_13: 1450073015
-      Haru_Shoot_14: 1701502054
-      Haru_Shoot_15: -659098432
-      Haru_Shoot_16: -1859501115
-      Haru_Shoot_17: 1257420159
-      Haru_Shoot_18: 178350298
-      Haru_Shoot_19: -1446964585
-      Haru_Shoot_2: 963202635
-      Haru_Shoot_20: -2062237606
-      Haru_Shoot_21: 210293989
-      Haru_Shoot_22: 387722221
-      Haru_Shoot_23: 992221068
-      Haru_Shoot_24: 1223370287
-      Haru_Shoot_25: -1573067493
-      Haru_Shoot_26: -160803695
-      Haru_Shoot_27: -574907427
-      Haru_Shoot_28: 2021167260
-      Haru_Shoot_29: 1751413852
-      Haru_Shoot_3: 2087676364
-      Haru_Shoot_30: -1377980409
-      Haru_Shoot_31: 1242119600
-      Haru_Shoot_32: 1311302935
-      Haru_Shoot_33: -797814054
-      Haru_Shoot_34: -292294889
-      Haru_Shoot_35: -777891621
-      Haru_Shoot_36: -1217041819
-      Haru_Shoot_37: -74250679
-      Haru_Shoot_38: -1099305264
-      Haru_Shoot_39: 362284223
-      Haru_Shoot_4: -492317510
-      Haru_Shoot_40: -1941853620
-      Haru_Shoot_41: -1352870796
-      Haru_Shoot_5: -2004956273
-      Haru_Shoot_6: 139774859
-      Haru_Shoot_7: 678825928
-      Haru_Shoot_8: -1930569708
-      Haru_Shoot_9: 1207408621
+      Haru_Shoot_0: -415583660
+      Haru_Shoot_1: -1759705000
+      Haru_Shoot_10: -2042869001
+      Haru_Shoot_11: 970002507
+      Haru_Shoot_12: 1777644091
+      Haru_Shoot_13: -678677744
+      Haru_Shoot_14: -1383734034
+      Haru_Shoot_15: -79515512
+      Haru_Shoot_16: 399534927
+      Haru_Shoot_17: 1458589123
+      Haru_Shoot_18: -909273496
+      Haru_Shoot_19: 1801686445
+      Haru_Shoot_2: 1529977284
+      Haru_Shoot_20: -912022687
+      Haru_Shoot_21: -867600724
+      Haru_Shoot_22: -1724801273
+      Haru_Shoot_23: -568852605
+      Haru_Shoot_24: 1089176699
+      Haru_Shoot_25: -1128080567
+      Haru_Shoot_26: -1863541518
+      Haru_Shoot_27: 70587672
+      Haru_Shoot_28: 1624789096
+      Haru_Shoot_29: -525147024
+      Haru_Shoot_3: -1634118264
+      Haru_Shoot_30: -862598757
+      Haru_Shoot_31: 1565596864
+      Haru_Shoot_32: -730642995
+      Haru_Shoot_33: 2120026669
+      Haru_Shoot_34: -1808166811
+      Haru_Shoot_35: -1663130720
+      Haru_Shoot_36: -1033594254
+      Haru_Shoot_37: -1585275516
+      Haru_Shoot_38: 1995854425
+      Haru_Shoot_39: -1851643065
+      Haru_Shoot_4: 1386271393
+      Haru_Shoot_40: 501768604
+      Haru_Shoot_41: 1176962172
+      Haru_Shoot_5: -795318529
+      Haru_Shoot_6: 1926820228
+      Haru_Shoot_7: 480353146
+      Haru_Shoot_8: -1907933360
+      Haru_Shoot_9: -1261768775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

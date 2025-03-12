@@ -74,7 +74,11 @@ public class PlayerMove : MonoBehaviour
 
             boxCollider.enabled = false; //플레이어 박스콜라이더에 인식되지 않게
             hit=Physics2D.Linecast(start,end,layerMask);
-
+            boxCollider.enabled = true;
+            if (hit.transform != null)
+            {
+                break;
+            }
 
             animator.SetBool("Walking", true);
 
