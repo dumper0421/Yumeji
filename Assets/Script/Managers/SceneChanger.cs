@@ -12,6 +12,6 @@ public class SceneChanger : MonoBehaviour
 
     public void OnMainButtonClicked()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("TitleScene");
     }
 }

@@ -30,7 +30,7 @@ public class DialogueTest : MonoBehaviour
                 {
                     if (hit.collider != null && hit.collider.gameObject != gameObject)
                     {
-                        if (hit.collider.name == "PlayerHaru")
+                        if (hit.collider.name == "PlayerHaru(Woo)")
                         {
                             dialogueRunner.StartDialogue(startNodeName);
                             return; 

@@ -8,16 +8,12 @@ public class StatusManager : Singleton<StatusManager>
     protected override void Awake()
     {
         base.Awake();
-    }
 
-    protected void Start()
-    {
         if (playerStatus == null)
         {
             playerStatus = FindObjectOfType<Status>();
         }
     }
-
     public void SetPlayerStatus(Status status)
     {
         playerStatus = status;
