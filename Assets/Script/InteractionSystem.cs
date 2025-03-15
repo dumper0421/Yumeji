@@ -76,7 +76,7 @@ public class InteractionSystem : MonoBehaviour
     */
     }
 
-    // 📌 1. 오브젝트 조사
+
     private void InspectObject(GameObject obj)
     {
        
