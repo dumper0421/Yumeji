@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4667329140268385607}
   - component: {fileID: 3054815539829227407}
   - component: {fileID: 904618778233969111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: obj_car_black_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,16 +117,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.7317817}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.3, y: 2.16}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 6.6, y: 4.32}
     newSize: {x: 6.6, y: 4.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.6, y: 4.32}
+  m_Size: {x: 6.6, y: 3.4635634}
   m_EdgeRadius: 0
