@@ -455,7 +455,7 @@ namespace Yarn.Unity.Example {
 			newSpriteObject.name = spriteName;
 			newSpriteObject.sprite = FetchAsset<Sprite>( spriteName );
 			newSpriteObject.SetNativeSize();
-			newSpriteObject.rectTransform.sizeDelta /= 10f;
+			newSpriteObject.rectTransform.sizeDelta /= 8f;
             newSpriteObject.rectTransform.anchoredPosition = Vector2.Scale( position, screenSize );
 			return newSpriteObject;
 		}
