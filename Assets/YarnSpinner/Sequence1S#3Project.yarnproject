@@ -1,7 +1,7 @@
 {
   "projectFileVersion": 2,
   "sourceFiles": [
-    "Test.yarn"
+    "Sequence1S#3.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"

@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Woo/TitleScene.unity
     guid: d6b9c5fd1035be54a8c27e74b894b4ba
+  - enabled: 1
+    path: Assets/Scenes/Choiwoohyck/Sequence1S#3_1_CutScene1.unity
+    guid: 2c2cdbc9df8446e469ea48962836efb3
+  - enabled: 1
+    path: Assets/Scenes/Choiwoohyck/Sequence1S#3.unity
+    guid: 17695d911050a8241824f8733252131b
   m_configObjects: {}
