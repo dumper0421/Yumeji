@@ -2,7 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InspectableObject : MonoBehaviour
+public abstract class InspectableObject : MonoBehaviour
 {
-   
+    //false면 여러번 조사가능 true면 한번만
+    protected bool isDisposable = false;
+    private bool hasBeenInspected = false; 
+    protected abstract void OnInspect();
+
+    public void TryInspect()
+    {
+        if (isDisposable && hasBeenInspected)
+        {
+            return; 
+        }
+
+        OnInspect();
+        hasBeenInspected = true;
+    }
+
+    public virtual void PlaySFX(string name) {
+        ;
+    }
 }

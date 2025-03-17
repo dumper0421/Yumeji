@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Missile
   - SavePoint
+  - IgnoreRaycast
   layers:
   - Default
   - TransparentFX

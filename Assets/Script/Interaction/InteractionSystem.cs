@@ -33,20 +33,24 @@ public class InteractionSystem : MonoBehaviour
     
     private void TryInteract()    {
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, lastDirection, InteractDistance, InteractableLayer);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, lastDirection, InteractDistance, ~0); // 모든 레이어 감지
 
-        //디버그용
-        Debug.DrawRay(transform.position, lastDirection * InteractDistance, Color.green, 0.5f); 
+        Debug.DrawRay(transform.position, lastDirection * InteractDistance, Color.green, 0.5f);
 
-        if (hit.collider != null)
+        foreach (RaycastHit2D hit in hits)
         {
+            if (hit.collider.CompareTag("Player")||hit.collider.CompareTag("IgnoreRaycast"))
+            {
+                continue; 
+            }
+            
+
             Debug.Log($"Raycast 충돌 감지: {hit.collider.gameObject.name}");
             InteractWithObject(hit.collider.gameObject);
+            return; 
         }
-        else
-        {
-            Debug.Log("Raycast가 아무 오브젝트도 감지하지 못함");
-        }
+
+        Debug.Log("Raycast가 아무 유효한 오브젝트도 감지하지 못함");
     }
 
     // 📌 오브젝트와의 상호작용 실행 (태그 없이 컴포넌트 기반)
@@ -54,7 +58,7 @@ public class InteractionSystem : MonoBehaviour
     {
         bool interacted = false;
 
-        if (obj.TryGetComponent(out InspectableObject inspectable))
+        if (obj.TryGetComponent<InspectableObject>(out var inspectable))
         {
             InspectObject(inspectable);
             interacted = true;
@@ -94,6 +98,7 @@ public class InteractionSystem : MonoBehaviour
     private void InspectObject(InspectableObject obj)
     {
         Debug.Log("1. 조사 오브젝트 상호작용");
+        obj.TryInspect();
     }
 
     // 📌 2. NPC 대화

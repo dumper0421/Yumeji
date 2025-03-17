@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HaruStatusData
   m_EditorClassIdentifier: Assembly-CSharp::StatusData
   MaxHealth: 100
-  BaseSpeed: 0.05
+  BaseSpeed: 1
