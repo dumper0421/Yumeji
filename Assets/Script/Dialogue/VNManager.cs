@@ -33,7 +33,7 @@ namespace Yarn.Unity.Example {
 
 		[Header("Object references"), Tooltip("don't change these unless you know what you're doing")]
 		public RectTransform spriteGroup; // used for screenshake
-		public Image bgImage, fadeBG, nameplateBG;
+		public Image bgImage, fadeBG;
 		public Image genericSprite; // local prefab, used for instantiating sprites
 		public AudioSource genericAudioSource; // local prefab, used for instantiating sounds
 
@@ -387,10 +387,7 @@ namespace Yarn.Unity.Example {
 
             if (string.IsNullOrEmpty(actorName) == false && actors.ContainsKey(actorName)) {
                 HighlightSprite(actors[actorName].actorImage);
-				nameplateBG.color = actors[actorName].actorColor;
-                nameplateBG.gameObject.SetActive(true);
             } else {
-                nameplateBG.gameObject.SetActive(false);
             }
 
             onDialogueLineFinished();
@@ -401,29 +398,41 @@ namespace Yarn.Unity.Example {
 			StartCoroutine( "HighlightSpriteCoroutine", sprite );
 		}
 
-		// called by HighlightSprite
-		IEnumerator HighlightSpriteCoroutine (Image highlightedSprite) {
-			float t = 0f;
-			// over time, gradually change sprites to be "normal" or
-			// "highlighted"
-			while ( t < 1f ) {
-				t += Time.deltaTime / 2f;
-				foreach ( var spr in sprites ) {
-					Vector3 regularScalePreserveXFlip = new Vector3( Mathf.Sign(spr.transform.localScale.x), 1f, 1f);
-					if ( spr != highlightedSprite) { // set back to normal
-						spr.transform.localScale = Vector3.MoveTowards( spr.transform.localScale, regularScalePreserveXFlip, Time.deltaTime );
-						spr.color = Color.Lerp( spr.color, defaultTint, Time.deltaTime * 5f );
-					} else { // a little bit bigger / brighter
-						spr.transform.localScale = Vector3.MoveTowards( spr.transform.localScale, regularScalePreserveXFlip * 1.05f, Time.deltaTime );
-						spr.color = Color.Lerp( spr.color, highlightTint, Time.deltaTime * 5f );
-						spr.transform.SetAsLastSibling();
-					}
-				}
-				yield return 0;
-			}
-		}
+        // called by HighlightSprite
+        IEnumerator HighlightSpriteCoroutine(Image highlightedSprite)
+        {
+            float t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime / 2f;
+                foreach (var spr in sprites)
+                {
+                    // X축 플립 보존을 위한 스케일 계산
+                    Vector3 regularScalePreserveXFlip = new Vector3(Mathf.Sign(spr.transform.localScale.x), 1f, 1f);
+                    if (spr != highlightedSprite)
+                    {
+                        // 말하고 있지 않은 캐릭터: 알파값을 0 (완전 투명)으로 보간
+                        Color currentColor = spr.color;
+                        currentColor.a = Mathf.Lerp(currentColor.a, 0f, Time.deltaTime * 5f);
+                        spr.color = currentColor;
+                        // 필요하다면 scale은 기본값으로 복원
+                        spr.transform.localScale = Vector3.MoveTowards(spr.transform.localScale, regularScalePreserveXFlip, Time.deltaTime);
+                    }
+                    else
+                    {
+                        // 말하는 캐릭터: 알파값을 1 (불투명)으로 보간하고 살짝 크게
+                        Color currentColor = spr.color;
+                        currentColor.a = Mathf.Lerp(currentColor.a, 1f, Time.deltaTime * 5f);
+                        spr.color = currentColor;
+                        spr.transform.localScale = Vector3.MoveTowards(spr.transform.localScale, regularScalePreserveXFlip * 1.05f, Time.deltaTime);
+                        spr.transform.SetAsLastSibling();
+                    }
+                }
+                yield return null;
+            }
+        }
 
-		IEnumerator MoveCoroutine(RectTransform transform, Vector2 newAnchorPos, float moveTime ) {
+        IEnumerator MoveCoroutine(RectTransform transform, Vector2 newAnchorPos, float moveTime ) {
 			Vector2 startPos = transform.anchoredPosition;
 			float t = 0f;
 			while (t < 1f ) {
@@ -536,7 +545,7 @@ namespace Yarn.Unity.Example {
 				case "left":
 				case "bottom":
 				case "lower":
-					return 0.25f;
+					return 0.3f;
 				case "center":
 				case "middle":
 					return 0.5f;

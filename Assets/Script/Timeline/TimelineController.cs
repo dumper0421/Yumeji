@@ -18,4 +18,9 @@ public class TimelineController : MonoBehaviour
         yield return new WaitForSeconds((float)Director.duration);
         SceneManager.LoadScene(SceneString);
     }
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(SceneString);
+    }
 }

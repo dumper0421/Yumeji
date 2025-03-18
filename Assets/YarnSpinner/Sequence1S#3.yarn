@@ -1,7 +1,12 @@
 ﻿title: Start
 ---
-<<Act 하루 CHD_haru_v2 left center green>>
-하루: 루나...?
-하루: 루나...?
-<<Hide 하루>>
+<<Act Luna CHD_luna_v1 right center red>>
+Luna: 앞으로 어쩔거야?
+Luna: 앞으로 어쩔거야?
+<<Act Haru CHD_haru_v2 left center green>>
+Haru: 모르겠어
+Haru: 전보다는 힘들겠지만
+Haru: 그래도 견딜 만해
+Haru: 뭐가 걱정이야
+Luna: 둘 다 많은 생각을 했잖아
 ===
