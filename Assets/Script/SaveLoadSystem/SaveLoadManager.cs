@@ -28,12 +28,11 @@ public class PlayerSaveData
 
 public class SaveLoadManager : Singleton<SaveLoadManager>
 {
-    protected override bool IsGlobal => true;
 
     [SerializeField]
     private const int saveSlotCount_ = 5; // 세이브 슬롯 개수
 
-    protected override void OnSingletonInit()
+    protected override void Init()
     {
         ;
     }

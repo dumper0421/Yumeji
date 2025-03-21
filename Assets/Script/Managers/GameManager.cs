@@ -4,11 +4,10 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public PlayerSaveData CurrentSaveData => saveData_;
-    protected override bool IsGlobal => true;
 
     private PlayerSaveData saveData_;
 
-    protected override void OnSingletonInit()
+    protected override void Init()
     {
         // 초기 데이터를 기본 값으로 생성
         saveData_ = new PlayerSaveData(1, Vector3.zero, 100, DateTime.Now);

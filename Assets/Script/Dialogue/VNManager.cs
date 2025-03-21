@@ -50,7 +50,6 @@ namespace Yarn.Unity.Example {
 			// manually add all Yarn command handlers, so that we don't
 			// have to type out game object names in Yarn scripts (also
 			// gives us a performance increase by avoiding GameObject.Find)
-			runner.AddCommandHandler<string>("Scene", DoSceneChange );
 			runner.AddCommandHandler<string,string,string,string,string>("Act", SetActor );
 			runner.AddCommandHandler<string,string,string>("Draw", SetSpriteYarn );
 
@@ -58,9 +57,6 @@ namespace Yarn.Unity.Example {
 			runner.AddCommandHandler("HideAll", HideAllSprites );
 			runner.AddCommandHandler("Reset", ResetScene );
 
-			runner.AddCommandHandler<string,string,string,float>("Move", MoveSprite );
-			runner.AddCommandHandler<string,string>("Flip", FlipSprite );
-			runner.AddCommandHandler<string,float>("Shake", ShakeSprite );
 
 			runner.AddCommandHandler<string,float,string>("PlayAudio", PlayAudio );
 			runner.AddCommandHandler<string>("StopAudio", StopAudio );
@@ -86,10 +82,7 @@ namespace Yarn.Unity.Example {
 
         #region YarnCommands
 
-        /// <summary>changes background image</summary>
-        public void DoSceneChange(string spriteName) {
-			bgImage.sprite = FetchAsset<Sprite>( spriteName );
-		}
+ 
 
 		/// <summary>
 		/// SetActor(actorName,spriteName,positionX,positionY,color) main
@@ -209,58 +202,6 @@ namespace Yarn.Unity.Example {
 			bgImage.sprite = null;
 			HideAllSprites();
 			SetFadeIn(0);
-		}
-
-		// move a sprite usage: <<Move actorOrspriteName, screenPosX=0.5,
-		// screenPosY=0.5, moveTime=1.0>> screenPosX and screenPosY are
-		// normalized screen coordinates (0.0 - 1.0) moveTime is the time
-		// in seconds it will take to reach that position
-		public void MoveSprite(string actorOrSpriteName, string screenPosX="0.5", string screenPosY="0.5", float moveTime = 1) {
-			
-			var image = FindActorOrSprite( actorOrSpriteName );
-
-			// get new screen position
-			Vector2 newPos = new Vector2(0.5f, 0.5f);
-			if ( screenPosX != string.Empty && screenPosY != string.Empty) {
-				newPos = new Vector2( ConvertCoordinates(screenPosX), ConvertCoordinates(screenPosY) );
-			} else if ( screenPosX != string.Empty ) {
-				newPos.x = ConvertCoordinates(screenPosX);
-			}
-
-			// actually do the moving now
-			StartCoroutine( MoveCoroutine( image.GetComponent<RectTransform>(), Vector2.Scale(newPos, screenSize), moveTime) );
-		}
-
-		/// <summary>flip a sprite, or force the sprite to face a
-		/// direction< Move(actorOrSpriteName, xDirection=toggle)</sprite>
-		public void FlipSprite(string actorOrSpriteName, string xDirection = "") {
-			
-			var image = FindActorOrSprite( actorOrSpriteName );
-
-
-            float direction;
-
-            if (xDirection != string.Empty) {
-                direction = Mathf.Sign(ConvertCoordinates(xDirection) - 0.5f);
-            }
-            else {
-                direction = Mathf.Sign(image.rectTransform.localScale.x) * -1f;
-            }
-
-			image.rectTransform.localScale = new Vector3( 
-                direction * Mathf.Abs(image.rectTransform.localScale.x), 
-                image.rectTransform.localScale.y, 
-                image.rectTransform.localScale.z 
-            );
-		}
-
-		/// <summary>Shake(actorName or spriteName, strength=0.5)</summary>
-		public void ShakeSprite(string actorOrSpriteName, float shakeStrength = 0.5f) {
-			
-			var findShakeTarget = FindActorOrSprite( actorOrSpriteName );
-			if ( findShakeTarget != null ) {
-				StartCoroutine( SetShake( findShakeTarget.rectTransform, shakeStrength ) );
-			}
 		}
 
 		/// <summary>PlayAudio( soundName,volume,"loop" )...
@@ -484,19 +425,6 @@ namespace Yarn.Unity.Example {
 			}
 		}
 
-		// shakes a RectTransform (usually sprites)
-		IEnumerator SetShake( RectTransform thingToShake, float shakeStrength = 0.5f ) {
-			var startPos = thingToShake.anchoredPosition;
-			while ( shakeStrength > 0f ) {
-				shakeStrength -= Time.deltaTime;
-				float shakeDistance = Mathf.Clamp( shakeStrength * 69f, 0f, 69f);
-				float shakeFrequency = Mathf.Clamp( shakeStrength * 5f, 0f, 5f);
-				thingToShake.anchoredPosition = startPos + shakeDistance * new Vector2( Mathf.Sin(Time.time * shakeFrequency), Mathf.Sin(Time.time * shakeFrequency + 17f) * 0.62f );
-				yield return 0;
-			}
-			thingToShake.anchoredPosition = startPos;
-		}
-
 		// timed destroy... can't use Destroy( gameObject, timeDelay )
 		// because it might get destroyed earlier via <<StopAudio>> or
 		// something, and we want to remove the reference from the list too
@@ -662,9 +590,7 @@ namespace Yarn.Unity.Example {
 		}
 	}
 
-	// from
-	// https://www.codeproject.com/Articles/11556/Converting-Wildcards-to-Regexes
-	// by Rei Miyasaka
+
     class Wildcard : Regex {
         public Wildcard(string pattern) : base(WildcardToRegex(pattern)) { }
 

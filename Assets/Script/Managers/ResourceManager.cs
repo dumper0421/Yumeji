@@ -5,7 +5,7 @@ public class ResourceManager : Singleton<ResourceManager>
 {
     private Dictionary<string, object> _data;
 
-    protected override void OnSingletonInit()
+    protected override void Init()
     {
         return;
     }

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PopupUIManager : Singleton<PopupUIManager>
 {
     public Image BlockImage;
-    protected override bool IsGlobal => false;
 
     [SerializeField]
     private PopupUI confirmationDialog_;
@@ -38,7 +37,7 @@ public class PopupUIManager : Singleton<PopupUIManager>
         #endregion
     }
 
-    protected override void OnSingletonInit()
+    protected override void Init()
     {
         ;
     }

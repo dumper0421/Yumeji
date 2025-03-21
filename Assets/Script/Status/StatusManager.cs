@@ -3,11 +3,9 @@ using UnityEngine;
 public class StatusManager : Singleton<StatusManager>
 {
     public Status playerStatus;
-    protected override bool IsGlobal => false;
 
-    protected override void Awake()
+     void Start()
     {
-        base.Awake();
 
         if (playerStatus == null)
         {
@@ -19,7 +17,7 @@ public class StatusManager : Singleton<StatusManager>
         playerStatus = status;
     }
 
-    protected override void OnSingletonInit()
+    protected override void Init()
     {
     }
 
