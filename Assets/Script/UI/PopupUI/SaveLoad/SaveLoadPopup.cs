@@ -60,7 +60,7 @@ public class SaveLoadPopup : PopupUI
                         };
 
                         SceneManager.sceneLoaded += loadAction;
-                        SceneManager.LoadScene(hasData.SequenceNum.ToString());
+                        SceneManager.LoadScene(hasData.CurrentSceneName);
                     });
                 }
             }

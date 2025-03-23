@@ -1,16 +1,20 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     public PlayerSaveData CurrentSaveData => saveData_;
-
+    public GameObject Player;
     private PlayerSaveData saveData_;
 
     protected override void Init()
     {
         // 초기 데이터를 기본 값으로 생성
-        saveData_ = new PlayerSaveData(1, Vector3.zero, 100, DateTime.Now);
+        Scene currentScene = SceneManager.GetActiveScene();
+        //Sequence1S#1 고정이라 그냥 인덱싱으로 처리
+        int currentSequenceNum = (int)currentScene.name[8];
+        saveData_ = new PlayerSaveData(currentSequenceNum, Player.transform.position, 100, DateTime.Now,currentScene.name);
         DontDestroyOnLoad(this.gameObject);
     }
 

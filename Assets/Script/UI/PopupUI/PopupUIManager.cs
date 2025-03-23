@@ -73,6 +73,7 @@ public class PopupUIManager : Singleton<PopupUIManager>
         Debug.Log(saveDialog);
     }
 
+    //isSave가 true일 떄 save로 아닐 때 덮어쓰기로 UI 열기
     public void SetSaveLoadPopup(bool isSave)
     {
         saveLoadPopup_.gameObject.SetActive(true);

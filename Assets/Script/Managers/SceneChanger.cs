@@ -14,4 +14,9 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/Choiwoohyck/TitleScene");
     } 
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }

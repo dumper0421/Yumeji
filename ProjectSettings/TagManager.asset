@@ -7,6 +7,8 @@ TagManager:
   - Missile
   - SavePoint
   - IgnoreRaycast
+  - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - NoPassing
   - NPC
   - Interactable
-  - 
+  - Obstacle
   - 
   - 
   - 

@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class Sequence1CarObject : InspectableObject
 {
+    [SerializeField]
+    private List< AudioClip> SFXList_ = new List<AudioClip>();
+    [SerializeField]
+    private Animator animator;
     protected override void OnInspect()
     {
-        Debug.Log("자동차 입니다");       
+        foreach (AudioClip clip in SFXList_)
+        {
+            SoundManager.Instance.EnqueueSFX(clip);
+        }
+
+        if (animator != null)
+            animator.enabled = true;
     }
 }
