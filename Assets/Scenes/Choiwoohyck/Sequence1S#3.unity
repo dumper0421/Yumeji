@@ -2444,6 +2444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382d8b7c42198546b591ef466ea6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDisposable: 0
   SFXList_:
   - {fileID: 8300000, guid: 88ac6fdfebfd2004d81548553cdfa170, type: 3}
   - {fileID: 8300000, guid: 2defb0abbc3c73245b2edf1c1b768063, type: 3}
@@ -3444,6 +3445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382d8b7c42198546b591ef466ea6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDisposable: 0
   SFXList_:
   - {fileID: 8300000, guid: 88ac6fdfebfd2004d81548553cdfa170, type: 3}
   animator: {fileID: 0}
@@ -3464,6 +3466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382d8b7c42198546b591ef466ea6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDisposable: 1
   SFXList_:
   - {fileID: 8300000, guid: 88ac6fdfebfd2004d81548553cdfa170, type: 3}
   animator: {fileID: 1868136745}
@@ -3479,6 +3482,7 @@ GameObject:
   - component: {fileID: 1173986697}
   - component: {fileID: 1173986699}
   - component: {fileID: 1173986700}
+  - component: {fileID: 1173986701}
   m_Layer: 6
   m_Name: obj_bus_v1
   m_TagString: Untagged
@@ -3610,9 +3614,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382d8b7c42198546b591ef466ea6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDisposable: 1
   SFXList_:
   - {fileID: 8300000, guid: 600f92f98518acc448a4088723676a7c, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1173986701}
+--- !u!95 &1173986701
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173986696}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 98b7b28035193184d9c072d551177a54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1183523282
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,6 +4763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382d8b7c42198546b591ef466ea6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDisposable: 0
   SFXList_:
   - {fileID: 8300000, guid: 88ac6fdfebfd2004d81548553cdfa170, type: 3}
   animator: {fileID: 0}
@@ -4854,6 +4881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382d8b7c42198546b591ef466ea6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDisposable: 0
   SFXList_:
   - {fileID: 8300000, guid: 88ac6fdfebfd2004d81548553cdfa170, type: 3}
   animator: {fileID: 0}
@@ -5288,6 +5316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382d8b7c42198546b591ef466ea6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDisposable: 0
   SFXList_:
   - {fileID: 8300000, guid: 88ac6fdfebfd2004d81548553cdfa170, type: 3}
   - {fileID: 8300000, guid: 438d314db5fde304482a65df27e0d52e, type: 3}
@@ -5366,6 +5395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382d8b7c42198546b591ef466ea6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDisposable: 0
   SFXList_:
   - {fileID: 8300000, guid: 88ac6fdfebfd2004d81548553cdfa170, type: 3}
   animator: {fileID: 0}

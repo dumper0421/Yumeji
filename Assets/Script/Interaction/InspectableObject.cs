@@ -5,13 +5,13 @@ using UnityEngine;
 public abstract class InspectableObject : MonoBehaviour
 {
     //false면 여러번 조사가능 true면 한번만
-    protected bool isDisposable = false;
+    public bool IsDisposable = false;
     private bool hasBeenInspected = false; 
     protected abstract void OnInspect();
 
     public void TryInspect()
     {
-        if (isDisposable && hasBeenInspected)
+        if (IsDisposable && hasBeenInspected)
         {
             return; 
         }
