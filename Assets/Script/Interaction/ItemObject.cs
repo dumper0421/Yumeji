@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test_NPC_Transform : MonoBehaviour
+public class ItemObject : MonoBehaviour
 {
         public Transform player; // 플레이어의 Transform
         public float interactionRange = 1.0f; // 상호작용 가능한 거리

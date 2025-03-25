@@ -123,7 +123,15 @@ public class InteractionSystem : MonoBehaviour
     private void PushObject(PushableObject obj)
     {
         Debug.Log("5. 밀기 오브젝트 상호작용");
-        // obj.Push(transform.position);
+
+        if (obj.TryPush(lastDirection)) 
+        {
+            Debug.Log("밀기 성공!");
+        }
+        else
+        {
+            Debug.Log("밀기 실패 ");
+        }
     }
 
     // 📌 Raycast 디버깅용

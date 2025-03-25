@@ -126,12 +126,12 @@ TextureImporter:
       name: Haru_Shoot_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 1539
-        width: 174
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 52
+        y: 1540
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: Haru_Shoot_1
       rect:
         serializedVersion: 2
-        x: 274
-        y: 1539
+        x: 276
+        y: 1540
         width: 176
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: Haru_Shoot_2
       rect:
         serializedVersion: 2
-        x: 507
-        y: 1539
-        width: 174
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 508
+        y: 1540
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: Haru_Shoot_3
       rect:
         serializedVersion: 2
-        x: 731
-        y: 1539
-        width: 174
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 732
+        y: 1540
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: Haru_Shoot_4
       rect:
         serializedVersion: 2
-        x: 967
-        y: 1539
-        width: 174
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 966
+        y: 1542
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: Haru_Shoot_5
       rect:
         serializedVersion: 2
-        x: 1198
-        y: 1539
+        x: 1200
+        y: 1540
         width: 176
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: Haru_Shoot_6
       rect:
         serializedVersion: 2
-        x: 1427
-        y: 1539
-        width: 174
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1428
+        y: 1540
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: Haru_Shoot_7
       rect:
         serializedVersion: 2
-        x: 1655
-        y: 1539
-        width: 174
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1656
+        y: 1540
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: Haru_Shoot_8
       rect:
         serializedVersion: 2
-        x: 1875
-        y: 1539
-        width: 174
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1876
+        y: 1546
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: Haru_Shoot_9
       rect:
         serializedVersion: 2
-        x: 2094
-        y: 1539
+        x: 2098
+        y: 1540
         width: 176
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,12 +336,12 @@ TextureImporter:
       name: Haru_Shoot_10
       rect:
         serializedVersion: 2
-        x: 54
-        y: 1167
-        width: 179
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 56
+        y: 1168
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,12 +357,12 @@ TextureImporter:
       name: Haru_Shoot_11
       rect:
         serializedVersion: 2
-        x: 279
-        y: 1167
-        width: 178
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 278
+        y: 1168
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -378,12 +378,12 @@ TextureImporter:
       name: Haru_Shoot_12
       rect:
         serializedVersion: 2
-        x: 507
-        y: 1167
-        width: 178
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 508
+        y: 1168
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -399,12 +399,12 @@ TextureImporter:
       name: Haru_Shoot_13
       rect:
         serializedVersion: 2
-        x: 735
-        y: 1167
-        width: 178
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 736
+        y: 1168
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -420,12 +420,12 @@ TextureImporter:
       name: Haru_Shoot_14
       rect:
         serializedVersion: 2
-        x: 967
-        y: 1167
-        width: 179
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 968
+        y: 1170
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -438,36 +438,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Haru_Shoot_15
-      rect:
-        serializedVersion: 2
-        x: 1170
-        y: 1374
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b57d578f7f94abe49aaf51ed5ecab1ff
-      internalID: -79515512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Haru_Shoot_16
       rect:
         serializedVersion: 2
-        x: 1179
-        y: 1167
-        width: 195
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1180
+        y: 1168
+        width: 192
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -483,12 +462,12 @@ TextureImporter:
       name: Haru_Shoot_17
       rect:
         serializedVersion: 2
-        x: 1427
-        y: 1167
-        width: 178
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1428
+        y: 1174
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -504,12 +483,12 @@ TextureImporter:
       name: Haru_Shoot_18
       rect:
         serializedVersion: 2
-        x: 1651
-        y: 1167
-        width: 178
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1652
+        y: 1172
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -525,12 +504,12 @@ TextureImporter:
       name: Haru_Shoot_19
       rect:
         serializedVersion: 2
-        x: 1875
-        y: 1167
-        width: 178
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1876
+        y: 1168
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -546,12 +525,12 @@ TextureImporter:
       name: Haru_Shoot_20
       rect:
         serializedVersion: 2
-        x: 2083
-        y: 1167
-        width: 179
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2080
+        y: 1162
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -567,12 +546,12 @@ TextureImporter:
       name: Haru_Shoot_21
       rect:
         serializedVersion: 2
-        x: 39
-        y: 762
-        width: 178
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 40
+        y: 764
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -588,12 +567,12 @@ TextureImporter:
       name: Haru_Shoot_22
       rect:
         serializedVersion: 2
-        x: 254
-        y: 762
-        width: 179
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 764
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -609,12 +588,12 @@ TextureImporter:
       name: Haru_Shoot_23
       rect:
         serializedVersion: 2
-        x: 479
-        y: 762
-        width: 178
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 482
+        y: 764
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -630,12 +609,12 @@ TextureImporter:
       name: Haru_Shoot_24
       rect:
         serializedVersion: 2
-        x: 702
-        y: 762
-        width: 179
-        height: 331
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 704
+        y: 768
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -651,12 +630,12 @@ TextureImporter:
       name: Haru_Shoot_25
       rect:
         serializedVersion: 2
-        x: 939
-        y: 762
-        width: 179
-        height: 331
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 940
+        y: 764
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -672,12 +651,12 @@ TextureImporter:
       name: Haru_Shoot_26
       rect:
         serializedVersion: 2
-        x: 1175
-        y: 762
-        width: 194
-        height: 331
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1176
+        y: 768
+        width: 192
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -690,36 +669,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Haru_Shoot_27
-      rect:
-        serializedVersion: 2
-        x: 1370
-        y: 971
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa448ddf4ab04e043a18a1b10cade714
-      internalID: 70587672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Haru_Shoot_28
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 762
-        width: 178
-        height: 331
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1404
+        y: 764
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -735,12 +693,12 @@ TextureImporter:
       name: Haru_Shoot_29
       rect:
         serializedVersion: 2
-        x: 1623
-        y: 762
-        width: 178
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1624
+        y: 764
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -756,12 +714,12 @@ TextureImporter:
       name: Haru_Shoot_30
       rect:
         serializedVersion: 2
-        x: 1843
-        y: 762
-        width: 179
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1844
+        y: 764
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -777,12 +735,12 @@ TextureImporter:
       name: Haru_Shoot_31
       rect:
         serializedVersion: 2
-        x: 2066
-        y: 762
-        width: 179
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2068
+        y: 770
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -798,12 +756,12 @@ TextureImporter:
       name: Haru_Shoot_32
       rect:
         serializedVersion: 2
-        x: 46
-        y: 359
+        x: 48
+        y: 360
         width: 176
-        height: 342
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 340
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -819,12 +777,12 @@ TextureImporter:
       name: Haru_Shoot_33
       rect:
         serializedVersion: 2
-        x: 254
-        y: 359
+        x: 261
+        y: 362
         width: 176
-        height: 342
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 340
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -840,12 +798,12 @@ TextureImporter:
       name: Haru_Shoot_34
       rect:
         serializedVersion: 2
-        x: 466
-        y: 359
+        x: 468
+        y: 360
         width: 176
-        height: 342
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 340
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -861,12 +819,12 @@ TextureImporter:
       name: Haru_Shoot_35
       rect:
         serializedVersion: 2
-        x: 687
-        y: 359
-        width: 174
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 688
+        y: 362
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -882,12 +840,12 @@ TextureImporter:
       name: Haru_Shoot_36
       rect:
         serializedVersion: 2
-        x: 919
-        y: 359
-        width: 174
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 920
+        y: 360
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -903,12 +861,12 @@ TextureImporter:
       name: Haru_Shoot_37
       rect:
         serializedVersion: 2
-        x: 1142
-        y: 359
+        x: 1144
+        y: 360
         width: 176
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -924,12 +882,12 @@ TextureImporter:
       name: Haru_Shoot_38
       rect:
         serializedVersion: 2
-        x: 1387
-        y: 359
-        width: 174
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1388
+        y: 362
+        width: 176
+        height: 336
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -945,12 +903,12 @@ TextureImporter:
       name: Haru_Shoot_39
       rect:
         serializedVersion: 2
-        x: 1623
-        y: 359
-        width: 174
-        height: 342
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1625
+        y: 360
+        width: 176
+        height: 340
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -966,12 +924,12 @@ TextureImporter:
       name: Haru_Shoot_40
       rect:
         serializedVersion: 2
-        x: 1843
-        y: 359
-        width: 174
-        height: 342
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1844
+        y: 360
+        width: 176
+        height: 340
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -987,12 +945,12 @@ TextureImporter:
       name: Haru_Shoot_41
       rect:
         serializedVersion: 2
-        x: 2079
-        y: 359
-        width: 174
-        height: 342
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2080
+        y: 360
+        width: 176
+        height: 340
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
