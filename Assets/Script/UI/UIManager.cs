@@ -7,18 +7,9 @@ public class UIManager : Singleton<UIManager>
     public GameObject GameOverUI;
     public GameObject MainCanvas;
 
-    protected override void Awake()
+    protected override void Init()
     {
-        base.Awake();
-    }
-
-    protected override void OnSingletonInit()
-    {
-    }
-
-    public void Init()
-    {
-        GameOverUI.gameObject.SetActive(false);
+     
     }
 
 

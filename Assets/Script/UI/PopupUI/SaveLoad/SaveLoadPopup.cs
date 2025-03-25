@@ -54,13 +54,13 @@ public class SaveLoadPopup : PopupUI
                         loadAction = (scene, mode) =>
                         {
                             GameManager.Instance.LoadGameData(slot.SlotIndex);
-                            UIManager.Instance.Init();
+                            UIManager.Instance.GameOverUI.gameObject.SetActive(false);
                             // 이벤트 중복 호출 방지를 위해 등록 해제
                             SceneManager.sceneLoaded -= loadAction;
                         };
 
                         SceneManager.sceneLoaded += loadAction;
-                        SceneManager.LoadScene(hasData.SequenceNum.ToString());
+                        SceneManager.LoadScene(hasData.CurrentSceneName);
                     });
                 }
             }

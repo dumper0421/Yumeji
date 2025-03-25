@@ -5,13 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ChoiWooHyck/MainScene.unity
     guid: fcbd8ada3411e4e48aa281ad8bacdc1a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ChoiWooHyck/1.unity
     guid: 461fa2190e11b564aaddf0f1e33b7216
+  - enabled: 1
+    path: Assets/Scenes/Woo/TitleScene.unity
+    guid: d6b9c5fd1035be54a8c27e74b894b4ba
+  - enabled: 1
+    path: Assets/Scenes/Choiwoohyck/Sequence1S#3_1_CutScene1.unity
+    guid: 2c2cdbc9df8446e469ea48962836efb3
+  - enabled: 1
+    path: Assets/Scenes/Choiwoohyck/Sequence1S#3.unity
+    guid: 17695d911050a8241824f8733252131b
+  - enabled: 1
+    path: Assets/Scenes/Choiwoohyck/Sequence1S#6.unity
+    guid: c799bac301d0b17499d0e2f125d97591
   m_configObjects: {}

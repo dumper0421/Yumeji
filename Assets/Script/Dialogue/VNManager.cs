@@ -33,7 +33,7 @@ namespace Yarn.Unity.Example {
 
 		[Header("Object references"), Tooltip("don't change these unless you know what you're doing")]
 		public RectTransform spriteGroup; // used for screenshake
-		public Image bgImage, fadeBG, nameplateBG;
+		public Image bgImage, fadeBG;
 		public Image genericSprite; // local prefab, used for instantiating sprites
 		public AudioSource genericAudioSource; // local prefab, used for instantiating sounds
 
@@ -50,7 +50,6 @@ namespace Yarn.Unity.Example {
 			// manually add all Yarn command handlers, so that we don't
 			// have to type out game object names in Yarn scripts (also
 			// gives us a performance increase by avoiding GameObject.Find)
-			runner.AddCommandHandler<string>("Scene", DoSceneChange );
 			runner.AddCommandHandler<string,string,string,string,string>("Act", SetActor );
 			runner.AddCommandHandler<string,string,string>("Draw", SetSpriteYarn );
 
@@ -58,9 +57,6 @@ namespace Yarn.Unity.Example {
 			runner.AddCommandHandler("HideAll", HideAllSprites );
 			runner.AddCommandHandler("Reset", ResetScene );
 
-			runner.AddCommandHandler<string,string,string,float>("Move", MoveSprite );
-			runner.AddCommandHandler<string,string>("Flip", FlipSprite );
-			runner.AddCommandHandler<string,float>("Shake", ShakeSprite );
 
 			runner.AddCommandHandler<string,float,string>("PlayAudio", PlayAudio );
 			runner.AddCommandHandler<string>("StopAudio", StopAudio );
@@ -86,10 +82,7 @@ namespace Yarn.Unity.Example {
 
         #region YarnCommands
 
-        /// <summary>changes background image</summary>
-        public void DoSceneChange(string spriteName) {
-			bgImage.sprite = FetchAsset<Sprite>( spriteName );
-		}
+ 
 
 		/// <summary>
 		/// SetActor(actorName,spriteName,positionX,positionY,color) main
@@ -209,58 +202,6 @@ namespace Yarn.Unity.Example {
 			bgImage.sprite = null;
 			HideAllSprites();
 			SetFadeIn(0);
-		}
-
-		// move a sprite usage: <<Move actorOrspriteName, screenPosX=0.5,
-		// screenPosY=0.5, moveTime=1.0>> screenPosX and screenPosY are
-		// normalized screen coordinates (0.0 - 1.0) moveTime is the time
-		// in seconds it will take to reach that position
-		public void MoveSprite(string actorOrSpriteName, string screenPosX="0.5", string screenPosY="0.5", float moveTime = 1) {
-			
-			var image = FindActorOrSprite( actorOrSpriteName );
-
-			// get new screen position
-			Vector2 newPos = new Vector2(0.5f, 0.5f);
-			if ( screenPosX != string.Empty && screenPosY != string.Empty) {
-				newPos = new Vector2( ConvertCoordinates(screenPosX), ConvertCoordinates(screenPosY) );
-			} else if ( screenPosX != string.Empty ) {
-				newPos.x = ConvertCoordinates(screenPosX);
-			}
-
-			// actually do the moving now
-			StartCoroutine( MoveCoroutine( image.GetComponent<RectTransform>(), Vector2.Scale(newPos, screenSize), moveTime) );
-		}
-
-		/// <summary>flip a sprite, or force the sprite to face a
-		/// direction< Move(actorOrSpriteName, xDirection=toggle)</sprite>
-		public void FlipSprite(string actorOrSpriteName, string xDirection = "") {
-			
-			var image = FindActorOrSprite( actorOrSpriteName );
-
-
-            float direction;
-
-            if (xDirection != string.Empty) {
-                direction = Mathf.Sign(ConvertCoordinates(xDirection) - 0.5f);
-            }
-            else {
-                direction = Mathf.Sign(image.rectTransform.localScale.x) * -1f;
-            }
-
-			image.rectTransform.localScale = new Vector3( 
-                direction * Mathf.Abs(image.rectTransform.localScale.x), 
-                image.rectTransform.localScale.y, 
-                image.rectTransform.localScale.z 
-            );
-		}
-
-		/// <summary>Shake(actorName or spriteName, strength=0.5)</summary>
-		public void ShakeSprite(string actorOrSpriteName, float shakeStrength = 0.5f) {
-			
-			var findShakeTarget = FindActorOrSprite( actorOrSpriteName );
-			if ( findShakeTarget != null ) {
-				StartCoroutine( SetShake( findShakeTarget.rectTransform, shakeStrength ) );
-			}
 		}
 
 		/// <summary>PlayAudio( soundName,volume,"loop" )...
@@ -387,10 +328,7 @@ namespace Yarn.Unity.Example {
 
             if (string.IsNullOrEmpty(actorName) == false && actors.ContainsKey(actorName)) {
                 HighlightSprite(actors[actorName].actorImage);
-				nameplateBG.color = actors[actorName].actorColor;
-                nameplateBG.gameObject.SetActive(true);
             } else {
-                nameplateBG.gameObject.SetActive(false);
             }
 
             onDialogueLineFinished();
@@ -401,29 +339,41 @@ namespace Yarn.Unity.Example {
 			StartCoroutine( "HighlightSpriteCoroutine", sprite );
 		}
 
-		// called by HighlightSprite
-		IEnumerator HighlightSpriteCoroutine (Image highlightedSprite) {
-			float t = 0f;
-			// over time, gradually change sprites to be "normal" or
-			// "highlighted"
-			while ( t < 1f ) {
-				t += Time.deltaTime / 2f;
-				foreach ( var spr in sprites ) {
-					Vector3 regularScalePreserveXFlip = new Vector3( Mathf.Sign(spr.transform.localScale.x), 1f, 1f);
-					if ( spr != highlightedSprite) { // set back to normal
-						spr.transform.localScale = Vector3.MoveTowards( spr.transform.localScale, regularScalePreserveXFlip, Time.deltaTime );
-						spr.color = Color.Lerp( spr.color, defaultTint, Time.deltaTime * 5f );
-					} else { // a little bit bigger / brighter
-						spr.transform.localScale = Vector3.MoveTowards( spr.transform.localScale, regularScalePreserveXFlip * 1.05f, Time.deltaTime );
-						spr.color = Color.Lerp( spr.color, highlightTint, Time.deltaTime * 5f );
-						spr.transform.SetAsLastSibling();
-					}
-				}
-				yield return 0;
-			}
-		}
+        // called by HighlightSprite
+        IEnumerator HighlightSpriteCoroutine(Image highlightedSprite)
+        {
+            float t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime / 2f;
+                foreach (var spr in sprites)
+                {
+                    // X축 플립 보존을 위한 스케일 계산
+                    Vector3 regularScalePreserveXFlip = new Vector3(Mathf.Sign(spr.transform.localScale.x), 1f, 1f);
+                    if (spr != highlightedSprite)
+                    {
+                        // 말하고 있지 않은 캐릭터: 알파값을 0 (완전 투명)으로 보간
+                        Color currentColor = spr.color;
+                        currentColor.a = Mathf.Lerp(currentColor.a, 0f, Time.deltaTime * 5f);
+                        spr.color = currentColor;
+                        // 필요하다면 scale은 기본값으로 복원
+                        spr.transform.localScale = Vector3.MoveTowards(spr.transform.localScale, regularScalePreserveXFlip, Time.deltaTime);
+                    }
+                    else
+                    {
+                        // 말하는 캐릭터: 알파값을 1 (불투명)으로 보간하고 살짝 크게
+                        Color currentColor = spr.color;
+                        currentColor.a = Mathf.Lerp(currentColor.a, 1f, Time.deltaTime * 5f);
+                        spr.color = currentColor;
+                        spr.transform.localScale = Vector3.MoveTowards(spr.transform.localScale, regularScalePreserveXFlip * 1.05f, Time.deltaTime);
+                        spr.transform.SetAsLastSibling();
+                    }
+                }
+                yield return null;
+            }
+        }
 
-		IEnumerator MoveCoroutine(RectTransform transform, Vector2 newAnchorPos, float moveTime ) {
+        IEnumerator MoveCoroutine(RectTransform transform, Vector2 newAnchorPos, float moveTime ) {
 			Vector2 startPos = transform.anchoredPosition;
 			float t = 0f;
 			while (t < 1f ) {
@@ -455,7 +405,7 @@ namespace Yarn.Unity.Example {
 			newSpriteObject.name = spriteName;
 			newSpriteObject.sprite = FetchAsset<Sprite>( spriteName );
 			newSpriteObject.SetNativeSize();
-			newSpriteObject.rectTransform.sizeDelta /= 10f;
+			newSpriteObject.rectTransform.sizeDelta /= 8f;
             newSpriteObject.rectTransform.anchoredPosition = Vector2.Scale( position, screenSize );
 			return newSpriteObject;
 		}
@@ -473,19 +423,6 @@ namespace Yarn.Unity.Example {
 				Debug.LogErrorFormat(this, "VN Manager couldn't find an actor or sprite with name \"{0}\", maybe it was misspelled or the sprite was hidden / destroyed already", actorOrSpriteName );
 				return null;
 			}
-		}
-
-		// shakes a RectTransform (usually sprites)
-		IEnumerator SetShake( RectTransform thingToShake, float shakeStrength = 0.5f ) {
-			var startPos = thingToShake.anchoredPosition;
-			while ( shakeStrength > 0f ) {
-				shakeStrength -= Time.deltaTime;
-				float shakeDistance = Mathf.Clamp( shakeStrength * 69f, 0f, 69f);
-				float shakeFrequency = Mathf.Clamp( shakeStrength * 5f, 0f, 5f);
-				thingToShake.anchoredPosition = startPos + shakeDistance * new Vector2( Mathf.Sin(Time.time * shakeFrequency), Mathf.Sin(Time.time * shakeFrequency + 17f) * 0.62f );
-				yield return 0;
-			}
-			thingToShake.anchoredPosition = startPos;
 		}
 
 		// timed destroy... can't use Destroy( gameObject, timeDelay )
@@ -536,7 +473,7 @@ namespace Yarn.Unity.Example {
 				case "left":
 				case "bottom":
 				case "lower":
-					return 0.25f;
+					return 0.3f;
 				case "center":
 				case "middle":
 					return 0.5f;
@@ -653,9 +590,7 @@ namespace Yarn.Unity.Example {
 		}
 	}
 
-	// from
-	// https://www.codeproject.com/Articles/11556/Converting-Wildcards-to-Regexes
-	// by Rei Miyasaka
+
     class Wildcard : Regex {
         public Wildcard(string pattern) : base(WildcardToRegex(pattern)) { }
 

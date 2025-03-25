@@ -3,27 +3,21 @@ using UnityEngine;
 public class StatusManager : Singleton<StatusManager>
 {
     public Status playerStatus;
-    protected override bool IsGlobal => false;
 
-    protected override void Awake()
+     void Start()
     {
-        base.Awake();
-    }
 
-    protected void Start()
-    {
         if (playerStatus == null)
         {
             playerStatus = FindObjectOfType<Status>();
         }
     }
-
     public void SetPlayerStatus(Status status)
     {
         playerStatus = status;
     }
 
-    protected override void OnSingletonInit()
+    protected override void Init()
     {
     }
 

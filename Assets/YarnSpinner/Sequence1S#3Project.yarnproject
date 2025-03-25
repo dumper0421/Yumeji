@@ -1,0 +1,12 @@
+{
+  "projectFileVersion": 2,
+  "sourceFiles": [
+    "Sequence1S#3.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*"
+  ],
+  "localisation": {},
+  "baseLanguage": "ko",
+  "compilerOptions": {}
+}

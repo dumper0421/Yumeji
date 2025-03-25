@@ -158,8 +158,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  speed: 2.4
-  runSpeed: 2.4
+  speed_: 0
+  runSpeed_: 0
+  vector: {x: 0, y: 0, z: 0}
   walkCount: 20
 --- !u!212 &181174060
 SpriteRenderer:

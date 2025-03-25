@@ -11,16 +11,19 @@ public class PlayerSaveData
     public Vector3 PlayerPosition;
     public float CurrentHealth;
     public string LastPlayTime;
+    public string CurrentSceneName;
+
 
     static public int slotIndex_ = 0;
 
-    public PlayerSaveData(int sequenceNum, Vector3 playerPosition, float currentHealth, DateTime lastPlayTime)
+    public PlayerSaveData(int sequenceNum, Vector3 playerPosition, float currentHealth, DateTime lastPlayTime, string currentSceneName)
     {
         SequenceNum = sequenceNum;
         PlayerPosition = playerPosition;
         CurrentHealth = currentHealth;
         LastPlayTime = lastPlayTime.ToString("yyyy-MM-dd HH:mm:ss");
         slotIndex_++;
+        CurrentSceneName = currentSceneName;
     }
 }
 
@@ -28,12 +31,11 @@ public class PlayerSaveData
 
 public class SaveLoadManager : Singleton<SaveLoadManager>
 {
-    protected override bool IsGlobal => true;
 
     [SerializeField]
     private const int saveSlotCount_ = 5; // 세이브 슬롯 개수
 
-    protected override void OnSingletonInit()
+    protected override void Init()
     {
         ;
     }
