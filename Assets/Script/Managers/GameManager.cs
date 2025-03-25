@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
         Scene currentScene = SceneManager.GetActiveScene();
         //Sequence1S#1 고정이라 그냥 인덱싱으로 처리
         int currentSequenceNum = (int)currentScene.name[8];
+        if (Player != null)
         saveData_ = new PlayerSaveData(currentSequenceNum, Player.transform.position, 100, DateTime.Now,currentScene.name);
         DontDestroyOnLoad(this.gameObject);
     }
