@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4914109163191422738}
   - component: {fileID: 8160356444782207984}
   - component: {fileID: 3230465361803070838}
+  - component: {fileID: 823340613893505637}
   m_Layer: 6
   m_Name: obj_car_green_v1
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.6, y: 3.5111408}
   m_EdgeRadius: 0
+--- !u!114 &823340613893505637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7709345082258067476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -226,10 +226,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: obj_car_red_v1
       objectReference: {fileID: 0}
-    - target: {fileID: 1373524088555923579, guid: bc4c2da1c485e1f4897ae3c0a814f4cf, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1538584892473277447, guid: bc4c2da1c485e1f4897ae3c0a814f4cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17
@@ -269,10 +265,6 @@ PrefabInstance:
     - target: {fileID: 1538584892473277447, guid: bc4c2da1c485e1f4897ae3c0a814f4cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6375198738618304693, guid: bc4c2da1c485e1f4897ae3c0a814f4cf, type: 3}
-      propertyPath: m_Size.x
-      value: 6.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -819,8 +811,16 @@ PrefabInstance:
       value: 10.038995
       objectReference: {fileID: 0}
     - target: {fileID: 3230465361803070838, guid: 816b8e38d7af4ff4fb40eb75565cad6a, type: 3}
+      propertyPath: m_Size.y
+      value: 4.6942015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230465361803070838, guid: 816b8e38d7af4ff4fb40eb75565cad6a, type: 3}
       propertyPath: m_Offset.x
-      value: 1.7194966
+      value: 1.7194967
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230465361803070838, guid: 816b8e38d7af4ff4fb40eb75565cad6a, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.3471007
       objectReference: {fileID: 0}
     - target: {fileID: 4914109163191422738, guid: 816b8e38d7af4ff4fb40eb75565cad6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -828,7 +828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4914109163191422738, guid: 816b8e38d7af4ff4fb40eb75565cad6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4914109163191422738, guid: 816b8e38d7af4ff4fb40eb75565cad6a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2150,6 +2150,14 @@ PrefabInstance:
     - target: {fileID: 6375198738618304693, guid: bc4c2da1c485e1f4897ae3c0a814f4cf, type: 3}
       propertyPath: m_Size.x
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375198738618304693, guid: bc4c2da1c485e1f4897ae3c0a814f4cf, type: 3}
+      propertyPath: m_Size.y
+      value: 4.794567
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375198738618304693, guid: bc4c2da1c485e1f4897ae3c0a814f4cf, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.3972836
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3551,7 +3559,7 @@ Transform:
   m_GameObject: {fileID: 1173986696}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.4194355, y: 11.919934, z: -0.031453777}
+  m_LocalPosition: {x: 9.4194355, y: 11.68, z: -0.031453777}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3589,7 +3597,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3.02}
+  m_Offset: {x: 0, y: 3.1602492}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -3600,7 +3608,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.32, y: 6.04}
+  m_Size: {x: 11.32, y: 6.3204985}
   m_EdgeRadius: 0
 --- !u!114 &1173986700
 MonoBehaviour:
@@ -4672,11 +4680,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 904618778233969111, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
       propertyPath: m_Size.y
-      value: 3.3910646
+      value: 4.386173
       objectReference: {fileID: 0}
     - target: {fileID: 904618778233969111, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
       propertyPath: m_Offset.y
-      value: 1.6955323
+      value: 2.1930864
       objectReference: {fileID: 0}
     - target: {fileID: 3054815539829227407, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
       propertyPath: m_Sprite
@@ -4780,6 +4788,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1275412408}
     m_Modifications:
+    - target: {fileID: 904618778233969111, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
+      propertyPath: m_Size.y
+      value: 4.4018087
+      objectReference: {fileID: 0}
+    - target: {fileID: 904618778233969111, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.2009044
+      objectReference: {fileID: 0}
     - target: {fileID: 3054815539829227407, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
       propertyPath: m_SortingOrder
       value: 4
@@ -5025,6 +5041,14 @@ PrefabInstance:
     - target: {fileID: 1861242953182472473, guid: cd270793aaf58d24d9773b96d07e0680, type: 3}
       propertyPath: m_SortingOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615936210019341601, guid: cd270793aaf58d24d9773b96d07e0680, type: 3}
+      propertyPath: m_Size.y
+      value: 4.6096992
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615936210019341601, guid: cd270793aaf58d24d9773b96d07e0680, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.3048496
       objectReference: {fileID: 0}
     - target: {fileID: 5818466346580294546, guid: cd270793aaf58d24d9773b96d07e0680, type: 3}
       propertyPath: m_Name
@@ -5412,8 +5436,16 @@ PrefabInstance:
       value: 6.6
       objectReference: {fileID: 0}
     - target: {fileID: 904618778233969111, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
+      propertyPath: m_Size.y
+      value: 4.3508587
+      objectReference: {fileID: 0}
+    - target: {fileID: 904618778233969111, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
       propertyPath: m_Offset.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904618778233969111, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.1754293
       objectReference: {fileID: 0}
     - target: {fileID: 3054815539829227407, guid: 7c367ed11fd5a794dbc25a886cf79247, type: 3}
       propertyPath: m_SortingOrder
@@ -5893,6 +5925,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3912880102021664023, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: sceneName_
+      value: Sequence1S#4
+      objectReference: {fileID: 0}
     - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12
