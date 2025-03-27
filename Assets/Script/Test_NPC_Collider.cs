@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test_NPC_Collider : MonoBehaviour
+public class ItemObject_Test: MonoBehaviour
 {
     private bool isPlayerNearby = false; // 플레이어가 근처에 있는지 확인
 
