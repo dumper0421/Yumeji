@@ -54,6 +54,12 @@ public class Sequence1Scen4Controller : SceneController
     {
         playerMoveTestLerp.enabled = true;
         playerAnimator.enabled = true;
-        director_.Play();
+
+        if (stopInterval == 2)
+        {
+            director_.Play();
+            stopInterval = 1;
+            StartCoroutine(StopPlayer());
+        }
     }
 }

@@ -21,12 +21,6 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
-
-        if (StatusManager.Instance != null && StatusManager.Instance.playerStatus != null)
-        {
-            speed_ = StatusManager.Instance.playerStatus.BaseSpeed;
-            runSpeed_ = StatusManager.Instance.playerStatus.RunSpeed;
-        }
     }
 
     IEnumerator MoveCoroutine()
