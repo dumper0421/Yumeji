@@ -15,7 +15,7 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void OnTargetReached()
     {
         // 예시: 플레이어에게 큰 피해를 주는 처리
-        StatusManager.Instance.playerStatus.TakeDamage(10000f);
+        //StatusManager.Instance.playerStatus.TakeDamage(10000f);
         hasReachedTarget = true;
     }
 }
