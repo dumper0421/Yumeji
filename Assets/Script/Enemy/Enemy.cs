@@ -11,10 +11,9 @@ public abstract class Enemy : MonoBehaviour
     protected Coroutine moveCoroutine_ = null;
 
 
-    // ¸ñÇ¥ ÁöÁ¡¿¡ µµ´ŞÇßÀ» ¶§ ½ÇÇàÇÒ ±âº» µ¿ÀÛ
+    // ëª©í‘œ ì§€ì ì— ë„ë‹¬í–ˆì„ ë•Œ ì‹¤í–‰í•  ê¸°ë³¸ ë™ì‘
     protected virtual void OnTargetReached()
-    {
-        UIManager.Instance.OpenGameOverUI();
+
         hasReachedTarget = true;
     }
 }
