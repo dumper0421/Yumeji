@@ -12,8 +12,8 @@ public abstract class Enemy : MonoBehaviour
 
 
     // 목표 지점에 도달했을 때 실행할 기본 동작
-    protected virtual void OnTargetReached()
-
+    protected virtual void OnTargetReached() { 
+    UIManager.Instance.OpenGameOverUI();
         hasReachedTarget = true;
     }
 }
