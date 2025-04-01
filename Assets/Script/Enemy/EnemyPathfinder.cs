@@ -139,8 +139,8 @@ public class EnemyPathfinder : MonoBehaviour
                 OpenListAdd(CurNode.x - 1, CurNode.y - 1);
                 OpenListAdd(CurNode.x + 1, CurNode.y - 1);
             }
-            OpenListAdd(CurNode.x, CurNode.y + 1);
             OpenListAdd(CurNode.x + 1, CurNode.y);
+            OpenListAdd(CurNode.x, CurNode.y + 1);
             OpenListAdd(CurNode.x, CurNode.y - 1);
             OpenListAdd(CurNode.x - 1, CurNode.y);
         }

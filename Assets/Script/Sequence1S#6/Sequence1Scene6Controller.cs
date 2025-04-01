@@ -24,27 +24,26 @@ public class Sequence1Scene6Controller : SceneController
 
     private void Update()
     {
+        Debug.Log(Player.transform.position.y + " " + targetPos_.y + " " +hasReachedTarget_);
         if (Player.transform.position.y == targetPos_.y && !hasReachedTarget_)
         {
             playerMoveTestLerp.enabled = false;
             playerAnimator.enabled = false;
+            StartCoroutine(StopPlayer());
             hasReachedTarget_ = true;
-        }
-
-        if (hasReachedTarget_)
-        {
-            Enemy.gameObject.SetActive(true);
-            lunaAnimator_.gameObject.SetActive(false);
-            enabled = false;
         }
     }
 
     protected override void OnStopIntervalReached()
     {
         playerAnimator.enabled = true;
-        Enemy.gameObject.SetActive(true);
         lunaAnimator_.gameObject.SetActive(false);
-        enabled = false;
+
+        if (hasReachedTarget_)
+        {
+            Enemy.gameObject.SetActive(true);
+        }
+
     }
 
 }
