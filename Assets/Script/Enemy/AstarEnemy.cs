@@ -81,6 +81,10 @@ public class AstarEnemy : Enemy
             yield return null;
         }
         transform.position = targetPos_;
+        if (targetPos_.x < transform.position.x)
+            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+        else
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         moveCoroutine_ = null;
     }
 
