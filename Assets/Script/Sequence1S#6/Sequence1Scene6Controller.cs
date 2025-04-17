@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class Sequence1Scene6Controller : SceneController
 {
     public GameObject Enemy;
-
+    public CinemachineVirtualCamera[] Cameras;
     [SerializeField]
     private Animator lunaAnimator_;
 
@@ -46,5 +47,10 @@ public class Sequence1Scene6Controller : SceneController
 
     }
 
+    public void SetCinemachinePriority(int index)
+    {
+        Cameras[index].MoveToTopOfPrioritySubqueue();
+        Cameras[index].Follow = Player.transform;
+    }
 }
 
