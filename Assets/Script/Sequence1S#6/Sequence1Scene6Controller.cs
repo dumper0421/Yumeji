@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,10 @@ public class Sequence1Scene6Controller : SceneController
 
     private bool hasReachedTarget_ = false;
 
+    public CinemachineVirtualCamera Camera;
+
+    private int _boundaryNum = 0;
+
     private void Start()
     {
         playerAnimator.SetFloat("DirY", 1);
@@ -24,7 +29,6 @@ public class Sequence1Scene6Controller : SceneController
 
     private void Update()
     {
-        Debug.Log(Player.transform.position.y + " " + targetPos_.y + " " +hasReachedTarget_);
         if (Player.transform.position.y == targetPos_.y && !hasReachedTarget_)
         {
             playerMoveTestLerp.enabled = false;
@@ -43,8 +47,6 @@ public class Sequence1Scene6Controller : SceneController
         {
             Enemy.gameObject.SetActive(true);
         }
-
     }
-
 }
 

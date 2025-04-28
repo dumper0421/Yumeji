@@ -125,10 +125,6 @@ public class EnemyPathfinder : MonoBehaviour
                 {
                     return new Vector2(FinalNodeList[0].x, FinalNodeList[0].y);
                 }
-                else
-                {
-                    return endPos;
-                }
             }
 
             // 인접 노드 추가
@@ -147,7 +143,7 @@ public class EnemyPathfinder : MonoBehaviour
 
         // 경로를 찾지 못한 경우
         Debug.LogWarning("No path found.");
-        return endPos;
+        return transform.position;
     }
 
     void OpenListAdd(int checkX, int checkY)

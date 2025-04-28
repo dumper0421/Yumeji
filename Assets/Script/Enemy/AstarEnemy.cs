@@ -12,6 +12,9 @@ public class AstarEnemy : Enemy
     [SerializeField]
     private AudioClip appearedSFX_;
 
+    [SerializeField]
+    private float _attackAllowedDistance = 0.5f;
+
     void Start()
     {
         pathFinder_ = GetComponent<EnemyPathfinder>();
@@ -31,7 +34,7 @@ public class AstarEnemy : Enemy
         if (Target == null)
             return;
 
-        if (Vector2.Distance(transform.position, Target.transform.position) < 0.01f)
+        if (Vector2.Distance(transform.position, Target.transform.position) < _attackAllowedDistance)
         {
             isStop = true;
             if (!hasReachedTarget)
@@ -81,6 +84,7 @@ public class AstarEnemy : Enemy
             yield return null;
         }
         transform.position = targetPos_;
+        Debug.Log(targetPos_);
         if (targetPos_.x < transform.position.x)
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         else
