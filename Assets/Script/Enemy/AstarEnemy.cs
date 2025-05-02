@@ -1,109 +1,121 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// 2D 격자 기반 적 이동 스크립트 (A* Pathfinding)
+/// 타겟과 적 모두 좌표가 셀 중심(0.5 단위)에서 시작하여 1씩 변화할 때 정상 동작합니다.
+/// </summary>
 public class AstarEnemy : Enemy
 {
     [SerializeField] private float waitInterval = 2f;
-    private float waitTimer_ = 0f;
-    private Vector2 targetPos_;
-    private EnemyPathfinder pathFinder_;
-    public bool IsSameLocation = true;
+    private float waitTimer;
+    private Vector2 targetPos;
+    private EnemyPathfinder pathFinder;
 
-    [SerializeField]
-    private AudioClip appearedSFX_;
+    [SerializeField] private AudioClip appearedSFX;
+    [SerializeField] private float attackAllowedDistance = 0.5f;
 
-    [SerializeField]
-    private float _attackAllowedDistance = 0.5f;
+    Coroutine moveCoroutine;
 
     void Start()
     {
-        pathFinder_ = GetComponent<EnemyPathfinder>();
+        pathFinder = GetComponent<EnemyPathfinder>();
         if (Target != null)
         {
-            pathFinder_.targetPos = new Vector2Int(
-                (int)Target.transform.position.x,
-                (int)Target.transform.position.y
+            // world pos at cell center, convert to grid index
+            float tx = Target.transform.position.x - 0.5f;
+            float ty = Target.transform.position.y - 0.5f;
+            pathFinder.targetPos = new Vector2Int(
+                Mathf.RoundToInt(tx),
+                Mathf.RoundToInt(ty)
             );
         }
-
-        SoundManager.Instance.PlaySFX(appearedSFX_);
+        SoundManager.Instance.PlaySFX(appearedSFX);
     }
 
     void Update()
     {
-        if (Target == null)
-            return;
+        if (Target == null) return;
 
-        if (Vector2.Distance(transform.position, Target.transform.position) < _attackAllowedDistance)
+        if (Vector2.Distance(transform.position, Target.transform.position) < attackAllowedDistance)
         {
             isStop = true;
-            if (!hasReachedTarget)
-            {
-                //OnTargetReached();
-            }
+            if (!hasReachedTarget) OnTargetReached();
         }
-        else
+        else isStop = false;
+
+        if (isStop) return;
+
+        waitTimer += Time.deltaTime;
+        if (waitTimer < waitInterval) return;
+
+        if (moveCoroutine == null)
         {
-            isStop = false;
-        }
-
-        if (isStop)
-            return;
-
-        waitTimer_ += Time.deltaTime;
-        if (waitTimer_ < waitInterval)
-            return;
-
-        if (moveCoroutine_ == null)
-        {
-            pathFinder_.targetPos = new Vector2Int(
-                (int)Target.transform.position.x,
-                (int)Target.transform.position.y
+            float tx = Target.transform.position.x - 0.5f;
+            float ty = Target.transform.position.y - 0.5f;
+            pathFinder.targetPos = new Vector2Int(
+                Mathf.RoundToInt(tx),
+                Mathf.RoundToInt(ty)
             );
-            moveCoroutine_ = StartCoroutine(Move());
+            moveCoroutine = StartCoroutine(Move());
         }
     }
 
     IEnumerator Move()
     {
-        Vector2Int startPos = new Vector2Int(
-            (int)transform.position.x,
-            (int)transform.position.y
+        // convert current world to grid
+        float sx = transform.position.x - 0.5f;
+        float sy = transform.position.y - 0.5f;
+        pathFinder.startPos = new Vector2Int(
+            Mathf.RoundToInt(sx),
+            Mathf.RoundToInt(sy)
         );
-        pathFinder_.startPos = startPos;
 
-        targetPos_ = pathFinder_.PathFinding();
+        // compute next world center
+        Vector2 raw = pathFinder.PathFinding();
+        targetPos = raw; // raw already at cell center x+0.5, y+0.5
 
-        float elapsedTime = 0f;
-        float moveDuration = 0.2f / moveSpeed; 
-        Vector2 initialPos = transform.position;
-        while (elapsedTime < moveDuration)
+        if ((Vector2)transform.position == targetPos)
         {
-            transform.position = Vector2.Lerp(initialPos, targetPos_, elapsedTime / moveDuration);
-            elapsedTime += Time.deltaTime;
+            moveCoroutine = null;
+            waitTimer = 0f;
+            yield break;
+        }
+
+        float elapsed = 0f;
+        float duration = 0.2f / moveSpeed;
+        Vector2 start = transform.position;
+
+        while (elapsed < duration)
+        {
+            transform.position = Vector2.Lerp(start, targetPos, elapsed / duration);
+            elapsed += Time.deltaTime;
             yield return null;
         }
-        transform.position = targetPos_;
-        Debug.Log(targetPos_);
-        if (targetPos_.x < transform.position.x)
-            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+
+        transform.position = targetPos;
+        Debug.Log($"Moved to {targetPos}");
+
+        // flip sprite
+        if (targetPos.x > start.x)
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         else
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        moveCoroutine_ = null;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
+        moveCoroutine = null;
+        waitTimer = 0f;
     }
 
     public void CancelMovement()
     {
-        if (moveCoroutine_ != null)
+        if (moveCoroutine != null)
         {
-            StopCoroutine(moveCoroutine_);
-            moveCoroutine_ = null;
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
         }
-
-        waitTimer_ = 0f;
+        waitTimer = 0f;
     }
 
-    
     protected override void OnTargetReached()
     {
         base.OnTargetReached();

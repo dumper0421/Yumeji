@@ -30,7 +30,7 @@ public class MovingChair : MonoBehaviour
 
         if (_hasStart)
         {
-            transform.position = Vector3.Lerp(transform.position, _targetPos, 0.01f);
+            transform.position = Vector3.Lerp(transform.position, _targetPos, LerpSpeed);
         }
 
         if (Vector3.Distance(_targetPos, transform.position) < 0.01f)
