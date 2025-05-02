@@ -36,6 +36,11 @@ public class Sequence1Scene6Controller : SceneController
             StartCoroutine(StopPlayer());
             hasReachedTarget_ = true;
         }
+
+        if (Player.transform.position.x <= -110.2f)
+        {
+            Player.GetComponent<SpriteRenderer>().color = new Color(217f / 255f, 187f/255f, 187f/255f,255f/255f);
+        }
     }
 
     protected override void OnStopIntervalReached()

@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 2D 격자 기반 A* Pathfinding 컴포넌트
-/// 모든 셀이 (n+0.5,m+0.5) 중심을 가지며, 장애물 감지와 경로 계산을 셀 중심 기준으로 수행합니다.
-/// </summary>
+
 public class EnemyPathfinder : MonoBehaviour
 {
     [System.Serializable]
@@ -27,7 +24,6 @@ public class EnemyPathfinder : MonoBehaviour
         }
     }
 
-    [Header("Grid Bounds Inclusive")]
     public Vector2Int bottomLeft;
     public Vector2Int topRight;
 
@@ -41,12 +37,9 @@ public class EnemyPathfinder : MonoBehaviour
     private int sizeX, sizeY;
     private Node[,] nodes;
 
-    /// <summary>
-    /// A* 탐색 수행. 다음 셀 중심 월드 좌표 (n+0.5, m+0.5) 반환.
-    /// </summary>
+
     public Vector2 PathFinding()
     {
-        // 1. Clamp grid indices
         startPos.x = Mathf.Clamp(startPos.x, bottomLeft.x, topRight.x);
         startPos.y = Mathf.Clamp(startPos.y, bottomLeft.y, topRight.y);
         targetPos.x = Mathf.Clamp(targetPos.x, bottomLeft.x, topRight.x);
@@ -54,7 +47,6 @@ public class EnemyPathfinder : MonoBehaviour
 
         FinalNodeList.Clear();
 
-        // 2. Initialize grid
         sizeX = topRight.x - bottomLeft.x + 1;
         sizeY = topRight.y - bottomLeft.y + 1;
         nodes = new Node[sizeX, sizeY];
@@ -68,7 +60,6 @@ public class EnemyPathfinder : MonoBehaviour
             }
         }
 
-        // 3. Setup start/target nodes
         Node start = nodes[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];
         Node target = nodes[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];
         start.g = 0;
@@ -77,22 +68,24 @@ public class EnemyPathfinder : MonoBehaviour
         List<Node> open = new List<Node> { start };
         HashSet<Node> closed = new HashSet<Node>();
 
-        // 4. A* Loop
         while (open.Count > 0)
         {
             Node cur = open[0];
             for (int k = 1; k < open.Count; k++)
             {
-                Node n = open[k];
-                if (n.f < cur.f || (n.f == cur.f && n.h < cur.h)) cur = n;
+                var n = open[k];
+                bool better =
+                    n.f < cur.f ||
+                    (n.f == cur.f && n.h < cur.h) ||
+                    (n.f == cur.f && n.h == cur.h &&
+                     Mathf.Abs(n.x - target.x) < Mathf.Abs(cur.x - target.x));
+                if (better) cur = n;
             }
             open.Remove(cur);
             closed.Add(cur);
 
-            // Check target reached
             if (cur == target)
             {
-                // Retrace path
                 Node p = target;
                 while (p != start)
                 {
@@ -102,7 +95,6 @@ public class EnemyPathfinder : MonoBehaviour
                 FinalNodeList.Add(start);
                 FinalNodeList.Reverse();
 
-                // Return next center
                 if (FinalNodeList.Count >= 2)
                 {
                     Node nxt = FinalNodeList[1];
@@ -111,7 +103,6 @@ public class EnemyPathfinder : MonoBehaviour
                 return new Vector2(start.x + 0.5f, start.y + 0.5f);
             }
 
-            // Explore neighbors
             Vector2Int[] dirs = allowDiagonal
                 ? new Vector2Int[] { new Vector2Int(1,0), new Vector2Int(-1,0), new Vector2Int(0,1), new Vector2Int(0,-1),
                                       new Vector2Int(1,1), new Vector2Int(-1,1), new Vector2Int(-1,-1), new Vector2Int(1,-1) }
@@ -144,7 +135,6 @@ public class EnemyPathfinder : MonoBehaviour
             }
         }
 
-        // No path: return start cell center
         return new Vector2(startPos.x + 0.5f, startPos.y + 0.5f);
     }
 

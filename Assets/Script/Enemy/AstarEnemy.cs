@@ -1,10 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// 2D 격자 기반 적 이동 스크립트 (A* Pathfinding)
-/// 타겟과 적 모두 좌표가 셀 중심(0.5 단위)에서 시작하여 1씩 변화할 때 정상 동작합니다.
-/// </summary>
 public class AstarEnemy : Enemy
 {
     [SerializeField] private float waitInterval = 2f;
@@ -13,7 +9,7 @@ public class AstarEnemy : Enemy
     private EnemyPathfinder pathFinder;
 
     [SerializeField] private AudioClip appearedSFX;
-    [SerializeField] private float attackAllowedDistance = 0.5f;
+    [SerializeField] private float attackAllowedDistance = 1f;
 
     Coroutine moveCoroutine;
 
@@ -63,7 +59,6 @@ public class AstarEnemy : Enemy
 
     IEnumerator Move()
     {
-        // convert current world to grid
         float sx = transform.position.x - 0.5f;
         float sy = transform.position.y - 0.5f;
         pathFinder.startPos = new Vector2Int(
@@ -71,9 +66,9 @@ public class AstarEnemy : Enemy
             Mathf.RoundToInt(sy)
         );
 
-        // compute next world center
+        
         Vector2 raw = pathFinder.PathFinding();
-        targetPos = raw; // raw already at cell center x+0.5, y+0.5
+        targetPos = raw; 
 
         if ((Vector2)transform.position == targetPos)
         {
@@ -94,9 +89,7 @@ public class AstarEnemy : Enemy
         }
 
         transform.position = targetPos;
-        Debug.Log($"Moved to {targetPos}");
 
-        // flip sprite
         if (targetPos.x > start.x)
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         else
