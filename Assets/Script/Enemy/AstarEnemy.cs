@@ -39,7 +39,7 @@ public class AstarEnemy : Enemy
             isStop = true;
             if (!hasReachedTarget)
             {
-                OnTargetReached();
+                //OnTargetReached();
             }
         }
         else

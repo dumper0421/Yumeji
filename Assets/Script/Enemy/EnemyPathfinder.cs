@@ -56,10 +56,10 @@ public class EnemyPathfinder : MonoBehaviour
             {
                 bool isWall = false;
                 Vector2 nodePos = new Vector2(i + bottomLeft.x, j + bottomLeft.y);
-                foreach (Collider2D col in Physics2D.OverlapCircleAll(nodePos, 0.4f))
+                foreach (Collider2D col in Physics2D.OverlapCircleAll(nodePos, 0.01f))
                 {
                     if (col.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
-                    {
+                    {   
                         isWall = true;
                         break;
                     }
@@ -192,14 +192,6 @@ public class EnemyPathfinder : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        if (FinalNodeList != null && FinalNodeList.Count > 0)
-        {
-            for (int i = 0; i < FinalNodeList.Count - 1; i++)
-            {
-                Gizmos.DrawLine(new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), new Vector2(FinalNodeList[i + 1].x, FinalNodeList[i + 1].y));
-            }
-        }
-    }
+
+
 }
