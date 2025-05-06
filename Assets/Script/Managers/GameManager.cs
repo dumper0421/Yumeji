@@ -1,3 +1,4 @@
+// GameManager.cs
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,39 +11,54 @@ public class GameManager : Singleton<GameManager>
 
     protected override void Init()
     {
-        // 초기 데이터를 기본 값으로 생성
+
+        // 기본 SaveData 초기화 (슬롯 0)
         Scene currentScene = SceneManager.GetActiveScene();
-        //Sequence1S#1 고정이라 그냥 인덱싱으로 처리
-        int currentSequenceNum = (int)currentScene.name[8];
-        if (Player != null)
-        saveData_ = new PlayerSaveData(currentSequenceNum, Player.transform.position, 100, DateTime.Now,currentScene.name);
-        DontDestroyOnLoad(this.gameObject);
+        int seqNum = currentScene.name.Length > 8
+                                     ? (int)currentScene.name[8]
+                                     : 0;
+        Vector3 startPos = Player != null
+                                     ? Player.transform.position
+                                     : Vector3.zero;
+        saveData_ = new PlayerSaveData(
+            slotIndex: 0,
+            sequenceNum: seqNum,
+            playerPosition: startPos,
+            lastPlayTime: DateTime.Now,
+            currentSceneName: currentScene.name
+        );
     }
 
-    public PlayerSaveData SaveGameData(Vector3 currentPlayerPosition)
+    /// <summary>
+    /// SaveLoadManager 호출 시 사용.
+    /// slotIndex를 받아서 SaveData에 반영하고 반환.
+    /// </summary>
+    public PlayerSaveData SaveGameData(int slotIndex, Vector3 currentPlayerPosition)
     {
+        saveData_.SlotIndex = slotIndex;
         saveData_.PlayerPosition = currentPlayerPosition;
-        saveData_.CurrentHealth = StatusManager.Instance.CurrentHealth;
-        saveData_.LastPlayTime = DateTime.Now.ToString();
-
+        saveData_.LastPlayTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         return saveData_;
     }
 
+    /// <summary>
+    /// LoadGame에서 데이터를 받아와 플레이어 위치를 복원.
+    /// </summary>
     public void LoadGameData(int slotIndex)
     {
-        PlayerSaveData loadedData = SaveLoadManager.Instance.LoadGame(slotIndex);
-        if (loadedData != null)
+        PlayerSaveData loaded = SaveLoadManager.Instance.LoadGame(slotIndex);
+        if (loaded != null)
         {
-            saveData_ = loadedData;
-            StatusManager.Instance.playerStatus.CurrentHealth = saveData_.CurrentHealth;
-            GameObject.Find("PlayerHaru").transform.position = saveData_.PlayerPosition;
-            Debug.Log("Game loaded: GameManager의 SaveData가 업데이트되었습니다.");
+            saveData_ = loaded;
+            GameObject playerObj = GameObject.Find("PlayerHaru");
+            if (playerObj != null)
+                playerObj.transform.position = saveData_.PlayerPosition;
+
+            Debug.Log($"[GameManager] Loaded slot {slotIndex}: position restored.");
         }
         else
         {
-            Debug.LogWarning("Slot " + slotIndex + "에 저장된 데이터가 없습니다.");
+            Debug.LogWarning($"[GameManager] No data in slot {slotIndex} to load.");
         }
-
-        
     }
 }

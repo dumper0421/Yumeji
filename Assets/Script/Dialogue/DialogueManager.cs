@@ -65,6 +65,13 @@ public class DialogueManager : MonoBehaviour
     private List<Button> optionButtons = new List<Button>();
     private int selectedOption = 0;
 
+    [SerializeField]
+    private PlayerMove_Test_Lerp _playerMove;
+
+    [SerializeField] private Color32 normalColor = new Color32(0, 0, 0, 128); 
+    [SerializeField] private Color32 selectedColor = new Color32(128, 128, 0, 128); 
+
+
     void Awake()
     {
         dialoguePanel.SetActive(false);
@@ -123,7 +130,7 @@ public class DialogueManager : MonoBehaviour
         _waitingForInput = false;
         selectedOption = 0;
         optionButtons.Clear();
-
+        _playerMove.enabled = false; ;
         DisplayNext();
     }
 
@@ -231,11 +238,10 @@ public class DialogueManager : MonoBehaviour
     {
         for (int i = 0; i < optionButtons.Count; i++)
         {
-            var colors = optionButtons[i].colors;
-            colors.normalColor = (i == selectedOption) ? Color.yellow : Color.white;
-            optionButtons[i].colors = colors;
+            optionButtons[i].image.color = (i == selectedOption)
+                ? selectedColor
+                : normalColor;
         }
-        optionButtons[selectedOption].Select();
     }
 
     private void EndDialogue()
@@ -244,5 +250,6 @@ public class DialogueManager : MonoBehaviour
         leftPortraitImage.gameObject.SetActive(false);
         rightPortraitImage.gameObject.SetActive(false);
         OnDialogueComplete?.Invoke(_current.id);
+        _playerMove.enabled = true ;
     }
 }

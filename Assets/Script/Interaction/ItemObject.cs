@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ItemObject : MonoBehaviour
 {
-        public Transform player; // 플레이어의 Transform
-        public float interactionRange = 1.0f; // 상호작용 가능한 거리
+    public Transform player; // 플레이어의 Transform
+    public float interactionRange = 1.0f; // 상호작용 가능한 거리
+    public ItemData Data;    
 
     void Update()
     {
@@ -16,7 +17,7 @@ public class ItemObject : MonoBehaviour
 
             if (distance < interactionRange) { 
                 Debug.Log("아이템을 얻음 (Transform)");
-            Destroy(gameObject);
+                InventoryManager.Instance.AddItem(Data);
         }
         else
             Debug.Log("아이템을 찾을 수 없음(Transform)");
