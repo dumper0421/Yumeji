@@ -1,0 +1,159 @@
+[
+  {
+    "id": "PlayerStart",
+    "speaker": "하루",
+    "lines": [
+      { "text": "차에서 잠깐 잠에 들었었지…", "showPortrait": true },
+      { "text": "내 차가 원래 파란색이었던가?", "showPortrait": true }
+    ]
+  },
+
+  {
+    "id": "CarA",
+    "speaker": "",
+    "lines": [
+      { "text": "차창이 뿌예서 안이 잘 보이지 않는다.", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "고개를 가까이 대고 안을 자세히 들여다본다.", "nextId": "CarA_LookInside"},
+      { "text": "그만둔다.", "nextId": "End"}
+    ]
+  },
+  {
+    "id": "CarA_LookInside",
+    "speaker": "",
+    "lines": [
+      { "text": "비어있는 듯 하다.", "showPortrait": false }
+    ]
+  },
+
+  {
+    "id": "CarD",
+    "speaker": "",
+    "lines": [
+      { "text": "차창이 뿌예서 안이 잘 보이지 않는다.", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "고개를 가까이 대고 안을 자세히 들여다본다.", "nextId": "CarD_LookInside"},
+      { "text": "그만둔다.", "nextId": "End"}
+    ]
+  },
+  {
+    "id": "CarD_LookInside",
+    "speaker": "",
+    "lines": []
+  },
+
+  {
+    "id": "CarB",
+    "speaker": "",
+    "lines": [
+      { "text": "누군가 차 안에서 잠들어 있는 듯하다.", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "노크해본다.", "nextId": "CarB_Knock"},
+      { "text": "그만둔다.", "nextId": "End"}
+    ]
+  },
+  {
+    "id": "CarB_Knock",
+    "speaker": "",
+    "lines": []
+  },
+
+  {
+    "id": "CarE",
+    "speaker": "",
+    "lines": [
+      { "text": "누군가 차 안에서 잠들어 있는 듯하다.", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "노크해본다.", "nextId": "CarE_Knock","hasIntermediateAction": true },
+      { "text": "그만둔다.", "nextId": "End"}
+    ]
+  },
+  {
+    "id": "CarE_Knock",
+    "speaker": "",
+    "lines": []
+  },
+  {
+    "id": "CarE_AfterKnock",
+    "speaker": "하루",
+    "lines": [
+      { "text": "피냄새가 나는데,,? 뭔가 이상해.", "showPortrait": true },
+      { "text": "아무래도 버스 사람들을 깨워야 할 것 같아.", "showPortrait": true }
+    ]
+  },
+
+  {
+    "id": "CarC",
+    "speaker": "하루",
+    "lines": [
+      { "text": "차들이 어디서부터 막혀있는 걸까…", "showPortrait": true },
+      { "text": "차들 사이로 지나가는 것도 힘들어 보여", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "CarF",
+    "speaker": "하루",
+    "lines": [
+      { "text": "차들이 어디서부터 막혀있는 걸까…", "showPortrait": true },
+      { "text": "차들 사이로 지나가는 것도 힘들어 보여", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "CarG",
+    "speaker": "하루",
+    "lines": [
+      { "text": "차들이 어디서부터 막혀있는 걸까…", "showPortrait": true },
+      { "text": "차들 사이로 지나가는 것도 힘들어 보여", "showPortrait": true }
+    ]
+  },
+
+  {
+    "id": "Bus_Before",
+    "speaker": "하루",
+    "lines": [
+      { "text": "버스에 사람이 가득 차있다.", "showPortrait": true },
+      { "text": "기사 아저씨까지 포함해 모두 깊은 잠에 빠져 있다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bus_After",
+    "speaker": "",
+    "lines": []
+  },
+  {
+    "id": "Bus_DoorOpen",
+    "speaker": "",
+    "lines": [
+      { "text": "문이 열리는 소리가 함께 들렸다.", "showPortrait": false }
+    ]
+  },
+
+  {
+    "id": "Scooter",
+    "speaker": "하루",
+    "lines": [
+      { "text": "그때 타던 스쿠터와 같은 노랑색 모델이다.", "showPortrait": true },
+      { "text": "고장이 잦았지만, 꽤 멀리도 갔었다.", "showPortrait": true }
+    ]
+  },
+
+  {
+    "id": "EmergencyDoor",
+    "speaker": "하루",
+    "lines": [
+      { "text": "문이 잠겨있다. 나의 힘으로는 열리지 않는 듯 하다.", "showPortrait": false },
+      { "text": "열쇠 구멍도 없어서 큰 충격을 줘서 열어봐야 할 것 같다.", "showPortrait": false },
+      { "text": "문에 쪽지가 끼어져 있다.", "showPortrait": false },
+      { "text": "내가 가장 좋아했던 색깔은?", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "EmergencyDoor_PuzzleHint",
+    "speaker": "",
+    "lines": []
+  }
+]

@@ -17,16 +17,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Woo/TitleScene.unity
     guid: d6b9c5fd1035be54a8c27e74b894b4ba
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Choiwoohyck/TitleScene.unity
     guid: 967a7fae957195047a2a9e28cf3cd9ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Choiwoohyck/Sequence1S#3_1_CutScene1.unity
     guid: 2c2cdbc9df8446e469ea48962836efb3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Choiwoohyck/Sequence1S#3.unity
     guid: 17695d911050a8241824f8733252131b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Choiwoohyck/Sequence1S#4.unity
     guid: 434e38086c9d5ed4c84c409446c238df
   - enabled: 1

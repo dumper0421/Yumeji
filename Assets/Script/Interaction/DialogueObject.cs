@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueObject : MonoBehaviour
+public class DialogueObject : InspectableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public string StartDialogue;
+    public DialogueManager DialogueManager;
+    protected override void OnInspect()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DialogueManager.StartDialogue(StartDialogue);
     }
 }
