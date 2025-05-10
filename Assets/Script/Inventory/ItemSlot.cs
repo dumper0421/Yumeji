@@ -18,7 +18,7 @@ public class ItemSlot : MonoBehaviour
         Data = data;
         Count = count;
         NameText.text = data.ItemName;
-        IconImage.sprite = null;
+        IconImage.sprite = ResourceManager.Instance.Load<Sprite>("ItemIcon/" + data.ItemName);
         UpdateCountText();
         gameObject.SetActive(true);
     }
@@ -27,6 +27,22 @@ public class ItemSlot : MonoBehaviour
     {
         Count += amount;
         UpdateCountText();
+    }
+
+    public void DecrementCount(int amount = 1)
+    {
+        if (IsEmpty) return;
+
+        Count -= amount;
+        if (Count <= 0)
+        {
+            ClearSlot();
+            InventoryManager.Instance.CompactInventory();
+        }
+        else
+        {
+            UpdateCountText();
+        }
     }
 
     public void UpdateCountText()

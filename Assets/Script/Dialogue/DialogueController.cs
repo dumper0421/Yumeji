@@ -14,7 +14,7 @@ public abstract class DialogueController<TState> : MonoBehaviour where TState : 
     public string sceneId;
 
     protected Dictionary<string, Dialogue> dialogues;
-    public                                                                       TState state;
+    public TState state;
 
     protected virtual void Awake()
     {
@@ -25,13 +25,15 @@ public abstract class DialogueController<TState> : MonoBehaviour where TState : 
         // 이벤트 구독
         dialogueManager.OnOptionSelected += OptionSelected;
         dialogueManager.OnDialogueComplete += DialogueCompleted;
+        dialogueManager.OnDialogueAction += DialogueRunning;
     }
 
     protected virtual void OnDestroy()                                                  
     {
         // 이벤트 해제
         dialogueManager.OnOptionSelected -= OptionSelected;
-        dialogueManager.OnDialogueComplete -= DialogueCompleted;                                                                                            
+        dialogueManager.OnDialogueComplete -= DialogueCompleted;
+        dialogueManager.OnDialogueAction -= DialogueRunning;
     }
 
     /// <summary>
@@ -50,6 +52,11 @@ public abstract class DialogueController<TState> : MonoBehaviour where TState : 
     {
         HandleDialogueEnd(dialogueId);
         TryProgress();
+    }
+
+    protected virtual void DialogueRunning(string dialogueId)
+    {
+   
     }
 
     /// <summary>

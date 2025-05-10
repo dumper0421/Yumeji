@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &58152848 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3318190146552875674, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
-  m_PrefabInstance: {fileID: 4792818413533753862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &66368352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425809889499938745, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
@@ -141,7 +136,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67319457}
-  - component: {fileID: 67319456}
   - component: {fileID: 67319458}
   m_Layer: 0
   m_Name: DialogueManager
@@ -150,36 +144,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &67319456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67319455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96910ca6833304c42a1aa58ad08ef7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 58152848}
-  leftPortraitImage: {fileID: 643677545}
-  rightPortraitImage: {fileID: 1054077504}
-  dialogueText: {fileID: 2013903475}
-  optionPanel: {fileID: 1117399289}
-  buttonPrefab: {fileID: 5464743892504612967, guid: 757d14d3e09bf9643b6440cc7946035d, type: 3}
-  speakerInfos:
-  - speakerName: "\uD558\uB8E8"
-    portrait: {fileID: 21300000, guid: 90d0c3f22410e5e4e95098401c7a1a3b, type: 3}
-  advanceKey: 32
-  enterKey: 13
-  _playerMove: {fileID: 1565904543}
-  normalColor:
-    serializedVersion: 2
-    rgba: 2147483648
-  selectedColor:
-    serializedVersion: 2
-    rgba: 2147516544
 --- !u!4 &67319457
 Transform:
   m_ObjectHideFlags: 0
@@ -207,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34905765fa58a4e4c98bd669d6878fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 67319456}
+  dialogueManager: {fileID: 0}
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Scequence1Scene3
   state: 0
@@ -218,7 +182,7 @@ MonoBehaviour:
   BloodClip: {fileID: 8300000, guid: 4f8102fc0f819e840b7097c6f9a0842a, type: 3}
   HornClip: {fileID: 8300000, guid: 438d314db5fde304482a65df27e0d52e, type: 3}
   CrashClip: {fileID: 8300000, guid: 600f92f98518acc448a4088723676a7c, type: 3}
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
   Bus: {fileID: 1154757946}
   SceneChangeTrigger: {fileID: 1849643106}
 --- !u!1 &109946526
@@ -1380,7 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   StartDialogue: PlayerStart
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1 &530404198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,17 +1545,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &643677545 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4341869343531065435, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
-  m_PrefabInstance: {fileID: 4792818413533753862}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &648472272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,7 +2115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   StartDialogue: CarD
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!4 &923366398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7995029902021454598, guid: c5603249b58190a45b91a16c5655dc5d, type: 3}
@@ -2347,17 +2300,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.9665809, y: 1.776309}
   m_EdgeRadius: 0
---- !u!114 &1054077504 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6738145414074024793, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
-  m_PrefabInstance: {fileID: 4792818413533753862}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1075920011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,11 +2396,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1749363187}
   m_SourcePrefab: {fileID: 100100000, guid: 47faa561ea49eef448ed0020663f4194, type: 3}
---- !u!224 &1117399289 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3137099812768192287, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
-  m_PrefabInstance: {fileID: 4792818413533753862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1154757936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1421237558298320979, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
@@ -2544,7 +2481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   StartDialogue: Bus_Before
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1 &1205437020 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1543890816108379902, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
@@ -2783,7 +2720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   StartDialogue: CarC
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1 &1449662132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2890,7 +2827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   StartDialogue: CarA
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1001 &1565904539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2977,17 +2914,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 024f36447a3ee1549bb5e9edbdd40d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1565904543 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2884431256638277996, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
-  m_PrefabInstance: {fileID: 1565904539}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177639301}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2db8c984dcc3544d83559c1bbe91849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1612575405
@@ -3367,7 +3293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 1
   StartDialogue: CarE
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1 &1749363182 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 448203879316273345, guid: 47faa561ea49eef448ed0020663f4194, type: 3}
@@ -3392,7 +3318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 1
   StartDialogue: CarB
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1 &1760390897 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1442879616855217231, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
@@ -3412,7 +3338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   StartDialogue: Scooter
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1 &1802584406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,17 +3578,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
---- !u!114 &2013903475 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 914170508783254819, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
-  m_PrefabInstance: {fileID: 4792818413533753862}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2045279496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3142195703712173611, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
@@ -3682,7 +3597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   StartDialogue: CarF
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1 &2062622273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8873153956073088184, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
@@ -3702,7 +3617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   StartDialogue: CarG
-  DialogueManager: {fileID: 67319456}
+  DialogueManager: {fileID: 0}
 --- !u!1001 &2091930847
 PrefabInstance:
   m_ObjectHideFlags: 0

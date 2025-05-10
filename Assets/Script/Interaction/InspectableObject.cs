@@ -6,7 +6,7 @@ public abstract class InspectableObject : MonoBehaviour
 {
     //false면 여러번 조사가능 true면 한번만
     public bool IsDisposable = false;
-    private bool hasBeenInspected = false; 
+    public bool hasBeenInspected = false; 
     protected abstract void OnInspect();
 
     public void TryInspect()

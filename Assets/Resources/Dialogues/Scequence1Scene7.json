@@ -1,0 +1,239 @@
+[
+  {
+    "id": "StatueHead",
+    "speaker": "",
+    "lines": [
+      { "text": "ㅇㅇㅇㅇ", "showPortrait": false ,"nextId":"Save"}
+    ]
+  },
+  {
+  "id":"Save"
+  },
+  {
+    "id": "Drawer1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(서랍 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Drawer_Match",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(서랍 대사 추가 예정)", "showPortrait": true ,"nextId":"GetMatch"},
+      { "text": "‘성냥’ 아이템 습득", "showPortrait": false }
+    ]
+  },  
+  {
+    "id": "GetMatch",
+    "speaker":"",
+    "lines": [
+      { "text": "‘성냥’ 아이템 습득", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "PaintingA",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(그림 A 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "PaintingB",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(그림 B 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Fireplace",
+    "speaker": "하루",
+    "lines": [
+      { "text": "불을 갈구하는 듯한 벽난로다.", "showPortrait": true }
+    ],
+    "options": [
+      { "text": "벽난로에 성냥을 켜본다.", "nextId": "Fireplace_Lit","requiresItem":"성냥" },
+      { "text": "그만둔다.", "nextId": "End" ,"requiresItem":"성냥"}
+    ]
+  },
+  {
+    "id": "Fireplace2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "불을 갈구하는 듯한 벽난로다.", "showPortrait": true }
+    ],
+    "options": [
+      { "text": "벽난로에 사진을 태워본다.", "nextId": "Fireplace_Phtograph","requiresItem":"그을린사진" },
+      { "text": "그만둔다.", "nextId": "End" ,"requiresItem":"그을린사진"}
+    ]
+  },
+  {
+    "id": "Fireplace_Lit",
+    "speaker": "",
+    "lines": [
+      { "text": "벽난로에 불이 붙었다.", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "Fireplace_Phtograph",
+    "speaker": "",
+    "lines": [
+      { "text": "사진을 태웠다.", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "Bookshelf1_Slot1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장1-1 대사 추가 예정)", "showPortrait": true ,"nextId":"Bookshelf1_Illust"}
+    ]
+  },
+  {
+    "id": "Bookshelf1_Illust",
+    "speaker": "",
+    "lines": [{"nextId":"Bookshelf1_Illust_Earn"}]
+  },
+  {
+    "id": "Bookshelf1_Illust_Earn",
+    "speaker": "",
+    "lines": [
+      { "text": "‘그을린 사진’을 획득했다.", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "Bookshelf1_Slot2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장1-2 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf1_Slot3",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장1-3 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf1_Slot4",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장1-4 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf2_Slot1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장2-1 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf2_Slot2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장2-2 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf2_Slot3",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장2-3 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf2_Slot4",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장2-4 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf3_Slot1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장3-1 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf3_Slot2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장3-2 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf3_Slot3",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장3-3 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf3_Slot4",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장3-4 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf4_Slot1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장4-1 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf4_Slot2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장4-2 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf4_Slot3",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장4-3 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Bookshelf4_Slot4",
+    "speaker": "하루",
+    "lines": [
+      { "text": "(책장4-4 대사 추가 예정)", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Mirror",
+    "speaker": "",
+    "lines": [
+      { "text": "(일러스트 팝업: 거울 속 내 얼굴)", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "닫는다.", "nextId": "Mirror_Break" }
+    ]
+  },
+  {
+    "id": "Mirror_Break",
+    "speaker": "",
+    "lines": [
+      { "text": "깨져 있는 거울이다.", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "LPPlayer",
+    "speaker": "",
+    "lines": [
+      { "text": "LP 플레이어가 재생되기 시작했다.", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "CurtainGap",
+    "speaker": "하루",
+    "lines": [
+      { "text": "알 수 없는 힘으로 커튼이 열리지 않는다.", "showPortrait": true }
+    ]
+  }
+]

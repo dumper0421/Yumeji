@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6288456928709144228}
   - component: {fileID: 6679452881616331076}
   - component: {fileID: 5853419299018221851}
+  - component: {fileID: 4940917532608049192}
   m_Layer: 5
   m_Name: Dialogue Canvas
   m_TagString: Untagged
@@ -105,6 +106,36 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4940917532608049192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823997302007615534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96910ca6833304c42a1aa58ad08ef7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 3318190146552875674}
+  leftPortraitImage: {fileID: 4341869343531065435}
+  rightPortraitImage: {fileID: 6738145414074024793}
+  dialogueText: {fileID: 914170508783254819}
+  optionPanel: {fileID: 3137099812768192287}
+  buttonPrefab: {fileID: 4279980526598881640}
+  speakerInfos:
+  - speakerName: "\uD558\uB8E8"
+    portrait: {fileID: 21300000, guid: 90d0c3f22410e5e4e95098401c7a1a3b, type: 3}
+  advanceKey: 32
+  enterKey: 13
+  _playerMove: {fileID: 0}
+  normalColor:
+    serializedVersion: 2
+    rgba: 2147483648
+  selectedColor:
+    serializedVersion: 2
+    rgba: 2147516544
 --- !u!1 &3318190146552875674
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +700,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757d14d3e09bf9643b6440cc7946035d, type: 3}
+--- !u!114 &4279980526598881640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5464743892504612967, guid: 757d14d3e09bf9643b6440cc7946035d, type: 3}
+  m_PrefabInstance: {fileID: 8120869742563889423}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5385623908656298390 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4183479462944450713, guid: 757d14d3e09bf9643b6440cc7946035d, type: 3}

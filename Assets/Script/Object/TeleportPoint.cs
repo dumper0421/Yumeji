@@ -9,28 +9,18 @@ public class TeleportPoint : MonoBehaviour
     public CinemachineVirtualCameraBase cinemachineBase;
     public Sequence1Scene7Controller controller;
 
-    public bool Stop = false;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") || Stop) return;
+        if (!collision.CompareTag("Player")) return;
 
         var col = gameObject.GetComponent<Collider2D>();
         collision.transform.position = TargetPoint;
-
+        var mover = collision.GetComponent<PlayerMove_Test_Lerp>();
+        mover.Teleport(TargetPoint);
         controller.ChangeCinemachineCamera(cinemachine);
         cinemachineBase.Follow = collision.transform;
-        Debug.Log("Á¢±Ù");
-
-        StartCoroutine(StopTeleport());
-
     }
 
-    IEnumerator StopTeleport()
-    {
-        Stop = true;
-        yield return new WaitForSeconds(0.5f);
-        Stop = false;
-    }
 
 }

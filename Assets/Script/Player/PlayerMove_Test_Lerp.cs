@@ -8,12 +8,11 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     public LayerMask NoPass;
 
     [SerializeField]
-    private float speed_ = 1f; 
+    private float speed_ = 1f;
     [SerializeField]
-    private float runSpeed_ = 2f; 
+    private float runSpeed_ = 2f;
 
     public Vector3 vector;
-
     private bool canMove = true;
     private Animator animator;
 
@@ -25,11 +24,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     IEnumerator MoveCoroutine()
     {
-        vector.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-
-        if (vector.x != 0)
-            vector.y = 0;
-
+        // 방향 입력은 Update()에서 설정된 vector 사용
         animator.SetFloat("DirX", vector.x);
         animator.SetFloat("DirY", vector.y);
 
@@ -40,53 +35,46 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         Vector2 startPos = transform.position;
         Vector2 targetPos = startPos + direction;
 
-        // 🔶 1. 자동 밀기 시도
+        // 1. 자동 밀기 시도
         RaycastHit2D pushHit = Physics2D.Raycast(startPos, direction, 1f, LayerMask.GetMask("Pushable"));
         if (pushHit.collider != null && pushHit.collider.CompareTag("Pushable"))
         {
-            Debug.Log("Pushing감지");
             var pushable = pushHit.collider.GetComponent<PushableObject>();
             if (pushable != null && pushable.TryPush(direction))
             {
-                Debug.Log("Push 성공 - 플레이어도 이동 시작");
                 animator.SetBool("Pushing", true);
 
-                // ✅ 변수 이름 변경: pushElapsedTime
-                float pushElapsedTime = 0f;
-                float pushMoveDuration = 0.5f / speed_;
-                Vector2 playerStart = transform.position;
-                Vector2 playerTarget = playerStart + direction;
+                float elapsed = 0f;
+                float duration = 0.5f / speed_;
+                Vector2 origin = transform.position;
+                Vector2 dest = origin + direction;
 
-                while (pushElapsedTime < pushMoveDuration)
+                while (elapsed < duration)
                 {
-                    transform.position = Vector2.Lerp(playerStart, playerTarget, pushElapsedTime / pushMoveDuration);
-                    pushElapsedTime += Time.deltaTime;
+                    transform.position = Vector2.Lerp(origin, dest, elapsed / duration);
+                    elapsed += Time.deltaTime;
                     yield return null;
                 }
 
-                transform.position = playerTarget;
+                transform.position = dest;
                 animator.SetBool("Pushing", false);
                 canMove = true;
                 yield break;
             }
-
         }
 
-        // 🔶 2. 이동 가능 체크
+        // 2. 이동 가능 체크
         boxCollider.enabled = false;
         RaycastHit2D hit = Physics2D.Linecast(startPos, targetPos, NoPass);
         boxCollider.enabled = true;
-
         if (hit.collider != null)
         {
             canMove = true;
             yield break;
         }
 
-        // 🔶 3. 실제 이동
-        animator.SetBool("Walking", true);
-
-        float elapsedTime = 0;
+        // 3. 실제 이동
+        float elapsedTime = 0f;
         float moveDuration = 0.2f / moveSpeed;
 
         while (elapsedTime < moveDuration)
@@ -97,21 +85,42 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         }
 
         transform.position = targetPos;
-        animator.SetBool("Walking", false);
-
         canMove = true;
     }
 
-
     void Update()
     {
-        if (canMove)
+        // 1) 입력 처리
+        Vector2 input = new Vector2(
+            Input.GetAxisRaw("Horizontal"),
+            Input.GetAxisRaw("Vertical")
+        );
+        // 대각선 이동 방지
+        if (input.x != 0) input.y = 0;
+
+        // 2) 걷기 애니메이션 제어
+        bool isWalking = input != Vector2.zero;
+        animator.SetBool("Walking", isWalking);
+
+        // 3) 이동 코루틴 시작
+        if (canMove && isWalking)
         {
-            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-            {
-                canMove = false;
-                StartCoroutine(MoveCoroutine());
-            }
+            canMove = false;
+            vector = new Vector3(input.x, input.y, 0f);
+            StartCoroutine(MoveCoroutine());
         }
+    }
+
+    // Teleport 호출용 공개 메서드
+    public void Teleport(Vector3 pos)
+    {
+        StopAllCoroutines();
+        transform.position = pos;
+        if (animator != null)
+        {
+            animator.SetBool("Walking", false);
+            animator.SetBool("Pushing", false);
+        }
+        canMove = true;
     }
 }

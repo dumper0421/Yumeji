@@ -34,7 +34,13 @@ public class PauseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!BackGround.gameObject.activeSelf) return;
+        if (!BackGround.gameObject.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                BackGround.gameObject.SetActive(true);
+            return;
+        }
+            
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -52,14 +58,7 @@ public class PauseUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            BackGround.SetActive(!BackGround.gameObject.activeSelf);
-
-            if (!BackGround.gameObject.activeSelf)
-            {
-                ConfirmationDialog.gameObject.SetActive(false);
-                Inventory.SetActive(false);
-            }
-            
+            ClosePauseUI();
         }
     }
 
@@ -83,6 +82,17 @@ public class PauseUI : MonoBehaviour
         if (CurrentSelectIndex == 2)
         {
             ConfirmationDialog.gameObject.SetActive(true);
+        }
+    }
+
+    public void ClosePauseUI()
+    {
+        BackGround.SetActive(!BackGround.gameObject.activeSelf);
+
+        if (!BackGround.gameObject.activeSelf)
+        {
+            ConfirmationDialog.gameObject.SetActive(false);
+            Inventory.SetActive(false);
         }
     }
 
