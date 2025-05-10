@@ -113,10 +113,5 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
                 StartCoroutine(MoveCoroutine());
             }
         }
-
-        #region 플레이어 체력 깎기
-        if (Input.GetKeyUp(KeyCode.Z))
-            StatusManager.Instance.playerStatus.TakeDamage(100);
-        #endregion
     }
 }
