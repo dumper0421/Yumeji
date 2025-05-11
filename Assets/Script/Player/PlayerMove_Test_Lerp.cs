@@ -14,7 +14,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     public Vector3 vector;
     private bool canMove = true;
-    private Animator animator;
+    public Animator animator;
 
     void Start()
     {

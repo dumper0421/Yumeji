@@ -69,9 +69,7 @@ public class InventoryManager : Singleton<InventoryManager>
         else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
         {
             if (_slots[CurrentSelectIndex].IsEmpty) return;
-
         }
-
     }
 
     public void SaveInventory(int slotIndex)
@@ -173,7 +171,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void MoveSelectBorder(int offset)
     {
-
         CurrentSelectIndex = (CurrentSelectIndex + offset + _slots.Capacity) % _slots.Capacity;
         if (_slots[CurrentSelectIndex].IsEmpty) return;
         DescriptionText.text = _slots[CurrentSelectIndex].GetItemData().Description;

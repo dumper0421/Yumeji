@@ -189,11 +189,16 @@ public class DialogueManager : MonoBehaviour
         }
 
         // 2) 현재 line 에 nextId 가 지정돼 있으면 자동으로 넘어가기
-        if (!string.IsNullOrEmpty(currentLine.nextId))
+        if (currentLine != null&&!string.IsNullOrEmpty(currentLine.nextId))
         {
             OnDialogueComplete?.Invoke(_current.id);
             StartDialogue(currentLine.nextId);
             return;
+        }
+
+        if(currentLine == null)
+        {
+            OnDialogueComplete?.Invoke(_current.id);
         }
 
         // 3) 선택지 표시

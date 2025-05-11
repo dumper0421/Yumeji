@@ -583,7 +583,8 @@ MonoBehaviour:
   - {fileID: 129264889463184723}
   - {fileID: 874717145845138645}
   CurrentSelectIndex: 1
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 6323699348878661535}
+  SelectBorder: {fileID: 4403382447341281553}
 --- !u!1 &2491059442305458833
 GameObject:
   m_ObjectHideFlags: 0

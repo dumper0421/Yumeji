@@ -24,7 +24,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     [Header("Bus & Scooter References")]
     public Animator BusAnimator;
     public Animator BloodAnimator;               
-    public GameObject ScooterObject;           
+    public ScooterObject Scooter;           
 
     [Header("Audio Clips")]
     public AudioClip KnockClip;                
@@ -32,7 +32,6 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     public AudioClip HornClip;                 
     public AudioClip CrashClip;
 
-    public DialogueManager DialogueManager;
     public DialogueObject Bus;
     public GameObject SceneChangeTrigger;
 
@@ -86,6 +85,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
                 state = EmergencyDoorState.ScooterHonked;
                 SoundManager.Instance.PlaySFX(HornClip);
                 // TODO: scooterObject 깜빡이는 연출
+                Scooter.StartCoroutine(Scooter.Flash());
                 break;
 
             case "CarE_AfterKnock":
@@ -127,7 +127,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
         // 0.5초 뒤 실제 다음 대화로 전환
         yield return new WaitForSeconds(0.5f);
         // 3) 다음 대화
-        DialogueManager.StartDialogue("CarE_AfterKnock");
+        dialogueManager.StartDialogue("CarE_AfterKnock");
         state = EmergencyDoorState.CarEKnocked;
     }
 
@@ -136,7 +136,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
         BusAnimator.enabled = true;
         SoundManager.Instance.PlaySFX(CrashClip);
         yield return new WaitForSeconds(0.5f);
-        DialogueManager.StartDialogue("Bus_DoorOpen");
+        dialogueManager.StartDialogue("Bus_DoorOpen");
         state = EmergencyDoorState.BusInteracted;
     }
 }

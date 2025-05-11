@@ -14,14 +14,40 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
     public ItemData MatchData;
     public ItemData CharredPhotographData;
 
+
     public Image CharredPhotograph;
+    public Image HaruMirror;
+    public Image HaruMirrorBroken;
+
     public DialogueObject FirePlace;
-    public void Update()
+    public DialogueObject Mirror;
+
+
+    [Header("Audio Clips")]
+    public AudioClip MirrorBrokeClip;
+
+    public float delayTimer = 0f;
+    public void LateUpdate()
     {
         if (CharredPhotograph.gameObject.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+            delayTimer += Time.deltaTime;
+            if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && delayTimer >= 0.5f) 
+            {
                 CharredPhotograph.gameObject.SetActive(false);
+                delayTimer = 0;
+            }
+        }
+
+        if (HaruMirror.gameObject.activeSelf)
+        {
+            delayTimer += Time.deltaTime;
+            if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && delayTimer >= 0.5f)
+            {
+                HaruMirror.gameObject.SetActive(false);
+                StartCoroutine(ShowBrokenHaruImage());
+                delayTimer = 0;
+            }
         }
     }
     protected override void HandleDialogueEnd(string dialogueId)
@@ -42,6 +68,10 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 FirePlace.StartDialogue = "Fireplace2";
                 FirePlace.IsDisposable = true;
                 FirePlace.hasBeenInspected = false;
+                break;
+            case "Mirror":
+                HaruMirror.gameObject.SetActive(true);
+                Mirror.StartDialogue = "Mirror_Break";
                 break;
 
         }
@@ -78,5 +108,13 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     protected override void TryProgress()
     {
+    }
+
+    IEnumerator ShowBrokenHaruImage()
+    {
+        HaruMirrorBroken.gameObject.SetActive(true);
+        SoundManager.Instance.PlaySFX(MirrorBrokeClip);
+        yield return new WaitForSeconds(2f);
+        HaruMirrorBroken.gameObject.SetActive(false);
     }
 }

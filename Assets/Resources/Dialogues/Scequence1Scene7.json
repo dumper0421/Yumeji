@@ -11,16 +11,16 @@
   },
   {
     "id": "Drawer1",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(서랍 대사 추가 예정)", "showPortrait": true }
+      { "text": "정돈된 건지, 아니면 애초에 아무것도 없었던 건지 모를 정도로 텅 비어있는 서랍이다.", "showPortrait": true }
     ]
   },
   {
     "id": "Drawer_Match",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(서랍 대사 추가 예정)", "showPortrait": true ,"nextId":"GetMatch"},
+      { "text": "서랍 안쪽, 다른 물건은 없이 성냥 한 개비만 덩그러니 놓여있다.", "showPortrait": true ,"nextId":"GetMatch"},
       { "text": "‘성냥’ 아이템 습득", "showPortrait": false }
     ]
   },  
@@ -33,16 +33,18 @@
   },
   {
     "id": "PaintingA",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(그림 A 대사 추가 예정)", "showPortrait": true }
+      { "text": "늦은 밤, 도시의 한구석을 밝히는 식당을 그린 그림이다.", "showPortrait": true },
+      { "text": "창 안의 사람들은 서로에게 무심한 듯, 각자의 시간에 잠겨있는 듯하다.", "showPortrait": true }
     ]
   },
   {
     "id": "PaintingB",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(그림 B 대사 추가 예정)", "showPortrait": true }
+      { "text": "시간이 흘러내리고 있는 기묘한 상상력의 그림이다.", "showPortrait": true },
+      { "text": "기억 또한 시간 속에서 결국 이렇게 왜곡되고, 녹아내리게 되는 것일지도 모르겠다.", "showPortrait": true }
     ]
   },
   {
@@ -83,9 +85,9 @@
   },
   {
     "id": "Bookshelf1_Slot1",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장1-1 대사 추가 예정)", "showPortrait": true ,"nextId":"Bookshelf1_Illust"}
+      { "text": "책들 사이에 심하게 그을린 사진 한 장이 끼워져 있다.", "showPortrait": true ,"nextId":"Bookshelf1_Illust"}
     ]
   },
   {
@@ -97,136 +99,154 @@
     "id": "Bookshelf1_Illust_Earn",
     "speaker": "",
     "lines": [
+      { "text": "어둠이 내려앉은 해변인 듯한 배경 위로, 두 사람의 잔상이 남아있다.", "showPortrait": false },
+      { "text": "사진의 윗부분이 심하게 그을렸지만, 그 순간의 온기만큼은 희미하게 전해져 오는 듯하다.", "showPortrait": false },
       { "text": "‘그을린 사진’을 획득했다.", "showPortrait": false }
+
     ]
   },
   {
     "id": "Bookshelf1_Slot2",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장1-2 대사 추가 예정)", "showPortrait": true }
+      { "text": "어떤 책은 강렬한 잉크 냄새를, 어떤 책은 희미한 곰팡내를 풍기는 듯하다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf1_Slot3",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장1-3 대사 추가 예정)", "showPortrait": true }
+      { "text": "주로 예술이나 철학에 관한 서적들이 꽂혀 있는 듯하다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf1_Slot4",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장1-4 대사 추가 예정)", "showPortrait": true }
+      { "text": "지식뿐 아니라 시간의 흔적까지 함께 간직하고 있는 듯한 책들이다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf2_Slot1",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장2-1 대사 추가 예정)", "showPortrait": true }
+      { "text": "비슷한 두께와 크기의 책들끼리 정리되어 있다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf2_Slot2",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장2-2 대사 추가 예정)", "showPortrait": true }
+      { "text": "수많은 글자들이 빼곡히 적혀있을 책들이다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf2_Slot3",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장2-3 대사 추가 예정)", "showPortrait": true }
+      { "text": "이 방의 분위기처럼, 무겁고 답답한 느낌의 책들뿐이다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf2_Slot4",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장2-4 대사 추가 예정)", "showPortrait": true }
+      { "text": "색이 바랜 천으로 마감된 책등이 보인다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf3_Slot1",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장3-1 대사 추가 예정)", "showPortrait": true }
+      { "text": "다른 책장과 크게 다르지 않아 보인다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf3_Slot2",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장3-2 대사 추가 예정)", "showPortrait": true }
+      { "text": "금박으로 장식된 책등이 간혹 눈에 띈다. 한때는 꽤 귀중했을지도 모를 책들이다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf3_Slot3",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장3-3 대사 추가 예정)", "showPortrait": true }
+      { "text": "손때 묻은 책들에서 희미하게 낡은 종이 냄새가 풍겨온다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf3_Slot4",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장3-4 대사 추가 예정)", "showPortrait": true }
+      { "text": "비슷한 크기의 책들이 줄지어 있다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf4_Slot1",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장4-1 대사 추가 예정)", "showPortrait": true }
+      { "text": "오래된 책들이 대부분이다. 제목조차 희미해져 읽기 어렵다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf4_Slot2",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장4-2 대사 추가 예정)", "showPortrait": true }
+      { "text": "페이지가 누렇게 변색된 책들이 보인다. 시간의 흔적이 고스란히 묻어나 있다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf4_Slot3",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장4-3 대사 추가 예정)", "showPortrait": true }
+      { "text": "빼곡하게 들어찬 책들이 잠들어 있다.", "showPortrait": true }
     ]
   },
   {
     "id": "Bookshelf4_Slot4",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
-      { "text": "(책장4-4 대사 추가 예정)", "showPortrait": true }
+      { "text": "낡은 책들이 꽂혀있는 책장이다.", "showPortrait": true }
     ]
   },
   {
     "id": "Mirror",
     "speaker": "",
-    "lines": [
-      { "text": "(일러스트 팝업: 거울 속 내 얼굴)", "showPortrait": false }
-    ],
-    "options": [
-      { "text": "닫는다.", "nextId": "Mirror_Break" }
-    ]
+     "lines": []
   },
   {
     "id": "Mirror_Break",
     "speaker": "",
     "lines": [
-      { "text": "깨져 있는 거울이다.", "showPortrait": false }
+      { "text": "기분 나쁘게 깨져 있는 거울이다.", "showPortrait": false }
     ]
   },
   {
     "id": "LPPlayer",
     "speaker": "",
     "lines": [
-      { "text": "LP 플레이어가 재생되기 시작했다.", "showPortrait": false }
+      { "text": "낡은 LP 플레이어 위에 검은색 레코드판이 한 장 놓여있다.", "showPortrait": false },
+      { "text": "먼지가 쌓였지만, 바늘을 올리면 소리가 날 것도 같다.", "showPortrait": false ,"nextId":"LPPlayer"}
+    ]
+  },  
+  {
+    "id": "LPPlayerOption",
+    "speaker": "",
+    "lines": [
+      { "text": "낡은 LP 플레이어 위에 검은색 레코드판이 한 장 놓여있다.", "showPortrait": false },
+      { "text": "먼지가 쌓였지만, 바늘을 올리면 소리가 날 것도 같다.", "showPortrait": false ,"nextId":"LPPlayer"}
+    ],
+    "options": [
+      { "text": "바늘을 올려본다.", "nextId": "LPPlayerPlaying"},
+      { "text": "그만둔다.", "nextId": "End"}
+    ]
+  },
+   {
+    "id": "LPPlayerPlaying",
+    "speaker": "",
+    "lines": [
+      { "text": "고개를 가까이 대고 안을 자세히 들여다본다.", "showPortrait": false }
     ]
   },
   {

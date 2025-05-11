@@ -1,0 +1,10 @@
+[
+  {
+    "id": "CrewMember",
+    "speaker": "",
+    "lines": [
+      { "text": "잘못된 표인 걸 알고도 타셨네요.", "showPortrait": false},
+      { "text": "잡히면 다시는 깨어나실 수 없습니다.", "showPortrait": false}
+    ]
+  }
+]

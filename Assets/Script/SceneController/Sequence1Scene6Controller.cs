@@ -6,6 +6,7 @@ using UnityEngine;
 public class Sequence1Scene6Controller : SceneController
 {
     public GameObject Enemy;
+    public DialogueManager DialogueManager;
 
     [SerializeField]
     private Animator lunaAnimator_;
@@ -23,7 +24,6 @@ public class Sequence1Scene6Controller : SceneController
     {
         playerAnimator.SetFloat("DirY", 1);
         playerAnimator.enabled = false;
-        SoundManager.Instance.PlayBGM(bgm_);
         StartCoroutine(StopPlayer());
     }
 
@@ -45,12 +45,13 @@ public class Sequence1Scene6Controller : SceneController
 
     protected override void OnStopIntervalReached()
     {
-        playerAnimator.enabled = true;
+       // playerAnimator.enabled = true;
         lunaAnimator_.gameObject.SetActive(false);
 
         if (hasReachedTarget_)
         {
             Enemy.gameObject.SetActive(true);
+            DialogueManager.StartDialogue("CrewMember");
         }
     }
 }

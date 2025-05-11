@@ -8,7 +8,7 @@ public abstract class SceneController : MonoBehaviour
     protected float stopInterval = 1f;
 
     [SerializeField]
-    protected AudioClip bgm_;
+    protected AudioClip bgm;
 
     [SerializeField]
     protected GameObject Player;

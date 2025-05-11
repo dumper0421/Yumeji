@@ -10,7 +10,7 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Scenes/Choiwoohyck/Sequence1S#3_1_CutScene1");
     }
 
-    public void OnMainButtonClicked()
+    public void OnTitleButtonClicked()
     {
         SceneManager.LoadScene("Scenes/Choiwoohyck/TitleScene");
     } 
