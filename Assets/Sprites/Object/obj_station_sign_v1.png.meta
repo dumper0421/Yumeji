@@ -109,6 +109,91 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Haru(1)_0
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 286
+        width: 432
+        height: 813
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4637210c4ee25ff4385011f100a7e909
+      internalID: -1637053289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru(1)_1
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 286
+        width: 434
+        height: 822
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f222d2e4276c14c8bbef61efb0a7d1
+      internalID: -1711586914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru(1)_2
+      rect:
+        serializedVersion: 2
+        x: 1915
+        y: 286
+        width: 434
+        height: 813
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170200ba8eb4be745812b5c4abf97aa0
+      internalID: 458753150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru(1)_3
+      rect:
+        serializedVersion: 2
+        x: 2735
+        y: 286
+        width: 433
+        height: 822
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620e616b32f7cc44e9e25e448ebd7aab
+      internalID: -1652968605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

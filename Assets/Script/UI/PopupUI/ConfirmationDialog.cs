@@ -17,11 +17,32 @@ public class ConfirmationDialog : PopupUI
     [SerializeField]
     private TextMeshProUGUI contentTMP_;
 
+    private Button _selectbutton;
 
+    [SerializeField] Color32 selectedColor = new Color32(164,10,10,255);  // 선택 상태 색
+    [SerializeField] Color32 normalColor = new Color32(47,47,47,255);  // 비선택 상태 색
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (_selectbutton == confirmButton_) 
+                _selectbutton = denyButton_;
+            else
+                _selectbutton = confirmButton_;
+
+            UpdateButtonColors();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+            _selectbutton.onClick.Invoke();
+        }
+    }
 
     protected override void Awake()
     {
         base.Awake();
+        _selectbutton = confirmButton_;
     }
 
     public void SetAction(Action confirmAction, Action denyAction)
@@ -54,4 +75,14 @@ public class ConfirmationDialog : PopupUI
     {
         contentTMP_.text = contentText; 
     }
+
+
+    void UpdateButtonColors()
+    {
+        confirmButton_.GetComponent<Image>().color =
+            (_selectbutton == confirmButton_) ? selectedColor : normalColor;
+        denyButton_.GetComponent<Image>().color =
+            (_selectbutton == denyButton_) ? selectedColor : normalColor;
+    }
+
 }

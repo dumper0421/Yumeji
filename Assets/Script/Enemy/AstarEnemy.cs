@@ -8,13 +8,19 @@ public class AstarEnemy : Enemy
     private Vector2 targetPos;
     private EnemyPathfinder pathFinder;
 
-    [SerializeField] private AudioClip appearedSFX;
     [SerializeField] private float attackAllowedDistance = 1f;
+    [SerializeField] private float fastDistance = 20f;
+    [SerializeField] private float farMoveSpeed = 1.25f;
+
+    private float originalMoveSpeed = 1f;
 
     Coroutine moveCoroutine;
 
+    public bool isMove = false;
+
     void Start()
     {
+        originalMoveSpeed = moveSpeed;
         pathFinder = GetComponent<EnemyPathfinder>();
         if (Target != null)
         {
@@ -26,7 +32,6 @@ public class AstarEnemy : Enemy
                 Mathf.RoundToInt(ty)
             );
         }
-        SoundManager.Instance.PlaySFX(appearedSFX);
     }
 
     void Update()
@@ -40,7 +45,13 @@ public class AstarEnemy : Enemy
         }
         else isStop = false;
 
-        if (isStop) return;
+        if (Vector2.Distance(transform.position, Target.transform.position) > fastDistance)
+        {
+            moveSpeed = farMoveSpeed;
+        }
+        else moveSpeed = originalMoveSpeed;
+
+        if (isStop || !isMove) return;
 
         waitTimer += Time.deltaTime;
         if (waitTimer < waitInterval) return;
@@ -65,7 +76,6 @@ public class AstarEnemy : Enemy
             Mathf.RoundToInt(sx),
             Mathf.RoundToInt(sy)
         );
-
         
         Vector2 raw = pathFinder.PathFinding();
         targetPos = raw; 

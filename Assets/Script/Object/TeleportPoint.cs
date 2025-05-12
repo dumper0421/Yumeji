@@ -1,0 +1,26 @@
+using System.Collections;
+using Cinemachine;
+using UnityEngine;
+
+public class TeleportPoint : MonoBehaviour
+{
+    public Vector3 TargetPoint;
+    public CinemachineVirtualCamera cinemachine;
+    public CinemachineVirtualCameraBase cinemachineBase;
+    public Sequence1Scene7Controller controller;
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+
+        var col = gameObject.GetComponent<Collider2D>();
+        collision.transform.position = TargetPoint;
+        var mover = collision.GetComponent<PlayerMove_Test_Lerp>();
+        mover.Teleport(TargetPoint);
+        controller.ChangeCinemachineCamera(cinemachine);
+        cinemachineBase.Follow = collision.transform;
+    }
+
+
+}

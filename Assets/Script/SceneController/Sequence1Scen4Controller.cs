@@ -30,12 +30,12 @@ public class Sequence1Scen4Controller : SceneController
     void Update()
     {
         Debug.Log(Player.transform.position.y);
-        if (Player.transform.position.y == targetPos_.y && !hasReachedTarget_)
+        if (Player.transform.position.y >= targetPos_.y && !hasReachedTarget_)
         {
             StartCoroutine(StopPlayer());
             hasReachedTarget_ = true;
         }
-        if (Player.transform.position.y == targetPos2_.y && !playedSFX)
+        if (Player.transform.position.y >= targetPos2_.y && !playedSFX)
         {
             SoundManager.Instance.PlaySFX(SFX_);
             playedSFX = true;

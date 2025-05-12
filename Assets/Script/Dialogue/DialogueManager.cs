@@ -11,6 +11,7 @@ public class DialogueOption
     public string text;
     public string nextId;
     public bool hasIntermediateAction;
+    public string requiresItem;
 }
 
 [System.Serializable]
@@ -18,6 +19,7 @@ public class DialogueLine
 {
     public string text;
     public bool showPortrait;
+    public string nextId;
 }
 
 [System.Serializable]
@@ -40,6 +42,8 @@ public class DialogueManager : MonoBehaviour
 {
     public event Action<string, string> OnOptionSelected;
     public event Action<string> OnDialogueComplete;
+    public event Action<string> OnDialogueAction;
+
 
     [Header("UI References")]
     public GameObject dialoguePanel;
@@ -61,9 +65,17 @@ public class DialogueManager : MonoBehaviour
     private Dialogue _current;
     private Queue<DialogueLine> _lines;
     private bool _waitingForInput = false;
+    private DialogueLine currentLine;
 
     private List<Button> optionButtons = new List<Button>();
     private int selectedOption = 0;
+
+    [SerializeField]
+    private PlayerMove_Test_Lerp _playerMove;
+
+    [SerializeField] private Color32 normalColor = new Color32(0, 0, 0, 128); 
+    [SerializeField] private Color32 selectedColor = new Color32(128, 128, 0, 128); 
+
 
     void Awake()
     {
@@ -123,42 +135,73 @@ public class DialogueManager : MonoBehaviour
         _waitingForInput = false;
         selectedOption = 0;
         optionButtons.Clear();
-
+        _playerMove.enabled = false; ;
         DisplayNext();
     }
 
     private void DisplayNext()
     {
+        // 옵션·입력 초기화
         ClearOptions();
         _waitingForInput = false;
 
+        // 1) 남은 대사 출력
         if (_lines.Count > 0)
         {
-            var line = _lines.Dequeue();
-            dialogueText.text = line.text;
+            currentLine = _lines.Dequeue();
+            if (currentLine.text == null)
+                dialoguePanel.GetComponent<Image>().enabled = false;
+            else
+                dialoguePanel.GetComponent<Image>().enabled = true;
 
-            if (line.showPortrait)
+            dialogueText.text = currentLine.text;
+            OnDialogueAction?.Invoke(_current.id);
+            // 초상화 처리
+            if (currentLine.showPortrait)
             {
                 bool isHero = _current.speaker == "하루";
-                Image target = isHero ? leftPortraitImage : rightPortraitImage;
-                Image other = isHero ? rightPortraitImage : leftPortraitImage;
-
+                var target = isHero ? leftPortraitImage : rightPortraitImage;
+                var other = isHero ? rightPortraitImage : leftPortraitImage;
                 other.gameObject.SetActive(false);
+
                 if (_portraitMap.TryGetValue(_current.speaker, out var sprite))
                 {
                     target.sprite = sprite;
                     target.gameObject.SetActive(true);
                 }
             }
-
-            if (_current.autoAdvance)
-                StartCoroutine(AutoAdvance());
             else
-                _waitingForInput = true;
+            {
+                leftPortraitImage.gameObject.SetActive(false);
+                rightPortraitImage.gameObject.SetActive(false);
+            }
 
+            // 자동 진행 vs. 입력 대기
+            if (_current.autoAdvance)
+            {
+                StartCoroutine(AutoAdvance());
+            }
+            else
+            {
+                _waitingForInput = true;
+            }
             return;
         }
 
+        // 2) 현재 line 에 nextId 가 지정돼 있으면 자동으로 넘어가기
+        if (currentLine != null&&!string.IsNullOrEmpty(currentLine.nextId))
+        {
+            OnDialogueComplete?.Invoke(_current.id);
+            StartDialogue(currentLine.nextId);
+            return;
+        }
+
+        if(currentLine == null)
+        {
+            OnDialogueComplete?.Invoke(_current.id);
+        }
+
+        // 3) 선택지 표시
         if (_current.options != null && _current.options.Length > 0)
         {
             optionPanel.gameObject.SetActive(true);
@@ -167,9 +210,10 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        // 대화 종료
+        // 4) 대화 종료
         EndDialogue();
     }
+
 
     private IEnumerator AutoAdvance()
     {
@@ -185,6 +229,10 @@ public class DialogueManager : MonoBehaviour
 
         foreach (var opt in opts)
         {
+
+            if (!string.IsNullOrEmpty(opt.requiresItem) && !InventoryManager.Instance.HasItem(opt.requiresItem))
+                continue;  // 인벤 안에 없으면 버튼 생성 안 함
+
             var btn = Instantiate(buttonPrefab, optionPanel);
             btn.GetComponentInChildren<TextMeshProUGUI>().text = opt.text;
 
@@ -206,6 +254,12 @@ public class DialogueManager : MonoBehaviour
             });
 
             optionButtons.Add(btn);
+        }
+        
+        if (optionButtons.Count == 0)
+        {
+            EndDialogue();
+            return;
         }
 
         optionPanel.gameObject.SetActive(true);
@@ -231,11 +285,10 @@ public class DialogueManager : MonoBehaviour
     {
         for (int i = 0; i < optionButtons.Count; i++)
         {
-            var colors = optionButtons[i].colors;
-            colors.normalColor = (i == selectedOption) ? Color.yellow : Color.white;
-            optionButtons[i].colors = colors;
+            optionButtons[i].image.color = (i == selectedOption)
+                ? selectedColor
+                : normalColor;
         }
-        optionButtons[selectedOption].Select();
     }
 
     private void EndDialogue()
@@ -244,5 +297,6 @@ public class DialogueManager : MonoBehaviour
         leftPortraitImage.gameObject.SetActive(false);
         rightPortraitImage.gameObject.SetActive(false);
         OnDialogueComplete?.Invoke(_current.id);
+        _playerMove.enabled = true ;
     }
 }
