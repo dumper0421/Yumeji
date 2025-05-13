@@ -1,0 +1,49 @@
+[
+  {
+    "id": "StationSign",
+    "speaker": "",
+    "lines": [
+      { "text": "글자가 다 벗겨져 있어 역 이름을 읽을 수가 없다", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "StationChair",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "앉기에 많이 낡아 보이는 의자다",
+        "showPortrait": false
+      }
+    ]
+  },
+
+    {
+    "id": "StationChair_Ticket",
+    "speaker": "",
+    "lines": [
+      {"text": "의자 아래에 작은 종이가 떨어져 있는 듯하다","showPortrait": false },
+      {"text": "찢어진 기차표를 얻었다", "nextId": "StationChair_Ticket_1","showPortrait": false }
+    ]
+  },
+    {
+    "id": "StationChair_Ticket_1",
+    "speaker": "하루",
+    "lines": [
+      {"text": "이거로도 가능할까…?", "showPortrait": true }
+    ]
+  },
+    {
+    "id": "TrainDoor_NoTicket",
+    "speaker": "",
+    "lines": [
+      {"text": "기차표 없이는 들어갈 수가 없다", "showPortrait": false }
+    ]
+  },
+    {
+    "id": "TrainDoor_WithTicket",
+    "speaker": "",
+    "lines": [
+      {"text": "대충 찢어진 기차표 조각을 보여준 뒤 서둘러 들어갔다", "showPortrait": false }
+    ]
+  }
+]

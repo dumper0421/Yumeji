@@ -4,7 +4,7 @@
     "speaker": "하루",
     "lines": [
       { "text": "차에서 잠깐 잠에 들었었지…", "showPortrait": true },
-      { "text": "내 차가 원래 파란색이었던가?", "showPortrait": true }
+      { "text": "내 차가 원래 파란색이었던가?", "showPortrait   ": true }
     ]
   },
 
