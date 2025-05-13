@@ -14,6 +14,7 @@ public class PauseUI : MonoBehaviour
     public GameObject BackGround;
 
     public ConfirmationDialog ConfirmationDialog;
+    public GameObject SaveLoadPopup;
 
     private int CurrentSelectIndex = 0;
     void Start()
@@ -34,13 +35,20 @@ public class PauseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!BackGround.gameObject.activeSelf)
+        if (SaveLoadPopup.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                SaveLoadPopup.gameObject.SetActive(false);
+
+            return;
+        }
+
+        if (!BackGround.gameObject.activeSelf && !SaveLoadPopup.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
                 BackGround.gameObject.SetActive(true);
             return;
         }
-            
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
