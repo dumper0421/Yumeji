@@ -5,12 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class SaveLoadPopup : PopupUI
 {
     public bool IsSave = true;
 
     private SaveSlot[] saveSlots;
+
+    public GameObject SelectBorder;
+    public int CurrentSelectIndex = 0;
 
     protected override void OnCloseButtonClicked()
     {
@@ -82,4 +86,32 @@ public class SaveLoadPopup : PopupUI
         for (int slotIndex = 0; slotIndex < saveSlots.Length; slotIndex++)
             UpdateSaveSlot(slotIndex);
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            gameObject.SetActive(false);
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            MoveSelectBorder(-1);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            MoveSelectBorder(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+            saveSlots[CurrentSelectIndex].GetComponent<Button>().onClick?.Invoke();
+        }
+    }
+
+    public void MoveSelectBorder(int offset)
+    {
+        CurrentSelectIndex = (CurrentSelectIndex + offset + saveSlots.Length) % saveSlots.Length;
+        SelectBorder.transform.SetParent(saveSlots[CurrentSelectIndex].transform);
+        SelectBorder.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+    }
+
 }
