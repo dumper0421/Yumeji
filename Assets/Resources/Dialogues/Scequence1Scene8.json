@@ -1,0 +1,70 @@
+[
+ {"id": "RabbitMan_Hint1",
+    "speaker": "토끼 탈 남자",
+    "autoAdvance": false,
+    "autoAdvanceDelay": 0,
+    "lines": [
+      { "text": "또 다른 문 앞에 서 있군. 그대는.",           "showPortrait": true },
+      { "text": "이 너머는 같은 풍경이 반복되는 곳. 하지만 모든 것이 똑같지는 않다",           "showPortrait": true, "nextId": "RabbitMan_Hint2" }
+    ]
+  },
+  {"id": "RabbitMan_Hint2",
+    "speaker": "하루",
+    "autoAdvance": false,
+    "autoAdvanceDelay": 0,
+    "lines": [
+
+      { "text": "…누구시죠? 이 이상한 곳에 대해 아시는 겁니까?",           "showPortrait": true ,"nextId": "RabbitMan_Hint3" }
+    ]
+  }, {"id": "RabbitMan_Hint3",
+    "speaker": "토끼 탈 남자",
+    "autoAdvance": false,
+    "autoAdvanceDelay": 0,
+    "lines": [
+      { "text": "모든 방이 같아 보이지만, 다른 점이 있을 거다. 어떤 방에는 '기억할 만한 조각'이 존재하고, 어떤 방은 텅 비어있지",           "showPortrait": true },
+      { "text": "네 손에 들린 그 기계, '찰나를 담는 도구' 말이다. 그것을 활용해야 할 거다.",           "showPortrait": true, "nextId": "RabbitMan_Hint4" }
+    ]
+  },
+  {"id": "RabbitMan_Hint4",
+    "speaker": "하루",
+    "autoAdvance": false,
+    "autoAdvanceDelay": 0,
+    "lines": [
+      { "text": "제 카메라 말인가요? 이걸로 뭘 어떻게…",           "showPortrait": true, "nextId": "RabbitMan_Hint5" }
+    ]
+  },
+   {"id": "RabbitMan_Hint5",
+    "speaker": "토끼 탈 남자",
+    "autoAdvance": false,
+    "autoAdvanceDelay": 0,
+    "lines": [
+      { "text": "그것들이 있는 방에서, 그 기계로 진실의 찰나를 담으면, 벽이 침묵을 깨고 길을 알려줄지도.",           "showPortrait": true, "nextId": "RabbitMan_Hint6" }
+    ]
+  },
+  {"id": "RabbitMan_Hint6",
+    "speaker": "토끼 탈 남자",
+    "autoAdvance": false,
+    "autoAdvanceDelay": 0,
+    "lines": [
+      { "text": "카메라로… 벽에 뭐가 나타난다고요?",           "showPortrait": true ,"nextId": "RabbitMan_Hint7"}
+    ]
+  }, {"id": "RabbitMan_Hint7",
+    "speaker": "하루",
+    "autoAdvance": false,
+    "autoAdvanceDelay": 0,
+    "lines": [
+      { "text": "하지만 조심해. 텅 빈 방은 그저 메아리만을 돌려줄 뿐이니. 왔던 길을 되짚어 나와야 할 거다.",           "showPortrait": true },
+      { "text": "그럼 부디 무사히 출구를 찾아내기를",           "showPortrait": true }
+    ]
+  },
+  {
+    "id": "RabbitMan_AfterHint",
+    "speaker": "토끼 탈 남자",
+    "autoAdvance": false,
+    "autoAdvanceDelay": 0,
+    "lines": [
+      { "text": "이미 모든 조언을 끝낸 듯, 토끼 탈 너머의 시선은 텅 빈 곳을 향하고 있다.", "showPortrait": false, "nextId": "" }
+    ],
+    "options": []
+  }
+]
