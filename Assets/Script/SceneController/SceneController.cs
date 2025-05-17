@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public abstract class SceneController : MonoBehaviour
@@ -15,6 +16,9 @@ public abstract class SceneController : MonoBehaviour
 
     protected PlayerMove_Test_Lerp playerMoveTestLerp;
     protected Animator playerAnimator;
+
+    public List<CinemachineVirtualCamera> cinemachineCameras;
+
     private void Awake()
     {
         playerMoveTestLerp = Player.GetComponent<PlayerMove_Test_Lerp>();
@@ -31,4 +35,16 @@ public abstract class SceneController : MonoBehaviour
 
     protected abstract void OnStopIntervalReached();
 
+
+
+    public void ChangeCinemachineCamera(CinemachineVirtualCamera target)
+    {
+        foreach (var cam in cinemachineCameras)
+        {
+            if (target == cam)
+                target.gameObject.SetActive(true);
+            else
+                cam.gameObject.SetActive(false);
+        }
+    }
 }
