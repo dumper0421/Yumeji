@@ -986,7 +986,7 @@ Transform:
   m_GameObject: {fileID: 420849066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 38, y: 1, z: -0.0028829058}
+  m_LocalPosition: {x: 38, y: 1.3499999, z: -0.0028829058}
   m_LocalScale: {x: 1, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1222,7 +1222,7 @@ Transform:
   m_GameObject: {fileID: 478271584}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 1, z: -0.0028829058}
+  m_LocalPosition: {x: -3, y: 1.35, z: -0.0028829058}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1413,7 +1413,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1438,7 +1438,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9872394, y: -9.912281, z: -10}
+  m_LocalPosition: {x: -2.9837332, y: -8.912281, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1850,6 +1850,10 @@ PrefabInstance:
       propertyPath: Inventory
       value: 
       objectReference: {fileID: 1036382160}
+    - target: {fileID: 940051765392364121, guid: 9268bdeae7735504884d0596e34d48a8, type: 3}
+      propertyPath: SaveLoadPopup
+      value: 
+      objectReference: {fileID: 1132579776}
     - target: {fileID: 1773931913110065265, guid: 9268bdeae7735504884d0596e34d48a8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2145,7 +2149,7 @@ MonoBehaviour:
   m_Follow: {fileID: 239909695}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 5
+    OrthographicSize: 6
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -2553,6 +2557,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 4129, y: 5000}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1132579776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1284263777061076135, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
+  m_PrefabInstance: {fileID: 2134352676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1203936102
 GameObject:
   m_ObjectHideFlags: 0
