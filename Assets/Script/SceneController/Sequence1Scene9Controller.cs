@@ -1,20 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
 
-public class Sequence1Scene7Controller : SceneController
+public class Sequence1Scene9Controller : SceneController
 {
-
-    private void Start()
-    {
-
-
-    }
     protected override void OnStopIntervalReached()
     {
-
+        ;
     }
-
-
 }

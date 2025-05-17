@@ -135,7 +135,9 @@ public class DialogueManager : MonoBehaviour
         _waitingForInput = false;
         selectedOption = 0;
         optionButtons.Clear();
-        _playerMove.enabled = false; ;
+        _playerMove.animator.SetBool("Walking", false);
+        _playerMove.animator.SetBool("Pushing", false);
+        _playerMove.enabled = false; 
         DisplayNext();
     }
 

@@ -7,7 +7,7 @@ public class TeleportPoint : MonoBehaviour
     public Vector3 TargetPoint;
     public CinemachineVirtualCamera cinemachine;
     public CinemachineVirtualCameraBase cinemachineBase;
-    public Sequence1Scene7Controller controller;
+    public SceneController controller;
 
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -21,6 +21,4 @@ public class TeleportPoint : MonoBehaviour
         controller.ChangeCinemachineCamera(cinemachine);
         cinemachineBase.Follow = collision.transform;
     }
-
-
 }
