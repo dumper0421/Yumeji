@@ -29,7 +29,8 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     [Header("Audio Clips")]
     public AudioClip KnockClip;                
     public AudioClip BloodClip;                
-    public AudioClip HornClip;                 
+    public AudioClip HornClip;    
+    public AudioClip CarHornClip;
     public AudioClip CrashClip;
 
     public DialogueObject Bus;
@@ -44,7 +45,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
         {
             case "CarD_LookInside":
                 state = EmergencyDoorState.CarDTriggered;
-                SoundManager.Instance.PlaySFX(KnockClip);
+                SoundManager.Instance.PlaySFX(CarHornClip);
                 StartCoroutine(CameraManager.Instance.Shake(1f, 1f, 0.3f));
                 break;
 
