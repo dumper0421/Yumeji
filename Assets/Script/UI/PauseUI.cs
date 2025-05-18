@@ -11,6 +11,8 @@ public class PauseUI : MonoBehaviour
     public GameObject SelectBorder;
     public TextMeshProUGUI[] Options;
     public GameObject Inventory;
+    public GameObject Setting;
+
     public GameObject BackGround;
 
     public ConfirmationDialog ConfirmationDialog;
@@ -85,7 +87,7 @@ public class PauseUI : MonoBehaviour
         }
         if (CurrentSelectIndex == 1)
         {
-
+            Setting.SetActive(true);
         }
         if (CurrentSelectIndex == 2)
         {
@@ -101,6 +103,7 @@ public class PauseUI : MonoBehaviour
         {
             ConfirmationDialog.gameObject.SetActive(false);
             Inventory.SetActive(false);
+            Setting.SetActive(false);
         }
     }
 
