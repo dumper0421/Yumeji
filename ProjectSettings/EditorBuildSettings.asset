@@ -30,9 +30,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Choiwoohyck/Sequence1S#4.unity
     guid: 434e38086c9d5ed4c84c409446c238df
   - enabled: 1
+    path: Assets/Scenes/Woo/Sequence1S#5.unity
+    guid: 9600fa0369fd00248833d35a5874e343
+  - enabled: 1
     path: Assets/Scenes/Choiwoohyck/Sequence1S#6.unity
     guid: c799bac301d0b17499d0e2f125d97591
   - enabled: 1
-    path: Assets/Scenes/Choiwoohyck/Sequence1#7.unity
+    path: Assets/Scenes/Choiwoohyck/Sequence1S#7.unity
     guid: 1d7c790a9185dbe48a9cfe8d2cd7abd2
+  - enabled: 1
+    path: Assets/Scenes/Choiwoohyck/Sequence1S#9.unity
+    guid: f25dbfd21ab6837488385181a4ab487f
+  - enabled: 1
+    path: Assets/Scenes/Woo/Sequence1S#8.unity
+    guid: 96c1a80723c4b44489d04f2a87d808f9
   m_configObjects: {}
