@@ -22,15 +22,19 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
     public DialogueObject FirePlace;
     public DialogueObject Mirror;
     public DialoguePoint Cutton;
+    public GameObject SceneChangeTrigger;
 
     [Header("Audio Clips")]
     public AudioClip MirrorBrokeClip;
     public AudioClip LPBgm;
+    public AudioClip FireSFX;
+
 
     public Animator FirePlaceAnimator;
     public Animator[] FireAnimators;
 
     public float delayTimer = 0f;
+
     public void LateUpdate()
     {
         if (CharredPhotograph.gameObject.activeSelf)
@@ -113,6 +117,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     protected override void OnPuzzleComplete()
     {
+        SoundManager.Instance.PlaySFX(FireSFX);
         foreach (var anim in FireAnimators)
         {
             anim.gameObject.SetActive(true);
@@ -120,6 +125,8 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         }
 
         Cutton.gameObject.SetActive(false);
+        SceneChangeTrigger.SetActive(true);
+
     }
 
     protected override void TryProgress()

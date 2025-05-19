@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class DarkTeleportPoint : TeleportPoint
 {
     public Vector3 ReturnPos;
     public float WaitSeconds = 2f;
+
+    public CinemachineVirtualCamera ReturnCamera;
+    public CinemachineVirtualCameraBase ReturnCameraBase;
+
+    public AudioClip DarkRoomSFX;
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
@@ -18,7 +24,12 @@ public class DarkTeleportPoint : TeleportPoint
 
     IEnumerator Return(GameObject target)
     {
+        SoundManager.Instance.PlaySFX(DarkRoomSFX);
         yield return new WaitForSeconds(WaitSeconds);
-        target.transform.position = ReturnPos;
+        var mover = target.GetComponent<PlayerMove_Test_Lerp>();
+        mover.Teleport(ReturnPos);
+
+        controller.ChangeCinemachineCamera(ReturnCamera);
+        ReturnCameraBase.Follow = target.transform;
     }
 }
