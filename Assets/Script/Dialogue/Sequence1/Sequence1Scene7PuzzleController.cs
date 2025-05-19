@@ -34,6 +34,9 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
     public Animator FirePlaceAnimator;
     public Animator[] FireAnimators;
 
+    public Sprite BrokenMirror;
+    public SpriteRenderer MirrorRenderer;
+
     public float delayTimer = 0f;
 
     public void LateUpdate()
@@ -89,6 +92,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             case "Mirror":
                 HaruMirror.gameObject.SetActive(true);
                 Mirror.StartDialogue = "Mirror_Break";
+                MirrorRenderer.sprite = BrokenMirror;
                 break;
 
         }
