@@ -855,7 +855,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1631913120311834736
 MonoBehaviour:
@@ -911,9 +911,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectBorder: {fileID: 5154886816084911200}
   Options: []
-  InventoryCanvas: {fileID: 0}
+  Inventory: {fileID: 0}
+  Setting: {fileID: 0}
   BackGround: {fileID: 4348094960985954646}
   ConfirmationDialog: {fileID: 1564892886456437511}
+  SaveLoadPopup: {fileID: 0}
 --- !u!1 &5352740578451442921
 GameObject:
   m_ObjectHideFlags: 0

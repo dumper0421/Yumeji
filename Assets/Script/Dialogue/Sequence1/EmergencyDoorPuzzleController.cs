@@ -122,6 +122,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     private IEnumerator PlayBloodSequence()
     {
         BloodAnimator.enabled = true;
+        BloodAnimator.gameObject.SetActive(true) ;
         yield return new WaitForSeconds(0.2f);
         // ÇÍ¼Ò¸®
         SoundManager.Instance.PlaySFX(BloodClip);

@@ -21,10 +21,14 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     public DialogueObject FirePlace;
     public DialogueObject Mirror;
-
+    public DialoguePoint Cutton;
 
     [Header("Audio Clips")]
     public AudioClip MirrorBrokeClip;
+    public AudioClip LPBgm;
+
+    public Animator FirePlaceAnimator;
+    public Animator[] FireAnimators;
 
     public float delayTimer = 0f;
     public void LateUpdate()
@@ -66,8 +70,13 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 break;
             case "Fireplace_Lit":
                 FirePlace.StartDialogue = "Fireplace2";
+                FirePlaceAnimator.enabled = true;
                 FirePlace.IsDisposable = true;
                 FirePlace.hasBeenInspected = false;
+                break;
+            case "LPPlayerPlaying":
+                SoundManager.Instance.StopAllSFX();
+                SoundManager.Instance.PlaySFX(LPBgm);
                 break;
             case "Mirror":
                 HaruMirror.gameObject.SetActive(true);
@@ -104,6 +113,13 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     protected override void OnPuzzleComplete()
     {
+        foreach (var anim in FireAnimators)
+        {
+            anim.gameObject.SetActive(true);
+            anim.enabled = true;
+        }
+
+        Cutton.gameObject.SetActive(false);
     }
 
     protected override void TryProgress()

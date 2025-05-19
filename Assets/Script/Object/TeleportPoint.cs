@@ -10,7 +10,7 @@ public class TeleportPoint : MonoBehaviour
     public SceneController controller;
 
 
-    void OnTriggerEnter2D(Collider2D collision)
+    virtual public void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
 

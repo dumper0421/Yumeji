@@ -19,6 +19,11 @@ public abstract class SceneController : MonoBehaviour
 
     public List<CinemachineVirtualCamera> cinemachineCameras;
 
+    protected void Start()
+    {
+        if (bgm != null)
+            SoundManager.Instance.PlayBGM(bgm);
+    }
     private void Awake()
     {
         playerMoveTestLerp = Player.GetComponent<PlayerMove_Test_Lerp>();

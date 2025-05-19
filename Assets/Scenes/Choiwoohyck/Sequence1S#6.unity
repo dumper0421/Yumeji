@@ -415,11 +415,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7792,11 +7792,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7886,11 +7886,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17082,6 +17082,7 @@ MonoBehaviour:
   stopInterval: 2
   bgm: {fileID: 0}
   Player: {fileID: 1144867242}
+  cinemachineCameras: []
   Enemy: {fileID: 1815338481}
   DialogueManager: {fileID: 348329106}
   lunaAnimator_: {fileID: 2053649298}
@@ -17097,11 +17098,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 55818229256154308, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_LocalPosition.x
