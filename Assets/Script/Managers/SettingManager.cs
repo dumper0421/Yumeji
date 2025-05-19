@@ -61,7 +61,7 @@ public class SettingManager : Singleton<SettingManager>
     }
 
     public void OnMasterChanged(float v) => SetMixer("Master", v);
-    public void OnBgmChanged(float v) => SetMixer("Bgm", v);
+    public void OnBgmChanged(float v) => SetMixer("BGM", v);
     public void OnSfxChanged(float v) => SetMixer("SFX", v);
 
     void OnSliderChanged(int idx, float v)

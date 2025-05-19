@@ -21,12 +21,24 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     public DialogueObject FirePlace;
     public DialogueObject Mirror;
-
+    public DialoguePoint Cutton;
+    public GameObject SceneChangeTrigger;
 
     [Header("Audio Clips")]
     public AudioClip MirrorBrokeClip;
+    public AudioClip LPBgm;
+    public AudioClip FireLPBgm;
+    public AudioClip FireSFX;
+
+
+    public Animator FirePlaceAnimator;
+    public Animator[] FireAnimators;
+
+    public Sprite BrokenMirror;
+    public SpriteRenderer MirrorRenderer;
 
     public float delayTimer = 0f;
+
     public void LateUpdate()
     {
         if (CharredPhotograph.gameObject.activeSelf)
@@ -66,12 +78,21 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 break;
             case "Fireplace_Lit":
                 FirePlace.StartDialogue = "Fireplace2";
+                FirePlaceAnimator.enabled = true;
                 FirePlace.IsDisposable = true;
                 FirePlace.hasBeenInspected = false;
+                break;
+            case "LPPlayerPlaying":
+                SoundManager.Instance.StopAllSFX();
+                if(state == S1S7State.Clear)
+                    SoundManager.Instance.PlaySFX(LPBgm);
+                else
+                    SoundManager.Instance.PlaySFX(FireLPBgm);
                 break;
             case "Mirror":
                 HaruMirror.gameObject.SetActive(true);
                 Mirror.StartDialogue = "Mirror_Break";
+                MirrorRenderer.sprite = BrokenMirror;
                 break;
 
         }
@@ -104,6 +125,17 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     protected override void OnPuzzleComplete()
     {
+        SoundManager.Instance.PlaySFX(FireSFX);
+        foreach (var anim in FireAnimators)
+        {
+            anim.gameObject.SetActive(true);
+            anim.enabled = true;
+        }
+
+        state = S1S7State.Clear;
+        Cutton.gameObject.SetActive(false);
+        SceneChangeTrigger.SetActive(true);
+
     }
 
     protected override void TryProgress()

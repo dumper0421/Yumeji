@@ -223,14 +223,6 @@
     ]
   },
   {
-    "id": "LPPlayer",
-    "speaker": "",
-    "lines": [
-      { "text": "낡은 LP 플레이어 위에 검은색 레코드판이 한 장 놓여있다.", "showPortrait": false },
-      { "text": "먼지가 쌓였지만, 바늘을 올리면 소리가 날 것도 같다.", "showPortrait": false ,"nextId":"LPPlayer"}
-    ]
-  },  
-  {
     "id": "LPPlayerOption",
     "speaker": "",
     "lines": [

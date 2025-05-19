@@ -25,6 +25,7 @@ public class Sequence1Scen4Controller : SceneController
     // Update is called once per frame
     private void Start()
     {
+        base.Start();
         director_.Stop();
     }
     void Update()
