@@ -27,6 +27,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
     [Header("Audio Clips")]
     public AudioClip MirrorBrokeClip;
     public AudioClip LPBgm;
+    public AudioClip FireLPBgm;
     public AudioClip FireSFX;
 
 
@@ -80,7 +81,10 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 break;
             case "LPPlayerPlaying":
                 SoundManager.Instance.StopAllSFX();
-                SoundManager.Instance.PlaySFX(LPBgm);
+                if(state == S1S7State.Clear)
+                    SoundManager.Instance.PlaySFX(LPBgm);
+                else
+                    SoundManager.Instance.PlaySFX(FireLPBgm);
                 break;
             case "Mirror":
                 HaruMirror.gameObject.SetActive(true);
@@ -124,6 +128,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             anim.enabled = true;
         }
 
+        state = S1S7State.Clear;
         Cutton.gameObject.SetActive(false);
         SceneChangeTrigger.SetActive(true);
 
