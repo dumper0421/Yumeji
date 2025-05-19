@@ -55,6 +55,7 @@
     "lines": [
       { "text": "하지만 조심해. 텅 빈 방은 그저 메아리만을 돌려줄 뿐이니. 왔던 길을 되짚어 나와야 할 거다.",           "showPortrait": true },
       { "text": "그럼 부디 무사히 출구를 찾아내기를",           "showPortrait": true }
+
     ]
   },
   {
@@ -63,8 +64,10 @@
     "autoAdvance": false,
     "autoAdvanceDelay": 0,
     "lines": [
-      { "text": "이미 모든 조언을 끝낸 듯, 토끼 탈 너머의 시선은 텅 빈 곳을 향하고 있다.", "showPortrait": false, "nextId": "" }
-    ],
-    "options": []
+      { "text": "이미 모든 조언을 끝낸 듯, 토끼 탈 너머의 시선은 텅 빈 곳을 향하고 있다.", "showPortrait": true
+
+      }
+    ]
   }
 ]
+

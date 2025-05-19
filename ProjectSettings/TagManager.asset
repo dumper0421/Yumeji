@@ -9,6 +9,7 @@ TagManager:
   - IgnoreRaycast
   - Enemy
   - Wall
+  - Pushable
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - NPC
   - Interactable
   - Obstacle
-  - 
+  - Flashable
   - 
   - 
   - 
