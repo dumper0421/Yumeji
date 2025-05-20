@@ -1689,6 +1689,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1277631547
       objectReference: {fileID: 0}
+    - target: {fileID: 9046622924222400962, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 970137c55a550b1408fc19e3f1deb036, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1142400306018621141, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
@@ -2525,7 +2529,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03654909, y: 4.71875}
+  m_Offset: {x: -0.036548615, y: 3.0109315}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -2536,7 +2540,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18.917187, y: 9.4375}
+  m_Size: {x: 18.917187, y: 6.021863}
   m_EdgeRadius: 0
 --- !u!114 &1154757946
 MonoBehaviour:
