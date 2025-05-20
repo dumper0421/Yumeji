@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1277631547
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1243032671, guid: 9c020242053cc2945b62a97bdea1448b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -165,6 +165,16 @@ MonoBehaviour:
   speed_: 1
   runSpeed_: 2
   vector: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
+  flashTiles: {x: 3, y: 4}
+  tileSize: {x: 1, y: 1}
+  flashableLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  flashVFXPrefab: {fileID: 1184421162603923759, guid: 8d71762eb41297a468e6c3d404fc9060, type: 3}
+  flashDuration: 0.3
+  flashVFXYOffset: 0.5
+  shootCooldown: 2
 --- !u!95 &7815632663773047571
 Animator:
   serializedVersion: 5
