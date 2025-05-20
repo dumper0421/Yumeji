@@ -18,7 +18,7 @@ public class SceneChangeTrigger : MonoBehaviour
             if (sceneName_ != "Scenes/Final/Sequence1#7")
             SceneManager.LoadScene(sceneName_);
             else
-                SceneManager.LoadScene(6);
+                SceneManager.LoadScene(7);
 
             hasReached_ = true;
         }

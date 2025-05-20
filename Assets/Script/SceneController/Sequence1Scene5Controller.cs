@@ -11,6 +11,8 @@ public class Sequence1Scene5Controller : SceneController
     }
     void Start()
     {
+
+        base.Start();
         playerAnimator.SetFloat("DirY", 1);
         playerAnimator.enabled = false;
         StartCoroutine(StopPlayer());

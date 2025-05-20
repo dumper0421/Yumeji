@@ -1797,7 +1797,7 @@ Transform:
   m_GameObject: {fileID: 418130178}
   serializedVersion: 2
   m_LocalRotation: {x: 0.045583107, y: 0.0071925074, z: -0.00032820218, w: 0.9989346}
-  m_LocalPosition: {x: -3.0058315, y: 0.91073716, z: -9.957409}
+  m_LocalPosition: {x: -3.0032213, y: 0.91073716, z: -9.957409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2288,7 +2288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f8f9df5f765ef44b5ba3bd707abeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName_: 
+  sceneName_: Scenes/Final/Sequence1S#8
 --- !u!50 &465576772
 Rigidbody2D:
   serializedVersion: 4
