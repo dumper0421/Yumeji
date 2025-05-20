@@ -1,7 +1,7 @@
+// SettingManager.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingManager : Singleton<SettingManager>
@@ -9,66 +9,55 @@ public class SettingManager : Singleton<SettingManager>
     public KeyboardOnlySlider MasterSlider;
     public KeyboardOnlySlider BgmSlider;
     public KeyboardOnlySlider SfxSlider;
-    public AudioMixer audioMixer;
+    public GameObject BackGround;
 
     private KeyboardOnlySlider[] sliders;
     private int selectedIndex = 0;
     private Color normal = Color.white;
     private Color highlighted = Color.yellow;
 
-    private const string KEY_MASTER = "Master";
-    private const string KEY_BGM = "BGM";
-    private const string KEY_SFX = "SFX";
-
     protected override void Init()
     {
         DontDestroyOnLoad(gameObject);
         sliders = new[] { MasterSlider, BgmSlider, SfxSlider };
 
-        // 슬라이더 값 로드 및 믹서에 적용
+        // 저장된 설정 로드 및 오디오 매니저에 적용
         LoadSettings();
 
         // 슬라이더 이벤트 연결
-        MasterSlider.onValueChanged.AddListener(OnMasterChanged);
-        BgmSlider.onValueChanged.AddListener(OnBgmChanged);
-        SfxSlider.onValueChanged.AddListener(OnSfxChanged);
+        MasterSlider.onValueChanged.AddListener(v => SoundManager.Instance.SetMasterVolume(v));
+        MasterSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("MasterVolume", v));
+        BgmSlider.onValueChanged.AddListener(v => SoundManager.Instance.SetBGMVolume(v));
+        BgmSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("BGMVolume", v));
+        SfxSlider.onValueChanged.AddListener(v => SoundManager.Instance.SetSFXVolume(v));
+        SfxSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("SFXVolume", v));
 
         UpdateHighlight();
+
+        if (BackGround == null)
+            BackGround = transform.GetChild(0).gameObject;
     }
 
     private void LoadSettings()
     {
-        if (PlayerPrefs.HasKey(KEY_MASTER)) MasterSlider.value = PlayerPrefs.GetFloat(KEY_MASTER);
-        if (PlayerPrefs.HasKey(KEY_BGM)) BgmSlider.value = PlayerPrefs.GetFloat(KEY_BGM);
-        if (PlayerPrefs.HasKey(KEY_SFX)) SfxSlider.value = PlayerPrefs.GetFloat(KEY_SFX);
+        float master = PlayerPrefs.GetFloat("MasterVolume", MasterSlider.value);
+        float bgm = PlayerPrefs.GetFloat("BGMVolume", BgmSlider.value);
+        float sfx = PlayerPrefs.GetFloat("SFXVolume", SfxSlider.value);
 
-        // Mixer에도 반영
-        SetMixer("Master", MasterSlider.value);
-        SetMixer("BGM", BgmSlider.value);
-        SetMixer("SFX", SfxSlider.value);
-    }
+        MasterSlider.value = master;
+        BgmSlider.value = bgm;
+        SfxSlider.value = sfx;
 
-    private void OnMasterChanged(float v)
-    {
-        SetMixer("Master", v);
-        PlayerPrefs.SetFloat(KEY_MASTER, v);
-        PlayerPrefs.Save();
-    }
-    private void OnBgmChanged(float v)
-    {
-        SetMixer("BGM", v);
-        PlayerPrefs.SetFloat(KEY_BGM, v);
-        PlayerPrefs.Save();
-    }
-    private void OnSfxChanged(float v)
-    {
-        SetMixer("SFX", v);
-        PlayerPrefs.SetFloat(KEY_SFX, v);
-        PlayerPrefs.Save();
+        SoundManager.Instance.SetMasterVolume(master, save: false);
+        SoundManager.Instance.SetBGMVolume(bgm, save: false);
+        SoundManager.Instance.SetSFXVolume(sfx, save: false);
     }
 
     private void Update()
     {
+
+        if (!BackGround.gameObject.activeSelf) return;
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             selectedIndex = (selectedIndex + sliders.Length - 1) % sliders.Length;
@@ -88,12 +77,12 @@ public class SettingManager : Singleton<SettingManager>
         {
             var s = sliders[selectedIndex];
             s.value = Mathf.Clamp01(s.value + dir * Time.deltaTime);
-            OnSliderChanged(selectedIndex, s.value);
+            // 슬라이더 onValueChanged가 호출되어 SoundManager와 PlayerPrefs에 자동 저장/적용됨
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
@@ -106,18 +95,4 @@ public class SettingManager : Singleton<SettingManager>
             sliders[i].colors = col;
         }
     }
-
-    private void SetMixer(string param, float linear)
-    {
-        float dB = Mathf.Log10(Mathf.Clamp(linear, 0.0001f, 1f)) * 20f;
-        audioMixer.SetFloat(param, dB);
-    }
-    void OnSliderChanged(int idx, float v)
-    {
-        if (idx == 0) OnMasterChanged(v);
-        else if (idx == 1) OnBgmChanged(v);
-        else OnSfxChanged(v);
-    }
 }
-
-

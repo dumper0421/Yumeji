@@ -23,9 +23,12 @@ public class SoundManager : Singleton<SoundManager>
 
         // 오디오 믹서 로드 및 저장된 볼륨 복원
         _audioMixer = Resources.Load<AudioMixer>("Audio/AudioMixer");
-        if (PlayerPrefs.HasKey(KEY_MASTER)) _audioMixer.SetFloat("Master", PlayerPrefs.GetFloat(KEY_MASTER));
-        if (PlayerPrefs.HasKey(KEY_BGM)) _audioMixer.SetFloat("BGMV", PlayerPrefs.GetFloat(KEY_BGM));
-        if (PlayerPrefs.HasKey(KEY_SFX)) _audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat(KEY_SFX));
+        float master = PlayerPrefs.GetFloat(KEY_MASTER, 1f);
+        float bgm = PlayerPrefs.GetFloat(KEY_BGM, 1f);
+        float sfx = PlayerPrefs.GetFloat(KEY_SFX, 1f);
+        SetMasterVolume(master, save: false);
+        SetBGMVolume(bgm, save: false);
+        SetSFXVolume(sfx, save: false);
 
         // BGM Source
         _bgmSource = CreateAudioSource("BGM");
@@ -72,10 +75,7 @@ public class SoundManager : Singleton<SoundManager>
         src.PlayOneShot(clip);
         _sfxSources.Enqueue(src);
     }
-    public void StopAllSFX()
-    {
-        foreach (var src in _sfxSources) src.Stop();
-    }
+    public void StopAllSFX() { foreach (var src in _sfxSources) src.Stop(); }
     #endregion
 
     #region Sequential SFX
@@ -101,26 +101,23 @@ public class SoundManager : Singleton<SoundManager>
     #endregion
 
     #region Mixer Control
-    public void SetMasterVolume(float linear)
+    public void SetMasterVolume(float linear, bool save = true)
     {
         float dB = Mathf.Log10(Mathf.Clamp(linear, 0.0001f, 1f)) * 20f;
         _audioMixer.SetFloat("Master", dB);
-        PlayerPrefs.SetFloat(KEY_MASTER, linear);
-        PlayerPrefs.Save();
+        if (save) { PlayerPrefs.SetFloat(KEY_MASTER, linear); PlayerPrefs.Save(); }
     }
-    public void SetBGMVolume(float linear)
+    public void SetBGMVolume(float linear, bool save = true)
     {
         float dB = Mathf.Log10(Mathf.Clamp(linear, 0.0001f, 1f)) * 20f;
         _audioMixer.SetFloat("BGM", dB);
-        PlayerPrefs.SetFloat(KEY_BGM, linear);
-        PlayerPrefs.Save();
+        if (save) { PlayerPrefs.SetFloat(KEY_BGM, linear); PlayerPrefs.Save(); }
     }
-    public void SetSFXVolume(float linear)
+    public void SetSFXVolume(float linear, bool save = true)
     {
         float dB = Mathf.Log10(Mathf.Clamp(linear, 0.0001f, 1f)) * 20f;
         _audioMixer.SetFloat("SFX", dB);
-        PlayerPrefs.SetFloat(KEY_SFX, linear);
-        PlayerPrefs.Save();
+        if (save) { PlayerPrefs.SetFloat(KEY_SFX, linear); PlayerPrefs.Save(); }
     }
     #endregion
 }

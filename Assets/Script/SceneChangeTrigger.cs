@@ -15,7 +15,11 @@ public class SceneChangeTrigger : MonoBehaviour
         {
             SoundManager.Instance.StopAllSFX();
             SoundManager.Instance.StopBGM();
+            if (sceneName_ != "Scenes/Final/Sequence1#7")
             SceneManager.LoadScene(sceneName_);
+            else
+                SceneManager.LoadScene(6);
+
             hasReached_ = true;
         }
     }

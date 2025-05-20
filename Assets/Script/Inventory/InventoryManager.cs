@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+#if UNITY_EDITOR
 using static UnityEditor.Progress;
-
+#endif
 [Serializable]
 public class InventoryData
 {
