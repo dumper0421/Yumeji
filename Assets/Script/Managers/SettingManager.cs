@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class SettingManager : Singleton<SettingManager>
 {
-    public Slider MasterSlider;
-    public Slider BgmSlider;
-    public Slider SfxSlider;
+    public KeyboardOnlySlider MasterSlider;
+    public KeyboardOnlySlider BgmSlider;
+    public KeyboardOnlySlider SfxSlider;
     public AudioMixer audioMixer;
 
-    private Slider[] sliders;
+    private KeyboardOnlySlider[] sliders;
     private int selectedIndex = 0;
     private Color normal = Color.white;
     private Color highlighted = Color.yellow;
