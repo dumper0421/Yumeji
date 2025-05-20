@@ -59,6 +59,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Input Keys")]
     public KeyCode advanceKey = KeyCode.Space;
     public KeyCode enterKey = KeyCode.Return;
+    public bool IsStop = false;
 
     private Dictionary<string, Dialogue> _dialogues;
     private Dictionary<string, Sprite> _portraitMap;
@@ -113,7 +114,7 @@ public class DialogueManager : MonoBehaviour
 
         if (_waitingForInput)
         {
-            if (Input.GetKeyDown(advanceKey) || Input.GetKeyDown(enterKey))
+            if (Input.GetKeyDown(advanceKey) || Input.GetKeyDown(enterKey) && !IsStop)
             {
                 _waitingForInput = false;
                 DisplayNext();
@@ -135,9 +136,12 @@ public class DialogueManager : MonoBehaviour
         _waitingForInput = false;
         selectedOption = 0;
         optionButtons.Clear();
-        _playerMove.animator.SetBool("Walking", false);
-        _playerMove.animator.SetBool("Pushing", false);
-        _playerMove.enabled = false; 
+        if (_playerMove != null)
+        {
+            _playerMove.animator.SetBool("Walking", false);
+            _playerMove.animator.SetBool("Pushing", false);
+            _playerMove.enabled = false;
+        }
         DisplayNext();
     }
 
@@ -299,6 +303,7 @@ public class DialogueManager : MonoBehaviour
         leftPortraitImage.gameObject.SetActive(false);
         rightPortraitImage.gameObject.SetActive(false);
         OnDialogueComplete?.Invoke(_current.id);
-        _playerMove.enabled = true ;
+        if (_playerMove != null)
+            _playerMove.enabled = true ;
     }
 }

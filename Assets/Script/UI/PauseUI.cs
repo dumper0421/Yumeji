@@ -28,10 +28,14 @@ public class PauseUI : MonoBehaviour
         };
 
         Action confirmAction = () => {
+            SoundManager.Instance.StopAllSFX();
+            SoundManager.Instance.StopBGM();
             SceneManager.LoadScene("TitleScene");
         };
 
         ConfirmationDialog.SetAction(confirmAction, denyAction);
+
+        Setting = SettingManager.Instance.gameObject.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame

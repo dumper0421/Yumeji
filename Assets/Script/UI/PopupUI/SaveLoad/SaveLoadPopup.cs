@@ -15,6 +15,7 @@ public class SaveLoadPopup : PopupUI
 
     public GameObject SelectBorder;
     public int CurrentSelectIndex = 0;
+    public PlayerMove_Test_Lerp Move;
 
     protected override void OnCloseButtonClicked()
     {
@@ -64,6 +65,8 @@ public class SaveLoadPopup : PopupUI
                         };
 
                         SceneManager.sceneLoaded += loadAction;
+                        SoundManager.Instance.StopAllSFX();
+                        SoundManager.Instance.StopBGM();
                         SceneManager.LoadScene(hasData.CurrentSceneName);
                     });
                 }
@@ -87,10 +90,25 @@ public class SaveLoadPopup : PopupUI
             UpdateSaveSlot(slotIndex);
     }
 
+    private void OnEnable()
+    {
+        if (Move != null)
+            Move.enabled = false;
+    }
+
+    private void OnDisable()
+    {
+        if (Move != null)
+            Move.enabled = true;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
             gameObject.SetActive(false);
+        }
+
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {

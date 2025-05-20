@@ -94,7 +94,6 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 Mirror.StartDialogue = "Mirror_Break";
                 MirrorRenderer.sprite = BrokenMirror;
                 break;
-
         }
         TryProgress();
     }

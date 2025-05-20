@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Choiwoohyck/TitleScene.unity
     guid: 967a7fae957195047a2a9e28cf3cd9ff
   - enabled: 1
+    path: Assets/Scenes/Choiwoohyck/OpeningScene.unity
+    guid: b5a0b95500515a141a608d54f79d3427
+  - enabled: 1
     path: Assets/Scenes/Choiwoohyck/Sequence1S#3_1_CutScene1.unity
     guid: 2c2cdbc9df8446e469ea48962836efb3
   - enabled: 1

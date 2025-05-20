@@ -481,6 +481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopupCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3268988014314548100, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
+      propertyPath: Move
+      value: 
+      objectReference: {fileID: 1955867485}
     - target: {fileID: 8475579109563832552, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
       propertyPath: m_SortingOrder
       value: 4
@@ -1459,7 +1463,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1277631547
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1475547834, guid: 8c89c2a77c2b49647a13423d17e230a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2903,6 +2907,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa52e7ce41e0d2a45bdd1697a8414406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1955867485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2884431256638277996, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
+  m_PrefabInstance: {fileID: 1315902638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955867471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2db8c984dcc3544d83559c1bbe91849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1973267030
