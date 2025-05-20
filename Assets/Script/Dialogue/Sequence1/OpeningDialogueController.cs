@@ -144,8 +144,6 @@ public class OpeningDialogueController : DialogueController<OpeningState>
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(1f);
-        SoundManager.Instance.StopAllSFX();
-        SoundManager.Instance.StopBGM();
         SceneChanger.ChangeScene("Scenes/Choiwoohyck/Sequence1S#3_1_CutScene1");
     }
 }
