@@ -21,11 +21,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Final/Sequence1S#4.unity
     guid: 58a3378ec6589794f9108e9b26b8be11
   - enabled: 1
+    path: Assets/Scenes/Final/Sequence1S#5.unity
+    guid: e78387dcf5e9ecd4bb7676372cc2eef6
+  - enabled: 1
     path: Assets/Scenes/Final/Sequence1S#6.unity
     guid: 24fe31380eeba5d4e9c8c95c654e8b43
   - enabled: 1
     path: Assets/Scenes/Final/Sequence1S#7.unity
     guid: 8b36ca229d9fe8640b30344a8ed2cfc9
+  - enabled: 1
+    path: Assets/Scenes/Final/Sequence1S#8.unity
+    guid: 1afb5ec022a72ad4ba33d355ec11f1c0
+  - enabled: 1
+    path: Assets/Scenes/Final/Sequence1S#9.unity
+    guid: ebab19ae6eb8cdc4f9456a7d82633062
   - enabled: 1
     path: Assets/Scenes/Final/EndingCrediit.unity
     guid: 1c139faaccf26d945aa1e26c318494ac
