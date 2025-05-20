@@ -6,7 +6,7 @@ public class UIObjectMover : MonoBehaviour
 {
     [SerializeField] private RectTransform uiRect;  // 이동할 UI 객체
     [SerializeField, Min(0f)] private float duration = 1f;  // 애니메이션 지속 시간(초)
-
+    public SceneChanger sceneChanger;
     private void Start()
     {
         // 시작 시 자동으로 이동을 원하지 않으면 이 줄을 제거하고,
@@ -48,6 +48,7 @@ public class UIObjectMover : MonoBehaviour
         // 최종 위치 보정
         pos.y = to;
         uiRect.anchoredPosition = pos;
+        sceneChanger.ChangeScene("TitleScene");
     }
 
     /// <summary>

@@ -13,6 +13,8 @@ public class SceneChangeTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !hasReached_)
         {
+            SoundManager.Instance.StopAllSFX();
+            SoundManager.Instance.StopBGM();
             SceneManager.LoadScene(sceneName_);
             hasReached_ = true;
         }

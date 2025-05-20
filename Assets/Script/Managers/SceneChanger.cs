@@ -7,16 +7,22 @@ public class SceneChanger : MonoBehaviour
 {
     public void OnNewGameButtonClicked()
     {
-        SceneManager.LoadScene("Scenes/Choiwoohyck/Sequence1S#3_1_CutScene1");
+        SoundManager.Instance.StopAllSFX();
+        SoundManager.Instance.StopBGM();
+        SceneManager.LoadScene("Scenes/Choiwoohyck/OpeningScene");
     }
 
     public void OnTitleButtonClicked()
     {
+        SoundManager.Instance.StopAllSFX();
+        SoundManager.Instance.StopBGM();
         SceneManager.LoadScene("Scenes/Choiwoohyck/TitleScene");
     } 
 
     public void ChangeScene(string sceneName)
     {
+        SoundManager.Instance.StopAllSFX();
+        SoundManager.Instance.StopBGM();
         SceneManager.LoadScene(sceneName);
     }
 }
