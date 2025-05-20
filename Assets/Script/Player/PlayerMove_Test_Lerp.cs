@@ -22,6 +22,8 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     [SerializeField] private LayerMask flashableLayer;                    // 피사체 탐지용 LayerMask
     [SerializeField] private GameObject flashVFXPrefab;                    // 플래시 VFX 프리팹
     [SerializeField] private float flashDuration = 0.3f;              // VFX 유지 시간(초)
+    [SerializeField] private float flashVFXYOffset = 0.5f; // y축 오프셋 추가
+
     [SerializeField] private float shootCooldown = 2f;  // 쿨타임 (초)
     private float nextShootTime = 0f;
     void Start()
@@ -44,33 +46,19 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         Vector2 targetPos = startPos + direction;
 
         // 1. 자동 밀기 시도
+        /*
         RaycastHit2D pushHit = Physics2D.Raycast(startPos, direction, 1f, LayerMask.GetMask("Pushable"));
-        if (pushHit.collider != null && pushHit.collider.CompareTag("Pushable"))
+        if (pushHit.collider != null)
         {
-            var pushable = pushHit.collider.GetComponent<PushableObject>();
-            if (pushable != null && pushable.TryPush(direction))
+            var box = pushHit.collider.GetComponent<PushableObject>();
+            if (box != null && box.TryPush(direction))
             {
+                // 플레이어는 밀기 애니만 재생하고, 실제 이동은 PushableObject가 처리
                 animator.SetBool("Pushing", true);
-
-                float elapsed = 0f;
-                float duration = 0.5f / speed_;
-                Vector2 origin = transform.position;
-                Vector2 dest = origin + direction;
-
-                while (elapsed < duration)
-                {
-                    transform.position = Vector2.Lerp(origin, dest, elapsed / duration);
-                    elapsed += Time.deltaTime;
-                    yield return null;
-                }
-
-                transform.position = dest;
-                animator.SetBool("Pushing", false);
-                canMove = true;
                 yield break;
             }
         }
-
+        */
         // 2. 이동 가능 체크
         boxCollider.enabled = false;
         RaycastHit2D hit = Physics2D.Linecast(startPos, targetPos, NoPass);
@@ -97,7 +85,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     }
     IEnumerator ShootingCoroutine()
     {
-      yield return null;    
+        yield return null;
     }
 
 
@@ -154,48 +142,48 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         }
         canMove = true;
     }
-    
+
     //촬영 에니메이션 종료시 호출
     public void EndTakeShoot()
     {
- 
+
         canMove = true;
     }
     public void HandleFlash()
     {
-        // 1) 바라보는 방향 구하기
+        // 1) 플레이어가 바라보는 방향 구하기
         Vector2 dir = new Vector2(animator.GetFloat("DirX"), animator.GetFloat("DirY"));
         if (dir == Vector2.zero)
-            dir = Vector2.down;  // 기본 아래
+            dir = Vector2.down;  // 기본 아래 방향
 
-        // 2) OverlapBox 크기 및 중심 계산
+        // 2) OverlapBox 크기 및 중심 계산 (2D)
         Vector2 boxSize = new Vector2(flashTiles.x * tileSize.x, flashTiles.y * tileSize.y);
         Vector2 boxCenter = (Vector2)transform.position + dir * (boxSize.y / 2f);
 
-        // 3) 회전 각도 계산 (Atan2 → 도 단위)
+        // 3) VFX 생성 위치: boxCenter에서 y축 오프셋
+        Vector3 spawnPos = new Vector3(
+            boxCenter.x,
+            boxCenter.y + flashVFXYOffset,
+            transform.position.z
+        );
+
+        // 4) 회전 각도 계산
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        float angleOffset = -90f;  // ▼ 방향 기준이면 -90, → 기준이면 0, ▲이면 +90, ←이면 +180 등
+        float angleOffset = -90f; // 프리팹 기본이 아래(▼)라면 -90, 오른쪽(▶)이면 0, 위(▲)면 +90, 왼쪽(◀)면 +180
         Quaternion rot = Quaternion.Euler(0f, 0f, angle + angleOffset);
 
-        // 4) VFX 생성 및 파괴 예약
+        // 5) VFX 생성 및 소멸 예약
         if (flashVFXPrefab != null)
         {
-            var vfx = Instantiate(flashVFXPrefab, boxCenter, rot);
+            GameObject vfx = Instantiate(flashVFXPrefab, spawnPos, rot);
             Destroy(vfx, flashDuration);
         }
 
-        // 5) Flashable 레이어만 OverlapBoxAll
-        Collider2D[] hits = Physics2D.OverlapBoxAll(
-            boxCenter,
-            boxSize,
-            0f,
-            flashableLayer
-        );
-
-        // 6) IFlashable 호출
+        // 6) Flashable 레이어 탐지
+        Collider2D[] hits = Physics2D.OverlapBoxAll(boxCenter, boxSize, 0f, flashableLayer);
         foreach (var col in hits)
         {
-            var flashable = col.GetComponent<IFlashable>();
+            IFlashable flashable = col.GetComponent<IFlashable>();
             if (flashable != null)
                 flashable.OnPhotoTaken(false);
         }
@@ -218,4 +206,3 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         Gizmos.DrawCube(boxCenter, boxSize);
     }
 }
-

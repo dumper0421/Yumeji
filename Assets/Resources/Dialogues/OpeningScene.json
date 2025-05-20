@@ -1,0 +1,232 @@
+[
+  {
+    "id": "Effect0",
+    "speaker": "",
+    "lines": [{"nextId": "Dialogue1"}],
+    "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue1",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "눈을 감으면, 그날의 빗소리가 귓가에 들려온다.",
+        "nextId": "Effect1"
+      }
+    ]
+  },
+  {
+    "id": "Effect1",
+    "speaker": "",
+   "lines": [{"nextId": "Dialogue2"}],
+     "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue2",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "왠지 울적하기만 한 흐린 날의 장대비였다."
+      },
+      {
+        "text": "나는 그 날 그 카페에서 누군가를 기다리고 있었다.",
+        "nextId": "Effect2"
+      }
+    ]
+  },
+  {
+    "id": "Effect2",
+    "speaker": "",
+     "lines": [{"nextId": "Dialogue3"}],
+       "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue3",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "그녀는 카페 문을 열어 들어오지 않았다."
+      },
+      {
+        "text": "내가 이곳에 앉아 있다는 사실을 애초에 모르는 사람처럼,"
+      },
+      {
+        "text": "아무렇지 않게 스쳐 지나갔다.",
+        "nextId": "Effect3"
+      }
+    ]
+  },
+  {
+    "id": "Effect3",
+    "speaker": "",
+      "lines": [{"nextId": "Dialogue4"}],
+        "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue4",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "“잠시만...!”",
+        "nextId": "Effect4"
+      }
+    ]
+  },
+  {
+    "id": "Effect4",
+    "speaker": "",
+     "lines": [{"nextId": "Dialogue5"}],
+       "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue5",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "거짓말처럼 눈앞의 빗줄기들이 공중에 멈춰 있었다.",
+        "nextId": "Effect5"
+      }
+    ]
+  },
+  {
+    "id": "Effect5",
+    "speaker": "",
+       "lines": [{"nextId": "Dialogue6"}],
+         "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue6",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "이어서 내가 무얼 봤는지 말해도 아무도 믿지 않을 것이다.",
+        "nextId": "Effect6"
+      }
+    ]
+  },
+  {
+    "id": "Effect6",
+    "speaker": "",
+      "lines": [{"nextId": "Dialogue7"}],
+        "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue7",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "“넌 누구의 기억에도 있지 않아.”"
+      },
+      {
+        "text": "점점 내 머릿속 어딘가가 완전히 망가져 버린 듯한 감각에 사로 잡혔다.",
+        "nextId": "Effect7"
+      }
+    ]
+  },
+  {
+    "id": "Effect7",
+    "speaker": "",
+      "lines": [{"nextId": "Dialogue8"}],
+        "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue8",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "기억 나는 것들은 흐려지고 기억하지 못하는 것들로만 구성된,",
+        "nextId": "Effect8"
+      }
+    ]
+  },
+  {
+    "id": "Effect8",
+    "speaker": "",
+    "lines": [{"nextId": "Dialogue9"}],
+      "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue9",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "그런 장소에 도착한 느낌이었다.",
+        "nextId": "Effect9"
+      }
+    ]
+  },
+  {
+    "id": "Effect9",
+    "speaker": "",
+   "lines": [{"nextId": "Dialogue10"}],
+     "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue10",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "나는 어느새 꿈 속에 또 와 있었다."
+      },
+      {
+        "text": "나는 깨어난 뒤 기억하지 못할 꿈을 오늘도 스스로 꾸고 있었다."
+      },
+      {
+        "text": "혹시 나는 깨어 있는 것일까?",
+        "nextId": "Effect10"
+      }
+    ]
+  },
+  {
+    "id": "Effect10",
+    "speaker": "",
+    "lines": [{"nextId": "Dialogue11"}],
+      "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue11",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "아니면, 이제야 꿈을 꾸기 시작한걸까?"
+      },
+      {
+        "text": "“루나…?”",
+        "nextId": "Effect11"
+      }
+    ]
+  },
+  {
+    "id": "Effect11",
+    "speaker": "",
+    "lines": [{"nextId": "Dialogue12"}],
+      "autoAdvance":"true",
+    "autoAdvanceDelay":"1"
+  },
+  {
+    "id": "Dialogue12",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "나는 어쩌면 단 한 번도 깨어본 적이 없는지도 모른다.",
+        "nextId": "Effect12"
+      }
+    ]
+  },
+  {
+    "id": "Effect12",
+    "speaker": "",
+    "lines": [{"nextId":"End"}]
+  }
+]

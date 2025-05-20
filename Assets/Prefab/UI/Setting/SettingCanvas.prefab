@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -196,7 +196,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7309950376445108192}
-  - component: {fileID: 1448832477276718714}
+  - component: {fileID: 4927800413728803724}
+  - component: {fileID: 9182226065231240910}
   m_Layer: 5
   m_Name: SFX Slider
   m_TagString: Untagged
@@ -226,7 +227,7 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: 95}
   m_SizeDelta: {x: 500, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1448832477276718714
+--- !u!114 &4927800413728803724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,7 +236,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2828640141480569110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9182226065231240910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2828640141480569110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddce4fd1335bef44c98350cf7de7571f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -695,7 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -720,6 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4087091952669017036}
+  - component: {fileID: 1549087929138152438}
   m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
@@ -747,6 +761,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1549087929138152438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065297423911426313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4603467727742619225
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,9 +888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1e78e92d2c41147bf94ce35593fb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MasterSlider: {fileID: 3292072748576499235}
-  BgmSlider: {fileID: 5492321348997870629}
-  SfxSlider: {fileID: 1448832477276718714}
+  MasterSlider: {fileID: 3709227818032625513}
+  BgmSlider: {fileID: 6921871875390372815}
+  SfxSlider: {fileID: 9182226065231240910}
   audioMixer: {fileID: 24100000, guid: 15940718ca627614298724d8bdae3b30, type: 2}
 --- !u!1 &4923641137276495401
 GameObject:
@@ -877,6 +903,7 @@ GameObject:
   - component: {fileID: 1568731984795234604}
   - component: {fileID: 6592442380339644098}
   - component: {fileID: 1554292495699803461}
+  - component: {fileID: 5158250492962289150}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -925,7 +952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -941,6 +968,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5158250492962289150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923641137276495401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4959465763332533405
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315341250111006937}
+  - component: {fileID: 7939457502213661368}
   m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
@@ -977,6 +1017,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7939457502213661368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4959465763332533405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5623538761925165488
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1040,7 @@ GameObject:
   - component: {fileID: 6780565808178759987}
   - component: {fileID: 7791335555862909789}
   - component: {fileID: 8132660155918312043}
+  - component: {fileID: 3631790455034497315}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1036,7 +1089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1052,6 +1105,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3631790455034497315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5623538761925165488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5724016906040892510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1128,7 @@ GameObject:
   - component: {fileID: 5366994764331051374}
   - component: {fileID: 5067670137440491675}
   - component: {fileID: 9024819223351562644}
+  - component: {fileID: 7599426243007570674}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1111,7 +1177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1127,6 +1193,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7599426243007570674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724016906040892510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5933900969660017900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1596,7 +1674,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8126715801435806567}
-  - component: {fileID: 3292072748576499235}
+  - component: {fileID: 3621932109609279630}
+  - component: {fileID: 3709227818032625513}
   m_Layer: 5
   m_Name: Mix Slider
   m_TagString: Untagged
@@ -1626,7 +1705,7 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: 255}
   m_SizeDelta: {x: 500, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3292072748576499235
+--- !u!114 &3621932109609279630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1635,7 +1714,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7391405921947066160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3709227818032625513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391405921947066160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddce4fd1335bef44c98350cf7de7571f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1686,7 +1777,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 861048877369894418}
-  - component: {fileID: 5492321348997870629}
+  - component: {fileID: 2103665401304968735}
+  - component: {fileID: 6921871875390372815}
   m_Layer: 5
   m_Name: VFX Slider
   m_TagString: Untagged
@@ -1716,7 +1808,7 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: 175}
   m_SizeDelta: {x: 500, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5492321348997870629
+--- !u!114 &2103665401304968735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1725,7 +1817,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7515981993843705004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6921871875390372815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7515981993843705004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddce4fd1335bef44c98350cf7de7571f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1903,7 +2007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1928,6 +2032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5008053829047420169}
+  - component: {fileID: 3794194751985928341}
   m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
@@ -1955,6 +2060,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3794194751985928341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648897139549907436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d002c0ec237a84c8edcac8cd55de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8696429351434967525
 GameObject:
   m_ObjectHideFlags: 0
