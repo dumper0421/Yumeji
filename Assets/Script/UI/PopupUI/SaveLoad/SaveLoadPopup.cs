@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+#if UNITY_EDITOR
 using static UnityEditor.Progress;
-
+#endif
 public class SaveLoadPopup : PopupUI
 {
     public bool IsSave = true;

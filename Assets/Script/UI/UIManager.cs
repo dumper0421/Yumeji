@@ -41,7 +41,7 @@ public class UIManager : Singleton<UIManager>
             _selectBorder.GetComponent<RectTransform>().localPosition = Vector3.zero;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) && GameOverUI.activeSelf)
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && GameOverUI.activeSelf)
         {
             _selectbutton.onClick.Invoke();
         }

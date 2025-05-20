@@ -48,7 +48,7 @@ public class UIObjectMover : MonoBehaviour
         // 최종 위치 보정
         pos.y = to;
         uiRect.anchoredPosition = pos;
-        sceneChanger.ChangeScene("TitleScene");
+        sceneChanger.ChangeScene("Scenes/Final/TitleScene");
     }
 
     /// <summary>

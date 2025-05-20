@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
+
 
 public class MainMenuController : MonoBehaviour
 {
@@ -78,5 +78,10 @@ public class MainMenuController : MonoBehaviour
         CurrentSelectIndex = (CurrentSelectIndex + offset + buttons_.Length) % buttons_.Length;
         SelectBorder.transform.SetParent(buttons_[CurrentSelectIndex].transform);
         SelectBorder.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+    }
+
+    public void GameQuit()
+    {
+        Application.Quit();
     }
 }
