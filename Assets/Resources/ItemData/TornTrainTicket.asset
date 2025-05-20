@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemId: 2
   ItemName: "\uCC22\uC5B4\uC9C4 \uAE30\uCC28\uD45C"
-  Description: "\uCC22\uC5B4\uC9C4 \uAE30\uCC28\uD45C\uB2E4."
+  Description: "\uBD88\uD655\uC2E4\uD55C \uC5EC\uC815\uC758 \uC2DC\uC791\uC744 \uC608\uACE0\uD558\uB294
+    \uB4EF\uD55C \uCC22\uC5B4\uC838 \uC788\uB294 \uB0A1\uC740 \uAE30\uCC28\uD45C\uB2E4."
   IsConsumable: 0

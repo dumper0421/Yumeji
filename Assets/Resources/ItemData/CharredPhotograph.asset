@@ -14,20 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemId: 2
   ItemName: "\uADF8\uC744\uB9B0\uC0AC\uC9C4"
-  Description: "\uADF8\uC744\uB9B0\uC0AC\uC9C4\uC774\uB2E4."
+  Description: "\uC2EC\uD558\uAC8C \uADF8\uC744\uB9B0 \uB0A1\uC740 \uC0AC\uC9C4.
+    \uC5B4\uB5A4 \uAE30\uC5B5\uC774 \uB2F4\uACA8 \uC788\uC5C8\uB294\uC9C0, \uC9C0\uAE08\uC740
+    \uC54C \uC218 \uC5C6\uB2E4."
   IsConsumable: 0
-  OnUse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
