@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 [RequireComponent(typeof(Collider2D), typeof(AudioSource))]
 public class ButtonController : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private AudioClip pressSfx;
     private AudioSource audioSource;
 
+    [Header("Script to Disable on Activator")]
+    [SerializeField] private PushableObject pushableObject;
+    [Header("삭제딜레이시간")]
+    [SerializeField] private float disableDelay = 0.5f;
+
     [Header("Scene9Controller 참조")]
     [SerializeField] private Sequence1Scene9Controller scene9Controller;
 
@@ -33,6 +39,14 @@ public class ButtonController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.loop = false;
+
+        //삭제할 스크립트
+        if (activatorObject != null)
+        {
+            pushableObject = activatorObject.GetComponent<PushableObject>();
+            if (pushableObject == null)
+                Debug.LogError($"[ButtonController] '{activatorObject.name}'에 PushableObject 컴포넌트가 없습니다!");
+        }
     }
 
     private bool IsActivator(Collider2D other)
@@ -63,12 +77,19 @@ public class ButtonController : MonoBehaviour
             // 4) Scene9Controller 에 BGM 교체 요청 (한 번만 호출)
             if (scene9Controller != null)
                 scene9Controller.ChangeBGMToButtonClip();
+
+            // 5) 밀기 해제하고 위치 고정
+            var ps = activatorObject.GetComponent<PushableObject>();
+            if (pushableObject != null)
+                StartCoroutine(DestroyPushableAfterDelay());
         }
     }
 
-    // 눌린 상태를 유지하기 위해 비워두거나 주석 처리
-    void OnTriggerExit2D(Collider2D other)
+    
+    private IEnumerator DestroyPushableAfterDelay()
     {
-        // 아무 동작 안 함
+        yield return new WaitForSeconds(disableDelay);
+        if (pushableObject != null)
+            Destroy(pushableObject);
     }
 }
