@@ -79,8 +79,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             case "Fireplace_Lit":
                 FirePlace.StartDialogue = "Fireplace2";
                 FirePlaceAnimator.enabled = true;
-                FirePlace.IsDisposable = true;
-                FirePlace.hasBeenInspected = false;
+
                 break;
             case "LPPlayerPlaying":
                 SoundManager.Instance.StopAllSFX();
@@ -118,6 +117,8 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             case "Fireplace_Phtograph":
                 CharredPhotographData.Use();
                 OnPuzzleComplete();
+                FirePlace.IsDisposable = true;
+                FirePlace.hasBeenInspected = false;
                 break;
         }
     }

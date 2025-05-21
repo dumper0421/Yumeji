@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
 {
     public GameObject SelectBorder;
     public GameObject SaveLoadPopUp;
-
+    public AudioClip BGM;
 
     private Button[] buttons_;
     private int CurrentSelectIndex = 0;
@@ -18,24 +18,13 @@ public class MainMenuController : MonoBehaviour
     {
         buttons_ = GetComponentsInChildren<Button>();
         Time.timeScale = 1f;
-        //foreach (Button btn in buttons_)
-        //{
-        //    EventTrigger trigger = btn.gameObject.GetComponent<EventTrigger>();
-        //    if (trigger == null)
-        //    {
-        //        trigger = btn.gameObject.AddComponent<EventTrigger>();
-        //    }
+        Screen.SetResolution(1344, 960,true);
+    }
 
-        //    EventTrigger.Entry entryEnter = new EventTrigger.Entry();
-        //    entryEnter.eventID = EventTriggerType.PointerEnter;
-        //    entryEnter.callback.AddListener((data) => { OnButtonPointerEnter(btn); });
-        //    trigger.triggers.Add(entryEnter);
-
-        //    EventTrigger.Entry entryExit = new EventTrigger.Entry();
-        //    entryExit.eventID = EventTriggerType.PointerExit;
-        //    entryExit.callback.AddListener((data) => { OnButtonPointerExit(btn); });
-        //    trigger.triggers.Add(entryExit);
-        //}
+    public void Start()
+    {
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM(BGM);
     }
 
     public void Update()

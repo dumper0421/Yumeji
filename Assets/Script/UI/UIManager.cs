@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    public AudioClip BGM;
     public GameObject GameOverUI;
     public GameObject MainCanvas;
 
@@ -26,6 +27,8 @@ public class UIManager : Singleton<UIManager>
     public void OpenGameOverUI()
     {
         GameOverUI.SetActive(true);
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM(BGM);
     }
 
     public void Update()

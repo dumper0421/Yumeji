@@ -15,7 +15,7 @@ public abstract class SceneController : MonoBehaviour
     protected GameObject Player;
 
     protected PlayerMove_Test_Lerp playerMoveTestLerp;
-    protected Animator playerAnimator;
+    public Animator playerAnimator;
 
     public List<CinemachineVirtualCamera> cinemachineCameras;
 
@@ -32,8 +32,10 @@ public abstract class SceneController : MonoBehaviour
     protected virtual IEnumerator StopPlayer()
     {
         Player.GetComponent<PlayerMove_Test_Lerp>().enabled = false;
+        playerAnimator.enabled = false;
         yield return new WaitForSeconds(stopInterval);
         Player.GetComponent<PlayerMove_Test_Lerp>().enabled = true;
+        playerAnimator.enabled = true;
 
         OnStopIntervalReached();
     }

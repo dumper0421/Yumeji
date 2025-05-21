@@ -1311,6 +1311,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7196348081079666127}
     m_Modifications:
+    - target: {fileID: 390997429407233789, guid: aa22503375beca4449c7b49265bdd882, type: 3}
+      propertyPath: m_text
+      value: "\uC774\uB3D9"
+      objectReference: {fileID: 0}
     - target: {fileID: 1647952593936100960, guid: aa22503375beca4449c7b49265bdd882, type: 3}
       propertyPath: m_text
       value: "\uD0C0\uC774\uD2C0\uB85C \uD654\uBA74\uC73C\uB85C \uC774\uB3D9\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"

@@ -22,7 +22,9 @@ public class Sequence1Scene6Controller : SceneController
 
     private void Start()
     {
+        base.Start();
         playerAnimator.SetFloat("DirY", 1);
+        playerMoveTestLerp.enabled = false;
         playerAnimator.enabled = false;
         StartCoroutine(StopPlayer());
     }
@@ -41,6 +43,8 @@ public class Sequence1Scene6Controller : SceneController
         {
             Player.GetComponent<SpriteRenderer>().color = new Color(217f / 255f, 187f/255f, 187f/255f,255f/255f);
         }
+
+
     }
 
     protected override void OnStopIntervalReached()
