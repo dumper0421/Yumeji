@@ -934,6 +934,7 @@ MonoBehaviour:
   stopInterval: 1
   bgm: {fileID: 8300000, guid: 391768dfb8d56ed4493ccae95f8cb64b, type: 3}
   Player: {fileID: 597769904}
+  playerAnimator: {fileID: 0}
   cinemachineCameras:
   - {fileID: 908237737}
   - {fileID: 995360497}
@@ -2878,7 +2879,7 @@ Transform:
   m_GameObject: {fileID: 1059056000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5985174, y: 0, z: -10}
+  m_LocalPosition: {x: 6.4888873, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4500,6 +4501,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.7129354, y: 24.488564}
   m_EdgeRadius: 0
+--- !u!1 &1719629239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 391591740894976054, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+  m_PrefabInstance: {fileID: 5991936863290003419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1740741901
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,6 +4674,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8924631706732914487, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
   m_PrefabInstance: {fileID: 5991936863290003419}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1785623971
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719629239}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1811805572
 GameObject:
   m_ObjectHideFlags: 0
@@ -5116,6 +5218,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6604518497875263998, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: turnToStoneSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: d555aa153cf162c429cdb49675dd396d, type: 3}
     - target: {fileID: 8924631706732914487, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -5177,6 +5283,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 391591740894976054, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1785623971}
     - targetCorrespondingSourceObject: {fileID: 9010395210115101903, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
       insertIndex: -1
       addedObject: {fileID: 394123190}
