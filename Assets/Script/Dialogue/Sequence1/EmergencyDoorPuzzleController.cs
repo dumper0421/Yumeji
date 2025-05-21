@@ -100,6 +100,9 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
                 state = EmergencyDoorState.BusInteracted;
                 StartCoroutine(PlayBusSequence());
                 break;
+            case "Wall_Hint":
+                Scooter.StartCoroutine(Scooter.Flash());
+                break;
 
         }
 

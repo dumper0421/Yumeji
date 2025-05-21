@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1208182332}
-  nextSceneName: EndingCrediit
+  nextSceneName: TitleScene
 --- !u!328 &1208182332
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208182330}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: cffd1619a93f6f84ab4d0508382e7bd1, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 47ceaf8dcd12c0b499a6464552fab436, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 400461607}
