@@ -2466,6 +2466,7 @@ MonoBehaviour:
   CarHornClip: {fileID: 8300000, guid: b28a1459d3fbd2148bb80347af557459, type: 3}
   CrashClip: {fileID: 8300000, guid: a19152a34c0dfb749abd808df0c4a71e, type: 3}
   Bus: {fileID: 1154757946}
+  YellowCar: {fileID: 1747621680}
   SceneChangeTrigger: {fileID: 1849643106}
 --- !u!1 &1154757936 stripped
 GameObject:
@@ -3315,7 +3316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDisposable: 1
+  IsDisposable: 0
   hasBeenInspected: 0
   StartDialogue: CarE
   DialogueManager: {fileID: 1115952508}

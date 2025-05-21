@@ -34,6 +34,8 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     public AudioClip CrashClip;
 
     public DialogueObject Bus;
+    public DialogueObject YellowCar;
+
     public GameObject SceneChangeTrigger;
 
     private int _yellowCarInteractionCount = 0;
@@ -74,6 +76,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
+
         switch (dialogueId)
         {
             case "EmergencyDoor":
@@ -131,6 +134,8 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
         // 3) 다음 대화
         dialogueManager.StartDialogue("CarE_AfterKnock");
         state = EmergencyDoorState.CarEKnocked;
+
+        YellowCar.IsDisposable = true;
     }
 
     private IEnumerator PlayBusSequence()

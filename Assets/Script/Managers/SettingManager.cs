@@ -16,11 +16,6 @@ public class SettingManager : Singleton<SettingManager>
     private Color normal = Color.white;
     private Color highlighted = Color.yellow;
 
-    public void OnDisable()
-    {
-        Debug.Log("½Ã¹ß");
-    }
-
     protected override void Init()
     {
         DontDestroyOnLoad(gameObject);
