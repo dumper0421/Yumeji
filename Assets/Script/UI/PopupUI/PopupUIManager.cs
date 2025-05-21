@@ -45,6 +45,7 @@ public class PopupUIManager : Singleton<PopupUIManager>
             SaveLoadManager.Instance.SaveGame(slotNum);
             saveLoadPopup_.GetComponent<SaveLoadPopup>().AllUpdateSaveSlot();
             saveDialog.gameObject.SetActive(false);
+            BlockImage.gameObject.SetActive(false);
         };
 
         saveDialog.SetAction(confirmAction, denyAction);

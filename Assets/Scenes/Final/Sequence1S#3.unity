@@ -2616,7 +2616,7 @@ MonoBehaviour:
   CarHornClip: {fileID: 8300000, guid: b28a1459d3fbd2148bb80347af557459, type: 3}
   CrashClip: {fileID: 8300000, guid: a19152a34c0dfb749abd808df0c4a71e, type: 3}
   Bus: {fileID: 1154757946}
-  YellowCar: {fileID: 0}
+  YellowCar: {fileID: 1747621680}
   SceneChangeTrigger: {fileID: 1849643106}
 --- !u!1 &1154757936 stripped
 GameObject:
@@ -2754,6 +2754,7 @@ MonoBehaviour:
   stopInterval: 1
   bgm: {fileID: 8300000, guid: 91da3de867d806544879cc16a99b58fe, type: 3}
   Player: {fileID: 177639301}
+  playerAnimator: {fileID: 0}
   cinemachineCameras: []
   cinemachineBase: {fileID: 1007308792}
 --- !u!4 &1247918224
@@ -3482,7 +3483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDisposable: 1
+  IsDisposable: 0
   hasBeenInspected: 0
   StartDialogue: CarE
   DialogueManager: {fileID: 1115952508}
@@ -3508,7 +3509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDisposable: 1
+  IsDisposable: 0
   hasBeenInspected: 0
   StartDialogue: CarB
   DialogueManager: {fileID: 1115952508}
@@ -4047,14 +4048,14 @@ PrefabInstance:
     - target: {fileID: 914170508783254819, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 1ddce715c39f05c4ba99d34bdc1d2dd2, type: 2}
+      objectReference: {fileID: 11400000, guid: 27422331b44656e41a46b3a1b52ea51b, type: 2}
     - target: {fileID: 914170508783254819, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -8892034061087294220, guid: 1ddce715c39f05c4ba99d34bdc1d2dd2, type: 2}
     - target: {fileID: 914170508783254819, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_Name
@@ -4167,7 +4168,7 @@ PrefabInstance:
     - target: {fileID: 8749016988487707270, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 1ddce715c39f05c4ba99d34bdc1d2dd2, type: 2}
+      objectReference: {fileID: 11400000, guid: 27422331b44656e41a46b3a1b52ea51b, type: 2}
     - target: {fileID: 8749016988487707270, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
