@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1308849473
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ce20bd5291e67454d8cbdcf6fe16b901, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -133,6 +133,7 @@ MonoBehaviour:
   MoveSpeed: 8
   TriggerPosition: {x: -24, y: 0}
   Player: {fileID: 0}
+  SFX: {fileID: 8300000, guid: 36bf0201eeda16740a56fa6108576018, type: 3}
 --- !u!61 &1706694727114810330
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 249758364}
   - component: {fileID: 249758366}
   - component: {fileID: 249758367}
+  - component: {fileID: 249758368}
   m_Layer: 6
   m_Name: StationSign
   m_TagString: Untagged
@@ -558,8 +559,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1277631547
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aac54b04566718f4ba01c5f32bb302bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -619,7 +620,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.87465954}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -630,7 +631,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 6}
+  m_Size: {x: 6, y: 1.7435055}
   m_EdgeRadius: 0
 --- !u!114 &249758367
 MonoBehaviour:
@@ -648,6 +649,18 @@ MonoBehaviour:
   hasBeenInspected: 0
   StartDialogue: StationSign
   DialogueManager: {fileID: 1586323521}
+--- !u!114 &249758368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249758363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &317073497
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +882,7 @@ MonoBehaviour:
   stopInterval: 3
   bgm: {fileID: 8300000, guid: ba2975f55760840498292883365e52d8, type: 3}
   Player: {fileID: 177639301}
+  playerAnimator: {fileID: 0}
   cinemachineCameras: []
 --- !u!1 &414480095
 GameObject:
@@ -3125,7 +3139,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9095184870159856914, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1565904548}
   m_SourcePrefab: {fileID: 100100000, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
 --- !u!114 &1565904541 stripped
 MonoBehaviour:
@@ -3136,6 +3153,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2db8c984dcc3544d83559c1bbe91849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1565904548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177639301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa52e7ce41e0d2a45bdd1697a8414406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1585000056
@@ -3300,6 +3329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213503747031161010, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -42.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_Name
       value: Dialogue Canvas
@@ -3307,6 +3340,10 @@ PrefabInstance:
     - target: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207024855879427480, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4940917532608049192, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: _playerMove

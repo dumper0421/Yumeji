@@ -45,6 +45,12 @@ public class Sequence1Scene6Controller : SceneController
         }
 
 
+        if (Enemy.transform.position.x <= -110.2f)
+        {
+            Enemy.GetComponent<SpriteRenderer>().color = new Color(217f / 255f, 187f / 255f, 187f / 255f, 255f / 255f);
+        }
+
+
     }
 
     protected override void OnStopIntervalReached()

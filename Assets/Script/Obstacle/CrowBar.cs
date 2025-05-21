@@ -11,6 +11,9 @@ public class CrowBar : MoveObstacle
     private SpriteRenderer _renderer;
     private BoxCollider2D _collider;
 
+    public AudioClip SFX;
+    private bool _sfxplay = false;
+
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
@@ -29,6 +32,13 @@ public class CrowBar : MoveObstacle
             IsStart = true;
             _renderer.enabled = true;
             _collider.enabled = true;
+
+            if(!_sfxplay)
+            {
+                SoundManager.Instance.PlaySFX(SFX);
+                _sfxplay = true;
+            }
+         
         }
 
         base.Update();

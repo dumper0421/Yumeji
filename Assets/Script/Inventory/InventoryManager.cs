@@ -35,6 +35,7 @@ public class ItemDataSerializable
 public class InventoryManager : Singleton<InventoryManager>
 {
     public GameObject ItemSlotPrefab;
+    public GameObject BackGround;
     [SerializeField] private Transform _slotSectionTransform;
     public List<ItemSlot> _slots = new List<ItemSlot>();
     public int CurrentSelectIndex = 0;
@@ -59,6 +60,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void Update()
     {
+        if (!BackGround.gameObject.activeSelf) return;
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             MoveSelectBorder(1);
@@ -168,6 +170,9 @@ public class InventoryManager : Singleton<InventoryManager>
 
         // 3) 항상 count=1로 세팅
         slot.SetItem(data, 1);
+
+        int slotIndex = _slots.IndexOf(slot);
+        MoveSelectBorderTo(slotIndex);
     }
 
     public void MoveSelectBorder(int offset)
@@ -217,4 +222,22 @@ public class InventoryManager : Singleton<InventoryManager>
             }
         }
     }
+
+    public void MoveSelectBorderTo(int newIndex)
+    {
+        // 유효 범위 체크
+        if (newIndex < 0 || newIndex >= _slots.Count) return;
+        if (_slots[newIndex].IsEmpty) return;
+
+        CurrentSelectIndex = newIndex;
+
+        // 설명 갱신
+        DescriptionText.text = _slots[newIndex].GetItemData().Description;
+
+        // 커서 위치 옮기기
+        SelectBorder.transform.SetParent(_slots[newIndex].transform, false);
+        SelectBorder.transform.localPosition = Vector3.zero;
+        SelectBorder.SetActive(true);
+    }
+
 }

@@ -570,6 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemSlotPrefab: {fileID: 5141586941245766565, guid: 605fa41cd3247db4c85ade57599440f8, type: 3}
+  BackGround: {fileID: 1543890816108379902}
   _slotSectionTransform: {fileID: 6609567404532145005}
   _slots:
   - {fileID: 1195892624562418416}

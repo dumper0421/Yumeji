@@ -6,13 +6,14 @@ public class MovingChair : MonoBehaviour
 {
     public GameObject Player;
     public Vector3 Offset;
+    public AudioClip SFX;
 
     public float StartRange;
     public float LerpSpeed = 0.01f;
 
     private bool _hasStart = false;
     private bool _hasEnd = false;
-
+    private bool _playSFX = false;
 
     private Vector3 _targetPos;
 
@@ -26,6 +27,11 @@ public class MovingChair : MonoBehaviour
         if (Vector3.Distance(Player.transform.position,transform.position) < StartRange)
         {
             _hasStart = true;
+            if (!_playSFX)
+            {
+                SoundManager.Instance.PlaySFX(SFX);
+                _playSFX = true;
+            }
         }
 
         if (_hasStart)

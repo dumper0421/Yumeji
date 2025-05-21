@@ -102,6 +102,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
                 break;
             case "Wall_Hint":
                 Scooter.StartCoroutine(Scooter.Flash());
+                SoundManager.Instance.PlaySFX(HornClip);
                 break;
 
         }
