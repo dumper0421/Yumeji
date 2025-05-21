@@ -155,5 +155,15 @@
     "id": "EmergencyDoor_PuzzleHint",
     "speaker": "",
     "lines": []
+  },
+   {
+    "id": "Wall_Hint",
+    "speaker": "",
+    "lines": [
+      { "text": "문이 잠겨있다. 나의 힘으로는 열리지 않는 듯 하다.", "showPortrait": false },
+      { "text": "열쇠 구멍도 없어서 큰 충격을 줘서 열어봐야 할 것 같다.", "showPortrait": false },
+      { "text": "문에 쪽지가 끼어져 있다.", "showPortrait": false },
+      { "text": "<내가 가장 좋아했던 색깔은?>", "showPortrait": false }
+    ]
   }
 ]
