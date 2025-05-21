@@ -103,12 +103,18 @@ public class DialogueManager : MonoBehaviour
 
         if (optionPanel.gameObject.activeSelf && optionButtons.Count > 0)
         {
+            if (_playerMove != null)
+                _playerMove.enabled = false;
             if (Input.GetKeyDown(KeyCode.DownArrow))
                 ChangeSelection(1);
             else if (Input.GetKeyDown(KeyCode.UpArrow))
                 ChangeSelection(-1);
             else if (Input.GetKeyDown(advanceKey) || Input.GetKeyDown(enterKey))
+            {
                 optionButtons[selectedOption].onClick.Invoke();
+                if (_playerMove != null)
+                    _playerMove.enabled = true;
+            }
             return;
         }
 

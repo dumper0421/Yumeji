@@ -17,7 +17,7 @@ public class MainMenuController : MonoBehaviour
     private void Awake()
     {
         buttons_ = GetComponentsInChildren<Button>();
-
+        Time.timeScale = 1f;
         //foreach (Button btn in buttons_)
         //{
         //    EventTrigger trigger = btn.gameObject.GetComponent<EventTrigger>();

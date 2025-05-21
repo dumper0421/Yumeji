@@ -82,7 +82,7 @@ public class SettingManager : Singleton<SettingManager>
         if (dir != 0)
         {
             var s = sliders[selectedIndex];
-            s.value = Mathf.Clamp01(s.value + dir * Time.deltaTime);
+            s.value = Mathf.Clamp01(s.value + dir * 0.002f);
             // 슬라이더 onValueChanged가 호출되어 SoundManager와 PlayerPrefs에 자동 저장/적용됨
         }
 

@@ -63,7 +63,11 @@ public class SoundManager : Singleton<SoundManager>
         _bgmSource.Play();
     }
     public void PauseBGM() => _bgmSource.Pause();
-    public void StopBGM() => _bgmSource.Stop();
+    public void StopBGM()
+    {
+        if (_bgmSource != null)
+             _bgmSource.Stop();
+    }
     #endregion
 
     #region SFX (동시 재생)
@@ -75,7 +79,14 @@ public class SoundManager : Singleton<SoundManager>
         src.PlayOneShot(clip);
         _sfxSources.Enqueue(src);
     }
-    public void StopAllSFX() { foreach (var src in _sfxSources) src.Stop(); }
+    public void StopAllSFX() 
+    {
+        foreach (var src in _sfxSources)
+        {
+            if (src != null)
+                src.Stop(); 
+        }
+    }
     #endregion
 
     #region Sequential SFX
