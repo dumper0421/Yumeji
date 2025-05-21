@@ -16,21 +16,25 @@ public class SettingManager : Singleton<SettingManager>
     private Color normal = Color.white;
     private Color highlighted = Color.yellow;
 
+    public void OnDisable()
+    {
+        Debug.Log("시발");
+    }
+
     protected override void Init()
     {
         DontDestroyOnLoad(gameObject);
         sliders = new[] { MasterSlider, BgmSlider, SfxSlider };
 
         // 저장된 설정 로드 및 오디오 매니저에 적용
-        LoadSettings();
 
         // 슬라이더 이벤트 연결
         MasterSlider.onValueChanged.AddListener(v => SoundManager.Instance.SetMasterVolume(v));
-        MasterSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("MasterVolume", v));
+        MasterSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("Master", v));
         BgmSlider.onValueChanged.AddListener(v => SoundManager.Instance.SetBGMVolume(v));
-        BgmSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("BGMVolume", v));
+        BgmSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("BGM", v));
         SfxSlider.onValueChanged.AddListener(v => SoundManager.Instance.SetSFXVolume(v));
-        SfxSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("SFXVolume", v));
+        SfxSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("SFX", v));
 
         UpdateHighlight();
 
@@ -38,11 +42,16 @@ public class SettingManager : Singleton<SettingManager>
             BackGround = transform.GetChild(0).gameObject;
     }
 
+    public void Start()
+    {
+        LoadSettings();
+    }
+
     private void LoadSettings()
     {
-        float master = PlayerPrefs.GetFloat("MasterVolume", MasterSlider.value);
-        float bgm = PlayerPrefs.GetFloat("BGMVolume", BgmSlider.value);
-        float sfx = PlayerPrefs.GetFloat("SFXVolume", SfxSlider.value);
+        float master = PlayerPrefs.GetFloat("Master", MasterSlider.value);
+        float bgm = PlayerPrefs.GetFloat("BGM", BgmSlider.value);
+        float sfx = PlayerPrefs.GetFloat("SFX", SfxSlider.value);
 
         MasterSlider.value = master;
         BgmSlider.value = bgm;
@@ -70,8 +79,10 @@ public class SettingManager : Singleton<SettingManager>
         }
 
         float dir = 0;
-        if (Input.GetKey(KeyCode.RightArrow)) dir = +1;
-        else if (Input.GetKey(KeyCode.LeftArrow)) dir = -1;
+        if (Input.GetKey(KeyCode.RightArrow)) 
+            dir = +1;
+        else if (Input.GetKey(KeyCode.LeftArrow)) 
+            dir = -1;
 
         if (dir != 0)
         {

@@ -46,13 +46,18 @@ public class PauseUI : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
                 SaveLoadPopup.gameObject.SetActive(false);
 
+
             return;
         }
 
         if (!BackGround.gameObject.activeSelf && !SaveLoadPopup.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
+            {
                 BackGround.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+            }
+
             return;
         }
 
@@ -73,6 +78,7 @@ public class PauseUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ClosePauseUI();
+            Time.timeScale = 1f;
         }
     }
 
