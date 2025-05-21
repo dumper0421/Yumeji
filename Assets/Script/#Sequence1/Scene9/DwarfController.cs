@@ -14,6 +14,11 @@ public class DwarfController : MonoBehaviour, IFlashable
     [Tooltip("돌로 변하는 애니메이션 길이(초)")]
     [SerializeField] private float turnAnimDuration = 1f;
 
+    [Header("Sound Settings")]
+    [Tooltip("돌로 변할 때 재생할 SFX")]
+    [SerializeField] private AudioClip turnToStoneSFX;
+    private AudioSource audioSource;
+
     private bool isStatue = false;
     private Collider2D parentCollider;
 
@@ -23,7 +28,10 @@ public class DwarfController : MonoBehaviour, IFlashable
         aliveChild.SetActive(true);
         statueChild.SetActive(false);
         isStatue = false;
+
         parentCollider = GetComponent<Collider2D>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // IFlashable
@@ -34,7 +42,12 @@ public class DwarfController : MonoBehaviour, IFlashable
 
         // 1) 돌로 변하는 애니메이션 트리거
         aliveAnimator.SetTrigger("TurnToStone");
-        // 2) 전환 코루틴 시작
+
+        // 2)소리
+        if (turnToStoneSFX != null)
+            audioSource.PlayOneShot(turnToStoneSFX);
+
+        // 3) 전환 코루틴 시작
         StartCoroutine(SwitchToStatueAfterDelay());
     }
 

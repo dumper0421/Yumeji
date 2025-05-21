@@ -11,15 +11,24 @@ public class PushableObject : MonoBehaviour
     [Tooltip("1 타일 거리 밀 때 걸리는 시간(초)")]
     public float pushDuration = 0.2f;
 
+    [Header("Sound Settings")]
+    [Tooltip("밀릴 때 재생할 효과음")]
+    [SerializeField] private AudioClip pushSFX;
+
+
     private bool isMoving = false;
     private BoxCollider2D boxCollider;
     private Rigidbody2D rb;
+    private AudioSource audioSource;
 
     void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     /// <summary>
@@ -38,6 +47,10 @@ public class PushableObject : MonoBehaviour
             start, boxCollider.size, 0f, dir, 1f, obstacleLayer
         );
         if (hit.collider != null) return false;
+
+        // **밀기 시작 시점에 효과음 재생**
+        if (pushSFX != null)
+            audioSource.PlayOneShot(pushSFX);
 
         StartCoroutine(PushCoroutine(start, dest));
         return true;
