@@ -26,12 +26,17 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     [SerializeField] private float shootCooldown = 2f;  // 쿨타임 (초)
     private float nextShootTime = 0f;
+
+    [SerializeField] private AudioClip photoSFX;      // ① 인스펙터에 셔터음 클립 할당
+    private AudioSource audioSource;
+
+
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
-
     IEnumerator MoveCoroutine()
     {
         // 방향 입력은 Update()에서 설정된 vector 사용
@@ -83,6 +88,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         transform.position = targetPos;
         canMove = true;
     }
+
     IEnumerator ShootingCoroutine()
     {
         yield return null;
@@ -127,6 +133,11 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             animator.SetFloat("DirX", vector.x);
             animator.SetFloat("DirY", vector.y);
             animator.SetTrigger("TakeShoot");
+
+            // 4) 셔터음 재생
+            if (photoSFX != null)
+                audioSource.pitch = 2f;
+                audioSource.PlayOneShot(photoSFX);
         }
     }
 
@@ -187,6 +198,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             if (flashable != null)
                 flashable.OnPhotoTaken(false);
         }
+
     }
 
 
