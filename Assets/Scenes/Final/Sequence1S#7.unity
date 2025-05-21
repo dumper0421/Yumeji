@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   hasBeenInspected: 0
-  StartDialogue: PaintingB
+  StartDialogue: PaintingA
   DialogueManager: {fileID: 1645277726}
 --- !u!61 &77052041
 BoxCollider2D:
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   hasBeenInspected: 0
-  StartDialogue: PaintingA
+  StartDialogue: PaintingB
   DialogueManager: {fileID: 1645277726}
 --- !u!4 &128015285 stripped
 Transform:
@@ -1797,7 +1797,7 @@ Transform:
   m_GameObject: {fileID: 418130178}
   serializedVersion: 2
   m_LocalRotation: {x: 0.045583107, y: 0.0071925074, z: -0.00032820218, w: 0.9989346}
-  m_LocalPosition: {x: -3.0005991, y: 0.91073716, z: -9.957409}
+  m_LocalPosition: {x: -3.0070431, y: 0.91073716, z: -9.957409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

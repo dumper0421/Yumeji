@@ -19,22 +19,6 @@ public class PopupUIManager : Singleton<PopupUIManager>
     private void Update()
     {
 
-        #region UI Open Test ESC ²ô±â TAB ¿­±â
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            CloseTopPopUp();
-        }
-
-        if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            SetSaveLoadPopup(true);
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftAlt))
-        {
-            SetSaveLoadPopup(false);
-        }    
-        #endregion
     }
 
     protected override void Init()
