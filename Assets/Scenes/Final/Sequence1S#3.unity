@@ -2470,6 +2470,7 @@ MonoBehaviour:
   CarHornClip: {fileID: 8300000, guid: b28a1459d3fbd2148bb80347af557459, type: 3}
   CrashClip: {fileID: 8300000, guid: a19152a34c0dfb749abd808df0c4a71e, type: 3}
   Bus: {fileID: 1154757946}
+  YellowCar: {fileID: 0}
   SceneChangeTrigger: {fileID: 1849643106}
 --- !u!1 &1154757936 stripped
 GameObject:
@@ -3861,6 +3862,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213503747031161010, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 914170508783254819, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -3878,6 +3883,10 @@ PrefabInstance:
       value: Dialogue Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 3318190146552875674, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207024855879427480, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3967,6 +3976,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6780722168633269861, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7112428940212308293, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646454494740831689, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8749016988487707270, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}

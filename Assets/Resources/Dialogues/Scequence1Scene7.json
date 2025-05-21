@@ -44,7 +44,8 @@
     "speaker": "",
     "lines": [
       { "text": "시간이 흘러내리고 있는 기묘한 상상력의 그림이다.", "showPortrait": true },
-      { "text": "기억 또한 시간 속에서 결국 이렇게 왜곡되고, 녹아내리게 되는 것일지도 모르겠다.", "showPortrait": true }
+      { "text": "기억 또한 시간의 흐름 속에서 서서히 일그러져,", "showPortrait": true },
+      { "text": "마침내 녹아내릴지도 모른다.", "showPortrait": true }
     ]
   },
   {
@@ -100,7 +101,8 @@
     "speaker": "",
     "lines": [
       { "text": "어둠이 내려앉은 해변인 듯한 배경 위로, 두 사람의 잔상이 남아있다.", "showPortrait": false },
-      { "text": "사진의 윗부분이 심하게 그을렸지만, 그 순간의 온기만큼은 희미하게 전해져 오는 듯하다.", "showPortrait": false },
+      { "text": "사진의 윗부분이 심하게 그을렸지만,", "showPortrait": false },
+      { "text": "그 순간의 온기만큼은 희미하게 전해져 오는 듯하다.", "showPortrait": false },
       { "text": "‘그을린 사진’을 획득했다.", "showPortrait": false }
 
     ]
@@ -109,7 +111,8 @@
     "id": "Bookshelf1_Slot2",
     "speaker": "",
     "lines": [
-      { "text": "어떤 책은 강렬한 잉크 냄새를, 어떤 책은 희미한 곰팡내를 풍기는 듯하다.", "showPortrait": true }
+      { "text": "어떤 책은 강렬한 잉크 냄새를,", "showPortrait": true },
+      { "text": "어떤 책은 희미한 곰팡내를 풍기는 듯하다.", "showPortrait": true }
     ]
   },
   {
@@ -165,7 +168,8 @@
     "id": "Bookshelf3_Slot2",
     "speaker": "",
     "lines": [
-      { "text": "금박으로 장식된 책등이 간혹 눈에 띈다. 한때는 꽤 귀중했을지도 모를 책들이다.", "showPortrait": true }
+      { "text": "금박으로 장식된 책등이 간혹 눈에 띈다.", "showPortrait": true },
+      { "text": "한때는 꽤 귀중했을지도 모를 책들이다.", "showPortrait": true }
     ]
   },
   {
@@ -193,7 +197,8 @@
     "id": "Bookshelf4_Slot2",
     "speaker": "",
     "lines": [
-      { "text": "페이지가 누렇게 변색된 책들이 보인다. 시간의 흔적이 고스란히 묻어나 있다.", "showPortrait": true }
+      { "text": "페이지가 누렇게 변색된 책들이 보인다.", "showPortrait": true },
+      { "text": "시간의 흔적이 고스란히 묻어나 있다.", "showPortrait": true }
     ]
   },
   {

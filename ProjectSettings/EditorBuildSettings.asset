@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Final/Sequence1S#9.unity
     guid: ebab19ae6eb8cdc4f9456a7d82633062
   - enabled: 1
+    path: Assets/Scenes/Final/EndingScene.unity
+    guid: 389b3c0b2345e5e43acbf558ee13a16d
+  - enabled: 1
     path: Assets/Scenes/Final/EndingCrediit.unity
     guid: 1c139faaccf26d945aa1e26c318494ac
   m_configObjects: {}
