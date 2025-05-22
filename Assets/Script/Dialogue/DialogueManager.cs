@@ -112,8 +112,6 @@ public class DialogueManager : MonoBehaviour
             else if (Input.GetKeyDown(advanceKey) || Input.GetKeyDown(enterKey))
             {
                 optionButtons[selectedOption].onClick.Invoke();
-                if (_playerMove != null)
-                    _playerMove.enabled = true;
             }
             return;
         }
@@ -132,6 +130,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (_dialogues == null || !_dialogues.TryGetValue(dialogueId, out _current))
             return;
+
+        if(_playerMove != null)
+            _playerMove.enabled = false;
 
         dialoguePanel.SetActive(true);
         leftPortraitImage.gameObject.SetActive(false);
