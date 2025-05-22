@@ -21,6 +21,8 @@ public class Sequence1Scen4Controller : SceneController
     private bool hasReachedTarget_ = false;
     private bool playedSFX = false;
 
+    [SerializeField] 
+    private GameObject pressFIcon;
 
     // Update is called once per frame
     private void Start()
@@ -30,7 +32,7 @@ public class Sequence1Scen4Controller : SceneController
     }
     void Update()
     {
-        Debug.Log(Player.transform.position.y);
+        
         if (Player.transform.position.y >= targetPos_.y && !hasReachedTarget_)
         {
             StartCoroutine(StopPlayer());
@@ -49,19 +51,39 @@ public class Sequence1Scen4Controller : SceneController
         playerMoveTestLerp.enabled = false;
         playerAnimator.enabled = false;
         yield return new WaitForSeconds(stopInterval);
-        OnStopIntervalReached();
-    }
 
+ 
+        OnStopIntervalReached();
+
+       
+    }
+   
+    private IEnumerator WaitTimelineThenShowIcon()
+    {
+       
+        yield return new WaitForSeconds(1.5f);
+        pressFIcon.SetActive(true);
+    }
+  
     protected override void OnStopIntervalReached()
     {
         playerMoveTestLerp.enabled = true;
         playerAnimator.enabled = true;
 
+ 
+
+
         if (stopInterval == 2.5f)
         {
             director_.Play();
+
+            StartCoroutine(WaitTimelineThenShowIcon());
+
             stopInterval = 1;
             StartCoroutine(StopPlayer());
+         
         }
+
     }
+
 }
