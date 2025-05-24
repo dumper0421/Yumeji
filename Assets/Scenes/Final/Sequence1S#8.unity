@@ -22028,6 +22028,7 @@ MonoBehaviour:
   stopInterval: 1
   bgm: {fileID: 8300000, guid: 26a7c3c7ea6d8604b8f282d1623714c2, type: 3}
   Player: {fileID: 364769715}
+  playerAnimator: {fileID: 0}
   cinemachineCameras:
   - {fileID: 1580853453}
   - {fileID: 1958774948}
@@ -26071,7 +26072,7 @@ Transform:
   m_GameObject: {fileID: 1568415278}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.50000006, y: 1.5, z: -10}
+  m_LocalPosition: {x: 0.50000006, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27964,7 +27965,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4, y: -8, z: 0}
-  m_LocalScale: {x: 7, y: 1, z: 1}
+  m_LocalScale: {x: 9, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 482086514}
