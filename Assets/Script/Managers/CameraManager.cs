@@ -50,4 +50,50 @@ public class CameraManager : Singleton<CameraManager>
         _noise.m_AmplitudeGain = origAmp;
         _noise.m_FrequencyGain = origFreq;
     }
+
+    public IEnumerator CameraZoomIn(
+       CinemachineVirtualCamera zoomCamera,
+       float initialSize,    
+       float zoomInSize,     
+       float zoomDuration,
+       float waitSeconds = 0f)
+    {
+        yield return ZoomOrthoSize(zoomCamera, initialSize, zoomInSize, zoomDuration);
+
+        yield return new WaitForSeconds(waitSeconds);
+
+        if (waitSeconds > 0f)
+            yield return ZoomOrthoSize(zoomCamera, zoomInSize, initialSize, zoomDuration);
+    }
+
+    IEnumerator ZoomOrthoSize(
+        CinemachineVirtualCamera zoomCamera,
+        float from,
+        float to,
+        float duration)
+    {
+        float elapsed = 0f;
+
+        var baseLens = zoomCamera.m_Lens;
+        baseLens.Orthographic = true;
+        zoomCamera.m_Lens = baseLens;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+
+            var lens = zoomCamera.m_Lens;
+            lens.OrthographicSize = Mathf.Lerp(from, to, t);
+            zoomCamera.m_Lens = lens;
+
+            yield return null;
+        }
+
+        // 정확히 목표치 고정
+        var finalLens = zoomCamera.m_Lens;
+        finalLens.OrthographicSize = to;
+        zoomCamera.m_Lens = finalLens;
+    }
+
 }

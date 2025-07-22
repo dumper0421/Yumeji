@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: crowbar
       objectReference: {fileID: 0}
+    - target: {fileID: 1312041738993636493, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2500732411681170237, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: Player
       value: 
@@ -7999,6 +8003,10 @@ PrefabInstance:
     - target: {fileID: 1312041738993636493, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: m_Name
       value: crowbar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312041738993636493, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2500732411681170237, guid: 562ab8873ff726b4a999cf799b20ff16, type: 3}
       propertyPath: Player

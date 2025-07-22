@@ -65,7 +65,7 @@ public class DialogueManager : MonoBehaviour
     private Dictionary<string, Sprite> _portraitMap;
     private Dialogue _current;
     private Queue<DialogueLine> _lines;
-    private bool _waitingForInput = false;
+    
     private DialogueLine currentLine;
 
     private List<Button> optionButtons = new List<Button>();
@@ -75,8 +75,10 @@ public class DialogueManager : MonoBehaviour
     private PlayerMove_Test_Lerp _playerMove;
 
     [SerializeField] private Color32 normalColor = new Color32(0, 0, 0, 128); 
-    [SerializeField] private Color32 selectedColor = new Color32(128, 128, 0, 128); 
+    [SerializeField] private Color32 selectedColor = new Color32(128, 128, 0, 128);
 
+    public bool _waitingForInput = false;
+    public bool isRunning = false;
 
     void Awake()
     {
@@ -120,7 +122,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (Input.GetKeyDown(advanceKey) || Input.GetKeyDown(enterKey) && !IsStop)
             {
-                _waitingForInput = false;
+                 _waitingForInput = false;
                 DisplayNext();
             }
         }
@@ -134,6 +136,7 @@ public class DialogueManager : MonoBehaviour
         if(_playerMove != null)
             _playerMove.enabled = false;
 
+        isRunning = true;
         dialoguePanel.SetActive(true);
         leftPortraitImage.gameObject.SetActive(false);
         rightPortraitImage.gameObject.SetActive(false);
@@ -157,7 +160,7 @@ public class DialogueManager : MonoBehaviour
         // 옵션·입력 초기화
         ClearOptions();
         _waitingForInput = false;
-
+        if (IsStop) return;
         // 1) 남은 대사 출력
         if (_lines.Count > 0)
         {
@@ -306,6 +309,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        isRunning = false;
         dialoguePanel.SetActive(false);
         leftPortraitImage.gameObject.SetActive(false);
         rightPortraitImage.gameObject.SetActive(false);

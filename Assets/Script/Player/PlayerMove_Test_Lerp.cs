@@ -31,6 +31,9 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     private AudioSource audioSource;
 
 
+    private enum MoveAxis { None, Horizontal, Vertical }
+    private MoveAxis _moveLock = MoveAxis.None;
+
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -101,11 +104,26 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         if (!canMove) return;
 
         // 2) 이동 입력 처리
-        Vector2 input = new Vector2(
+        Vector2 rawInput = new Vector2(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
         );
-        if (input.x != 0) input.y = 0;  // 대각선 방지
+
+        Vector2 input = rawInput;
+
+        if (_moveLock == MoveAxis.None)
+        {
+            if (rawInput.x != 0f) _moveLock = MoveAxis.Horizontal;
+            else if (rawInput.y != 0f) _moveLock = MoveAxis.Vertical;
+        }
+
+        if (_moveLock == MoveAxis.Horizontal) input.y = 0f;
+        else if (_moveLock == MoveAxis.Vertical) input.x = 0f;
+
+        if (_moveLock == MoveAxis.Horizontal && rawInput.x == 0f)
+            _moveLock = MoveAxis.None;
+        else if (_moveLock == MoveAxis.Vertical && rawInput.y == 0f)
+            _moveLock = MoveAxis.None;
 
         bool isWalking = input != Vector2.zero;
         animator.SetBool("Walking", isWalking);

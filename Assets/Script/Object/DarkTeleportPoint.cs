@@ -17,19 +17,22 @@ public class DarkTeleportPoint : TeleportPoint
         base.OnTriggerEnter2D(collision);
 
         if (!collision.CompareTag("Player")) return;
-
         StartCoroutine(Return(collision.gameObject));
-
     }
 
     IEnumerator Return(GameObject target)
     {
+        target.GetComponent<PlayerMove_Test_Lerp>().enabled = false;
+        StartCoroutine(CameraManager.Instance.CameraZoomIn(cinemachine, 5, 1, 2, 2));
         SoundManager.Instance.PlaySFX(DarkRoomSFX);
         yield return new WaitForSeconds(WaitSeconds);
+        target.GetComponent<PlayerMove_Test_Lerp>().enabled = true;
         var mover = target.GetComponent<PlayerMove_Test_Lerp>();
         mover.Teleport(ReturnPos);
 
         controller.ChangeCinemachineCamera(ReturnCamera);
         ReturnCameraBase.Follow = target.transform;
     }
+
+
 }

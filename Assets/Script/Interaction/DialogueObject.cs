@@ -8,6 +8,7 @@ public class DialogueObject : InspectableObject
     public DialogueManager DialogueManager;
     protected override void OnInspect()
     {
-        DialogueManager.StartDialogue(StartDialogue);
+        if (!DialogueManager.isRunning)
+            DialogueManager.StartDialogue(StartDialogue);
     }
 }

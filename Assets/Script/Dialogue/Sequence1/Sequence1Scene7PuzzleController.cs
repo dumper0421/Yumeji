@@ -11,9 +11,10 @@ public enum S1S7State
 
 public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 {
+    public PlayerMove_Test_Lerp PlayerMove;
+
     public ItemData MatchData;
     public ItemData CharredPhotographData;
-
 
     public Image CharredPhotograph;
     public Image HaruMirror;
@@ -39,14 +40,19 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     public float delayTimer = 0f;
     public GameObject Bloom;
+    Coroutine ShowBrokenHaruImageCoroutine;
     public void LateUpdate()
     {
         if (CharredPhotograph.gameObject.activeSelf)
         {
             delayTimer += Time.deltaTime;
+            PlayerMove.enabled = false;
+            dialogueManager.IsStop = true;
             if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && delayTimer >= 0.5f) 
             {
                 CharredPhotograph.gameObject.SetActive(false);
+                dialogueManager.IsStop = false;
+                dialogueManager._waitingForInput = true;
                 delayTimer = 0;
             }
         }
@@ -54,10 +60,11 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         if (HaruMirror.gameObject.activeSelf)
         {
             delayTimer += Time.deltaTime;
+            PlayerMove.enabled = false;
             if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && delayTimer >= 0.5f)
             {
-                HaruMirror.gameObject.SetActive(false);
-                StartCoroutine(ShowBrokenHaruImage());
+                if (ShowBrokenHaruImageCoroutine == null)
+                ShowBrokenHaruImageCoroutine = StartCoroutine(ShowBrokenHaruImage());
                 delayTimer = 0;
             }
         }
@@ -145,9 +152,12 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     IEnumerator ShowBrokenHaruImage()
     {
+        yield return new WaitForSeconds(1.5f);
+        HaruMirror.gameObject.SetActive(false);
         HaruMirrorBroken.gameObject.SetActive(true);
         SoundManager.Instance.PlaySFX(MirrorBrokeClip);
         yield return new WaitForSeconds(2f);
         HaruMirrorBroken.gameObject.SetActive(false);
+        PlayerMove.enabled = true;
     }
 }
