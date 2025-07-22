@@ -32,6 +32,7 @@ public class DwarfController : MonoBehaviour, IFlashable
         parentCollider = GetComponent<Collider2D>();
 
         audioSource = GetComponent<AudioSource>();
+
     }
 
     // IFlashable
@@ -57,6 +58,7 @@ public class DwarfController : MonoBehaviour, IFlashable
 
         // 3) Alive ¡æ Statue
         aliveChild.SetActive(false);
+        statueChild.transform.localPosition = Vector3.zero;
         statueChild.SetActive(true);
 
         parentCollider.enabled = false;

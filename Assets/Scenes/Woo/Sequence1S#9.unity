@@ -227,6 +227,8 @@ MonoBehaviour:
   activatorObject: {fileID: 394123183}
   objectToRemove: {fileID: 1570688278}
   pressSfx: {fileID: 8300000, guid: a628622b2a3528c4d89af169bc83930d, type: 3}
+  pushableObject: {fileID: 0}
+  disableDelay: 0.5
   scene9Controller: {fileID: 177367110}
 --- !u!61 &18631438
 BoxCollider2D:
@@ -778,6 +780,7 @@ MonoBehaviour:
   stopInterval: 1
   bgm: {fileID: 8300000, guid: 391768dfb8d56ed4493ccae95f8cb64b, type: 3}
   Player: {fileID: 597769904}
+  playerAnimator: {fileID: 0}
   cinemachineCameras:
   - {fileID: 908237737}
   - {fileID: 995360497}
@@ -963,6 +966,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9010395210115101903, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
   m_PrefabInstance: {fileID: 5991936863290003419}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &394123191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394123183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cf1dfdd6cadbd45914675b3beefc6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &394699317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,7 +2422,7 @@ Transform:
   m_GameObject: {fileID: 1059056000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5896006, y: 0, z: -10}
+  m_LocalPosition: {x: 6.4888873, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4338,6 +4353,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 251466086}
     m_Modifications:
+    - target: {fileID: 258823186299261448, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: Pan2D
+      value: -0.492
+      objectReference: {fileID: 0}
     - target: {fileID: 391591740894976054, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
       propertyPath: m_Name
       value: 'DwarfParent '
@@ -4346,9 +4365,29 @@ PrefabInstance:
       propertyPath: DialogueManager
       value: 
       objectReference: {fileID: 603143303}
+    - target: {fileID: 615326176494069499, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837445996270542461, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0871534
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837445996270542461, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5435767
+      objectReference: {fileID: 0}
     - target: {fileID: 4331781756039453394, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794616203238839394, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324939809078903413, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8924631706732914487, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
       propertyPath: m_LocalScale.x
@@ -4402,10 +4441,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9010395210115101903, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9010395210115101903, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 394123191}
   m_SourcePrefab: {fileID: 100100000, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
