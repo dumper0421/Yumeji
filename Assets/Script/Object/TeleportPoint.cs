@@ -17,6 +17,7 @@ public class TeleportPoint : MonoBehaviour
         var col = gameObject.GetComponent<Collider2D>();
         collision.transform.position = TargetPoint;
         var mover = collision.GetComponent<PlayerMove_Test_Lerp>();
+        if (mover != null)
         mover.Teleport(TargetPoint);
         controller.ChangeCinemachineCamera(cinemachine);
         cinemachineBase.Follow = collision.transform;

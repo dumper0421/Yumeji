@@ -34,6 +34,8 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     private enum MoveAxis { None, Horizontal, Vertical }
     private MoveAxis _moveLock = MoveAxis.None;
 
+    public CompanionSystem Companion = null;
+
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -47,6 +49,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         animator.SetFloat("DirY", vector.y);
 
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed_ : speed_;
+        Companion.MoveSpeed = moveSpeed;
         animator.SetFloat("AnimSpeed", moveSpeed);
 
         Vector2 direction = new Vector2(vector.x, vector.y);
@@ -76,6 +79,11 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             canMove = true;
             yield break;
         }
+
+        if (Companion != null)
+        {
+            Companion.SetPosition(startPos, vector);
+        }    
 
         // 3. 실제 이동
         float elapsedTime = 0f;
@@ -117,7 +125,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             else if (rawInput.y != 0f) _moveLock = MoveAxis.Vertical;
         }
 
-        if (_moveLock == MoveAxis.Horizontal) input.y = 0f;
+                if (_moveLock == MoveAxis.Horizontal) input.y = 0f;
         else if (_moveLock == MoveAxis.Vertical) input.x = 0f;
 
         if (_moveLock == MoveAxis.Horizontal && rawInput.x == 0f)
@@ -127,7 +135,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
         bool isWalking = input != Vector2.zero;
         animator.SetBool("Walking", isWalking);
-
+  
         if (isWalking)
         {
             // 이동 코루틴 시작
