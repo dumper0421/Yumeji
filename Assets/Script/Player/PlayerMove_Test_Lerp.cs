@@ -49,7 +49,8 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         animator.SetFloat("DirY", vector.y);
 
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed_ : speed_;
-        Companion.MoveSpeed = moveSpeed;
+        if (Companion != null) 
+            Companion.MoveSpeed = moveSpeed;
         animator.SetFloat("AnimSpeed", moveSpeed);
 
         Vector2 direction = new Vector2(vector.x, vector.y);
