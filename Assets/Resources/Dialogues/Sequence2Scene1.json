@@ -1,0 +1,65 @@
+[
+  {
+    "id": "MailStack",
+    "speaker": "",
+    "lines": [
+      { "text": "뜯어보지 않은 우편물이 쌓여있다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Telephone",
+    "speaker": "",
+    "lines": [
+      { "text": "먼지가 뽀얗게 쌓인 구형 유선 전화기다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "FilmCanister",
+    "speaker": "",
+    "lines": [
+      { "text": "루나와 함께 찍었던 단편 영화 필름이 담겨 있다. 영화 제목은 <제목 미정>이다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "LPPlayer_Broken",
+    "speaker": "",
+    "lines": [
+      { "text": "바늘이 부러진 LP 플레이어다. 더 이상 작동하지 않는다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Chairs",
+    "speaker": "",
+    "lines": [
+      { "text": "낡은 의자가 놓여 있다. 하나하나 앉아볼 수 있을 것 같다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "WallPhotos",
+    "speaker": "",
+    "lines": [
+      { "text": "작업이 마무리되어 건조 중인 사진들이다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Enlarger",
+    "speaker": "",
+    "lines": [
+      { "text": "필름의 상을 인화지에 확대하여 비추는 암실 장비다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Chemicals",
+    "speaker": "",
+    "lines": [
+      { "text": "작업에 사용하는 약품들. 현상액, 정지액, 정착액이 순서대로 놓여있다.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "ExitShop",
+    "speaker": "",
+    "lines": [
+      { "text": "아직 영업 시간이다.", "showPortrait": true }
+    ]
+  }
+]
