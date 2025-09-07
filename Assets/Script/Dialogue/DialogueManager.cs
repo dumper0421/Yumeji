@@ -5,6 +5,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
+/// <summary>
+///  대화 선택지
+/// </summary>
 [System.Serializable]
 public class DialogueOption
 {
@@ -14,6 +18,9 @@ public class DialogueOption
     public string requiresItem;
 }
 
+/// <summary>
+///  대화 라인
+/// </summary>
 [System.Serializable]
 public class DialogueLine
 {
@@ -21,7 +28,9 @@ public class DialogueLine
     public bool showPortrait;
     public string nextId;
 }
-
+/// <summary>
+///  대화 데이터
+/// </summary>
 [System.Serializable]
 public class Dialogue
 {
@@ -32,16 +41,33 @@ public class Dialogue
     public bool autoAdvance;
     public float autoAdvanceDelay;
 }
+/// <summary>
+///  화자 정보
+/// </summary>
 [System.Serializable]
 public class SpeakerInfo
 {
     public string speakerName;
     public Sprite portrait;
 }
+/// <summary>
+/// 대화를 관리하는 매니저 클래스.
+/// UI 갱신, 입력 처리, 대사 표시, 선택지 표시 및 대화 종료를 담당.
+/// </summary>
 public class DialogueManager : MonoBehaviour
 {
+
+    /// <summary>
+    /// 선택지가 선택될 때 발생하는 이벤트. (텍스트, 다음 대화 ID 반환)
+    /// </summary>
     public event Action<string, string> OnOptionSelected;
+    /// <summary>
+    /// 대화가 완료될 때 발생하는 이벤트. (대화 ID 반환)
+    /// </summary>
     public event Action<string> OnDialogueComplete;
+    /// <summary>
+    /// 대화가 진행될 때 발생하는 이벤트. (대화 ID 반환)
+    /// </summary>
     public event Action<string> OnDialogueAction;
 
 
@@ -127,7 +153,10 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// 지정된 대화 ID로부터 대화를 시작한다.
+    /// 대화창을 활성화하고, 플레이어 조작을 막으며 첫 라인을 출력한다.
+    /// </summary>
     public void StartDialogue(string dialogueId)
     {
         if (_dialogues == null || !_dialogues.TryGetValue(dialogueId, out _current))
@@ -154,14 +183,16 @@ public class DialogueManager : MonoBehaviour
         }
         DisplayNext();
     }
-
+    /// <summary>
+    /// 현재 대화 라인 또는 선택지를 진행한다.
+    /// 라인이 남아 있으면 표시하고, 없으면 다음 ID 또는 선택지로 넘어간다.
+    /// </summary>
     private void DisplayNext()
     {
-        // �ɼǡ��Է� �ʱ�ȭ
         ClearOptions();
         _waitingForInput = false;
+
         if (IsStop) return;
-        // 1) ���� ��� ���
         if (_lines.Count > 0)
         {
             currentLine = _lines.Dequeue();
@@ -172,10 +203,9 @@ public class DialogueManager : MonoBehaviour
 
             dialogueText.text = currentLine.text;
             OnDialogueAction?.Invoke(_current.id);
-            // �ʻ�ȭ ó��
             if (currentLine.showPortrait)
             {
-                bool isHero = _current.speaker == "�Ϸ�";
+                bool isHero = _current.speaker == "�Ϸ�";
                 var target = isHero ? leftPortraitImage : rightPortraitImage;
                 var other = isHero ? rightPortraitImage : leftPortraitImage;
                 other.gameObject.SetActive(false);
@@ -192,7 +222,6 @@ public class DialogueManager : MonoBehaviour
                 rightPortraitImage.gameObject.SetActive(false);
             }
 
-            // �ڵ� ���� vs. �Է� ���
             if (_current.autoAdvance)
             {
                 StartCoroutine(AutoAdvance());
@@ -204,7 +233,6 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        // 2) ���� line �� nextId �� ������ ������ �ڵ����� �Ѿ��
         if (currentLine != null&&!string.IsNullOrEmpty(currentLine.nextId))
         {
             OnDialogueComplete?.Invoke(_current.id);
@@ -217,7 +245,6 @@ public class DialogueManager : MonoBehaviour
             OnDialogueComplete?.Invoke(_current.id);
         }
 
-        // 3) ������ ǥ��
         if (_current.options != null && _current.options.Length > 0)
         {
             optionPanel.gameObject.SetActive(true);
@@ -226,7 +253,6 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        // 4) ��ȭ ����
         EndDialogue();
     }
 
@@ -236,10 +262,12 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(_current.autoAdvanceDelay);
         DisplayNext();
     }
-
+    /// <summary>
+    /// 선택지를 UI에 표시한다.
+    /// 필요 아이템이 없는 경우만 활성화된다.
+    /// </summary>
     private void ShowOptions(DialogueOption[] opts)
     {
-        // ������ ����� �� optionButtons, selectedOption �ʱ�ȭ
         optionButtons.Clear();
         selectedOption = 0;
 
@@ -247,14 +275,13 @@ public class DialogueManager : MonoBehaviour
         {
 
             if (!string.IsNullOrEmpty(opt.requiresItem) && !InventoryManager.Instance.HasItem(opt.requiresItem))
-                continue;  // �κ� �ȿ� ������ ��ư ���� �� ��
+                continue;  
 
             var btn = Instantiate(buttonPrefab, optionPanel);
             btn.GetComponentInChildren<TextMeshProUGUI>().text = opt.text;
 
             btn.onClick.AddListener(() =>
             {
-                // �̺�Ʈ ���� (���� ��Ʈ�ѷ��� ����)
                 OnOptionSelected?.Invoke(opt.text, opt.nextId);
 
                 ClearOptions();
@@ -262,7 +289,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     EndDialogue();
                 }
-                // �߰� �׼��� ���� �ɼǸ� �ڵ����� ���� ��ȭ ����
+              
                 if (!opt.hasIntermediateAction)
                 {
                     StartDialogue(opt.nextId);
@@ -281,7 +308,9 @@ public class DialogueManager : MonoBehaviour
         optionPanel.gameObject.SetActive(true);
         UpdateOptionVisuals();
     }
-
+    /// <summary>
+    /// 선택지 버튼들을 제거한다.
+    /// </summary>
     private void ClearOptions()
     {
         foreach (Transform t in optionPanel)
@@ -289,14 +318,18 @@ public class DialogueManager : MonoBehaviour
         optionButtons.Clear();
         optionPanel.gameObject.SetActive(false);
     }
-
+    /// <summary>
+    /// 현재 선택된 옵션을 변경한다. (위/아래 입력 처리)
+    /// </summary>
     private void ChangeSelection(int delta)
     {
         if (optionButtons.Count == 0) return;
         selectedOption = (selectedOption + delta + optionButtons.Count) % optionButtons.Count;
         UpdateOptionVisuals();
     }
-
+ /// <summary>
+    /// 옵션 버튼 색상을 갱신한다.
+    /// </summary>
     private void UpdateOptionVisuals()
     {
         for (int i = 0; i < optionButtons.Count; i++)
@@ -307,6 +340,10 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 대화를 종료하고 UI를 비활성화한다.
+    /// 플레이어 조작을 다시 활성화한다.
+    /// </summary>
     private void EndDialogue()
     {
         isRunning = false;
