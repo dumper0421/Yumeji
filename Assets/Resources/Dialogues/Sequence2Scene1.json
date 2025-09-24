@@ -61,5 +61,159 @@
     "lines": [
       { "text": "아직 영업 시간이다.", "showPortrait": true }
     ]
+  },
+  {
+    "id": "Guest_Dialogue1",
+    "speaker":"진상손님",
+    "lines": [
+      { "text" : "사진 찾으러 왔는데요. 일주일 전에 맡긴 거.", "showPortrait": true , "nextId":"Guest_Dialogue2"}
+    ]
+  },
+  {
+    "id": "Guest_Dialogue2",
+    "speaker":"하루",
+    "lines": [
+      { "text" : "아 네. 잠시만요.", "showPortrait": true, "nextId":"Guest_Dialogue3"}
+    ]
+  },
+  {
+    "id": "Guest_Dialogue3",
+    "speaker":"진상손님",
+    "lines": [
+      { "text" : "빨리 좀 줘요. 바쁘니까.", "showPortrait": true}
+    ]
+  },
+   {
+    "id": "Guest_Dialogue4",
+    "speaker": "하루",
+    "lines": [
+      { "text": "나왔습니다.", "showPortrait": true, "nextId": "Guest_Dialogue5" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue5",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "…아니, 이게 뭐예요?", "showPortrait": true, "nextId": "Guest_Dialogue6" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue6",
+    "speaker": "하루",
+    "lines": [
+      { "text": "문제 있으세요?", "showPortrait": true, "nextId": "Guest_Dialogue7" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue7",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "문제가 있냐고? 이게 문제 아니면 뭔데?", "showPortrait": true, "nextId": "Guest_Dialogue8" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue8",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "초점이 다 나갔잖아. 뒤도 다 날아가고,", "showPortrait": true, "nextId": "Guest_Dialogue9" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue9",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "정작 중요한 사람이 유령처럼 흐릿하잖아.", "showPortrait": true, "nextId": "Guest_Dialogue10" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue10",
+    "speaker": "하루",
+    "lines": [
+      { "text": "그건 손님이 그렇게 찍으신 건데…", "showPortrait": true, "nextId": "Guest_Dialogue11" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue11",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "내가? 웃기네. 내가 사진을 얼마나 잘 찍는데.", "showPortrait": true, "nextId": "Guest_Dialogue12" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue12",
+    "speaker": "하루",
+    "lines": [
+      { "text": "그러면 필름 카메라 특성 상 이런 사진이 나올 수 있는 거 아시잖아요.", "showPortrait": true, "nextId": "Guest_Dialogue13" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue13",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "내가 기억하는 건 이게 아니라고.", "showPortrait": true, "nextId": "Guest_Dialogue14" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue14",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "이 날 분명 날씨도 엄청 좋았고, 뒤에 꽃도 활짝 펴서 다 선명하게 기억나는데!", "showPortrait": true, "nextId": "Guest_Dialogue15" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue15",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "사진에는 왜 사람이 허옇게 떠 있냐고. 이건 그냥 당신이 현상을 잘못한 거야.", "showPortrait": true, "nextId": "Guest_Dialogue16" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue16",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…", "showPortrait": true, "nextId": "Guest_Dialogue17" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue17",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "그리고 이 얼굴. 이게 아니야. 내가 기억하는 그 표정이 아니라고.", "showPortrait": true, "nextId": "Guest_Dialogue18" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue18",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "훨씬… 훨씬 행복한 얼굴이었는데. 이건 그냥 껍데기만 찍혀 있네.", "showPortrait": true, "nextId": "Guest_Dialogue19" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue19",
+    "speaker": "하루",
+    "lines": [
+      { "text": "… 인화까지 다시 해드릴까요?", "showPortrait": true, "nextId": "Guest_Dialogue20" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue20",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "됐어. 다시 한다고 뭐가 바뀌겠어?", "showPortrait": true, "nextId": "Guest_Dialogue21" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue21",
+    "speaker": "진상손님",
+    "lines": [
+      { "text": "옛날 주인 있었을 때는 안 이랬는데 말이야.", "showPortrait": true, "nextId": "Guest_Dialogue22" }
+    ]
+  },
+  {
+    "id": "Guest_Dialogue22",
+    "speaker": "하루",
+    "lines": [
+      { "text": "안녕히 가세요.", "showPortrait": true }
+    ]
   }
 ]

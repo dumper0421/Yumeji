@@ -13,7 +13,8 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
     public ItemData TornTrianTicketData;
     public DialogueObject StationChairObject;
     public DialogueObject TrainDoorObject;
-
+    public GameObject InteractionLight;
+    
     public string nextSceneName;
 
     // Start is called before the first frame update
@@ -34,7 +35,7 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
         {
             case "StationChair_Ticket":
                 InventoryManager.Instance.AddItem(TornTrianTicketData);
-
+                InteractionLight.SetActive(false);
                 StationChairObject.StartDialogue = "StationChair";
                 StationChairObject.hasBeenInspected = false;
 

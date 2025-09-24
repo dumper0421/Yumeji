@@ -205,7 +205,7 @@ public class DialogueManager : MonoBehaviour
             OnDialogueAction?.Invoke(_current.id);
             if (currentLine.showPortrait)
             {
-                bool isHero = _current.speaker == "�Ϸ�";
+                bool isHero = _current.speaker == "하루";
                 var target = isHero ? leftPortraitImage : rightPortraitImage;
                 var other = isHero ? rightPortraitImage : leftPortraitImage;
                 other.gameObject.SetActive(false);

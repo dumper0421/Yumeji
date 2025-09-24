@@ -7716,7 +7716,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 08d34afeb7b2f7b49b3b4494cbb44638, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 40b71e7fe6cd9d3468b39e9b70f094ec, type: 2}
 --- !u!4 &1207658219
 Transform:
   m_ObjectHideFlags: 0
@@ -17065,7 +17065,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 08d34afeb7b2f7b49b3b4494cbb44638, type: 2}
+  sharedProfile: {fileID: 11400000, guid: c1c3f152f0faedb47a2447b43f3e2e5b, type: 2}
 --- !u!4 &2009318776
 Transform:
   m_ObjectHideFlags: 0

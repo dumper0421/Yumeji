@@ -1688,6 +1688,7 @@ MonoBehaviour:
   stopInterval: 1
   bgm: {fileID: 0}
   Player: {fileID: 830603781}
+  playerAnimator: {fileID: 0}
   cinemachineCameras:
   - {fileID: 448830024}
   - {fileID: 1198721169}
@@ -1797,7 +1798,7 @@ Transform:
   m_GameObject: {fileID: 418130178}
   serializedVersion: 2
   m_LocalRotation: {x: 0.045583107, y: 0.0071925074, z: -0.00032820218, w: 0.9989346}
-  m_LocalPosition: {x: -3.0034945, y: 0.91073716, z: -9.957409}
+  m_LocalPosition: {x: -2.8795068, y: 0.91073716, z: -9.957409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7577,6 +7578,7 @@ MonoBehaviour:
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Scequence1Scene7
   state: 0
+  PlayerMove: {fileID: 830603785}
   MatchData: {fileID: 11400000, guid: 420c17ed0215d19498217fa3a81b93e8, type: 2}
   CharredPhotographData: {fileID: 11400000, guid: 1bff049ea8d56014684b80c1487a34df, type: 2}
   CharredPhotograph: {fileID: 691851956}
@@ -7613,6 +7615,7 @@ MonoBehaviour:
   BrokenMirror: {fileID: 21300000, guid: ad0827823ec9c98429e2b19b778ea659, type: 3}
   MirrorRenderer: {fileID: 370576025}
   delayTimer: 0
+  Bloom: {fileID: 0}
 --- !u!95 &1666386266 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1335160525409358301, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
