@@ -16,6 +16,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     private bool canMove = true;
     public Animator animator;
 
+    //촬영
     [Header("Flash Settings")]
     [SerializeField] private Vector2Int flashTiles = new Vector2Int(3, 4);  // (가로 × 세로) 타일 수
     [SerializeField] private Vector2 tileSize = new Vector2(1f, 1f);  // 한 타일의 월드 크기
@@ -26,10 +27,15 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     [SerializeField] private float shootCooldown = 2f;  // 쿨타임 (초)
     private float nextShootTime = 0f;
-
     [SerializeField] private AudioClip photoSFX;      // ① 인스펙터에 셔터음 클립 할당
     private AudioSource audioSource;
 
+    //앉기
+    [SerializeField] private float tileStepDuration = 0.12f;  // 1칸 스텝 시간
+    [SerializeField] private bool bypassNoPassOnSit = true;    // 앉기 진입/복귀 시 NoPass 무시
+    private bool isSitting = false;
+    private Vector2 sitDir = Vector2.down;     // 앉을 때 바라본 방향(4방)
+    private Vector3 standReturnPos;            // 서있던 자리(복귀 지점)
 
     private enum MoveAxis { None, Horizontal, Vertical }
     private MoveAxis _moveLock = MoveAxis.None;
@@ -146,6 +152,11 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             return;
         }
 
+
+
+        /////////  Take Shoot 애니메이션 트리 다시 만들 때
+        /////////  EndTakeShoot 애니메이션 이벤트로 호출해야함
+        /////////
         // 3) 촬영 입력 처리 (이동 입력이 없을 때만)
         if (Input.GetKeyDown(KeyCode.C)
          && Time.time >= nextShootTime)
@@ -163,10 +174,32 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
             // 4) 셔터음 재생
             if (photoSFX != null)
+            {
                 audioSource.pitch = 2f;
                 audioSource.PlayOneShot(photoSFX);
+            }
         }
+
+        // 앉기애니메이션
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            if (!isSitting && canMove)
+            {
+                StartCoroutine(CoSitEnter());   // 1칸 전진 + SitDown
+                return;                         // 아래 입력 로직 차단
+            }
+            else if (isSitting)
+            {
+                StartCoroutine(CoSitExit());    // 1칸 후퇴 + SitDownEnd→Idle
+                return;
+            }
+        }
+
+        if (!canMove && !isSitting) return;
+
     }
+
+
 
     // Teleport 호출용 공개 메서드
     public void Teleport(Vector3 pos)
@@ -227,6 +260,81 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         }
 
     }
+
+    // 4방으로 정규화 (애니 파라미터 기반)
+    private Vector2 GetFacing4Dir()
+    {
+        float dx = animator.GetFloat("DirX");
+        float dy = animator.GetFloat("DirY");
+        if (Mathf.Abs(dx) > Mathf.Abs(dy))
+            return new Vector2(Mathf.Sign(dx), 0f);
+        else
+            return new Vector2(0f, Mathf.Sign(dy));
+    }
+
+    // 공용: 1칸 이동(선택적으로 충돌 무시)
+    private IEnumerator CoStepOneTile(Vector2 dir, bool ignoreBlock, float duration)
+    {
+        Vector3 start = transform.position;
+        Vector3 target = start + (Vector3)dir;
+
+        // 평소 이동은 NoPass 체크하지만, 앉기/복귀는 좌석에 들어가야 하므로 옵션으로 무시
+        bool prevEnabled = boxCollider.enabled;
+        if (ignoreBlock) boxCollider.enabled = false;
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float k = Mathf.Clamp01(t / duration);
+            transform.position = Vector3.Lerp(start, target, k);
+            yield return null;
+        }
+        transform.position = target;
+
+        if (ignoreBlock) boxCollider.enabled = prevEnabled;
+    }
+
+    // 앉기: 앞칸으로 1칸 들어가면서 SitDown 재생, 마지막 프레임에서 정지
+    private IEnumerator CoSitEnter()
+    {
+       // canMove = false;
+
+        // 바라보는 4방 추출
+        sitDir = GetFacing4Dir();
+        if (sitDir == Vector2.zero) sitDir = Vector2.down;
+
+        // 복귀 지점 기록
+        standReturnPos = transform.position;
+
+        // 애니 트리거
+        animator.ResetTrigger("SitDownEnd");
+        animator.SetTrigger("SitDown");
+
+        // 1칸 전진(좌석은 NoPass일 수 있으므로 무시)
+        yield return StartCoroutine(CoStepOneTile(sitDir, bypassNoPassOnSit, tileStepDuration));
+
+        isSitting = true;     // 앉은 상태 유지 (canMove=false 유지 → 이동/촬영 차단)
+    }
+
+    // 일어나기: 뒤칸(원래 자리)로 1칸 후퇴 후 Idle
+    private IEnumerator CoSitExit()
+    {
+        // Idle로 바로 튀게 SitDownEnd 전이(Has Exit Time Off, Duration 0) 전제
+        animator.ResetTrigger("SitDown");
+        animator.SetTrigger("SitDownEnd");
+
+        // 뒤로 1칸(복귀 지점으로)
+        Vector3 cur = transform.position;
+        Vector3 target = standReturnPos;
+        // 안전: 복귀 방향은 -sitDir로 계산해도 동일
+        yield return StartCoroutine(CoStepOneTile(-sitDir, bypassNoPassOnSit, tileStepDuration));
+
+        // 상태 복구
+        isSitting = false;
+        canMove = true;
+    }
+
 
 
     // 디버그용: 씬 뷰에서 플래시 범위를 시각화
