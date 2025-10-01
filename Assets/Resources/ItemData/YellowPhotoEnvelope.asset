@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 673db5f514e154247bc0d9793fbc76dd, type: 3}
-  m_Name: CharredPhotograph
+  m_Name: YellowPhotoEnvelope
   m_EditorClassIdentifier: 
-  ItemId: 4
-  ItemName: "\uADF8\uC744\uB9B0\uC0AC\uC9C4"
-  Description: "\uC2EC\uD558\uAC8C \uADF8\uC744\uB9B0 \uB0A1\uC740 \uC0AC\uC9C4.
-    \uC5B4\uB5A4 \uAE30\uC5B5\uC774 \uB2F4\uACA8 \uC788\uC5C8\uB294\uC9C0, \uC9C0\uAE08\uC740
-    \uC54C \uC218 \uC5C6\uB2E4."
+  ItemId: 5
+  ItemName: "\uB178\uB780\uC0C9 \uC0AC\uC9C4 \uBD09\uD22C"
+  Description: "\uB178\uB780\uC0C9 \uC0AC\uC9C4 \uBD09\uD22C\uB2E4."
   IsConsumable: 0

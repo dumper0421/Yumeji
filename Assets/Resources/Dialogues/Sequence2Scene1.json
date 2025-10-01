@@ -49,10 +49,19 @@
     ]
   },
   {
-    "id": "Chemicals",
+    "id": "Storage_Box",
     "speaker": "",
     "lines": [
-      { "text": "작업에 사용하는 약품들. 현상액, 정지액, 정착액이 순서대로 놓여있다.", "showPortrait": true }
+      {"text": "보관함 안에 노란색 사진 봉투가 있다.","showPortrait": false },
+      {"text": "노란색 사진 봉투를 얻었다.","showPortrait": false }
+    ]
+  },
+  {
+    "id": "Storage_Box2",
+    "speaker": "",
+    "lines": [
+      {"text": "보관함 안에 슬라이드 필름이 있다.","showPortrait": false },
+      {"text": "슬라이드 필름을 얻었다.","showPortrait": false }
     ]
   },
   {
@@ -60,6 +69,13 @@
     "speaker": "",
     "lines": [
       { "text": "아직 영업 시간이다.", "showPortrait": true }
+    ]
+  },
+   {
+    "id": "Chemicals",
+    "speaker": "",
+    "lines": [
+      { "text": "작업에 사용하는 약품들. 현상액, 정지액, 정착액이 순서대로 놓여있다.", "showPortrait": true }
     ]
   },
   {
@@ -108,112 +124,342 @@
     "id": "Guest_Dialogue7",
     "speaker": "진상손님",
     "lines": [
-      { "text": "문제가 있냐고? 이게 문제 아니면 뭔데?", "showPortrait": true, "nextId": "Guest_Dialogue8" }
+      { "text": "문제가 있냐고? 이게 문제 아니면 뭔데?", "showPortrait": true},
+      { "text": "초점이 다 나갔잖아. 뒤도 다 날아가고,", "showPortrait": true},
+      { "text": "정작 중요한 사람이 유령처럼 흐릿하잖아.", "showPortrait": true, "nextId": "Guest_Dialogue8" }
     ]
   },
   {
     "id": "Guest_Dialogue8",
-    "speaker": "진상손님",
+    "speaker": "하루",
     "lines": [
-      { "text": "초점이 다 나갔잖아. 뒤도 다 날아가고,", "showPortrait": true, "nextId": "Guest_Dialogue9" }
+      { "text": "그건 손님이 그렇게 찍으신 건데…", "showPortrait": true, "nextId": "Guest_Dialogue9" }
     ]
   },
   {
     "id": "Guest_Dialogue9",
     "speaker": "진상손님",
     "lines": [
-      { "text": "정작 중요한 사람이 유령처럼 흐릿하잖아.", "showPortrait": true, "nextId": "Guest_Dialogue10" }
+      { "text": "내가? 웃기네. 내가 사진을 얼마나 잘 찍는데.", "showPortrait": true, "nextId": "Guest_Dialogue10" }
     ]
   },
   {
     "id": "Guest_Dialogue10",
     "speaker": "하루",
     "lines": [
-      { "text": "그건 손님이 그렇게 찍으신 건데…", "showPortrait": true, "nextId": "Guest_Dialogue11" }
+      { "text": "그러면 필름 카메라 특성 상 이런 사진이 나올 수 있는 거 아시잖아요.", "showPortrait": true, "nextId": "Guest_Dialogue11" }
     ]
   },
   {
     "id": "Guest_Dialogue11",
     "speaker": "진상손님",
     "lines": [
-      { "text": "내가? 웃기네. 내가 사진을 얼마나 잘 찍는데.", "showPortrait": true, "nextId": "Guest_Dialogue12" }
+      { "text": "내가 기억하는 건 이게 아니라고.", "showPortrait": true },
+       { "text": "이 날 분명 날씨도 엄청 좋았고, 뒤에 꽃도 활짝 펴서 다 선명하게 기억나는데!", "showPortrait": true},
+       { "text": "사진에는 왜 사람이 허옇게 떠 있냐고. 이건 그냥 당신이 현상을 잘못한 거야.", "showPortrait": true, "nextId": "Guest_Dialogue12" }
     ]
   },
   {
     "id": "Guest_Dialogue12",
     "speaker": "하루",
     "lines": [
-      { "text": "그러면 필름 카메라 특성 상 이런 사진이 나올 수 있는 거 아시잖아요.", "showPortrait": true, "nextId": "Guest_Dialogue13" }
+      { "text": "…", "showPortrait": true, "nextId": "Guest_Dialogue13" }
     ]
   },
   {
     "id": "Guest_Dialogue13",
     "speaker": "진상손님",
     "lines": [
-      { "text": "내가 기억하는 건 이게 아니라고.", "showPortrait": true, "nextId": "Guest_Dialogue14" }
+      { "text": "그리고 이 얼굴. 이게 아니야. 내가 기억하는 그 표정이 아니라고.", "showPortrait": true },
+        { "text": "훨씬… 훨씬 행복한 얼굴이었는데. 이건 그냥 껍데기만 찍혀 있네.", "showPortrait": true, "nextId": "Guest_Dialogue14" }
     ]
   },
   {
     "id": "Guest_Dialogue14",
-    "speaker": "진상손님",
+    "speaker": "하루",
     "lines": [
-      { "text": "이 날 분명 날씨도 엄청 좋았고, 뒤에 꽃도 활짝 펴서 다 선명하게 기억나는데!", "showPortrait": true, "nextId": "Guest_Dialogue15" }
+      { "text": "… 인화까지 다시 해드릴까요?", "showPortrait": true, "nextId": "Guest_Dialogue15" }
     ]
   },
   {
     "id": "Guest_Dialogue15",
     "speaker": "진상손님",
     "lines": [
-      { "text": "사진에는 왜 사람이 허옇게 떠 있냐고. 이건 그냥 당신이 현상을 잘못한 거야.", "showPortrait": true, "nextId": "Guest_Dialogue16" }
+      { "text": "됐어. 다시 한다고 뭐가 바뀌겠어?", "showPortrait": true, "nextId": "Guest_Dialogue16" }
     ]
   },
   {
     "id": "Guest_Dialogue16",
-    "speaker": "하루",
+    "speaker": "진상손님",
     "lines": [
-      { "text": "…", "showPortrait": true, "nextId": "Guest_Dialogue17" }
+      { "text": "옛날 주인 있었을 때는 안 이랬는데 말이야.", "showPortrait": true, "nextId": "Guest_Dialogue17" }
     ]
   },
   {
     "id": "Guest_Dialogue17",
-    "speaker": "진상손님",
-    "lines": [
-      { "text": "그리고 이 얼굴. 이게 아니야. 내가 기억하는 그 표정이 아니라고.", "showPortrait": true, "nextId": "Guest_Dialogue18" }
-    ]
-  },
-  {
-    "id": "Guest_Dialogue18",
-    "speaker": "진상손님",
-    "lines": [
-      { "text": "훨씬… 훨씬 행복한 얼굴이었는데. 이건 그냥 껍데기만 찍혀 있네.", "showPortrait": true, "nextId": "Guest_Dialogue19" }
-    ]
-  },
-  {
-    "id": "Guest_Dialogue19",
-    "speaker": "하루",
-    "lines": [
-      { "text": "… 인화까지 다시 해드릴까요?", "showPortrait": true, "nextId": "Guest_Dialogue20" }
-    ]
-  },
-  {
-    "id": "Guest_Dialogue20",
-    "speaker": "진상손님",
-    "lines": [
-      { "text": "됐어. 다시 한다고 뭐가 바뀌겠어?", "showPortrait": true, "nextId": "Guest_Dialogue21" }
-    ]
-  },
-  {
-    "id": "Guest_Dialogue21",
-    "speaker": "진상손님",
-    "lines": [
-      { "text": "옛날 주인 있었을 때는 안 이랬는데 말이야.", "showPortrait": true, "nextId": "Guest_Dialogue22" }
-    ]
-  },
-  {
-    "id": "Guest_Dialogue22",
     "speaker": "하루",
     "lines": [
       { "text": "안녕히 가세요.", "showPortrait": true }
+    ]
+  },
+   {
+    "id": "Ken_Meet1",
+    "speaker": "켄",
+    "lines": [
+      { "text": "저기요. 지난 주에 현상 맡긴 필름 찾으러 왔는데.", "showPortrait": true, "nextId": "Ken_Meet2" }
+    ]
+  },
+  {
+    "id": "Ken_Meet2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…잠시만요.", "showPortrait": true }
+    ]
+  },
+   {
+    "id": "Ken_Dialogue1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "여기 있습니다.", "showPortrait": true, "nextId": "Ken_Dialogue2" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue2",
+    "speaker": "켄",
+    "lines": [
+      { "text": "맞지? …너 하루 맞지?", "showPortrait": true },
+      { "text": "저번엔 긴가민가 했는데.", "showPortrait": true },
+      { "text": "여기서 뭐 하고 있어?", "showPortrait": true, "nextId": "Ken_Dialogue3" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue3",
+    "speaker": "하루",
+    "lines": [
+      { "text": "오랜만이네.", "showPortrait": true, "nextId": "Ken_Dialogue4" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue4",
+    "speaker": "켄",
+    "lines": [
+      { "text": "왜 아는 척 안 했어?", "showPortrait": true, "nextId": "Ken_Dialogue5" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue5",
+    "speaker": "하루",
+    "lines": [
+      { "text": "나도 요즘 정신이 없어서 말이야.", "showPortrait": true },
+      { "text": "그것보다 그 우스꽝스러운 차림은 뭐야?", "showPortrait": true, "nextId": "Ken_Dialogue6" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue6",
+    "speaker": "켄",
+    "lines": [
+      { "text": "뭐? 내 옷이 어때서. 멋지기만 한데.", "showPortrait": true },
+      { "text": "요즘은 보는 눈이 많아져서 말이야.", "showPortrait": true },
+      { "text": "너, 내 저번 영화 소식 들었지? 평론가들이 아주 극찬을…", "showPortrait": true, "nextId": "Ken_Dialogue7" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue7",
+    "speaker": "하루",
+    "lines": [
+      { "text": "듣긴 했어. 촬영은 좋았는데, 각본이 진부하다고.", "showPortrait": true, "nextId": "Ken_Dialogue8" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue8",
+    "speaker": "켄",
+    "lines": [
+      { "text": "너도 이쪽 떠나더니 감 다 죽었네.", "showPortrait": true },
+      { "text": "하긴 요즘 영화는 보고 다니냐?", "showPortrait": true, "nextId": "Ken_Dialogue9" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue9",
+    "speaker": "하루",
+    "lines": [
+      { "text": "전혀.", "showPortrait": true, "nextId": "Ken_Dialogue10" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue10",
+    "speaker": "켄",
+    "lines": [
+      { "text": "그러시겠지.", "showPortrait": true },
+      { "text": "그래서, 진짜 여기서 일하는 거였어? 주인 아저씨는 어디 가시고.", "showPortrait": true, "nextId": "Ken_Dialogue11" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue11",
+    "speaker": "하루",
+    "lines": [
+      { "text": "좀 편찮으셔서. 잠시 맡고 있어.", "showPortrait": true, "nextId": "Ken_Dialogue12" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue12",
+    "speaker": "켄",
+    "lines": [
+      { "text": "잠시? 몇 년째가 잠시야?", "showPortrait": true, "nextId": "Ken_Dialogue13" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue13",
+    "speaker": "켄",
+    "lines": [
+      { "text": "역시, 저 졸작 필름은 아직도 갖고 있었네.", "showPortrait": true, "nextId": "Ken_Dialogue14" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue14",
+    "speaker": "하루",
+    "lines": [
+      { "text": "딱히 놔둘 데가 없어서.", "showPortrait": true, "nextId": "Ken_Dialogue15" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue15",
+    "speaker": "켄",
+    "lines": [
+      { "text": "저 영화 제목이 뭐였더라? 특이하게 제목 자체가 <제목 미정> 아니었나?", "showPortrait": true },
+      { "text": "영화제에서 수상하고 학교에서 난리도 아니었잖아.", "showPortrait": true },
+      { "text": "유명한 평론가들까지 좋게 평론해주고.", "showPortrait": true, "nextId": "Ken_Dialogue16" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue16",
+    "speaker": "하루",
+    "lines": [
+      { "text": "다 지난 일이지.", "showPortrait": true, "nextId": "Ken_Dialogue17" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue17",
+    "speaker": "켄",
+    "lines": [
+      { "text": "그땐 배 좀 아팠어. 솔직히 질투도 많이 했고.", "showPortrait": true, "nextId": "Ken_Dialogue18" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue18",
+    "speaker": "하루",
+    "lines": [
+      { "text": "응. 확실히 그래보였어.", "showPortrait": true, "nextId": "Ken_Dialogue19" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue19",
+    "speaker": "켄",
+    "lines": [
+      { "text": "그럴 수밖에 없었어.", "showPortrait": true },
+      { "text": "재능 있는 신인 감독이 나왔다고 난리 났었고, 루나도…", "showPortrait": true, "nextId": "Ken_Dialogue20" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue20",
+    "speaker": "하루",
+    "lines": [
+      { "text": "그만. 옛날 얘기는 그만하자.", "showPortrait": true, "nextId": "Ken_Dialogue21" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue21",
+    "speaker": "켄",
+    "lines": [
+      { "text": "그랬던 모든 게 그날 이후로 멈춰버렸잖아.", "showPortrait": true },
+      { "text": "혹시 아직도 네 탓하고 있는 거야? 그래서 아직도 여기서 이러고 있는 거고?", "showPortrait": true, "nextId": "Ken_Dialogue22" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue22",
+    "speaker": "하루",
+    "lines": [
+      { "text": "그런 거 아니야. 그리고 사진관이 뭐가 어때서.", "showPortrait": true },
+      { "text": "그냥, 이제 와 생각해보니 영화가 내 길이 아니었던 것 같아.", "showPortrait": true, "nextId": "Ken_Dialogue23" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue23",
+    "speaker": "켄",
+    "lines": [
+      { "text": "거짓말. 너 스스로에게 솔직해지라고.", "showPortrait": true },
+      { "text": "네 재능이 아깝지도 않아? 내가 그렇게 옆에서 질투했었던 재능인데.", "showPortrait": true },
+      { "text": "진짜 한심해 보여서, 다시 만나면 꼭 말해주고 싶었어.", "showPortrait": true },
+      { "text": "이제 그만 잊고 다시 시작해보는 건 어때?", "showPortrait": true, "nextId": "Ken_Dialogue24" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue24",
+    "speaker": "하루",
+    "lines": [
+      { "text": "있잖아.", "showPortrait": true },
+      { "text": "평생 안고 살아가야만 하는 상처도 있는 것 같아.", "showPortrait": true, "nextId": "Ken_Dialogue25" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue25",
+    "speaker": "켄",
+    "lines": [
+      { "text": "…", "showPortrait": true },
+      { "text": "알겠다.", "showPortrait": true },
+      { "text": "그럼 난 일이 있어서 이만 가봐야겠어.", "showPortrait": true, "nextId": "Ken_Dialogue26" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue26",
+    "speaker": "하루",
+    "lines": [
+      { "text": "그래, 반가웠어.", "showPortrait": true, "nextId": "Ken_Dialogue27" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue27",
+    "speaker": "켄",
+    "lines": [
+      { "text": "그래도 오랜만에 영화관이라도 한번 가봐.", "showPortrait": true },
+      { "text": "요즘 재밌는 영화들 많이 나오더라.", "showPortrait": true, "nextId": "Ken_Dialogue28" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue28",
+    "speaker": "하루",
+    "lines": [
+      { "text": "알겠어.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue29",
+    "speaker": "켄",
+    "lines": [
+      { "text": "맞다.", "showPortrait": true },
+      { "text": "예전에 네가 미치도록 구하고 싶어해서 부탁했던 앨범, 구해서 갖고 있어.", "showPortrait": true },
+      { "text": "비틀즈 러버 소울. 네가 말하던 그 판본.", "showPortrait": true, "nextId": "Ken_Dialogue30" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue30",
+    "speaker": "하루",
+    "lines": [
+      { "text": "아 맞네. 근데 이제 더 이상 안듣는데.", "showPortrait": true, "nextId": "Ken_Dialogue31" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue31",
+    "speaker": "켄",
+    "lines": [
+      { "text": "먼지만 쌓이고 있으니까, 언제든지 연락해.", "showPortrait": true },
+      { "text": "그날 만나서 술이나 한잔하자.", "showPortrait": true, "nextId": "Ken_Dialogue32" }
+    ]
+  },
+  {
+    "id": "Ken_Dialogue32",
+    "speaker": "하루",
+    "lines": [
+      { "text": "알겠어. 조심히 가.", "showPortrait": true }
     ]
   }
 ]
