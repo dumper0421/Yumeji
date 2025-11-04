@@ -43,6 +43,10 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
     [SerializeField]
     private PlayableDirector _director2;
 
+
+    [SerializeField]
+    private ChangeLightTrigger _changeLightTrigger;
+
     protected override void HandleDialogueEnd(string dialogueId)
     {
         switch (dialogueId)
@@ -71,8 +75,7 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
                 _director2.Stop();
                 break;
             case "Ken_Dialogue32":
-                _Ken.GetComponent<Animator>().enabled = true;
-                PlayDirector(_director2);
+                _changeLightTrigger.CanLeave = true;
                 break;
         }
                 TryProgress();

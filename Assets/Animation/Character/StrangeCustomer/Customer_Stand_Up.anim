@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ken_Stand_Right
+  m_Name: Customer_Stand_Up
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1377374492, guid: 0142cf209b56c074baea832bc3d261f1, type: 3}
+      value: {fileID: -1000389955, guid: 1f46307ec0a58bd44895d3a9b7e0b963, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1377374492, guid: 0142cf209b56c074baea832bc3d261f1, type: 3}
+    - {fileID: -1000389955, guid: 1f46307ec0a58bd44895d3a9b7e0b963, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -461,5 +461,12 @@
     "lines": [
       { "text": "알겠어. 조심히 가.", "showPortrait": true }
     ]
+  },
+   {
+    "id": "Ken_Dialogue33",
+    "speaker": "하루",
+    "lines": [
+      { "text": "정신이 없네… 오늘은 일찍 정리하고 들어가볼까.", "showPortrait": true }
+    ]
   }
 ]

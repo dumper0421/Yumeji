@@ -15,6 +15,9 @@ public class ChangeLightTrigger : MonoBehaviour
     [SerializeField]
     private Vector3 _targetPosition;
 
+    public bool CanLeave;
+    public DialogueManager DialogueManager;
+
 
     void Awake()
     {
@@ -33,6 +36,11 @@ public class ChangeLightTrigger : MonoBehaviour
 
         if (_isGusetEntry)
             _BadCustomer.transform.position = _targetPosition;
+
+        if (CanLeave)
+        {
+            DialogueManager.StartDialogue("Ken_Dialogue33");
+        }
     }
 
     System.Collections.IEnumerator ReenableAfter(float sec)
