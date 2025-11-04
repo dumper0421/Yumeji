@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Haru_Push_Left_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c326de0aba80b248a67157b55488699
+      internalID: 281221140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540d7e7a37318f448b942e62c9662a34
+      internalID: -1875260586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_2
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5d743b204e0584f987738174149d95
+      internalID: -519524423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_3
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82729c32541df1947b58c4ec10637c1a
+      internalID: -295863225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_4
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 44
+        width: 128
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee238c0b182b3d74c953b193f5c79272
+      internalID: -1799143020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_5
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 44
+        width: 128
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5667a406529ccc44d88358e5b1610363
+      internalID: -656588418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 45
+        width: 128
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c76bc242efc524d9c2223a3c3e89b5
+      internalID: -2073966302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_7
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 44
+        width: 128
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dca5c23ed0495e4eb813ed4bcd89e2d
+      internalID: 1489715309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_8
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 44
+        width: 128
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91684ea13f127ce4da31dbfd2826703b
+      internalID: 2120583925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_9
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28937b49c236de9478017e1678a949d4
+      internalID: 2075365218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Left_10
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171763740e3a2bb438fb1c23004d5a5e
+      internalID: -1346087950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +363,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Haru_Push_Left_0: 281221140
+      Haru_Push_Left_1: -1875260586
+      Haru_Push_Left_10: -1346087950
+      Haru_Push_Left_2: -519524423
+      Haru_Push_Left_3: -295863225
+      Haru_Push_Left_4: -1799143020
+      Haru_Push_Left_5: -656588418
+      Haru_Push_Left_6: -2073966302
+      Haru_Push_Left_7: 1489715309
+      Haru_Push_Left_8: 2120583925
+      Haru_Push_Left_9: 2075365218
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b74b7fba1cbfbf4a888b4b082d1ef74
+      internalID: 1683745549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_1
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e02b527480bcb947b95fa39bcd89678
+      internalID: 1067351770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_2
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375f7eceb83741f41a2d5307dc57dd8c
+      internalID: -321630108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_3
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732cc49719347a2498a56d9db3a2db5e
+      internalID: -875340188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_4
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0be36f87337a8c40a19ea2dcf0ef4d3
+      internalID: 2017713426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_5
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951c2a7ac1738a84899ac76bd799457d
+      internalID: -1669993916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_6
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a544ca7b2bbd34c42977cb9e717fb215
+      internalID: -957816675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_7
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c607580f973ab04cafe64a642d47515
+      internalID: -2009819745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_8
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d501b3f33940abf4ea3cc8c8013ccaa2
+      internalID: -1546794612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Up_9
+      rect:
+        serializedVersion: 2
+        x: 1505
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e87afd9b618fe84db64c04b22fe0425
+      internalID: 460000578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +342,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Haru_Shoot_Up_0: 1683745549
+      Haru_Shoot_Up_1: 1067351770
+      Haru_Shoot_Up_2: -321630108
+      Haru_Shoot_Up_3: -875340188
+      Haru_Shoot_Up_4: 2017713426
+      Haru_Shoot_Up_5: -1669993916
+      Haru_Shoot_Up_6: -957816675
+      Haru_Shoot_Up_7: -2009819745
+      Haru_Shoot_Up_8: -1546794612
+      Haru_Shoot_Up_9: 460000578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

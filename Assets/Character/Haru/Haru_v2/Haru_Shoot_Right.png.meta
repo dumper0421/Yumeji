@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_0
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa8f35e693926f4b8b9c75550a945a9
+      internalID: 1310472913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_1
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587549e20215ea44ba69943eca373ee8
+      internalID: 1037314210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_2
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dfea0c4d783be54a8a8ea7d4b0ec3ed
+      internalID: 1233102681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_3
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce26ff0607c39244ea1a73f0681cf81e
+      internalID: -1499473780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_4
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04425983e4234e34cb7be6d5fef9d824
+      internalID: -483269779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_5
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 45
+        width: 152
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29ba56b69285594f98b6535dee736b4
+      internalID: -1054806021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_7
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9137f379bb6a6944b88f275e8232e15f
+      internalID: 971727521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_8
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c1c5bae31181c4fa6347deb9a64e79
+      internalID: -918979141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_9
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438e3f6dec42b2a47bb5bf68920e4c58
+      internalID: 922442104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Shoot_Right_10
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 45
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7e3f3291a35cc46bc46c7c2a6c57a6
+      internalID: 141866984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +342,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Haru_Shoot_Right_0: 1310472913
+      Haru_Shoot_Right_1: 1037314210
+      Haru_Shoot_Right_10: 141866984
+      Haru_Shoot_Right_2: 1233102681
+      Haru_Shoot_Right_3: -1499473780
+      Haru_Shoot_Right_4: -483269779
+      Haru_Shoot_Right_5: -1054806021
+      Haru_Shoot_Right_6: 603551874
+      Haru_Shoot_Right_7: 971727521
+      Haru_Shoot_Right_8: -918979141
+      Haru_Shoot_Right_9: 922442104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

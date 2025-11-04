@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Haru_Push_Down_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 051b76aa48edbf647ab7251effa6c22c
+      internalID: -166494280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23842b0cd0313bd469dc3bd650ae8d2e
+      internalID: -389960212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3437bba0e7f8b7a4090c1cc89abc6399
+      internalID: 2029234168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_3
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 44
+        width: 128
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ff48ddae149d3478685c1f9b8825f1
+      internalID: 1872632454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_4
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 44
+        width: 128
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5428d07c881eaf0469f00d10e040dad3
+      internalID: 1431379721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_5
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 44
+        width: 128
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56ab734b63e56d4b8d7fadc43dfbafd
+      internalID: -353824530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 44
+        width: 128
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad988a7ffdb88734f80287800180ed90
+      internalID: -1717105858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_7
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 44
+        width: 128
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf76b392296c764196fc14b5e0df477
+      internalID: 1936478567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_8
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 45
+        width: 128
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1cb6cf853f8c5409bf340a2a02ab4d
+      internalID: -1230846031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_9
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 44
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd96c7b0ca8c0241b32fce62ee83035
+      internalID: -713064681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haru_Push_Down_10
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 44
+        width: 127
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd635878086a684f8e6fc40c77acabf
+      internalID: -1043695348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +363,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Haru_Push_Down_0: -166494280
+      Haru_Push_Down_1: -389960212
+      Haru_Push_Down_10: -1043695348
+      Haru_Push_Down_2: 2029234168
+      Haru_Push_Down_3: 1872632454
+      Haru_Push_Down_4: 1431379721
+      Haru_Push_Down_5: -353824530
+      Haru_Push_Down_6: -1717105858
+      Haru_Push_Down_7: 1936478567
+      Haru_Push_Down_8: -1230846031
+      Haru_Push_Down_9: -713064681
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
