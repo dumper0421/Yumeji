@@ -40,6 +40,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     public float delayTimer = 0f;
     public GameObject Bloom;
+    public GameObject[] InteractionLight;
     Coroutine ShowBrokenHaruImageCoroutine;
     public void LateUpdate()
     {
@@ -79,9 +80,11 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
             case "Drawer_Match":
                 InventoryManager.Instance.AddItem(MatchData);
+                InteractionLight[0].SetActive(false);
                 break;
             case "Bookshelf1_Slot1":
                 InventoryManager.Instance.AddItem(CharredPhotographData);
+                InteractionLight[1].SetActive(false);
                 break;
             case "Fireplace_Lit":
                 FirePlace.StartDialogue = "Fireplace2";

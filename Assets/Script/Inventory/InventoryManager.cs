@@ -207,6 +207,7 @@ public class InventoryManager : Singleton<InventoryManager>
     public void CompactInventory()
     {
         int targetIndex = 0;
+
         for (int i = 0; i < _slots.Count; i++)
         {
             if (!_slots[i].IsEmpty)
@@ -221,6 +222,10 @@ public class InventoryManager : Singleton<InventoryManager>
                 targetIndex++;
             }
         }
+
+        if (targetIndex == 0)
+            DescriptionText.text = string.Empty;
+
     }
 
     public void MoveSelectBorderTo(int newIndex)
