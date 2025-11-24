@@ -107,10 +107,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         canMove = true;
     }
 
-    IEnumerator ShootingCoroutine()
-    {
-        yield return null;
-    }
+
 
 
     void Update()
@@ -156,7 +153,6 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
         /////////  Take Shoot 애니메이션 트리 다시 만들 때
         /////////  EndTakeShoot 애니메이션 이벤트로 호출해야함
-        /////////
         // 3) 촬영 입력 처리 (이동 입력이 없을 때만)
         if (Input.GetKeyDown(KeyCode.C)
          && Time.time >= nextShootTime)
@@ -200,6 +196,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     }
 
 
+    //---------------------메서드---------------------//
 
     // Teleport 호출용 공개 메서드
     public void Teleport(Vector3 pos)
@@ -220,6 +217,8 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
         canMove = true;
     }
+
+    //촬영 에셋 생성 메서드
     public void HandleFlash()
     {
         // 1) 플레이어가 바라보는 방향 구하기
@@ -260,6 +259,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         }
 
     }
+
 
     // 4방으로 정규화 (애니 파라미터 기반)
     private Vector2 GetFacing4Dir()
@@ -327,7 +327,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         // 뒤로 1칸(복귀 지점으로)
         Vector3 cur = transform.position;
         Vector3 target = standReturnPos;
-        // 안전: 복귀 방향은 -sitDir로 계산해도 동일
+        // 안전: 복귀 방향은 -sitDir로 계산S해도 동일
         yield return StartCoroutine(CoStepOneTile(-sitDir, bypassNoPassOnSit, tileStepDuration));
 
         // 상태 복구

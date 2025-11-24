@@ -174,9 +174,12 @@ MonoBehaviour:
     m_Bits: 1024
   flashVFXPrefab: {fileID: 1184421162603923759, guid: 8d71762eb41297a468e6c3d404fc9060, type: 3}
   flashDuration: 0.3
-  flashVFXYOffset: 0.5
+  flashVFXYOffset: 0
   shootCooldown: 2
   photoSFX: {fileID: 8300000, guid: bdf49f1d4493d164d85c6f26d2f11849, type: 3}
+  tileStepDuration: 0.12
+  bypassNoPassOnSit: 1
+  Companion: {fileID: 0}
 --- !u!95 &7815632663773047571
 Animator:
   serializedVersion: 5
