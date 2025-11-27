@@ -2,23 +2,45 @@
 
 public class InteractionSystem : MonoBehaviour
 {
-    public float InteractDistance = 1.0f; // 조사거리
-    public LayerMask InteractableLayer;   
+    public float InteractDistance = 1.0f;
+    public LayerMask InteractableLayer;
 
-    private Vector2 lastDirection = Vector2.down; 
+    private Vector2 lastDirection = Vector2.down;
+    private PlayerActionController actionController;
+    private PlayerMove_Test_Lerp move;
+
+    private void Awake()
+    {
+        actionController = GetComponent<PlayerActionController>();
+        move = GetComponent<PlayerMove_Test_Lerp>();
+    }
 
     private void Update()
     {
-        UpdateFacingDirection(); // 방향 업데이트 (대각선 안되게 수정해야 됨)
+        UpdateFacingDirection();
+
+        // ★ 밀기 중이면 상호작용 완전 차단
+        if (actionController != null && actionController.IsPushing)
+            return;
+
+        // ★ 앉아 있는 동안에는 F = 일어나기 전용
+        if (actionController != null && actionController.IsSitting)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+                actionController.StandUp();
+            return;
+        }
+
+        // ★ 이동 불가 상태(c
+        if (move != null && !move.canMove)
+            return;
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("F 키 입력 감지");
             TryInteract();
         }
     }
 
-    // 방향 업데이트
     private void UpdateFacingDirection()
     {
         float dirX = Input.GetAxisRaw("Horizontal");
@@ -30,114 +52,103 @@ public class InteractionSystem : MonoBehaviour
         }
     }
 
-    
-    private void TryInteract()    {
+    private void TryInteract()
+    {
+        Vector2 origin = transform.position;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(
+            origin,
+            lastDirection,
+            InteractDistance,
+            InteractableLayer
+        );
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, lastDirection, InteractDistance, ~0); // 모든 레이어 감지
-
-        Debug.DrawRay(transform.position, lastDirection * InteractDistance, Color.green, 0.5f);
+        Debug.DrawRay(origin, lastDirection * InteractDistance, Color.green, 0.2f);
 
         foreach (RaycastHit2D hit in hits)
         {
-            if (hit.collider.CompareTag("Player")||hit.collider.CompareTag("IgnoreRaycast"))
-            {
-                continue; 
-            }
-            
+            if (hit.collider == null) continue;
+            if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("IgnoreRaycast"))
+                continue;
 
-            Debug.Log($"Raycast 충돌 감지: {hit.collider.gameObject.name}");
-            InteractWithObject(hit.collider.gameObject);
-            return; 
+            GameObject obj = hit.collider.gameObject;
+            InteractWithObject(obj);
+            return;
         }
-
-        Debug.Log("Raycast가 아무 유효한 오브젝트도 감지하지 못함");
     }
 
-    // 📌 오브젝트와의 상호작용 실행 (태그 없이 컴포넌트 기반)
     private void InteractWithObject(GameObject obj)
     {
         bool interacted = false;
 
         if (obj.TryGetComponent<InspectableObject>(out var inspectable))
         {
-            InspectObject(inspectable);
+            inspectable.TryInspect();
             interacted = true;
         }
 
         if (obj.TryGetComponent(out DialogueObject dialogueNPC))
         {
-            StartDialogue(dialogueNPC);
+            Debug.Log("대화 상호작용");
+            interacted = true;
+        }
+
+        if (obj.TryGetComponent(out SitObject seat))
+        {
+            if (actionController != null)
+            {
+                if (!actionController.IsSitting)
+                    actionController.SitAt(seat);
+                else if (actionController.CurrentSeat == seat)
+                    actionController.StandUp();
+            }
             interacted = true;
         }
 
         if (obj.TryGetComponent(out SaveObject savePoint))
         {
-            OpenSaveMenu(savePoint);
+            Debug.Log("세이브 상호작용");
             interacted = true;
         }
 
         if (obj.TryGetComponent(out EventObject eventTrigger))
         {
-            TriggerEvent(eventTrigger);
+            Debug.Log("이벤트 상호작용");
             interacted = true;
         }
 
         if (obj.TryGetComponent(out PushableObject pushable))
         {
-            PushObject(pushable);
+            TryPush(pushable);
             interacted = true;
         }
 
         if (!interacted)
         {
-            Debug.Log("상호작용 오브젝트 없음");
+            Debug.Log("상호작용 가능한 컴포넌트 없음");
         }
     }
 
-    // 📌 1. 오브젝트 조사
-    private void InspectObject(InspectableObject obj)
+    private void TryPush(PushableObject box)
     {
-        Debug.Log("1. 조사 오브젝트 상호작용");
-        obj.TryInspect();
-    }
-
-    // 📌 2. NPC 대화
-    private void StartDialogue(DialogueObject obj)
-    {
-        Debug.Log("2. 대화 오브젝트 상호작용");
-    }
-
-    // 📌 3. 세이브 포인트
-    private void OpenSaveMenu(SaveObject obj)
-    {
-        Debug.Log("3. 세이브 오브젝트 상호작용");
-    }
-
-    // 📌 4. 이벤트 트리거
-    private void TriggerEvent(EventObject obj)
-    {
-        Debug.Log("4. 이벤트 오브젝트 상호작용");
-    }
-
-    // 📌 5. 밀기 오브젝트
-    private void PushObject(PushableObject obj)
-    {
-        Debug.Log("5. 밀기 오브젝트 상호작용");
-
-        if (obj.TryPush(lastDirection)) 
+        if (actionController != null && actionController.IsSitting)
         {
-            Debug.Log("밀기 성공!");
+            Debug.Log("앉아 있는 동안에는 밀 수 없음");
+            return;
+        }
+
+        Vector2 dir = lastDirection;
+        if (dir == Vector2.zero) dir = Vector2.down;
+
+        if (box.TryPush(dir))
+        {
+            if (actionController != null)
+            {
+                actionController.StartPushMove(dir, box.pushDuration);
+            }
         }
         else
         {
-            Debug.Log("밀기 실패 ");
+            Debug.Log("밀기 실패");
         }
-    }
-
-    // 📌 Raycast 디버깅용
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + lastDirection * InteractDistance);
     }
 }

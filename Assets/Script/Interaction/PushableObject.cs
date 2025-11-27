@@ -21,6 +21,7 @@ public class PushableObject : MonoBehaviour
     private Rigidbody2D rb;
     private AudioSource audioSource;
 
+
     void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
