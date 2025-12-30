@@ -225,10 +225,11 @@ MonoBehaviour:
   buttonRenderer: {fileID: 18631436}
   unpressedSprite: {fileID: 21300000, guid: 69e555372da55f841a90c71c2e61ce16, type: 3}
   pressedSprite: {fileID: 21300000, guid: 0f57643f32d61084f9eb49ce72bac5cd, type: 3}
-  activatorObjects: []
+  activatorObject: {fileID: 394123183}
   objectToRemove: {fileID: 1570688278}
   pressSfx: {fileID: 8300000, guid: a628622b2a3528c4d89af169bc83930d, type: 3}
   pushableObject: {fileID: 394123192}
+  disableDelay: 0.5
   scene9Controller: {fileID: 177367110}
 --- !u!61 &18631438
 BoxCollider2D:
@@ -5959,6 +5960,10 @@ PrefabInstance:
     - target: {fileID: 391591740894976054, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
       propertyPath: m_Name
       value: 'DwarfParent '
+      objectReference: {fileID: 0}
+    - target: {fileID: 510810791389534620, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
+      propertyPath: pushDuration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 525817616434374439, guid: 7522f158bf4cee4419e6f59ea3c4ce19, type: 3}
       propertyPath: DialogueManager
