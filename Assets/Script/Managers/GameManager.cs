@@ -9,6 +9,13 @@ public class GameManager : Singleton<GameManager>
     public GameObject Player;
     private PlayerSaveData saveData_;
 
+    private float totalPlaySeconds_;
+
+    private void Update()
+    {
+        totalPlaySeconds_ += Time.deltaTime;
+    }
+
     protected override void Init()
     {
 
@@ -24,8 +31,9 @@ public class GameManager : Singleton<GameManager>
             slotIndex: 0,
             sequenceNum: seqNum,
             playerPosition: startPos,
-            lastPlayTime: DateTime.Now,
-            currentSceneName: currentScene.name
+            playTime: "00:00:00",
+            currentSceneName: currentScene.name,
+            characterName: "Haru"
         );
     }
 
@@ -37,7 +45,7 @@ public class GameManager : Singleton<GameManager>
     {
         saveData_.SlotIndex = slotIndex;
         saveData_.PlayerPosition = currentPlayerPosition;
-        saveData_.LastPlayTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        saveData_.PlayTime = FormatHHMMSS(totalPlaySeconds_);
         return saveData_;
     }
 
@@ -47,18 +55,43 @@ public class GameManager : Singleton<GameManager>
     public void LoadGameData(int slotIndex)
     {
         PlayerSaveData loaded = SaveLoadManager.Instance.LoadGame(slotIndex);
-        if (loaded != null)
-        {
-            saveData_ = loaded;
-            GameObject playerObj = GameObject.Find("PlayerHaru");
-            if (playerObj != null)
-                playerObj.transform.position = saveData_.PlayerPosition;
-
-            Debug.Log($"[GameManager] Loaded slot {slotIndex}: position restored.");
-        }
-        else
+        if (loaded == null)
         {
             Debug.LogWarning($"[GameManager] No data in slot {slotIndex} to load.");
+            return;
         }
+
+        saveData_ = loaded;
+
+        // 플레이어 위치 복원
+        GameObject playerObj = GameObject.Find("PlayerHaru");
+        if (playerObj != null)
+            playerObj.transform.position = saveData_.PlayerPosition;
+
+        totalPlaySeconds_ = ParseHHMMSS(saveData_.PlayTime);
+
+        Debug.Log($"[GameManager] Loaded slot {slotIndex}: pos restored, playTime={saveData_.PlayTime}");
+    }
+
+    private static float ParseHHMMSS(string hhmmss)
+    {
+        if (string.IsNullOrEmpty(hhmmss))
+            return 0f;
+
+        // TimeSpan.Parse는 "hh:mm:ss" 형태를 잘 처리함
+        if (TimeSpan.TryParse(hhmmss, out var ts))
+            return (float)ts.TotalSeconds;
+
+        return 0f;
+    }
+
+    // 초 -> "HH:mm:ss"
+    private static string FormatHHMMSS(float totalSeconds)
+    {
+        int sec = Mathf.Max(0, Mathf.FloorToInt(totalSeconds));
+        int h = sec / 3600;
+        int m = (sec % 3600) / 60;
+        int s = sec % 60;
+        return $"{h:00}:{m:00}:{s:00}";
     }
 }

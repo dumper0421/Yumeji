@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 531832007680769997, guid: 63e1750b821479244b817fcd1a0e7ecc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 868825724760437005, guid: 63e1750b821479244b817fcd1a0e7ecc, type: 3}
       propertyPath: m_Name
       value: SaveLoadPopup

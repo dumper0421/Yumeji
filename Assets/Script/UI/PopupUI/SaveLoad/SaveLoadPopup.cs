@@ -64,7 +64,6 @@ public class SaveLoadPopup : PopupUI
                             // 이벤트 중복 호출 방지를 위해 등록 해제
                             SceneManager.sceneLoaded -= loadAction;
                         };
-
                         SceneManager.sceneLoaded += loadAction;
                         SoundManager.Instance.StopAllSFX();
                         SoundManager.Instance.StopBGM();
@@ -103,13 +102,9 @@ public class SaveLoadPopup : PopupUI
             Move.enabled = true;
     }
 
-    void Update()
+    override public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            gameObject.SetActive(false);
-        }
-
+        base.Update();
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {

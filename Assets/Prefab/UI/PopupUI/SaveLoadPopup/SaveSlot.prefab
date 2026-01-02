@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 68298009563715103}
   - component: {fileID: 4583780198888089944}
   m_Layer: 5
-  m_Name: LastPlayTimeTMP
+  m_Name: PlayTimeTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,8 +436,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 52.4575, y: 81.713}
+  m_AnchoredPosition: {x: 192, y: 0}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4161176048470355853
 CanvasRenderer:
@@ -658,7 +658,7 @@ MonoBehaviour:
   newGameText_: {fileID: 7858344296495354062}
   slotName_: {fileID: 1697135964978954326}
   sequenceNum_: {fileID: 8597633674584397418}
-  lastPlayTime_: {fileID: 4583780198888089944}
+  playTime_: {fileID: 4583780198888089944}
   characterIcon_: {fileID: 5418230789395614257}
 --- !u!1 &4919841362846665134
 GameObject:

@@ -139,6 +139,7 @@ public class OpeningDialogueController : DialogueController<OpeningState>
         dialogueManager.IsStop = true;
         yield return new WaitForSeconds(time);
         dialogueManager.IsStop = false;
+        dialogueManager._waitingForInput = true;
     }
 
     IEnumerator ChangeScene()

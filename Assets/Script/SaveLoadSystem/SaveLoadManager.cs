@@ -9,16 +9,18 @@ public class PlayerSaveData
     public int SlotIndex;        // ¿˙¿Âµ» ΩΩ∑‘ ¿Œµ¶Ω∫
     public int SequenceNum;
     public Vector3 PlayerPosition;
-    public string LastPlayTime;
+    public string PlayTime;
     public string CurrentSceneName;
+    public string CharacterName;
 
-    public PlayerSaveData(int slotIndex, int sequenceNum, Vector3 playerPosition, DateTime lastPlayTime, string currentSceneName)
+    public PlayerSaveData(int slotIndex, int sequenceNum, Vector3 playerPosition, string playTime, string currentSceneName, string characterName)
     {
         SlotIndex = slotIndex;
         SequenceNum = sequenceNum;
         PlayerPosition = playerPosition;
-        LastPlayTime = lastPlayTime.ToString("yyyy-MM-dd HH:mm:ss");
+        PlayTime = string.IsNullOrEmpty(playTime) ? "00:00:00" : playTime;
         CurrentSceneName = currentSceneName;
+        CharacterName = characterName;
     }
 }
 

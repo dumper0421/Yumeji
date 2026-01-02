@@ -5,66 +5,61 @@ using System.Collections;
 
 public class CutsceneManager : Singleton<CutsceneManager>
 {
+    public Image FadeImage;
+    public float FadeDuration = 1f;
 
-    [Header("페이드 설정 (Fade Settings)")]
-    [Tooltip("암전 및 페이드에 사용될 검정 이미지")] public Image FadeImage;
-    [Tooltip("페이드 동작에 걸리는 시간 (초)")] public float FadeDuration = 1f;
-
-    protected override void Init()
-    {
-    }
+    protected override void Init() { }
 
     private void Start()
     {
         if (FadeImage != null)
         {
-            // 초기 시작 시 암전(검정 화면)
             FadeImage.gameObject.SetActive(true);
             Color c = FadeImage.color;
             FadeImage.color = new Color(c.r, c.g, c.b, 1f);
         }
     }
 
-    /// <summary>
-    /// 암전 상태에서 화면을 페이드 인(Fade In)합니다. (검정 -> 투명)
-    /// </summary>
-    /// <param name="onComplete">페이드 완료 후 호출될 콜백</param>
-    public void FadeFromBlack(Action onComplete = null)
+    public void FadeFromBlack(Action onComplete = null, float duration = -1f)
     {
-        StartCoroutine(Fade(1f, 0f, onComplete));
+        if (FadeImage == null) return;
+
+        FadeImage.gameObject.SetActive(true);
+        float d = duration > 0f ? duration : FadeDuration;
+        StartCoroutine(Fade(1f, 0f, () =>
+        {
+            // 완전 투명해지면 꺼도 됨(선택)
+            FadeImage.gameObject.SetActive(false);
+            onComplete?.Invoke();
+        }, d));
     }
 
-    /// <summary>
-    /// 화면을 페이드 아웃(Fade Out)하여 암전 상태로 만듭니다. (투명 -> 검정)
-    /// </summary>
-    /// <param name="onComplete">페이드 완료 후 호출될 콜백</param>
-    public void FadeToBlack(Action onComplete = null)
+    public void FadeToBlack(Action onComplete = null, float duration = -1f)
     {
-        StartCoroutine(Fade(0f, 1f, onComplete));
+        if (FadeImage == null) return;
+
+        FadeImage.gameObject.SetActive(true);
+        float d = duration > 0f ? duration : FadeDuration;
+        StartCoroutine(Fade(FadeImage.color.a, 1f, onComplete, d));
     }
 
-    /// <summary>
-    /// 알파 값을 보간하여 페이드 동작을 수행하는 코루틴
-    /// </summary>
-    private IEnumerator Fade(float startAlpha, float endAlpha, Action onComplete)
+    private IEnumerator Fade(float startAlpha, float endAlpha, Action onComplete, float fadeDuration)
     {
-        if (FadeImage == null)
-            yield break;
+        if (FadeImage == null) yield break;
 
         float elapsed = 0f;
         Color c = FadeImage.color;
-        while (elapsed < FadeDuration)
+
+        while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / FadeDuration);
+            float t = fadeDuration <= 0f ? 1f : (elapsed / fadeDuration);
+            float alpha = Mathf.Lerp(startAlpha, endAlpha, t);
             FadeImage.color = new Color(c.r, c.g, c.b, alpha);
             yield return null;
         }
 
-        // 정확히 최종 알파 값으로 설정
         FadeImage.color = new Color(c.r, c.g, c.b, endAlpha);
         onComplete?.Invoke();
     }
-
-
 }

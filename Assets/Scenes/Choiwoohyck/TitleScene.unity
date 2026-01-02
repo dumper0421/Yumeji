@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 218164271}
   - component: {fileID: 218164270}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TitleCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,6 +1666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectBorder: {fileID: 1312274072}
   SaveLoadPopUp: {fileID: 1378332009}
+  BGM: {fileID: 0}
 --- !u!114 &1767712515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,6 +2108,14 @@ PrefabInstance:
     - target: {fileID: 4263837597511193840, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484475840603513607, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520903971477905441, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9222537185567978741, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
       propertyPath: m_AnchorMax.y
