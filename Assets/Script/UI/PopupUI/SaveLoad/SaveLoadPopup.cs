@@ -18,6 +18,8 @@ public class SaveLoadPopup : PopupUI
     public int CurrentSelectIndex = 0;
     public PlayerMove_Test_Lerp Move;
 
+    public Image FadeImage;
+
     protected override void OnCloseButtonClicked()
     {
         gameObject.SetActive(false);
@@ -67,7 +69,8 @@ public class SaveLoadPopup : PopupUI
                         SceneManager.sceneLoaded += loadAction;
                         SoundManager.Instance.StopAllSFX();
                         SoundManager.Instance.StopBGM();
-                        SceneManager.LoadScene(hasData.CurrentSceneName);
+
+                        StartCoroutine(FadeOutChangeScene(hasData, 0.5f));
                     });
                 }
             }
@@ -128,4 +131,23 @@ public class SaveLoadPopup : PopupUI
         SelectBorder.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
     }
 
+    public IEnumerator FadeOutChangeScene(PlayerSaveData data , float fadeDuration)
+    {
+        if (FadeImage == null) yield break;
+
+        float elapsed = 0f;
+        Color c = FadeImage.color;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = fadeDuration <= 0f ? 1f : (elapsed / fadeDuration);
+            float alpha = Mathf.Lerp(0f, 1f, t);
+            FadeImage.color = new Color(c.r, c.g, c.b, alpha);
+            yield return null;
+        }
+
+        FadeImage.color = new Color(c.r, c.g, c.b, 1f);
+        SceneManager.LoadScene(data.CurrentSceneName);
+    }
 }

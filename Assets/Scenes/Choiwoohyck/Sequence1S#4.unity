@@ -485,6 +485,10 @@ PrefabInstance:
       propertyPath: Move
       value: 
       objectReference: {fileID: 1955867485}
+    - target: {fileID: 4709050896452684862, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8475579109563832552, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
       propertyPath: m_SortingOrder
       value: 4
@@ -2954,11 +2958,13 @@ MonoBehaviour:
   stopInterval: 2.5
   bgm: {fileID: 8300000, guid: 85d198d8705caf84dafb379a00c939b2, type: 3}
   Player: {fileID: 1955867471}
+  playerAnimator: {fileID: 0}
   cinemachineCameras: []
   targetPos_: {x: 0, y: -8}
   targetPos2_: {x: 0, y: -5}
   director_: {fileID: 2062190888}
   SFX_: {fileID: 8300000, guid: 693ea5f85eb441e45aa9276644410620, type: 3}
+  pressFIcon: {fileID: 0}
 --- !u!4 &1947979630
 Transform:
   m_ObjectHideFlags: 0

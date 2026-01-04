@@ -21,8 +21,16 @@ public class ConfirmationDialog : PopupUI
 
     [SerializeField] Color32 selectedColor = new Color32(164,10,10,255);  // 선택 상태 색
     [SerializeField] Color32 normalColor = new Color32(47,47,47,255);  // 비선택 상태 색
+    [SerializeField] private Image _blackImage;
+    
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (_selectbutton == confirmButton_) 
@@ -76,13 +84,24 @@ public class ConfirmationDialog : PopupUI
         contentTMP_.text = contentText; 
     }
 
-
     void UpdateButtonColors()
     {
         confirmButton_.GetComponent<Image>().color =
             (_selectbutton == confirmButton_) ? selectedColor : normalColor;
         denyButton_.GetComponent<Image>().color =
             (_selectbutton == denyButton_) ? selectedColor : normalColor;
+    }
+
+    private void OnEnable()
+    {
+        if (_blackImage != null)
+            _blackImage.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        if (_blackImage != null)
+            _blackImage.gameObject.SetActive(false);
     }
 
 }

@@ -1798,7 +1798,7 @@ Transform:
   m_GameObject: {fileID: 418130178}
   serializedVersion: 2
   m_LocalRotation: {x: 0.045583107, y: 0.0071925074, z: -0.00032820218, w: 0.9989346}
-  m_LocalPosition: {x: -2.8795068, y: 0.91073716, z: -9.957409}
+  m_LocalPosition: {x: -3.004289, y: 0.91073716, z: -9.957409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6264,6 +6264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopupCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4709050896452684862, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7616,6 +7620,7 @@ MonoBehaviour:
   MirrorRenderer: {fileID: 370576025}
   delayTimer: 0
   Bloom: {fileID: 0}
+  InteractionLight: []
 --- !u!95 &1666386266 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1335160525409358301, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}

@@ -11,6 +11,11 @@ public class GameManager : Singleton<GameManager>
 
     private float totalPlaySeconds_;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void Update()
     {
         totalPlaySeconds_ += Time.deltaTime;
