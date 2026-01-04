@@ -27,7 +27,7 @@ public class PauseUI : MonoBehaviour
     {
         if (_playerMove_Test_Lerp == null)
         {
-            _playerMove_Test_Lerp = GameObject.Find("PlayerHaru").GetComponent<PlayerMove_Test_Lerp>();
+            _playerMove_Test_Lerp = GameObject.Find("Haru_Player").GetComponent<PlayerMove_Test_Lerp>();
         }
     }
 

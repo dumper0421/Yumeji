@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Awake()
     {
+        Init();
         Cursor.lockState = CursorLockMode.Locked;
     }
 

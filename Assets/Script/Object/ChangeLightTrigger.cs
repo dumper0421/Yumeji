@@ -14,10 +14,14 @@ public class ChangeLightTrigger : MonoBehaviour
     private bool _isGusetEntry;
     [SerializeField]
     private Vector3 _targetPosition;
+    [SerializeField]
+    private ExitTrigger _exitTrigger;
+
 
     public bool CanLeave;
     public DialogueManager DialogueManager;
 
+   
 
     void Awake()
     {
@@ -40,6 +44,8 @@ public class ChangeLightTrigger : MonoBehaviour
         if (CanLeave)
         {
             DialogueManager.StartDialogue("Ken_Dialogue33");
+            CanLeave = false;
+            _exitTrigger.IsClear = true;
         }
     }
 

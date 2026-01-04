@@ -236,7 +236,6 @@ public class DialogueManager : MonoBehaviour
     {
         ClearOptions();
         _waitingForInput = false;
-        SetNextPrompt(false);
 
         if (IsStop) return;
 
@@ -300,10 +299,6 @@ public class DialogueManager : MonoBehaviour
 
         EndDialogue();
     }
-
-    // -----------------------------
-    // Typewriter
-    // -----------------------------
 
     private void StartTypingLine(string text)
     {
@@ -386,7 +381,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             _waitingForInput = true;
-            SetNextPrompt(_lines != null && _lines.Count > 0);
+            SetNextPrompt(_lines != null);
         }
     }
 
@@ -419,10 +414,6 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
         typingFullText = "";
     }
-
-    // -----------------------------
-    // Options
-    // -----------------------------
 
     private void ShowOptions(DialogueOption[] opts)
     {
@@ -497,10 +488,6 @@ public class DialogueManager : MonoBehaviour
                 : normalColor;
         }
     }
-
-    // -----------------------------
-    // End / Prompt
-    // -----------------------------
 
     private void EndDialogue()
     {
