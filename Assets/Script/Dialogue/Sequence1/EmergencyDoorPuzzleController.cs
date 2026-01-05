@@ -80,15 +80,12 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
         switch (dialogueId)
         {
             case "EmergencyDoor":
-                // ÈùÆ® ´ëÈ­ ¿Ï·á
                 state = EmergencyDoorState.HintReceived;
                 break;
 
             case "Scooter":
-                // ½ºÄíÅÍ ´ëÈ­ ¿Ï·á ¡æ °æÀû + ±ôºýÀÓ
                 state = EmergencyDoorState.ScooterHonked;
                 SoundManager.Instance.PlaySFX(HornClip);
-                // TODO: scooterObject ±ôºýÀÌ´Â ¿¬Ãâ
                 Scooter.StartCoroutine(Scooter.Flash());
                 break;
 

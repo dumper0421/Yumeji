@@ -8,9 +8,8 @@ public abstract class DialogueController<TState> : MonoBehaviour where TState : 
     [Header("Dependencies")]
     [Tooltip("씬에 배치된 DialogueManager 참조")]
     public DialogueManager dialogueManager;
-    [Tooltip("대화 데이터 로더 (ScriptableObject 등)")]
+    [Tooltip("대화 데이터 로더")]
     public DialogueLoader dialogueLoader;
-    [Tooltip("이 컨트롤러가 담당할 씬 ID")]
     public string sceneId;
 
     protected Dictionary<string, Dialogue> dialogues;
@@ -59,24 +58,15 @@ public abstract class DialogueController<TState> : MonoBehaviour where TState : 
    
     }
 
-    /// <summary>
-    /// 옵션 선택에 따른 상태 전환 로직을 구현하세요.
-    /// </summary>
+   
     protected abstract void HandleOption(string text, string nextId);
 
-    /// <summary>
-    /// 대화 완료에 따른 상태 전환 로직을 구현하세요.
-    /// </summary>
+ 
     protected abstract void HandleDialogueEnd(string dialogueId);
 
-    /// <summary>
-    /// 상태가 변화한 후 퍼즐 완료 조건을 검사하고, 완료 시 OnPuzzleComplete을 호출합니다.
-    /// </summary>
+
     protected abstract void TryProgress();
 
-    /// <summary>
-    /// 퍼즐 완료 시 호출됩니다.
-    /// </summary>
     protected abstract void OnPuzzleComplete();
 
 }
