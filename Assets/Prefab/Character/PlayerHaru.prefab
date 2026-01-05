@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7815632663773047571}
   - component: {fileID: 3565163602606492359}
   - component: {fileID: 521499859663765314}
+  - component: {fileID: 6349619778958037680}
   m_Layer: 0
   m_Name: PlayerHaru
   m_TagString: Player
@@ -166,6 +167,7 @@ MonoBehaviour:
   speed_: 1
   runSpeed_: 2
   vector: {x: 0, y: 0, z: 0}
+  canMove: 1
   animator: {fileID: 0}
   flashTiles: {x: 3, y: 4}
   tileSize: {x: 1, y: 1}
@@ -174,9 +176,10 @@ MonoBehaviour:
     m_Bits: 1024
   flashVFXPrefab: {fileID: 1184421162603923759, guid: 8d71762eb41297a468e6c3d404fc9060, type: 3}
   flashDuration: 0.3
-  flashVFXYOffset: 0.5
+  flashVFXYOffset: 0
   shootCooldown: 2
   photoSFX: {fileID: 8300000, guid: bdf49f1d4493d164d85c6f26d2f11849, type: 3}
+  Companion: {fileID: 0}
 --- !u!95 &7815632663773047571
 Animator:
   serializedVersion: 5
@@ -310,3 +313,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6349619778958037680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095184870159856914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b81281da67fb6247a2c4f09f8048161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileStepDuration: 0.12
+  bypassNoPassOnSit: 1
+  pushableLayer:
+    serializedVersion: 2
+    m_Bits: 0

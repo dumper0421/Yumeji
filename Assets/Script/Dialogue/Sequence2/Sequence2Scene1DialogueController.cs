@@ -43,6 +43,10 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
     [SerializeField]
     private PlayableDirector _director2;
 
+    [SerializeField]
+    private PlayableDirector _director3;
+
+
 
     [SerializeField]
     private ChangeLightTrigger _changeLightTrigger;
@@ -71,10 +75,9 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
                 _Ken.GetComponent<Animator>().enabled = true;
                 PlayDirector(_director2);
                 break;
-            case "Ken_Dialogue29":
-                _director2.Stop();
-                break;
             case "Ken_Dialogue32":
+                _Ken.GetComponent<Animator>().enabled = true;
+                PlayDirector(_director3);
                 _changeLightTrigger.CanLeave = true;
                 break;
         }

@@ -27,7 +27,7 @@ public class SaveSlot : MonoBehaviour
     private TextMeshProUGUI sequenceNum_;
 
     [SerializeField]
-    private TextMeshProUGUI lastPlayTime_;
+    private TextMeshProUGUI playTime_;
 
     [SerializeField]
     private Image characterIcon_;
@@ -49,7 +49,8 @@ public class SaveSlot : MonoBehaviour
         {
             slotName_.text = SlotIndex.ToString();
             sequenceNum_.text = data.SequenceNum.ToString();
-            lastPlayTime_.text = data.LastPlayTime;
+            playTime_.text = data.PlayTime;
+            characterIcon_.sprite = ResourceManager.Instance.Load<Sprite>("CharactersIcon/" + data.CharacterName+"Icon");
         }
     }
 

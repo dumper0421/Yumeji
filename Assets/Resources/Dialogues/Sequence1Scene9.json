@@ -20,5 +20,62 @@
     "lines": [
       { "text": "빛을 보면… 굳어버려… 움직일 수 없게 돼…" }
     ]
+  },
+  {
+    "id": "Statue1",
+    "speaker": "",
+    "lines": [
+      { "text": "사라진 여인" }
+    ]
+  },
+  {
+    "id": "Statue2",
+    "speaker": "",
+    "lines": [
+      { "text": "기이함을 담는 눈 여인" }
+    ]
+  },
+  {
+    "id": "Statue3",
+    "speaker": "",
+    "lines": [
+      { "text": "도주" }
+    ]
+  },
+  {
+    "id": "Statue4",
+    "speaker": "",
+    "lines": [
+      { "text": "뻗어본 손" }
+    ]
+  },
+  {
+    "id": "Statue5",
+    "speaker": "",
+    "lines": [
+      { "text": "비상하는 날갯짓" }
+    ]
+  },
+  {
+    "id": "Statue6",
+    "speaker": "",
+    "lines": [
+      { "text": "도피하는 연인" }
+    ]
+  },
+  {
+    "id": "Statue7",
+    "speaker": "",
+    "lines": [
+      { "text": "돌이 된 난쟁이" }
+    ]
+  },
+  {
+    "id": "Statue8",
+    "speaker": "",
+    "lines": [
+      { "text": "무(無)" }
+    ]
   }
+
 ]

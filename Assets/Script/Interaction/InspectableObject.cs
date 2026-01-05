@@ -9,15 +9,15 @@ public abstract class InspectableObject : MonoBehaviour
     public bool hasBeenInspected = false; 
     protected abstract void OnInspect();
 
-    public void TryInspect()
+    public virtual void TryInspect()
     {
         if (IsDisposable && hasBeenInspected)
         {
             return; 
         }
 
-        OnInspect();
         hasBeenInspected = true;
+        OnInspect();
     }
 
     public virtual void PlaySFX(string name) {

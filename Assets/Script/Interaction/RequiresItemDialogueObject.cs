@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 // 아이템이 있을 때만 대화 걸 수 있는 오브젝트
 public class RequiresItemDialogueObject : DialogueObject
@@ -13,12 +14,14 @@ public class RequiresItemDialogueObject : DialogueObject
     [SerializeField]
     private bool _isUse;
 
+
     protected override void OnInspect()
     {
         foreach (ItemData item in _requiredItemDatas)
         {
             if (!InventoryManager.Instance.HasItem(item.ItemName))
             {
+                hasBeenInspected = false;
                 return;
             }
         }

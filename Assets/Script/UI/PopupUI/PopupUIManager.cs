@@ -50,7 +50,7 @@ public class PopupUIManager : Singleton<PopupUIManager>
 
         saveDialog.SetAction(confirmAction, denyAction);
         if(hasData)
-            saveDialog.SetContentText("현재 진행 상황을 슬롯에 덮어쓰기합니다.");
+            saveDialog.SetContentText("현재 진행 상황을" + System.Environment.NewLine + "슬롯에 덮어쓰기합니다.");
         else
             saveDialog.SetContentText("현재 진행 상황을 저장합니다.");
         saveDialog.SetButtonText("취소", "저장");

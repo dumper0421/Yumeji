@@ -12,17 +12,27 @@ public class PopupUI : MonoBehaviour
 
     protected virtual void Awake()
     {
-        CloseButton.onClick.AddListener(() =>
+        if (CloseButton != null)
         {
-            OnCloseButtonClicked();
-            Debug.Log("dd");
-        });
+            CloseButton.onClick.AddListener(() =>
+            {
+                OnCloseButtonClicked();
+            });
+        }
     }
 
     protected virtual void OnCloseButtonClicked()
     {
         PopupUIManager.Instance.ClosePopUp(this);
         ;
+    }
+
+    public virtual void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnCloseButtonClicked();
+        }
     }
 
 }

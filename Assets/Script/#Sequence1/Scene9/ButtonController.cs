@@ -1,5 +1,6 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
+
 [RequireComponent(typeof(Collider2D), typeof(AudioSource))]
 public class ButtonController : MonoBehaviour
 {
@@ -20,10 +21,10 @@ public class ButtonController : MonoBehaviour
 
     [Header("Script to Disable on Activator")]
     [SerializeField] private PushableObject pushableObject;
-    [Header("»èÁ¦µô·¹ÀÌ½Ã°£")]
+    [Header("ì‚­ì œë”œë ˆì´ì‹œê°„")]
     [SerializeField] private float disableDelay = 0.5f;
 
-    [Header("Scene9Controller ÂüÁ¶")]
+    [Header("Scene9Controller ì°¸ì¡°")]
     [SerializeField] private Sequence1Scene9Controller scene9Controller;
 
     private bool isPressed = false;
@@ -40,12 +41,12 @@ public class ButtonController : MonoBehaviour
         audioSource.playOnAwake = false;
         audioSource.loop = false;
 
-        //»èÁ¦ÇÒ ½ºÅ©¸³Æ®
+        //ì‚­ì œí•  ìŠ¤í¬ë¦½íŠ¸
         if (activatorObject != null)
         {
             pushableObject = activatorObject.GetComponent<PushableObject>();
             if (pushableObject == null)
-                Debug.LogError($"[ButtonController] '{activatorObject.name}'¿¡ PushableObject ÄÄÆ÷³ÍÆ®°¡ ¾ø½À´Ï´Ù!");
+                Debug.LogError($"[ButtonController] '{activatorObject.name}'ì— PushableObject ì»´í¬ë„ŒíŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤!");
         }
     }
 
@@ -62,30 +63,30 @@ public class ButtonController : MonoBehaviour
         {
             isPressed = true;
 
-            // 1) ¹öÆ° ½ºÇÁ¶óÀÌÆ®¸¦ ´­¸° »óÅÂ·Î ±³Ã¼
+            // 1) ë²„íŠ¼ ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ëˆŒë¦° ìƒíƒœë¡œ êµì²´
             if (buttonRenderer != null && pressedSprite != null)
                 buttonRenderer.sprite = pressedSprite;
 
-            // 2) È¿°úÀ½ ÇÑ ¹ø Àç»ı
+            // 2) íš¨ê³¼ìŒ í•œ ë²ˆ ì¬ìƒ
             if (pressSfx != null)
                 audioSource.PlayOneShot(pressSfx);
 
-            // 3) ÁöÁ¤µÈ ¿ÀºêÁ§Æ® Á¦°Å
+            // 3) ì§€ì •ëœ ì˜¤ë¸Œì íŠ¸ ì œê±°
             if (objectToRemove != null)
                 Destroy(objectToRemove);
 
-            // 4) Scene9Controller ¿¡ BGM ±³Ã¼ ¿äÃ» (ÇÑ ¹ø¸¸ È£Ãâ)
+            // 4) Scene9Controller ì— BGM êµì²´ ìš”ì²­ (í•œ ë²ˆë§Œ í˜¸ì¶œ)
             if (scene9Controller != null)
                 scene9Controller.ChangeBGMToButtonClip();
 
-            // 5) ¹Ğ±â ÇØÁ¦ÇÏ°í À§Ä¡ °íÁ¤
+            // 5) ë°€ê¸° í•´ì œí•˜ê³  ìœ„ì¹˜ ê³ ì •
             var ps = activatorObject.GetComponent<PushableObject>();
             if (pushableObject != null)
                 StartCoroutine(DestroyPushableAfterDelay());
         }
     }
 
-    
+
     private IEnumerator DestroyPushableAfterDelay()
     {
         yield return new WaitForSeconds(disableDelay);
