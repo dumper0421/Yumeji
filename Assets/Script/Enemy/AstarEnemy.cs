@@ -1,3 +1,4 @@
+// AstarEnemy.cs
 using System.Collections;
 using UnityEngine;
 
@@ -22,15 +23,10 @@ public class AstarEnemy : Enemy
     {
         originalMoveSpeed = moveSpeed;
         pathFinder = GetComponent<EnemyPathfinder>();
+
         if (Target != null)
         {
-            // world pos at cell center, convert to grid index
-            float tx = Target.transform.position.x - 0.5f;
-            float ty = Target.transform.position.y - 0.5f;
-            pathFinder.targetPos = new Vector2Int(
-                Mathf.RoundToInt(tx),
-                Mathf.RoundToInt(ty)
-            );
+            pathFinder.targetPos = pathFinder.WorldToGrid(Target.transform.position);
         }
     }
 
@@ -58,29 +54,19 @@ public class AstarEnemy : Enemy
 
         if (moveCoroutine == null)
         {
-            float tx = Target.transform.position.x - 0.5f;
-            float ty = Target.transform.position.y - 0.5f;
-            pathFinder.targetPos = new Vector2Int(
-                Mathf.RoundToInt(tx),
-                Mathf.RoundToInt(ty)
-            );
+            pathFinder.targetPos = pathFinder.WorldToGrid(Target.transform.position);
             moveCoroutine = StartCoroutine(Move());
         }
     }
 
     IEnumerator Move()
     {
-        float sx = transform.position.x - 0.5f;
-        float sy = transform.position.y - 0.5f;
-        pathFinder.startPos = new Vector2Int(
-            Mathf.RoundToInt(sx),
-            Mathf.RoundToInt(sy)
-        );
-        
-        Vector2 raw = pathFinder.PathFinding();
-        targetPos = raw; 
+        pathFinder.startPos = pathFinder.WorldToGrid(transform.position);
 
-        if ((Vector2)transform.position == targetPos)
+        Vector2 nextWorld = pathFinder.PathFinding();
+        targetPos = nextWorld;
+
+        if (Vector2.Distance(transform.position, targetPos) < 0.001f)
         {
             moveCoroutine = null;
             waitTimer = 0f;
@@ -88,7 +74,7 @@ public class AstarEnemy : Enemy
         }
 
         float elapsed = 0f;
-        float duration = 0.2f / moveSpeed;
+        float duration = 0.2f / Mathf.Max(0.0001f, moveSpeed);
         Vector2 start = transform.position;
 
         while (elapsed < duration)

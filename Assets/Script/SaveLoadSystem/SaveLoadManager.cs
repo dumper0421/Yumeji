@@ -1,5 +1,6 @@
 // SaveLoadManager.cs
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -12,8 +13,11 @@ public class PlayerSaveData
     public string PlayTime;
     public string CurrentSceneName;
     public string CharacterName;
+    public string CompanionName;
 
-    public PlayerSaveData(int slotIndex, int sequenceNum, Vector3 playerPosition, string playTime, string currentSceneName, string characterName)
+
+    public PlayerSaveData(int slotIndex, int sequenceNum, Vector3 playerPosition, 
+        string playTime, string currentSceneName, string characterName, string companionName    )
     {
         SlotIndex = slotIndex;
         SequenceNum = sequenceNum;
@@ -21,6 +25,7 @@ public class PlayerSaveData
         PlayTime = string.IsNullOrEmpty(playTime) ? "00:00:00" : playTime;
         CurrentSceneName = currentSceneName;
         CharacterName = characterName;
+        CompanionName = companionName;
     }
 }
 
@@ -44,7 +49,7 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         }
 
         // 플레이어 위치 가져오기
-        var playerObj = GameObject.Find("PlayerHaru");
+        var playerObj = GameObject.Find("Haru_Player");
         if (playerObj == null)
         {
             Debug.LogError("[SaveLoadManager] PlayerHaru 오브젝트를 찾을 수 없습니다.");

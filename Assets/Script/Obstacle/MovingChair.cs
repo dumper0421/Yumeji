@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingChair : MonoBehaviour
 {
+    public SpriteRenderer ChairSpriteRenderer;
     public GameObject Player;
     public Vector3 Offset;
     public AudioClip SFX;
@@ -20,6 +21,7 @@ public class MovingChair : MonoBehaviour
    void Start()
     {
         _targetPos = transform.position + Offset;
+        ChairSpriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -44,6 +46,11 @@ public class MovingChair : MonoBehaviour
             _hasEnd = true;
             _hasStart = false;
             transform.position = _targetPos;
+            if (Offset.y == -1)
+                ChairSpriteRenderer.sortingOrder = 0;
+            else
+                ChairSpriteRenderer.sortingOrder = 2;
+
 
         }
 

@@ -6,17 +6,20 @@ using UnityEngine;
 public class Sequence1Scene6Controller : SceneController
 {
     public GameObject Enemy;
+    public SpriteRenderer PlayerSpriteRender;
+    
     public DialogueManager DialogueManager;
 
     [SerializeField]
     private Animator lunaAnimator_;
 
     [SerializeField]
-    private Vector2 targetPos_ = new Vector2(0,-2);
+    public Vector2 targetPos_ = new Vector2(0,-0.75f);
 
     private bool hasReachedTarget_ = false;
 
     public CinemachineVirtualCamera Camera;
+    public Sprite HaruStandUpSprite;
 
     private int _boundaryNum = 0;
 
@@ -34,9 +37,10 @@ public class Sequence1Scene6Controller : SceneController
         if (Player.transform.position.y == targetPos_.y && !hasReachedTarget_)
         {
             playerMoveTestLerp.enabled = false;
-            playerAnimator.enabled = false;
+            playerAnimator.SetBool("Walking", false);
             StartCoroutine(StopPlayer());
             hasReachedTarget_ = true;
+            PlayerSpriteRender.sprite = HaruStandUpSprite;
         }
 
         if (Player.transform.position.x <= -110.2f)
