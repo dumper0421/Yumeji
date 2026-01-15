@@ -106,9 +106,9 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
         _playerMove.enabled = false;
     }
 
-    public void OnStartedDialogue(string DialogueID)
+    public override void OnStartedDialogue(string DialogueID)
     {
-        dialogueManager.StartDialogue(DialogueID);
+        base.OnStartedDialogue(DialogueID);
 
         if (DialogueID == "Guest_Dialogue1")
         {

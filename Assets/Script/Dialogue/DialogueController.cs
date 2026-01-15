@@ -107,4 +107,9 @@ public abstract class DialogueController<TState> : MonoBehaviour where TState : 
     /// 퍼즐 완료 시 호출되는 콜백.
     /// </summary>
     protected abstract void OnPuzzleComplete();
+
+    public virtual void OnStartedDialogue(string DialogueID)
+    {
+        dialogueManager.StartDialogue(DialogueID);
+    }
 }

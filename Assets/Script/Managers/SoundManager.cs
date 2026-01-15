@@ -17,6 +17,22 @@ public class SoundManager : Singleton<SoundManager>
     private readonly Queue<AudioSource> _sfxSources = new Queue<AudioSource>();
     private readonly Queue<AudioClip> _sfxQueue = new Queue<AudioClip>();
 
+    private Coroutine _bgmFadeCo;
+    private IEnumerator FadeSourceVolume(AudioSource src, float target, float duration, System.Action onDone)
+    {
+        float start = src.volume;
+        float t = 0f;
+
+        while (t < duration)
+        {
+            t += Time.unscaledDeltaTime;
+            src.volume = Mathf.Lerp(start, target, t / duration);
+            yield return null;
+        }
+
+        src.volume = target;
+        onDone?.Invoke();
+    }
     protected override void Init()
     {
         DontDestroyOnLoad(gameObject);
@@ -68,6 +84,22 @@ public class SoundManager : Singleton<SoundManager>
         if (_bgmSource != null)
              _bgmSource.Stop();
     }
+
+    public void SetBGMSourceVolume(float volume01, float fadeTime = 0f)
+    {
+        volume01 = Mathf.Clamp01(volume01);
+
+        if (_bgmFadeCo != null) StopCoroutine(_bgmFadeCo);
+
+        if (fadeTime <= 0f)
+        {
+            _bgmSource.volume = volume01;
+            return;
+        }
+
+        _bgmFadeCo = StartCoroutine(FadeSourceVolume(_bgmSource, volume01, fadeTime, () => _bgmFadeCo = null));
+    }
+
     #endregion
 
     #region SFX (동시 재생)
