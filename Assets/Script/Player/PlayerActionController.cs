@@ -38,7 +38,7 @@ public class PlayerActionController : MonoBehaviour
         if (move == null) return;
         if (IsPushing) return;
         if (isSitting && currentSeat == seat) return;
-
+        if (animator.GetBool("Walking")) return;
         StopAllCoroutines();
         StartCoroutine(CoSitEnterSeat(seat));
     }

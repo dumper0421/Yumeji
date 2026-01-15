@@ -1440,7 +1440,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.973754, y: -8.912291, z: -10}
+  m_LocalPosition: {x: -2.983691, y: -8.912281, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3082,7 +3082,7 @@ PrefabInstance:
     - target: {fileID: 4356581996258023559, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1660030390, guid: 1710c425898a1494aa616dfd32c8f85d, type: 3}
+      objectReference: {fileID: 276512559, guid: d8d21b72efb1d6547afdefdc4d6656d2, type: 3}
     - target: {fileID: 9079775728186439067, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -3477,6 +3477,7 @@ MonoBehaviour:
   TornTrianTicketData: {fileID: 11400000, guid: f1227aa9daa83a8458325834279c19c3, type: 2}
   StationChairObject: {fileID: 1292369777}
   TrainDoorObject: {fileID: 242405232}
+  InteractionLight: {fileID: 0}
   nextSceneName: Sequence1S#6
 --- !u!1 &1618213405
 GameObject:
