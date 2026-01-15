@@ -4,9 +4,9 @@
     "autoAdvance": false,
     "autoAdvanceDelay": 0,
     "lines": [
-      { "text": "또 다른 문 앞에 서 있군. 그대는.",           "showPortrait": true },
+      { "text": "또 다른 문 앞에 서 있군. 너는.",           "showPortrait": true },
       { "text": "이 너머는 같은 풍경이 반복되는 곳." ,           "showPortrait": true  },
-      { "text": "하지만 모든 것이 똑같지는 않다",           "showPortrait": true, "nextId": "RabbitMan_Hint2" }
+      { "text": "하지만 모든 것이 똑같지는 않아.",           "showPortrait": true, "nextId": "RabbitMan_Hint2" }
     ]
   },
   {"id": "RabbitMan_Hint2",
@@ -15,18 +15,18 @@
     "autoAdvanceDelay": 0,
     "lines": [
 
-      { "text": "…누구시죠? 이 이상한 곳에 대해 아시는 겁니까?",           "showPortrait": true ,"nextId": "RabbitMan_Hint3" }
+      { "text": "...누구시죠? 이 이상한 곳에 대해 아시는 겁니까?",           "showPortrait": true ,"nextId": "RabbitMan_Hint3" }
     ]
   }, {"id": "RabbitMan_Hint3",
     "speaker": "토끼 탈 남자",
     "autoAdvance": false,
     "autoAdvanceDelay": 0,
     "lines": [
-      { "text": "모든 방이 같아 보이지만, 다른 점이 있을 거다.",           "showPortrait": true },
+      { "text": "모든 방이 같아 보이지만, 다른 점이 분명히 있어.",           "showPortrait": true },
       { "text": "어떤 방에는 '기억할 만한 조각'이 존재하고,",           "showPortrait": true },
       { "text": "어떤 방은 텅 비어있지.",           "showPortrait": true },
-      { "text": "네 손에 들린 그 기계, '찰나를 담는 도구' 말이다.",           "showPortrait": true },
-      { "text": " 그것을 활용해야 할 거다.",           "showPortrait": true, "nextId": "RabbitMan_Hint4" }
+      { "text": "네 손에 들린 그 기계, '찰나를 담는 도구' 말이야.",           "showPortrait": true },
+      { "text": " 그것을 활용해야 할 거야.",           "showPortrait": true, "nextId": "RabbitMan_Hint4" }
     ]
   },
   {"id": "RabbitMan_Hint4",
@@ -34,7 +34,7 @@
     "autoAdvance": false,
     "autoAdvanceDelay": 0,
     "lines": [
-      { "text": "제 카메라 말인가요? 이걸로 뭘 어떻게…",           "showPortrait": true, "nextId": "RabbitMan_Hint5" }
+      { "text": "제 카메라 말인가요? 이걸로 뭘 어떻게...",           "showPortrait": true, "nextId": "RabbitMan_Hint5" }
     ]
   },
    {"id": "RabbitMan_Hint5",
@@ -51,7 +51,7 @@
     "autoAdvance": false,
     "autoAdvanceDelay": 0,
     "lines": [
-      { "text": "카메라로… 벽에 뭐가 나타난다고요?",           "showPortrait": true ,"nextId": "RabbitMan_Hint7"}
+      { "text": "카메라로... 벽에 뭐가 나타난다고요?",           "showPortrait": true ,"nextId": "RabbitMan_Hint7"}
     ]
   }, {"id": "RabbitMan_Hint7",
     "speaker": "토끼 탈 남자",
@@ -59,8 +59,8 @@
     "autoAdvanceDelay": 0,
     "lines": [
       { "text": "하지만 조심해. 텅 빈 방은 그저 메아리만을 돌려줄 뿐.",           "showPortrait": true },
-      { "text": "왔던 길을 되짚어 나와야 할 거다.",           "showPortrait": true },
-      { "text": "그럼 부디 무사히 출구를 찾아내기를",           "showPortrait": true }
+      { "text": "왔던 길을 되짚어 나와야 할 거야.",           "showPortrait": true },
+      { "text": "그럼 부디 무사히 출구를 찾아내기를 바라.",           "showPortrait": true }
 
     ]
   },
