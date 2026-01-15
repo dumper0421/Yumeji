@@ -35,7 +35,7 @@ public class InteractionSystem : MonoBehaviour
         if (move != null && !move.canMove)
             return;
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             TryInteract();
         }
