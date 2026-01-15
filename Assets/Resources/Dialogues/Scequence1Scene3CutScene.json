@@ -3,8 +3,8 @@
     "id": "PlayerStart",
     "speaker": "하루",
     "lines": [
-      { "text": "루나…? 잠깐만, 기다려!", "showPortrait": true },
-      { "text": " ......근데 여긴 대체 어디야. 차들이 꽉 들어차서... 숨이 막힐 것만 같아.", "showPortrait": true },
+      { "text": "루나...? 잠깐만, 기다려!", "showPortrait": true },
+      { "text": " ...근데 여긴 대체 어디야. 차들이 꽉 들어차서... 숨이 막힐 것만 같아.", "showPortrait": true },
       { "text": " 나갈 문을 찾아봐야겠어.", "showPortrait": true }
     ]
   }

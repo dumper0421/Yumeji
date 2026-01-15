@@ -1,6 +1,6 @@
+// EnemyPathfinder.cs
 using System.Collections.Generic;
 using UnityEngine;
-
 
 public class EnemyPathfinder : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class EnemyPathfinder : MonoBehaviour
     {
         public bool isWall;
         public Node parent;
-        public int x, y;
+        public int x, y;   // grid coord
         public int g, h;
         public int f => g + h;
 
@@ -29,14 +29,44 @@ public class EnemyPathfinder : MonoBehaviour
 
     [HideInInspector] public Vector2Int startPos;
     [HideInInspector] public Vector2Int targetPos;
+
     public bool allowDiagonal = false;
     public bool dontCrossCorner = true;
+
+    [Header("Grid Mapping")]
+    public float cellSize = 1f;
+
+    // 타일맵/그리드가 0.5 올라가있다 했으니 기본값을 (0.5, 0.5)로 둠
+    // 씬에 따라 y만 어긋나면 (0.5, 0) 또는 (0.5, 1.0)처럼 여기만 조정하면 됨
+    public Vector2 cellOffset = new Vector2(0.5f, 0f);
+
+    [Header("Obstacle Check")]
+    public Vector2 overlapBoxSize = new Vector2(0.9f, 0.9f);
+    public string obstacleLayerName = "Obstacle";
 
     [HideInInspector] public List<Node> FinalNodeList = new List<Node>();
 
     private int sizeX, sizeY;
     private Node[,] nodes;
 
+    private int obstacleMask;
+
+    private void Awake()
+    {
+        obstacleMask = LayerMask.GetMask(obstacleLayerName);
+    }
+
+    public Vector2Int WorldToGrid(Vector2 world)
+    {
+        float gx = (world.x - cellOffset.x) / cellSize;
+        float gy = (world.y - cellOffset.y) / cellSize;
+        return new Vector2Int(Mathf.RoundToInt(gx), Mathf.RoundToInt(gy));
+    }
+
+    public Vector2 GridToWorld(Vector2Int grid)
+    {
+        return new Vector2(grid.x * cellSize + cellOffset.x, grid.y * cellSize + cellOffset.y);
+    }
 
     public Vector2 PathFinding()
     {
@@ -49,19 +79,30 @@ public class EnemyPathfinder : MonoBehaviour
 
         sizeX = topRight.x - bottomLeft.x + 1;
         sizeY = topRight.y - bottomLeft.y + 1;
+
         nodes = new Node[sizeX, sizeY];
+
         for (int i = 0; i < sizeX; i++)
         {
             for (int j = 0; j < sizeY; j++)
             {
-                Vector2 center = new Vector2(bottomLeft.x + i + 0.5f, bottomLeft.y + j + 0.5f);
-                bool isWall = Physics2D.OverlapCircle(center, 0.3f, LayerMask.GetMask("Obstacle")) != null;
-                nodes[i, j] = new Node(isWall, bottomLeft.x + i, bottomLeft.y + j);
+                int gx = bottomLeft.x + i;
+                int gy = bottomLeft.y + j;
+
+                Vector2 center = GridToWorld(new Vector2Int(gx, gy));
+                bool isWall = Physics2D.OverlapBox(center, overlapBoxSize, 0f, obstacleMask) != null;
+
+                nodes[i, j] = new Node(isWall, gx, gy);
             }
         }
 
         Node start = nodes[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];
         Node target = nodes[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];
+
+        // 시작/목표가 잘못 벽 판정되면 길이 끊겨서 멈추는 원인이 됨
+        start.isWall = false;
+        target.isWall = false;
+
         start.g = 0;
         start.h = (Mathf.Abs(start.x - target.x) + Mathf.Abs(start.y - target.y)) * 10;
 
@@ -73,21 +114,20 @@ public class EnemyPathfinder : MonoBehaviour
             Node cur = open[0];
             for (int k = 1; k < open.Count; k++)
             {
-                var n = open[k];
+                Node n = open[k];
                 bool better =
                     n.f < cur.f ||
-                    (n.f == cur.f && n.h < cur.h) ||
-                    (n.f == cur.f && n.h == cur.h &&
-                     Mathf.Abs(n.x - target.x) < Mathf.Abs(cur.x - target.x));
+                    (n.f == cur.f && n.h < cur.h);
                 if (better) cur = n;
             }
+
             open.Remove(cur);
             closed.Add(cur);
 
             if (cur == target)
             {
                 Node p = target;
-                while (p != start)
+                while (p != null && p != start)
                 {
                     FinalNodeList.Add(p);
                     p = p.parent;
@@ -98,33 +138,48 @@ public class EnemyPathfinder : MonoBehaviour
                 if (FinalNodeList.Count >= 2)
                 {
                     Node nxt = FinalNodeList[1];
-                    return new Vector2(nxt.x + 0.5f, nxt.y + 0.5f);
+                    return GridToWorld(new Vector2Int(nxt.x, nxt.y));
                 }
-                return new Vector2(start.x + 0.5f, start.y + 0.5f);
+
+                return GridToWorld(new Vector2Int(start.x, start.y));
             }
 
             Vector2Int[] dirs = allowDiagonal
-                ? new Vector2Int[] { new Vector2Int(1,0), new Vector2Int(-1,0), new Vector2Int(0,1), new Vector2Int(0,-1),
-                                      new Vector2Int(1,1), new Vector2Int(-1,1), new Vector2Int(-1,-1), new Vector2Int(1,-1) }
-                : new Vector2Int[] { new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1) };
+                ? new Vector2Int[]
+                {
+                    new Vector2Int(1,0), new Vector2Int(-1,0), new Vector2Int(0,1), new Vector2Int(0,-1),
+                    new Vector2Int(1,1), new Vector2Int(-1,1), new Vector2Int(-1,-1), new Vector2Int(1,-1)
+                }
+                : new Vector2Int[]
+                {
+                    new Vector2Int(1,0), new Vector2Int(-1,0), new Vector2Int(0,1), new Vector2Int(0,-1)
+                };
 
             foreach (var d in dirs)
             {
                 int nx = cur.x + d.x;
                 int ny = cur.y + d.y;
-                if (nx < bottomLeft.x || nx > topRight.x || ny < bottomLeft.y || ny > topRight.y) continue;
+
+                if (nx < bottomLeft.x || nx > topRight.x || ny < bottomLeft.y || ny > topRight.y)
+                    continue;
 
                 Node nb = nodes[nx - bottomLeft.x, ny - bottomLeft.y];
-                if (nb.isWall || closed.Contains(nb)) continue;
+                if (nb.isWall || closed.Contains(nb))
+                    continue;
 
                 if (allowDiagonal && dontCrossCorner && Mathf.Abs(d.x) == 1 && Mathf.Abs(d.y) == 1)
                 {
-                    Node h = nodes[nx - bottomLeft.x, cur.y - bottomLeft.y];
-                    Node v = nodes[cur.x - bottomLeft.x, ny - bottomLeft.y];
-                    if (h.isWall && v.isWall) continue;
+                    Node side1 = nodes[nx - bottomLeft.x, cur.y - bottomLeft.y];
+                    Node side2 = nodes[cur.x - bottomLeft.x, ny - bottomLeft.y];
+
+                    // 코너 끼고 비집고 들어가는 걸 막으려면 OR가 맞음
+                    if (side1.isWall || side2.isWall)
+                        continue;
                 }
 
-                int cost = cur.g + ((d.x == 0 || d.y == 0) ? 10 : 14);
+                int stepCost = (d.x == 0 || d.y == 0) ? 10 : 14;
+                int cost = cur.g + stepCost;
+
                 if (cost < nb.g)
                 {
                     nb.g = cost;
@@ -135,30 +190,37 @@ public class EnemyPathfinder : MonoBehaviour
             }
         }
 
-        return new Vector2(startPos.x + 0.5f, startPos.y + 0.5f);
+        // 길이 없으면: 현재 셀 중심으로 유지 (이게 멈춘 것처럼 보였던 케이스)
+        return GridToWorld(startPos);
     }
 
     private void OnDrawGizmos()
     {
         if (nodes == null) return;
+
+        Vector3 cubeSize = new Vector3(cellSize * 0.9f, cellSize * 0.9f, 0.9f);
+
         for (int i = 0; i < sizeX; i++)
         {
             for (int j = 0; j < sizeY; j++)
             {
                 Node c = nodes[i, j];
-                Vector3 pos = new Vector3(c.x + 0.5f, c.y + 0.5f, 0f);
+                Vector2 wpos2 = GridToWorld(new Vector2Int(c.x, c.y));
+                Vector3 wpos = new Vector3(wpos2.x, wpos2.y, 0f);
+
                 Gizmos.color = c.isWall ? Color.red : Color.green;
-                Gizmos.DrawWireCube(pos, Vector3.one * 0.9f);
+                Gizmos.DrawWireCube(wpos, cubeSize);
             }
         }
+
         if (FinalNodeList != null && FinalNodeList.Count > 1)
         {
             Gizmos.color = Color.blue;
             for (int k = 0; k < FinalNodeList.Count - 1; k++)
             {
-                var a = FinalNodeList[k];
-                var b = FinalNodeList[k + 1];
-                Gizmos.DrawLine(new Vector3(a.x + 0.5f, a.y + 0.5f, 0f), new Vector3(b.x + 0.5f, b.y + 0.5f, 0f));
+                Vector2 a2 = GridToWorld(new Vector2Int(FinalNodeList[k].x, FinalNodeList[k].y));
+                Vector2 b2 = GridToWorld(new Vector2Int(FinalNodeList[k + 1].x, FinalNodeList[k + 1].y));
+                Gizmos.DrawLine(new Vector3(a2.x, a2.y, 0f), new Vector3(b2.x, b2.y, 0f));
             }
         }
     }

@@ -11,6 +11,8 @@ public class CompanionSystem : MonoBehaviour
     public Vector3 StartPos;
     public Vector3 Direction;
 
+    public string CompanionName;
+
     public float MoveSpeed;
 
     [SerializeField]

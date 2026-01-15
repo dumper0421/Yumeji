@@ -3,7 +3,7 @@
     "id": "PlayerStart",
     "speaker": "하루",
     "lines": [
-      { "text": "차에서 잠깐 잠에 들었었지…", "showPortrait": true },
+      { "text": "차에서 잠깐 잠에 들었었지...", "showPortrait": true },
       { "text": "내 차가 원래 파란색이었던가?", "showPortrait   ": true }
     ]
   },
@@ -81,7 +81,7 @@
     "id": "CarE_AfterKnock",
     "speaker": "하루",
     "lines": [
-      { "text": "피냄새가 나는데,,? 뭔가 이상해.", "showPortrait": true },
+      { "text": "피냄새가 나는데...? 뭔가 이상해.", "showPortrait": true },
       { "text": "아무래도 버스 사람들을 깨워야 할 것 같아.", "showPortrait": true }
     ]
   },
@@ -90,7 +90,7 @@
     "id": "CarC",
     "speaker": "하루",
     "lines": [
-      { "text": "차들이 어디서부터 막혀있는 걸까…", "showPortrait": true },
+      { "text": "차들이 어디서부터 막혀있는 걸까...", "showPortrait": true },
       { "text": "차들 사이로 지나가는 것도 힘들어 보여", "showPortrait": true }
     ]
   },
@@ -98,7 +98,7 @@
     "id": "CarF",
     "speaker": "하루",
     "lines": [
-      { "text": "차들이 어디서부터 막혀있는 걸까…", "showPortrait": true },
+      { "text": "차들이 어디서부터 막혀있는 걸까...", "showPortrait": true },
       { "text": "차들 사이로 지나가는 것도 힘들어 보여", "showPortrait": true }
     ]
   },
@@ -106,7 +106,7 @@
     "id": "CarG",
     "speaker": "하루",
     "lines": [
-      { "text": "차들이 어디서부터 막혀있는 걸까…", "showPortrait": true },
+      { "text": "차들이 어디서부터 막혀있는 걸까...", "showPortrait": true },
       { "text": "차들 사이로 지나가는 것도 힘들어 보여", "showPortrait": true }
     ]
   },

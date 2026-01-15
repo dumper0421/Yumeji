@@ -1,5 +1,6 @@
 // SaveLoadManager.cs
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -9,16 +10,22 @@ public class PlayerSaveData
     public int SlotIndex;        // 저장된 슬롯 인덱스
     public int SequenceNum;
     public Vector3 PlayerPosition;
-    public string LastPlayTime;
+    public string PlayTime;
     public string CurrentSceneName;
+    public string CharacterName;
+    public string CompanionName;
 
-    public PlayerSaveData(int slotIndex, int sequenceNum, Vector3 playerPosition, DateTime lastPlayTime, string currentSceneName)
+
+    public PlayerSaveData(int slotIndex, int sequenceNum, Vector3 playerPosition, 
+        string playTime, string currentSceneName, string characterName, string companionName    )
     {
         SlotIndex = slotIndex;
         SequenceNum = sequenceNum;
         PlayerPosition = playerPosition;
-        LastPlayTime = lastPlayTime.ToString("yyyy-MM-dd HH:mm:ss");
+        PlayTime = string.IsNullOrEmpty(playTime) ? "00:00:00" : playTime;
         CurrentSceneName = currentSceneName;
+        CharacterName = characterName;
+        CompanionName = companionName;
     }
 }
 
@@ -42,7 +49,7 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         }
 
         // 플레이어 위치 가져오기
-        var playerObj = GameObject.Find("PlayerHaru");
+        var playerObj = GameObject.Find("Haru_Player");
         if (playerObj == null)
         {
             Debug.LogError("[SaveLoadManager] PlayerHaru 오브젝트를 찾을 수 없습니다.");

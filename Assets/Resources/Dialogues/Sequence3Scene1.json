@@ -1,0 +1,158 @@
+[
+  {
+    "id": "MailStack",
+    "speaker": "",
+    "lines": [{ "text": "뜯어보지 않은 우편물이 쌓여있다."}]
+  },
+  {
+    "id": "Telephone",
+    "speaker": "",
+    "lines": [{ "text": "먼지가 뽀얗게 쌓인 구형 유선 전화기다."}]
+  },
+  {
+    "id": "FilmCanister",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "루나와 함께 찍었던 단편 영화 필름이 담겨 있다. 영화 제목은 <여름 바람>이다."
+      }
+    ]
+  },
+  {
+    "id": "LPPlayer_Broken",
+    "speaker": "",
+    "lines": [{ "text": "바늘이 부러진 LP 플레이어다. 더 이상 작동하지 않는다."}]
+  },
+  {
+    "id": "Chairs",
+    "speaker": "",
+    "lines": [{ "text": "낡은 의자들이 놓여 있다. 하나하나 앉아볼 수 있을 것 같다."}]
+  },
+  {
+    "id": "WorkshopDoor_Locked",
+    "speaker": "",
+    "lines": [{ "text": "작업실 문이 잠겨 있다." }]
+  },
+
+  {
+    "id": "KenHaru_01",
+    "speaker": "켄",
+    "lines": [
+      { "text": "…진짜 가겠다는 거야?", "showPortrait": true },
+      { "text": "아까 그 전화, 대체 무슨 소리를 하는 거냐고.", "showPortrait": true, "nextId": "KenHaru_02" }
+    ]
+  },
+  {
+    "id": "KenHaru_02",
+    "speaker": "하루",
+    "lines": [{ "text": "말한 대로야. 루나한테 연락이 왔어. 그 촬영장에서 기다리겠대.", "showPortrait": true, "nextId": "KenHaru_03" }]
+  },
+  {
+    "id": "KenHaru_03",
+    "speaker": "켄",
+    "lines": [
+      { "text": "너 정말 제정신이야?", "showPortrait": true },
+      { "text": "루나 목소리를 들었다니, 그건 불가능해.", "showPortrait": true, "nextId": "KenHaru_04" }
+    ]
+  },
+  {
+    "id": "KenHaru_04",
+    "speaker": "하루",
+    "lines": [
+      { "text": "목소리를 들었어. 내가 착각할 리 없잖아.", "showPortrait": true },
+      { "text": "<유메지>의 필름이 거기 있다고 했어. 촬영장으로 와달라고.", "showPortrait": true, "nextId": "KenHaru_05" }
+    ]
+  },
+  {
+    "id": "KenHaru_05",
+    "speaker": "켄",
+    "lines": [
+      { "text": "<유메지>? 그 영화 관련해서 무슨 일이 있었는지 벌써 잊었어?", "showPortrait": true },
+      { "text": "논란을 무릅쓰고 영화제에서 딱 한 번 상영됐지만 바로 필름이 유실됐어.", "showPortrait": true },
+      { "text": "저주받은 것처럼 운반 중에 바로 불타버렸다고.", "showPortrait": true },
+      { "text": "<유메지> 감독도 그날 이후로 증발해버렸다고. 그건 죽은 영화야.", "showPortrait": true, "nextId": "KenHaru_06" }
+    ]
+  },
+  {
+    "id": "KenHaru_06",
+    "speaker": "하루",
+    "lines": [
+      { "text": "단 하루도 잊어본 적이 없어. 당연히 잊을 수가 없지.", "showPortrait": true },
+      { "text": "그치만 부풀려진 소문도 많다고 생각해.", "showPortrait": true, "nextId": "KenHaru_07" }
+    ]
+  },
+  {
+    "id": "KenHaru_07",
+    "speaker": "켄",
+    "lines": [
+      { "text": "나도 그 시절이 그립지 않은 건 아니야.", "showPortrait": true },
+      { "text": "루나와 함께 영화를 찍고, 너와 재능을 다투던 그때가…", "showPortrait": true },
+      { "text": "하지만 루나도, 그 시절도 전부 지나가 버린 과거잖아.", "showPortrait": true },
+      { "text": "거길 간다고 해서 끊어진 필름이 다시 이어질 것 같아?", "showPortrait": true, "nextId": "KenHaru_08" }
+    ]
+  },
+  {
+    "id": "KenHaru_08",
+    "speaker": "하루",
+    "lines": [
+      { "text": "다시 그때로 돌아가고 싶은 게 아니야.", "showPortrait": true },
+      { "text": "그냥… 기다리고 있다는 목소리를 들었을 뿐이야.", "showPortrait": true },
+      { "text": "너무 늦으면 안 될 것 같아서.", "showPortrait": true, "nextId": "KenHaru_09" }
+    ]
+  },
+  {
+    "id": "KenHaru_09",
+    "speaker": "켄",
+    "lines": [{ "text": "아니면 혹시… 그 영화를, <유메지>를 직접 보고 싶은 거야?", "showPortrait": true, "nextId": "KenHaru_10" }]
+  },
+  {
+    "id": "KenHaru_10",
+    "speaker": "하루",
+    "lines": [{ "text": "…그럴지도 모르겠어.", "showPortrait": true, "nextId": "KenHaru_11" }]
+  },
+  {
+    "id": "KenHaru_11",
+    "speaker": "켄",
+    "lines": [
+      { "text": "그냥 뭔가… 이상해. 네가 알던 루나가 부르는 게 아닐지도 몰라.", "showPortrait": true },
+      { "text": "루나가 이제 와서 거기서 널 기다린다고? 왜 하필 지금?", "showPortrait": true, "nextId": "KenHaru_12" }
+    ]
+  },
+  {
+    "id": "KenHaru_12",
+    "speaker": "하루",
+    "lines": [
+      { "text": "맞든 아니든 상관없어.", "showPortrait": true },
+      { "text": "그날부터 끊겨버린 우리들의 이야기에 마무리를 짓고 싶어.", "showPortrait": true, "nextId": "KenHaru_13" }
+    ]
+  },
+  {
+    "id": "KenHaru_13",
+    "speaker": "켄",
+    "lines": [{ "text": "…기어코 가겠다는 거구나.", "showPortrait": true, "nextId": "KenHaru_14" }]
+  },
+  {
+    "id": "KenHaru_14",
+    "speaker": "하루",
+    "lines": [
+      { "text": "사진관은 며칠 닫아 둘 거야.", "showPortrait": true },
+      { "text": "급한 일은 다른 데 알아보라고 메모 남겨뒀어.", "showPortrait": true, "nextId": "KenHaru_15" }
+    ]
+  },
+  {
+    "id": "KenHaru_15",
+    "speaker": "켄",
+    "lines": [{ "text": "난 같이 가주진 못하겠다. 다녀와.", "showPortrait": true, "nextId": "KenHaru_16" }]
+  },
+  {
+    "id": "KenHaru_16",
+    "speaker": "하루",
+    "lines": [{ "text": "그래. 다녀올게.", "showPortrait": true }]
+  },
+
+  {
+    "id": "Ken_AfterConversation",
+    "speaker": "켄",
+    "lines": [{ "text": "갈 거면 얼른 가봐. 몸조심하고.", "showPortrait": true }]
+  }
+]

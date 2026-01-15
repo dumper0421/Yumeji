@@ -17,7 +17,7 @@
     "id": "FilmCanister",
     "speaker": "",
     "lines": [
-      { "text": "루나와 함께 찍었던 단편 영화 필름이 담겨 있다. 영화 제목은 <제목 미정>이다.", "showPortrait": true }
+      { "text": "루나와 함께 찍었던 단편 영화 필름이 담겨 있다. 영화 제목은 <여름 바람>이다.", "showPortrait": true }
     ]
   },
   {
@@ -110,7 +110,7 @@
     "id": "Guest_Dialogue5",
     "speaker": "진상손님",
     "lines": [
-      { "text": "…아니, 이게 뭐예요?", "showPortrait": true, "nextId": "Guest_Dialogue6" }
+      { "text": "...아니, 이게 뭐예요?", "showPortrait": true, "nextId": "Guest_Dialogue6" }
     ]
   },
   {
@@ -133,7 +133,7 @@
     "id": "Guest_Dialogue8",
     "speaker": "하루",
     "lines": [
-      { "text": "그건 손님이 그렇게 찍으신 건데…", "showPortrait": true, "nextId": "Guest_Dialogue9" }
+      { "text": "그건 손님이 그렇게 찍으신 건데...", "showPortrait": true, "nextId": "Guest_Dialogue9" }
     ]
   },
   {
@@ -163,7 +163,7 @@
     "id": "Guest_Dialogue12",
     "speaker": "하루",
     "lines": [
-      { "text": "…", "showPortrait": true, "nextId": "Guest_Dialogue13" }
+      { "text": "...", "showPortrait": true, "nextId": "Guest_Dialogue13" }
     ]
   },
   {
@@ -171,14 +171,14 @@
     "speaker": "진상손님",
     "lines": [
       { "text": "그리고 이 얼굴. 이게 아니야. 내가 기억하는 그 표정이 아니라고.", "showPortrait": true },
-        { "text": "훨씬… 훨씬 행복한 얼굴이었는데. 이건 그냥 껍데기만 찍혀 있네.", "showPortrait": true, "nextId": "Guest_Dialogue14" }
+        { "text": "훨씬... 훨씬 행복한 얼굴이었는데. 이건 그냥 껍데기만 찍혀 있네.", "showPortrait": true, "nextId": "Guest_Dialogue14" }
     ]
   },
   {
     "id": "Guest_Dialogue14",
     "speaker": "하루",
     "lines": [
-      { "text": "… 인화까지 다시 해드릴까요?", "showPortrait": true, "nextId": "Guest_Dialogue15" }
+      { "text": "...인화까지 다시 해드릴까요?", "showPortrait": true, "nextId": "Guest_Dialogue15" }
     ]
   },
   {
@@ -213,7 +213,7 @@
     "id": "Ken_Meet2",
     "speaker": "하루",
     "lines": [
-      { "text": "…잠시만요.", "showPortrait": true }
+      { "text": "...잠시만요.", "showPortrait": true }
     ]
   },
    {
@@ -227,7 +227,7 @@
     "id": "Ken_Dialogue2",
     "speaker": "켄",
     "lines": [
-      { "text": "맞지? …너 하루 맞지?", "showPortrait": true },
+      { "text": "맞지? ...너 하루 맞지?", "showPortrait": true },
       { "text": "저번엔 긴가민가 했는데.", "showPortrait": true },
       { "text": "여기서 뭐 하고 있어?", "showPortrait": true, "nextId": "Ken_Dialogue3" }
     ]
@@ -260,7 +260,7 @@
     "lines": [
       { "text": "뭐? 내 옷이 어때서. 멋지기만 한데.", "showPortrait": true },
       { "text": "요즘은 보는 눈이 많아져서 말이야.", "showPortrait": true },
-      { "text": "너, 내 저번 영화 소식 들었지? 평론가들이 아주 극찬을…", "showPortrait": true, "nextId": "Ken_Dialogue7" }
+      { "text": "너, 내 저번 영화 소식 들었지? 평론가들이 아주 극찬을...", "showPortrait": true, "nextId": "Ken_Dialogue7" }
     ]
   },
   {
@@ -325,7 +325,7 @@
     "id": "Ken_Dialogue15",
     "speaker": "켄",
     "lines": [
-      { "text": "저 영화 제목이 뭐였더라? 특이하게 제목 자체가 <제목 미정> 아니었나?", "showPortrait": true },
+      { "text": "저 영화 제목이 뭐였더라? 특이하게 제목 자체가 <여름 바람> 아니었나?", "showPortrait": true },
       { "text": "영화제에서 수상하고 학교에서 난리도 아니었잖아.", "showPortrait": true },
       { "text": "유명한 평론가들까지 좋게 평론해주고.", "showPortrait": true, "nextId": "Ken_Dialogue16" }
     ]
@@ -356,7 +356,7 @@
     "speaker": "켄",
     "lines": [
       { "text": "그럴 수밖에 없었어.", "showPortrait": true },
-      { "text": "재능 있는 신인 감독이 나왔다고 난리 났었고, 루나도…", "showPortrait": true, "nextId": "Ken_Dialogue20" }
+      { "text": "재능 있는 신인 감독이 나왔다고 난리 났었고, 루나도...", "showPortrait": true, "nextId": "Ken_Dialogue20" }
     ]
   },
   {
@@ -404,7 +404,7 @@
     "id": "Ken_Dialogue25",
     "speaker": "켄",
     "lines": [
-      { "text": "…", "showPortrait": true },
+      { "text": "...", "showPortrait": true },
       { "text": "알겠다.", "showPortrait": true },
       { "text": "그럼 난 일이 있어서 이만 가봐야겠어.", "showPortrait": true, "nextId": "Ken_Dialogue26" }
     ]
@@ -466,7 +466,36 @@
     "id": "Ken_Dialogue33",
     "speaker": "하루",
     "lines": [
-      { "text": "정신이 없네… 오늘은 일찍 정리하고 들어가볼까.", "showPortrait": true }
+      { "text": "정신이 없네... 오늘은 일찍 정리하고 들어가볼까.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "Haru_monologue1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "켄이 한 말이 맞다. 이런 내 자신에게 점점 익숙해지고 있었다.", "showPortrait": false, "nextId": "Haru_monologue2"}
+    ]
+  },
+    {
+    "id": "Haru_monologue2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "이대로면 지금의 나에게 영원히 잠식될 것만 같았다.", "showPortrait": false , "nextId": "Haru_monologue3"}
+    ]
+  },
+    {
+    "id": "Haru_monologue3",
+    "speaker": "하루",
+    "lines": [
+      { "text": "어떤 식으로든 전환이 필요했던 것 같다.", "showPortrait": false}
+    ]
+  },
+
+   {
+    "id": "Worng_Exit",
+    "speaker": "",
+    "lines": [
+      { "text": "아직 영업 시간이다.", "showPortrait": false}
     ]
   }
 ]

@@ -18,7 +18,19 @@ public class PauseUI : MonoBehaviour
     public ConfirmationDialog ConfirmationDialog;
     public GameObject SaveLoadPopup;
 
+    [SerializeField]
+    private PlayerMove_Test_Lerp _playerMove_Test_Lerp;
+
     private int CurrentSelectIndex = 0;
+
+    private void Awake()
+    {
+        if (_playerMove_Test_Lerp == null)
+        {
+            _playerMove_Test_Lerp = GameObject.Find("Haru_Player").GetComponent<PlayerMove_Test_Lerp>();
+        }
+    }
+
     void Start()
     {
         Options = transform.GetChild(0).transform.GetChild(0).GetChild(0).GetComponentsInChildren<TextMeshProUGUI>();
@@ -41,11 +53,11 @@ public class PauseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (SaveLoadPopup.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
                 SaveLoadPopup.gameObject.SetActive(false);
-
 
             return;
         }
@@ -55,6 +67,7 @@ public class PauseUI : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 BackGround.gameObject.SetActive(true);
+                _playerMove_Test_Lerp.enabled = false;
                 Time.timeScale = 0f;
             }
 
@@ -79,6 +92,7 @@ public class PauseUI : MonoBehaviour
         {
             ClosePauseUI();
             Time.timeScale = 1f;
+            _playerMove_Test_Lerp.enabled = true;
         }
     }
 
@@ -116,5 +130,11 @@ public class PauseUI : MonoBehaviour
             Setting.SetActive(false);
         }
     }
+
+    private void OnEnable()
+    {
+        
+    }
+    
 
 }
