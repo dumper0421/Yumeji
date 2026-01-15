@@ -54,6 +54,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 CharredPhotograph.gameObject.SetActive(false);
                 dialogueManager.IsStop = false;
                 dialogueManager._waitingForInput = true;
+                PlayerMove.enabled = true;
                 delayTimer = 0;
             }
         }
