@@ -53,7 +53,7 @@
     ]
   },
   {
-    "id": "Closet",
+    "id": "Wardrobe",
     "speaker": "",
     "lines": [
       {
@@ -164,7 +164,7 @@
   },
 
   {
-    "id": "FrontDoor_Locked",
+    "id": "Haru_Door_Locked",
     "speaker": "",
     "lines": [
       {
@@ -174,7 +174,7 @@
     ]
   },
   {
-    "id": "FrontDoor_Open",
+    "id": "Haru_Door_Open",
     "speaker": "",
     "lines": [
       {

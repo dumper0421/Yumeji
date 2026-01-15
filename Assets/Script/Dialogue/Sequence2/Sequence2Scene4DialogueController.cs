@@ -1,86 +1,99 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// S2S4: (1) ê¸°ìƒ ë…ë°± -> (2) ë°© ì˜¤ë¸Œì íŠ¸ 5ê°œ ì¡°ì‚¬(ì„œë¡œ ë‹¤ë¥¸ ID) -> (3) ì „í™” ìš¸ë¦¼ -> (4) ì „í™” ìƒí˜¸ì‘ìš© í›„ ë£¨ë‚˜ í†µí™” -> (5) í†µí™” í›„ ë¬¸ ì˜¤ë¸Œì íŠ¸(ë˜ëŠ” ë¸”ë¡) ì‚­ì œ
+/// - ì „í™”ê¸°/ë¬¸ ì• ë‹ˆë©”ì´ì…˜ ì—†ìŒ
+/// - JSON idëŠ” ì‚¬ìš©ì ì œê³µ ë²„ì „(Wardrobe, Haru_Door_Locked/Open) ê¸°ì¤€ìœ¼ë¡œ ë§ì¶˜ë‹¤.
+/// </summary>
 public enum S2S4State
 {
     None,
+    Searching,
     PhoneRinging,
     CallFinished,
-    DoorOpen
+    DoorCleared
 }
 
 public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 {
     [Header("Dialogue Objects")]
-    [SerializeField] private DialogueObject phoneObject;
-    [SerializeField] private DialogueObject frontDoorObject;
+    [SerializeField] private DialogueObject phoneObject;      // Phone DialogueObject
+    [SerializeField] private DialogueObject frontDoorObject;  // Door DialogueObject (ëŒ€ì‚¬ ë‹´ë‹¹)
 
-    [Header("Dialogue IDs")]
+    [Header("Door Block Object (Optional)")]
+    [Tooltip("ë¬¸ì„ ë§‰ëŠ” ë¬¼ì²´(ì½œë¼ì´ë”/ìŠ¤í”„ë¼ì´íŠ¸). í†µí™” ì´í›„ ì´ ì˜¤ë¸Œì íŠ¸ë¥¼ ì‚­ì œí•œë‹¤. ë¹„ì›Œë‘ë©´ frontDoorObject.gameObjectë¥¼ ì‚­ì œí•œë‹¤.")]
+    [SerializeField] private GameObject frontDoorBlockObject;
+
+    [Header("Scene Start Dialogue")]
     [SerializeField] private string wakeUpMonologueId = "WakeUp_Monologue";
 
-    [Tooltip("ÀüÈ­±â Á¦¿Ü ¿ÀºêÁ§Æ®µéÀÇ 1ÁÙ ´ë»ç IDµé(Ä§´ë/Ã¢¹®/¼­¶ø/¿ÊÀå/¾îÇ×/ÃÊÀÎÁ¾ µî)")]
+    [Header("Non-phone one-liner IDs (UNIQUE)")]
+    [Tooltip("ì „í™”ê¸° ì œì™¸ ì¡°ì‚¬ ëŒ€ìƒ 1ì¤„ ëŒ€ì‚¬ IDë“¤. ì´ ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ” ì„œë¡œ ë‹¤ë¥¸ IDë¥¼ Nê°œ ì™„ë£Œí•˜ë©´ ì „í™”ê°€ ìš¸ë¦°ë‹¤.")]
     [SerializeField]
     private List<string> nonPhoneOneLinerIds = new List<string>
     {
-        "Bed", "Window", "Drawer", "Closet", "FishTank", "Doorbell"
+        "Bed", "Window", "Drawer", "Wardrobe", "FishTank"
     };
 
-    [Header("Phone IDs")]
+    [SerializeField] private int requiredInspectCountToRing = 5;
+
+    [Header("Phone Dialogue IDs (JSON)")]
     [SerializeField] private string phoneSilentId = "Phone_Silent";
     [SerializeField] private string phoneRingingId = "Phone_Ringing";
     [SerializeField] private string phoneCallId = "Phone_Call";
-
-    [Header("After Call")]
     [SerializeField] private string afterCallMonologueId = "After_Call_Monologue";
 
-    [Header("Door IDs")]
-    [SerializeField] private string frontDoorLockedId = "FrontDoor_Locked";
-    [SerializeField] private string frontDoorOpenId = "FrontDoor_Open";
+    [Header("Door Dialogue IDs (JSON)")]
+    [SerializeField] private string doorLockedId = "Haru_Door_Locked";
+    [SerializeField] private string doorOpenId = "Haru_Door_Open";
 
-    [Header("Phone Ring Effects (Optional)")]
+    [Header("Phone Ring Effects (No Animation)")]
+    [Tooltip("ì „í™”ë²¨ íš¨ê³¼ìŒ. Play On AwakeëŠ” êº¼ë‘ëŠ” ê²Œ ì¢‹ë‹¤.")]
     [SerializeField] private AudioSource phoneRingAudio;
+    [Tooltip("ì „í™”ë²¨ ì‹œê° íš¨ê³¼(ì„ íƒ). Phone ë³¸ì²´ê°€ ì•„ë‹ˆë¼ ë³„ë„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì—°ê²°í•´ì•¼ í•œë‹¤.")]
     [SerializeField] private GameObject phoneRingVfx;
-    [SerializeField] private Animator phoneAnimator;
 
-    [Header("Door Effects (Optional)")]
-    [SerializeField] private Animator doorAnimator;
-    [SerializeField] private Collider2D doorBlockCollider;
-
-    [Header("Exit")]
-    [Tooltip("¹®ÀÌ ¿­¸° »óÅÂ¿¡¼­ ¹® ´ëÈ­°¡ ³¡³ª¸é ´ÙÀ½ ¾ÀÀ¸·Î ÀÌµ¿ÇÏ°í ½ÍÀ¸¸é Ã¼Å©")]
+    [Header("Exit (Optional)")]
+    [Tooltip("ë¬¸ì´ ì—´ë¦° ìƒíƒœì—ì„œ 'Haru_Door_Open' ëŒ€í™”ê°€ ëë‚˜ë©´ ë‹¤ìŒ ì”¬ìœ¼ë¡œ ì´ë™í•˜ê³  ì‹¶ìœ¼ë©´ ì²´í¬")]
     [SerializeField] private bool loadNextSceneOnDoorOpenDialogueEnd = false;
     [SerializeField] private string nextSceneName;
 
-    private bool hasTriggeredPhone;   // ÀüÈ­±â Á¦¿Ü ¿ÀºêÁ§Æ® 1È¸¶óµµ Á¶»çÇß´ÂÁö
-    private bool isPhoneRinging;      // ÀüÈ­º§ ¿ï¸®´Â ÁßÀÎÁö
-    private bool hasFinishedCall;     // ·ç³ª ÅëÈ­ ³¡³µ´ÂÁö
+    // ===== runtime =====
+    private readonly HashSet<string> inspectedNonPhoneIds = new HashSet<string>();
+    private bool isPhoneRinging;
+    private bool hasFinishedCall;
 
     protected override void Awake()
     {
         base.Awake();
-        state = S2S4State.None;
+        state = S2S4State.Searching;
 
-        // ÃÊ±â »óÅÂ ¼¼ÆÃ
-        StopPhoneRinging();
-
+        // âœ… ì „í™”ê¸° ë³¸ì²´ëŠ” í•­ìƒ ì¡´ì¬/í™œì„±
         if (phoneObject != null)
         {
-            phoneObject.StartDialogue = phoneSilentId;
-            phoneObject.hasBeenInspected = false; // ¾ğÁ¦µç º¼ ¼ö ÀÖ°Ô(¿øÇÏ¸é true·Î ¸·¾Æµµ µÊ)
+            phoneObject.gameObject.SetActive(true);
+            var sr = phoneObject.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.enabled = true;
+
+            phoneObject.StartDialogue = phoneSilentId; // Phone_Silentì—ì„œë„ ëŒ€ì‚¬ ì¡´ì¬
+            phoneObject.hasBeenInspected = false;
         }
 
         if (frontDoorObject != null)
         {
-            frontDoorObject.StartDialogue = frontDoorLockedId;
+            frontDoorObject.StartDialogue = doorLockedId; // í†µí™” ì „ì—ëŠ” ë‚˜ê°€ì§€ ëª»í•¨
             frontDoorObject.hasBeenInspected = false;
         }
+
+        StopPhoneRingingEffects();
     }
 
     private void Start()
     {
-        // ¾À ½ÃÀÛ µ¶¹é ÀÚµ¿ Àç»ı
+        // ì”¬ ì‹œì‘ ë…ë°± ìë™ ì¬ìƒ
         if (!string.IsNullOrEmpty(wakeUpMonologueId))
         {
             dialogueManager.StartDialogue(wakeUpMonologueId);
@@ -89,22 +102,26 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
-        // 1) ÀüÈ­±â Á¦¿Ü ¿ÀºêÁ§Æ® Áß "¾î¶² °ÍÀÌµç" 1È¸ »óÈ£ÀÛ¿ë -> ÀüÈ­±â ¿ï¸² ½ÃÀÛ
-        if (!hasTriggeredPhone && nonPhoneOneLinerIds.Contains(dialogueId))
+        // 1) ì „í™”ê¸° ì œì™¸ ì¡°ì‚¬ ì¹´ìš´íŠ¸ ëˆ„ì (ì¤‘ë³µ ë°©ì§€)
+        if (!hasFinishedCall && nonPhoneOneLinerIds.Contains(dialogueId))
         {
-            hasTriggeredPhone = true;
-            StartPhoneRinging();
+            inspectedNonPhoneIds.Add(dialogueId);
+
+            // Nê°œ(ê¸°ë³¸ 5ê°œ) ë‹¬ì„± ì‹œì—ë§Œ ìš¸ë¦¼ ì‹œì‘
+            if (!isPhoneRinging && inspectedNonPhoneIds.Count >= requiredInspectCountToRing)
+            {
+                StartPhoneRinging();
+            }
         }
 
-        // 2) ÀüÈ­±â°¡ ¿ï¸®´Â »óÅÂ¿¡¼­ ÀüÈ­±â(¿ï¸²) ´ëÈ­°¡ ³¡³ª¸é -> º» ÅëÈ­ ½ÃÀÛ
+        // 2) ìš¸ë¦¬ëŠ” ìƒíƒœì—ì„œ ì „í™”ê¸° "ìš¸ë¦¼ ëŒ€ì‚¬"ê°€ ëë‚˜ë©´ => ë³¸ í†µí™” ì‹œì‘
         if (isPhoneRinging && dialogueId == phoneRingingId)
         {
-            StopPhoneRinging();
-            // ·ç³ª ÅëÈ­ ½ÃÀÛ
+            StopPhoneRingingEffects();
             dialogueManager.StartDialogue(phoneCallId);
         }
 
-        // 3) ·ç³ª ÅëÈ­ ³¡³ª¸é -> µ¶¹é + ¹® ¿­¸²
+        // 3) í†µí™” ì¢…ë£Œ => í†µí™” í›„ ë…ë°± + ë¬¸ í•´ê¸ˆ(ëŒ€ì‚¬ ë³€ê²½) + ë¬¸ ë¸”ë¡ ì‚­ì œ
         if (!hasFinishedCall && dialogueId == phoneCallId)
         {
             hasFinishedCall = true;
@@ -115,11 +132,11 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
                 dialogueManager.StartDialogue(afterCallMonologueId);
             }
 
-            OpenDoor();
+            UnlockAndClearDoor();
         }
 
-        // 4) ¹® ¿­¸² »óÅÂ¿¡¼­ ¹® ´ë»ç°¡ ³¡³µÀ» ¶§ ´ÙÀ½ ¾ÀÀ¸·Î ÀÌµ¿(¼±ÅÃ)
-        if (loadNextSceneOnDoorOpenDialogueEnd && dialogueId == frontDoorOpenId)
+        // 4) (ì„ íƒ) ì—´ë¦° ë¬¸ ëŒ€ì‚¬ê°€ ëë‚˜ë©´ ì”¬ ì´ë™
+        if (loadNextSceneOnDoorOpenDialogueEnd && dialogueId == doorOpenId)
         {
             if (!string.IsNullOrEmpty(nextSceneName))
             {
@@ -130,75 +147,71 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
         TryProgress();
     }
 
-    protected override void DialogueRunning(string dialogueId)
-    {
-        // ´ë»ç ÁøÇà Áß Æ¯Á¤ Å¸ÀÌ¹Ö ¿¬ÃâÀÌ ÇÊ¿äÇÏ¸é ¿©±â¼­ Ã³¸®
-    }
-
-    protected override void HandleOption(string text, string nextId)
-    {
-        // ÀÌ ¾ÀÀº ¿É¼Ç ºĞ±â ¾ø´Ù°í ÇßÀ¸´Ï ºñ¿öµÒ
-    }
+    protected override void DialogueRunning(string dialogueId) { }
+    protected override void HandleOption(string text, string nextId) { }
 
     protected override void TryProgress()
     {
-        // ÆÛÁñ ¿Ï·á Á¶°ÇÀ» "ÅëÈ­ ¿Ï·á + ¹® ¿­¸²"·Î Àâ°í ½ÍÀ¸¸é ÀÌ·¸°Ô
-        if (hasFinishedCall)
+        if (state == S2S4State.DoorCleared)
         {
             OnPuzzleComplete();
         }
     }
 
-    protected override void OnPuzzleComplete()
-    {
-        // ÇÊ¿äÇÏ¸é ¿©±â¼­ ÀúÀå/Æ®¸®°Å/¿¬Ãâ Ãß°¡
-    }
+    protected override void OnPuzzleComplete() { }
 
     private void StartPhoneRinging()
     {
-        if (isPhoneRinging) return;
-
         isPhoneRinging = true;
         state = S2S4State.PhoneRinging;
 
         if (phoneObject != null)
         {
             phoneObject.StartDialogue = phoneRingingId;
-            phoneObject.hasBeenInspected = false; // ÀÌÀü¿¡ ºÃ¾îµµ ´Ù½Ã »óÈ£ÀÛ¿ë °¡´ÉÇÏ°Ô
+            phoneObject.hasBeenInspected = false; // ì´ë¯¸ ë´¤ì–´ë„ ë‹¤ì‹œ ìƒí˜¸ì‘ìš© ê°€ëŠ¥
         }
 
-        if (phoneRingAudio != null) phoneRingAudio.Play();
-        if (phoneRingVfx != null) phoneRingVfx.SetActive(true);
-        if (phoneAnimator != null) phoneAnimator.enabled = true;
+        if (phoneRingAudio != null)
+        {
+            phoneRingAudio.loop = true;
+            phoneRingAudio.Play();
+        }
+
+        // âš ï¸ phoneRingVfxì— Phone ë³¸ì²´ ë„£ìœ¼ë©´ ì‹œì‘í•˜ìë§ˆì êº¼ì ¸ì„œ "ì „í™”ê¸° ì—†ìŒ"ì²˜ëŸ¼ ë³´ì¼ ìˆ˜ ìˆë‹¤.
+        if (phoneRingVfx != null)
+        {
+            phoneRingVfx.SetActive(true);
+        }
     }
 
-    private void StopPhoneRinging()
+    private void StopPhoneRingingEffects()
     {
         isPhoneRinging = false;
 
         if (phoneRingAudio != null) phoneRingAudio.Stop();
         if (phoneRingVfx != null) phoneRingVfx.SetActive(false);
-        if (phoneAnimator != null) phoneAnimator.enabled = false;
-
-        if (phoneObject != null && !hasFinishedCall)
-        {
-            // ¿ï¸²ÀÌ ³¡³µÁö¸¸ ¾ÆÁ÷ ÅëÈ­ ÀüÀÌ¸é(¿©±â¼± ¿ï¸² ³¡=ÅëÈ­ ½ÃÀÛÀÌ¶ó °ÅÀÇ ¾ÈÅ½),
-            // ±âº» »óÅÂ·Î µ¹¸®°í ½ÍÀ¸¸é »ç¿ë
-            // phoneObject.StartDialogue = phoneSilentId;
-        }
     }
 
-    private void OpenDoor()
+    private void UnlockAndClearDoor()
     {
-        state = S2S4State.DoorOpen;
-
+        // ë¬¸ ëŒ€ì‚¬ë¥¼ "ì—´ë¦¼"ìœ¼ë¡œ êµì²´ (ë¬¸ ì˜¤ë¸Œì íŠ¸ê°€ ë‚¨ì•„ìˆë‹¤ë©´ ì—´ë¦¼ ëŒ€ì‚¬ ì¶œë ¥ ê°€ëŠ¥)
         if (frontDoorObject != null)
         {
-            frontDoorObject.StartDialogue = frontDoorOpenId;
+            frontDoorObject.StartDialogue = doorOpenId;
             frontDoorObject.hasBeenInspected = false;
         }
 
-        if (doorAnimator != null) doorAnimator.SetTrigger("Open");
-        if (doorBlockCollider != null) doorBlockCollider.enabled = false;
+        // ì‹¤ì œë¡œ ë§‰ëŠ” ë¬¼ì²´ ì‚­ì œ
+        if (frontDoorBlockObject != null)
+        {
+            Destroy(frontDoorBlockObject);
+        }
+        else if (frontDoorObject != null)
+        {
+            // ë¬¸ ì˜¤ë¸Œì íŠ¸ ìì²´ê°€ ê¸¸ì„ ë§‰ê³  ìˆë‹¤ë©´ ì‚­ì œ
+            Destroy(frontDoorObject.gameObject);
+        }
+
+        state = S2S4State.DoorCleared;
     }
 }
