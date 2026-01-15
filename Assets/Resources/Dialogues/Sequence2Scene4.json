@@ -89,61 +89,141 @@
     "lines": [
       {
         "text": "전화벨이 요란하게 울리고 있다.",
-        "showPortrait": true
+        "showPortrait": true,
+        "nextId": "Phone_Call_01"
+      }
+    ]
+  },
+
+  {
+    "id": "Phone_Call_01",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…여보세요?",
+        "showPortrait": true,
+        "nextId": "Phone_Call_02"
       }
     ]
   },
   {
-    "id": "Phone_Call",
-    "speaker": "",
+    "id": "Phone_Call_02",
+    "speaker": "루나",
     "lines": [
       {
-        "text": "…여보세요?",
-        "showPortrait": true
-      },
+        "text": "…하루? 나야.",
+        "showPortrait": true,
+        "nextId": "Phone_Call_03"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_03",
+    "speaker": "하루",
+    "lines": [
       {
-        "text": "하루? 나야.",
-        "showPortrait": true
-      },
-      {
-        "text": "루나? 정말 루나야? 너 대체 어디에…",
-        "showPortrait": true
-      },
+        "text": "…루나? 정말 루나야? 너 대체 어디에…",
+        "showPortrait": true,
+        "nextId": "Phone_Call_04"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_04",
+    "speaker": "루나",
+    "lines": [
       {
         "text": "잘 지냈어? 부탁이 하나 있어서 전화했어.",
-        "showPortrait": true
-      },
+        "showPortrait": true,
+        "nextId": "Phone_Call_05"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_05",
+    "speaker": "루나",
+    "lines": [
       {
         "text": "만나서 이야기하고 싶은데.",
-        "showPortrait": true
-      },
+        "showPortrait": true,
+        "nextId": "Phone_Call_06"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_06",
+    "speaker": "하루",
+    "lines": [
       {
-        "text": "잠시만, 근데…",
-        "showPortrait": true
-      },
+        "text": "응? 잠시만, 근데…",
+        "showPortrait": true,
+        "nextId": "Phone_Call_07"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_07",
+    "speaker": "루나",
+    "lines": [
       {
         "text": "내 마지막 영화 <유메지> 기억 나지?",
-        "showPortrait": true
-      },
+        "showPortrait": true,
+        "nextId": "Phone_Call_08"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_08",
+    "speaker": "하루",
+    "lines": [
       {
         "text": "당연히 기억 나지.",
-        "showPortrait": true
-      },
+        "showPortrait": true,
+        "nextId": "Phone_Call_09"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_09",
+    "speaker": "루나",
+    "lines": [
       {
         "text": "<유메지> 필름 갖고 여기 있거든 나.",
-        "showPortrait": true
-      },
+        "showPortrait": true,
+        "nextId": "Phone_Call_10"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_10",
+    "speaker": "루나",
+    "lines": [
       {
         "text": "예전 그 촬영장으로 와줄 수 있어?",
-        "showPortrait": true
-      },
+        "showPortrait": true,
+        "nextId": "Phone_Call_11"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_11",
+    "speaker": "하루",
+    "lines": [
       {
         "text": "유메지? 거긴 한참 전에 폐쇄됐잖아. 그리고 넌…",
-        "showPortrait": true
-      },
+        "showPortrait": true,
+        "nextId": "Phone_Call_12"
+      }
+    ]
+  },
+  {
+    "id": "Phone_Call_12",
+    "speaker": "루나",
+    "lines": [
       {
         "text": "기다릴게.",
-        "showPortrait": true
+        "showPortrait": true,
+        "nextId": "After_Call_Monologue"
       }
     ]
   },

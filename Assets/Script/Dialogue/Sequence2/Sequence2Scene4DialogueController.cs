@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// S2S4: (1) 기상 독백 -> (2) 방 오브젝트 5개 조사(서로 다른 ID) -> (3) 전화 울림 -> (4) 전화 상호작용 후 루나 통화 -> (5) 통화 후 문 오브젝트(또는 블록) 삭제
-/// - 전화기/문 애니메이션 없음
-/// - JSON id는 사용자 제공 버전(Wardrobe, Haru_Door_Locked/Open) 기준으로 맞춘다.
-/// </summary>
 public enum S2S4State
 {
     None,
@@ -20,18 +15,16 @@ public enum S2S4State
 public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 {
     [Header("Dialogue Objects")]
-    [SerializeField] private DialogueObject phoneObject;      // Phone DialogueObject
-    [SerializeField] private DialogueObject frontDoorObject;  // Door DialogueObject (대사 담당)
+    [SerializeField] private DialogueObject phoneObject;
+    [SerializeField] private DialogueObject frontDoorObject;
 
     [Header("Door Block Object (Optional)")]
-    [Tooltip("문을 막는 물체(콜라이더/스프라이트). 통화 이후 이 오브젝트를 삭제한다. 비워두면 frontDoorObject.gameObject를 삭제한다.")]
     [SerializeField] private GameObject frontDoorBlockObject;
 
     [Header("Scene Start Dialogue")]
     [SerializeField] private string wakeUpMonologueId = "WakeUp_Monologue";
 
     [Header("Non-phone one-liner IDs (UNIQUE)")]
-    [Tooltip("전화기 제외 조사 대상 1줄 대사 ID들. 이 리스트에 있는 서로 다른 ID를 N개 완료하면 전화가 울린다.")]
     [SerializeField]
     private List<string> nonPhoneOneLinerIds = new List<string>
     {
@@ -43,7 +36,8 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
     [Header("Phone Dialogue IDs (JSON)")]
     [SerializeField] private string phoneSilentId = "Phone_Silent";
     [SerializeField] private string phoneRingingId = "Phone_Ringing";
-    [SerializeField] private string phoneCallId = "Phone_Call";
+
+    [Header("After Call (JSON)")]
     [SerializeField] private string afterCallMonologueId = "After_Call_Monologue";
 
     [Header("Door Dialogue IDs (JSON)")]
@@ -51,17 +45,14 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
     [SerializeField] private string doorOpenId = "Haru_Door_Open";
 
     [Header("Phone Ring Effects (No Animation)")]
-    [Tooltip("전화벨 효과음. Play On Awake는 꺼두는 게 좋다.")]
     [SerializeField] private AudioSource phoneRingAudio;
-    [Tooltip("전화벨 시각 효과(선택). Phone 본체가 아니라 별도 오브젝트를 연결해야 한다.")]
     [SerializeField] private GameObject phoneRingVfx;
 
     [Header("Exit (Optional)")]
-    [Tooltip("문이 열린 상태에서 'Haru_Door_Open' 대화가 끝나면 다음 씬으로 이동하고 싶으면 체크")]
     [SerializeField] private bool loadNextSceneOnDoorOpenDialogueEnd = false;
     [SerializeField] private string nextSceneName;
 
-    // ===== runtime =====
+    // runtime
     private readonly HashSet<string> inspectedNonPhoneIds = new HashSet<string>();
     private bool isPhoneRinging;
     private bool hasFinishedCall;
@@ -71,20 +62,19 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
         base.Awake();
         state = S2S4State.Searching;
 
-        // ✅ 전화기 본체는 항상 존재/활성
         if (phoneObject != null)
         {
             phoneObject.gameObject.SetActive(true);
             var sr = phoneObject.GetComponent<SpriteRenderer>();
             if (sr != null) sr.enabled = true;
 
-            phoneObject.StartDialogue = phoneSilentId; // Phone_Silent에서도 대사 존재
+            phoneObject.StartDialogue = phoneSilentId;
             phoneObject.hasBeenInspected = false;
         }
 
         if (frontDoorObject != null)
         {
-            frontDoorObject.StartDialogue = doorLockedId; // 통화 전에는 나가지 못함
+            frontDoorObject.StartDialogue = doorLockedId;
             frontDoorObject.hasBeenInspected = false;
         }
 
@@ -93,7 +83,6 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 
     private void Start()
     {
-        // 씬 시작 독백 자동 재생
         if (!string.IsNullOrEmpty(wakeUpMonologueId))
         {
             dialogueManager.StartDialogue(wakeUpMonologueId);
@@ -102,40 +91,40 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
-        // 1) 전화기 제외 조사 카운트 누적(중복 방지)
+        // 1) 전화기 제외 조사 누적(중복 방지)
         if (!hasFinishedCall && nonPhoneOneLinerIds.Contains(dialogueId))
         {
             inspectedNonPhoneIds.Add(dialogueId);
 
-            // N개(기본 5개) 달성 시에만 울림 시작
             if (!isPhoneRinging && inspectedNonPhoneIds.Count >= requiredInspectCountToRing)
             {
                 StartPhoneRinging();
             }
         }
 
-        // 2) 울리는 상태에서 전화기 "울림 대사"가 끝나면 => 본 통화 시작
+        // 2) Phone_Ringing이 끝났을 때: 벨만 끈다.
+        //    (통화 시작은 JSON의 nextId 체인으로 자동 진행된다.)
         if (isPhoneRinging && dialogueId == phoneRingingId)
         {
             StopPhoneRingingEffects();
-            dialogueManager.StartDialogue(phoneCallId);
         }
 
-        // 3) 통화 종료 => 통화 후 독백 + 문 해금(대사 변경) + 문 블록 삭제
-        if (!hasFinishedCall && dialogueId == phoneCallId)
+        // 3) After_Call_Monologue가 끝났을 때:
+        //    - 전화기는 다시 Phone_Silent로 복귀
+        //    - 문을 열림 상태로 바꾸고 블록 삭제
+        if (!hasFinishedCall && dialogueId == afterCallMonologueId)
         {
             hasFinishedCall = true;
             state = S2S4State.CallFinished;
 
-            if (!string.IsNullOrEmpty(afterCallMonologueId))
-            {
-                dialogueManager.StartDialogue(afterCallMonologueId);
-            }
-
+            ResetPhoneToSilent();
             UnlockAndClearDoor();
+
+            TryProgress();
+            return;
         }
 
-        // 4) (선택) 열린 문 대사가 끝나면 씬 이동
+        // 4) (선택) 열린 문 대사 끝나면 씬 이동
         if (loadNextSceneOnDoorOpenDialogueEnd && dialogueId == doorOpenId)
         {
             if (!string.IsNullOrEmpty(nextSceneName))
@@ -168,7 +157,7 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
         if (phoneObject != null)
         {
             phoneObject.StartDialogue = phoneRingingId;
-            phoneObject.hasBeenInspected = false; // 이미 봤어도 다시 상호작용 가능
+            phoneObject.hasBeenInspected = false;
         }
 
         if (phoneRingAudio != null)
@@ -177,9 +166,9 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
             phoneRingAudio.Play();
         }
 
-        // ⚠️ phoneRingVfx에 Phone 본체 넣으면 시작하자마자 꺼져서 "전화기 없음"처럼 보일 수 있다.
         if (phoneRingVfx != null)
         {
+            // phoneRingVfx엔 Phone 본체 넣지 말고, 별도 오브젝트만 넣어야 했다.
             phoneRingVfx.SetActive(true);
         }
     }
@@ -192,23 +181,31 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
         if (phoneRingVfx != null) phoneRingVfx.SetActive(false);
     }
 
+    private void ResetPhoneToSilent()
+    {
+        StopPhoneRingingEffects();
+
+        if (phoneObject != null)
+        {
+            phoneObject.StartDialogue = phoneSilentId;
+            phoneObject.hasBeenInspected = false;
+        }
+    }
+
     private void UnlockAndClearDoor()
     {
-        // 문 대사를 "열림"으로 교체 (문 오브젝트가 남아있다면 열림 대사 출력 가능)
         if (frontDoorObject != null)
         {
             frontDoorObject.StartDialogue = doorOpenId;
             frontDoorObject.hasBeenInspected = false;
         }
 
-        // 실제로 막는 물체 삭제
         if (frontDoorBlockObject != null)
         {
             Destroy(frontDoorBlockObject);
         }
         else if (frontDoorObject != null)
         {
-            // 문 오브젝트 자체가 길을 막고 있다면 삭제
             Destroy(frontDoorObject.gameObject);
         }
 
