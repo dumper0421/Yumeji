@@ -96,6 +96,37 @@
   },
 
   {
+    "id": "Doorbell",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "누르고 싶은 초인종이지만 아무래도 누르면 안될 것 같다.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "FrontDoor",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "굳게 닫힌 옆집 현관문이다. 인기척이 느껴지는 것 같기도 하다."
+      }
+    ]
+  },
+
+  {
+    "id": "BathroomDrawer",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "반년째 열어보지 않은 서랍이다. 굳이 열어보고 싶지는 않다."
+      }
+    ]
+  },
+
+  {
     "id": "Phone_Call_01",
     "speaker": "하루",
     "lines": [
