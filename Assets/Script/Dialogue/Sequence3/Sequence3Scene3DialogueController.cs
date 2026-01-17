@@ -10,21 +10,21 @@ public enum S3S3State
 }
 public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
 {
-    public PlayableDirector ReyWalkDownDirector;
+    public PlayableDirector ReiWalkDownDirector;
     public PlayableDirector TurnstileDirector;
     public PlayableDirector HoleDirector;
 
     public SpriteRenderer HaruSpirteRenderer;
-    public SpriteRenderer ReySpirteRenderer;
+    public SpriteRenderer ReiSpirteRenderer;
 
     public Animator HaruAnimator;
-    public Animator ReyAnimator;
+    public Animator ReiAnimator;
 
     public Sprite HaruStandRightSprite;
-    public Sprite ReyStandLeftSprite;
+    public Sprite ReiStandLeftSprite;
 
     public PlayerMove_Test_Lerp HaruMove;
-    public CompanionSystem ReyCompanionSystem;
+    public CompanionSystem ReiCompanionSystem;
     protected override void Awake()
     {
         base.Awake();
@@ -39,21 +39,21 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
     {
         switch(dialogueId)
         {
-            case "HaruRey1_02": 
-                Utility.PlayDirector(ReyWalkDownDirector);
+            case "HaruRei1_02": 
+                Utility.PlayDirector(ReiWalkDownDirector);
                 break;
-            case "HaruRey1_11":
+            case "HaruRei1_11":
                 HaruAnimator.enabled = true;
-                ReyAnimator.enabled = true;
-                HaruMove.SetCompanion(ReyCompanionSystem, "레이");
+                ReiAnimator.enabled = true;
+                HaruMove.SetCompanion(ReiCompanionSystem, "레이");
                 break;
-            case "HaruRey1_21":
+            case "HaruRei1_21":
                 Utility.PlayDirector(TurnstileDirector);
                 HaruMove.ReleaseCompanion();
-                ReyCompanionSystem.gameObject.SetActive(false);
+                ReiCompanionSystem.gameObject.SetActive(false);
                 break;
 
-            case "HaruRey1_39":
+            case "HaruRei1_39":
                 Utility.PlayDirector(HoleDirector);
                 HaruAnimator.enabled = false;
                 break;
@@ -63,11 +63,11 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
     {
         switch (dialogueId)
         {
-            case "HaruRey1_03":
+            case "HaruRei1_03":
                 HaruAnimator.enabled = false;
-                ReyAnimator.enabled = false;
+                ReiAnimator.enabled = false;
                 HaruSpirteRenderer.sprite = HaruStandRightSprite;
-                ReySpirteRenderer.sprite = ReyStandLeftSprite;
+                ReiSpirteRenderer.sprite = ReiStandLeftSprite;
                 break;
 
         }

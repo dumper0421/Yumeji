@@ -395,12 +395,12 @@ PlayableDirector:
     value: {fileID: 1537067986392028132}
   - key: {fileID: -6490117829636108543, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
     value: {fileID: 511969156812688869}
-  - key: {fileID: 7861096267349290756, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
-    value: {fileID: 511969156812688869}
   - key: {fileID: 6430652280984203850, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
     value: {fileID: 519420033}
   - key: {fileID: -2859730669560123390, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
     value: {fileID: 1565904552}
+  - key: {fileID: -5933185778686083137, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
+    value: {fileID: 511969156812688869}
   m_ExposedReferences:
     m_References:
     - 0832a90bc37abc14c8eb8dd7024e6814: {fileID: 1498779391}
@@ -646,7 +646,7 @@ PlayableDirector:
     value: {fileID: 1537067986392028132}
   - key: {fileID: -6490117829636108543, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
     value: {fileID: 511969156812688869}
-  - key: {fileID: 7861096267349290756, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 511969156812688869}
   - key: {fileID: 6430652280984203850, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
     value: {fileID: 519420033}
@@ -664,18 +664,18 @@ PlayableDirector:
     value: {fileID: 1565904552}
   - key: {fileID: 7230118260677482047, guid: 25698c3dd85ea8241ac939eb5f3c3a81, type: 2}
     value: {fileID: 511969156812688869}
-  - key: {fileID: 4355780924380159369, guid: 25698c3dd85ea8241ac939eb5f3c3a81, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 511969156812688869}
   - key: {fileID: -5159530941704001130, guid: 25698c3dd85ea8241ac939eb5f3c3a81, type: 2}
     value: {fileID: 1565904552}
   - key: {fileID: -9082404009555518418, guid: f46634ca2c06c90448aecf9077d96ce8, type: 2}
     value: {fileID: 519420033}
-  - key: {fileID: 6768094906173934734, guid: f46634ca2c06c90448aecf9077d96ce8, type: 2}
-    value: {fileID: 1363686255}
   - key: {fileID: -5094415829691949057, guid: f46634ca2c06c90448aecf9077d96ce8, type: 2}
     value: {fileID: 1363686255}
   - key: {fileID: -7666801921960994446, guid: f46634ca2c06c90448aecf9077d96ce8, type: 2}
     value: {fileID: 1363686251}
+  - key: {fileID: 6946675763158767211, guid: f46634ca2c06c90448aecf9077d96ce8, type: 2}
+    value: {fileID: 1363686255}
   m_ExposedReferences:
     m_References:
     - 0832a90bc37abc14c8eb8dd7024e6814: {fileID: 1498779391}
@@ -1945,7 +1945,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: HaruRey1_01
+            m_StringArgument: HaruRei1_01
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
@@ -2642,7 +2642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8741570845649080117, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
       propertyPath: StartDialogue
-      value: HaruRey1_15
+      value: HaruRei1_15
       objectReference: {fileID: 0}
     - target: {fileID: 8741570845649080117, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
       propertyPath: DialogueManager
@@ -4209,7 +4209,7 @@ PlayableDirector:
     value: {fileID: 1537067986392028132}
   - key: {fileID: -6490117829636108543, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
     value: {fileID: 511969156812688869}
-  - key: {fileID: 7861096267349290756, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 511969156812688869}
   - key: {fileID: 6430652280984203850, guid: 16094bef3263dc244bef49648a8f3a96, type: 2}
     value: {fileID: 519420033}
@@ -4227,10 +4227,10 @@ PlayableDirector:
     value: {fileID: 1565904552}
   - key: {fileID: 7230118260677482047, guid: 25698c3dd85ea8241ac939eb5f3c3a81, type: 2}
     value: {fileID: 511969156812688869}
-  - key: {fileID: 4355780924380159369, guid: 25698c3dd85ea8241ac939eb5f3c3a81, type: 2}
-    value: {fileID: 511969156812688869}
   - key: {fileID: -5159530941704001130, guid: 25698c3dd85ea8241ac939eb5f3c3a81, type: 2}
     value: {fileID: 1565904552}
+  - key: {fileID: 6336256153235337683, guid: 25698c3dd85ea8241ac939eb5f3c3a81, type: 2}
+    value: {fileID: 511969156812688869}
   m_ExposedReferences:
     m_References:
     - 0832a90bc37abc14c8eb8dd7024e6814: {fileID: 1498779391}
@@ -4269,7 +4269,7 @@ GameObject:
   - component: {fileID: 1363686254}
   - component: {fileID: 1363686253}
   m_Layer: 6
-  m_Name: Rey
+  m_Name: Rei
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4304,7 +4304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 1
   hasBeenInspected: 0
-  StartDialogue: HaruRey1_22
+  StartDialogue: HaruRei1_22
   DialogueManager: {fileID: 1586323521}
   _playerMove: {fileID: 1565904541}
   CharacterAnimator: {fileID: 1363686255}
@@ -4414,7 +4414,7 @@ Animator:
   m_GameObject: {fileID: 1363686251}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5beaf674b1977054e9bd44d6a2fbf946, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0bfe2d6f6e6ad824896bec50744f774f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4511,7 +4511,7 @@ SpriteRenderer:
   m_SortingLayerID: 1277631547
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2132262447, guid: d8d21b72efb1d6547afdefdc4d6656d2, type: 3}
+  m_Sprite: {fileID: 1747818398, guid: 3a1b20d97ae98354dae080dc88cf7cad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4548,7 +4548,7 @@ Transform:
   m_GameObject: {fileID: 1498779389}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: -34.6818, z: -9.988499}
+  m_LocalPosition: {x: -8.5, y: -30.5, z: -9.988499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5053,7 +5053,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: HaruRey1_03
+            m_StringArgument: HaruRei1_03
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1578751991
@@ -5494,17 +5494,17 @@ MonoBehaviour:
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Sequence3Scene3
   state: 0
-  ReyWalkDownDirector: {fileID: 171698730}
+  ReiWalkDownDirector: {fileID: 171698730}
   TurnstileDirector: {fileID: 1355116623}
   HoleDirector: {fileID: 262510045}
   HaruSpirteRenderer: {fileID: 1565904558}
-  ReySpirteRenderer: {fileID: 6276299883791351409}
+  ReiSpirteRenderer: {fileID: 6276299883791351409}
   HaruAnimator: {fileID: 1565904552}
-  ReyAnimator: {fileID: 511969156812688869}
+  ReiAnimator: {fileID: 511969156812688869}
   HaruStandRightSprite: {fileID: 36987726, guid: 7e83cbf31ff72d842bb9a9f6b8e4a01f, type: 3}
-  ReyStandLeftSprite: {fileID: -1661687843, guid: 4470a1e9036517a4ebe722de4fac0021, type: 3}
+  ReiStandLeftSprite: {fileID: -1890345075, guid: 3a1b20d97ae98354dae080dc88cf7cad, type: 3}
   HaruMove: {fileID: 1565904541}
-  ReyCompanionSystem: {fileID: 9065539979162841213}
+  ReiCompanionSystem: {fileID: 9065539979162841213}
 --- !u!1 &1618213405
 GameObject:
   m_ObjectHideFlags: 0
@@ -6464,7 +6464,7 @@ Animator:
   m_GameObject: {fileID: 1537067986392028132}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5beaf674b1977054e9bd44d6a2fbf946, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0bfe2d6f6e6ad824896bec50744f774f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6492,7 +6492,7 @@ GameObject:
   - component: {fileID: 9065539979162841212}
   - component: {fileID: 9065539979162841213}
   m_Layer: 0
-  m_Name: Rey
+  m_Name: Rei
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6619,7 +6619,7 @@ SpriteRenderer:
   m_SortingLayerID: 1277631547
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1243032671, guid: 1710c425898a1494aa616dfd32c8f85d, type: 3}
+  m_Sprite: {fileID: -1604372949, guid: 3a1b20d97ae98354dae080dc88cf7cad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6777,8 +6777,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.25}
-    oldSize: {x: 2.75, y: 5.25}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 4}
     newSize: {x: 0.84375, y: 1.5879109}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
