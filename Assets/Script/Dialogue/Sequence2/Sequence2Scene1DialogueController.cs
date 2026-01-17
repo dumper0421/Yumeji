@@ -62,7 +62,7 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
             case "Guest_Dialogue17":
                 _badCustomer.GetComponent<Animator>().enabled = true;
                 _interactionSystem.InteractDistance = 1f;
-                PlayDirector(_director);
+                Utility.PlayDirector(_director);
                 _filmStageBox.IsFinshBadGuest = true;
                 _filmStageBox.hasBeenInspected = false;
                 break;
@@ -73,11 +73,11 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
 
             case "Ken_Dialogue28":
                 _Ken.GetComponent<Animator>().enabled = true;
-                PlayDirector(_director2);
+                Utility.PlayDirector(_director2);
                 break;
             case "Ken_Dialogue32":
                 _Ken.GetComponent<Animator>().enabled = true;
-                PlayDirector(_director3);
+                Utility.PlayDirector(_director3);
                 _changeLightTrigger.CanLeave = true;
                 break;
         }
@@ -122,11 +122,5 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
         }
     }
 
-    private void PlayDirector(PlayableDirector _director)
-    {
-        _director.time = 0;
-        _director.RebuildGraph();
-        _director.Play();
-    }
 }
 

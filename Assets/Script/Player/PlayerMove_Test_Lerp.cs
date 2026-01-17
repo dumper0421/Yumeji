@@ -220,4 +220,16 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         Gizmos.color = new Color(1f, 1f, 0f, 0.5f);
         Gizmos.DrawCube(boxCenter, boxSize);
     }
+
+    public void SetCompanion(CompanionSystem companion,string companionName)
+    {
+        Companion = companion;
+        GameManager.Instance.AddCompanion(companionName);
+    }
+
+    public void ReleaseCompanion()
+    {
+        Companion = null;
+        GameManager.Instance.InitCompanion();
+    }
 }

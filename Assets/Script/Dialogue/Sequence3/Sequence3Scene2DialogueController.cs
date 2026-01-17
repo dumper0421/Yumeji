@@ -49,10 +49,9 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
                 HaruSpriteRenderer.sprite = HaruSitDownSprite;
                 break;
             case "HaruRey1_29":
-                PlayDirector(Director2);
+                Utility.PlayDirector(Director2);
                 HaruSpriteRenderer.sprite = HaruSitDownSprite;
                 PlayMove.enabled = false;
-
                 break;
             case "HaruRey1_30":
                 SoundManager.Instance.SetBGMSourceVolume(1.0f);
@@ -106,12 +105,6 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
     {
     }
 
-    private void PlayDirector(PlayableDirector _director)
-    {
-        _director.time = 0;
-        _director.RebuildGraph();
-        _director.Play();
-    }
 
     IEnumerator FadeOutToIn(float fadeDuration)
     {

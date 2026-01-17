@@ -157,6 +157,10 @@ public class GameManager : Singleton<GameManager>
             saveData_.CompanionName += companionName;
         else
             saveData_.CompanionName += ("," + companionName);
+    }
 
+    public void InitCompanion()
+    {
+        saveData_.CompanionName = "";
     }
 }

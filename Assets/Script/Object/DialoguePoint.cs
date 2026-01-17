@@ -8,6 +8,7 @@ public class DialoguePoint : MonoBehaviour
     public DialogueManager DialogueManager;
     public bool DisablePoint = false;
     public float DisableTime = 2f;
+    public bool isDisposable = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,6 +25,8 @@ public class DialoguePoint : MonoBehaviour
     {
         DisablePoint = true;
         yield return new WaitForSeconds(DisableTime);
-        DisablePoint = false;
+
+        if (!isDisposable)
+            DisablePoint = false;
     }
 }
