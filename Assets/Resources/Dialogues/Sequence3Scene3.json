@@ -1,0 +1,19 @@
+[
+  { "id": "Haru_01", "speaker": "하루", "lines": [{ "text": "뭔가… 눈에 익는 느낌인데… ", "showPortrait": true }] },
+
+  { "id": "HaruRey1_01", "speaker": "레이", "lines": [{ "text": "저기! 같이 가!", "showPortrait": true, "nextId": "HaruRey1_02" }] },
+  { "id": "HaruRey1_02", "speaker": "하루", "lines": [{ "text": "응?", "showPortrait": true, "nextId": "HaruRey1_03" }] },
+
+  { "id": "HaruRey1_03", "speaker": "레이", "lines": [{ "text": "같이 가자고.", "showPortrait": true, "nextId": "HaruRey1_04" }] },
+  { "id": "HaruRey1_04", "speaker": "레이", "lines": [{ "text": "여기 처음이잖아, 그치?", "showPortrait": true, "nextId": "HaruRey1_05" }] },
+  { "id": "HaruRey1_05", "speaker": "레이", "lines": [{ "text": "아까 빌려준 답례로 내가 안내해 줄게.", "showPortrait": true, "nextId": "HaruRey1_06" }] },
+
+  { "id": "HaruRey1_06", "speaker": "하루", "lines": [{ "text": "괜찮은데… 나도 주소는 알고 있어.", "showPortrait": true, "nextId": "HaruRey1_07" }] },
+
+  { "id": "HaruRey1_07", "speaker": "레이", "lines": [{ "text": "무인역인데 사람도 없어서 분위기가 좀 무섭단 말이지.", "showPortrait": true, "nextId": "HaruRey1_08" }] },
+  { "id": "HaruRey1_08", "speaker": "레이", "lines": [{ "text": "도심에서 멀리 떨어져 있어서 원래 한적하긴 한데…", "showPortrait": true, "nextId": "HaruRey1_09" }] },
+  { "id": "HaruRey1_09", "speaker": "레이", "lines": [{ "text": "오늘은 유독 개미 한 마리 안 보이네.", "showPortrait": true, "nextId": "HaruRey1_10" }] },
+  { "id": "HaruRey1_10", "speaker": "레이", "lines": [{ "text": "어때, 같이 가자. 응?", "showPortrait": true, "nextId": "HaruRey1_11" }] },
+
+  { "id": "HaruRey1_11", "speaker": "하루", "lines": [{ "text": "(그냥 자기가 무서워서잖아...)", "showPortrait": true }] }
+]
