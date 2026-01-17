@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8073127927272997991}
   - component: {fileID: 8662976946478595821}
   - component: {fileID: 6083300890693126331}
+  - component: {fileID: 7868654815363359061}
   m_Layer: 0
   m_Name: Haru_Player
   m_TagString: Player
@@ -167,6 +168,7 @@ MonoBehaviour:
   speed_: 0.75
   runSpeed_: 1.25
   vector: {x: 0, y: 0, z: 0}
+  canMove: 1
   animator: {fileID: 0}
   flashTiles: {x: 3, y: 4}
   tileSize: {x: 1, y: 1}
@@ -324,3 +326,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa52e7ce41e0d2a45bdd1697a8414406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7868654815363359061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703343506138680696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b81281da67fb6247a2c4f09f8048161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sitMoveDuration: 0.3
+  bypassNoPassOnSit: 1
