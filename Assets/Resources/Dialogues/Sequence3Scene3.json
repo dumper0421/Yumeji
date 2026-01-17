@@ -1,0 +1,156 @@
+[
+  { "id": "Haru_01", "speaker": "하루", "lines": [{ "text": "뭔가… 눈에 익는 느낌인데… ", "showPortrait": true }] },
+
+  { "id": "HaruRei1_01", "speaker": "레이", "lines": [{ "text": "저기! 같이 가!", "showPortrait": true, "nextId": "HaruRei1_02" }] },
+  { "id": "HaruRei1_02", "speaker": "하루", "lines": [{ "text": "응?", "showPortrait": true }] },
+
+  { "id": "HaruRei1_03", "speaker": "레이", "lines": [{ "text": "같이 가자고.", "showPortrait": true, "nextId": "HaruRei1_04" }] },
+  { "id": "HaruRei1_04", "speaker": "레이", "lines": [{ "text": "여기 처음이잖아, 그치?", "showPortrait": true, "nextId": "HaruRei1_05" }] },
+  { "id": "HaruRei1_05", "speaker": "레이", "lines": [{ "text": "아까 빌려준 답례로 내가 안내해 줄게.", "showPortrait": true, "nextId": "HaruRei1_06" }] },
+
+  { "id": "HaruRei1_06", "speaker": "하루", "lines": [{ "text": "괜찮은데… 나도 주소는 알고 있어.", "showPortrait": true, "nextId": "HaruRei1_07" }] },
+
+  { "id": "HaruRei1_07", "speaker": "레이", "lines": [{ "text": "무인역인데 사람도 없어서 분위기가 좀 무섭단 말이지.", "showPortrait": true, "nextId": "HaruRei1_08" }] },
+  { "id": "HaruRei1_08", "speaker": "레이", "lines": [{ "text": "도심에서 멀리 떨어져 있어서 원래 한적하긴 한데…", "showPortrait": true, "nextId": "HaruRei1_09" }] },
+  { "id": "HaruRei1_09", "speaker": "레이", "lines": [{ "text": "오늘은 유독 개미 한 마리 안 보이네.", "showPortrait": true, "nextId": "HaruRei1_10" }] },
+  { "id": "HaruRei1_10", "speaker": "레이", "lines": [{ "text": "어때, 같이 가자. 응?", "showPortrait": true, "nextId": "HaruRei1_11" }] },
+
+  { "id": "HaruRei1_11", "speaker": "하루", "lines": [{ "text": "…뭐, 상관없어.", "showPortrait": true ,"nextId": "HaruRei1_12" }] },
+  { "id": "HaruRei1_12", "speaker": "하루", "lines": [{ "text": "근데 어차피 나가는 길은 하나인데.", "showPortrait": true ,"nextId": "HaruRei1_13" }] },
+  { "id": "HaruRei1_13", "speaker": "레이", "lines": [{ "text": "저기 이름이 뭐야? 난 레이. 잘 부탁해.", "showPortrait": true ,"nextId": "HaruRei1_14" }] },
+  { "id": "HaruRei1_14", "speaker": "하루", "lines": [{ "text": "레이…? 난 하루. 잘 부탁해.", "showPortrait": true  }] },
+
+  { "id": "HaruRei1_15", "speaker": "하루", "lines": [{ "text": "이상한 역이네… 이렇게 사람이 없고 낡은 역은 처음 봐.", "showPortrait": true, "nextId": "HaruRei1_16" }]},
+  { "id": "HaruRei1_16", "speaker": "레이", "lines": [{ "text": "흐응, 오늘 유독 이상하다니까.", "showPortrait": true, "nextId": "HaruRei1_17" }]},
+  { "id": "HaruRei1_17", "speaker": "레이", "lines": [{ "text": "개찰구도 먹통인 것 같고.", "showPortrait": true, "nextId": "HaruRei1_18" }]},
+  { "id": "HaruRei1_18", "speaker": "레이", "lines": [{ "text": "우리… 그냥 넘어갈까?", "showPortrait": true, "nextId": "HaruRei1_19" }]},
+  { "id": "HaruRei1_19", "speaker": "하루", "lines": [{ "text": "에이, 그래도 그건 좀…", "showPortrait": true, "nextId": "HaruRei1_20" }]},
+  { "id": "HaruRei1_20", "speaker": "레이", "lines": [{ "text": "시간 아깝지 않아?", "showPortrait": true, "nextId": "HaruRei1_21" }]},
+  { "id": "HaruRei1_21", "speaker": "레이", "lines": [{ "text": "연회에 늦으면 어떡해.", "showPortrait": true }]},
+  {
+    "id": "HaruRei1_22",
+    "speaker": "레이",
+    "lines": [
+      { "text": "뭔가 이상해.", "showPortrait": true, "nextId": "HaruRei1_23" }
+    ]
+  },
+  {
+    "id": "HaruRei1_23",
+    "speaker": "레이",
+    "lines": [
+      { "text": "왜 문이 잠겨 있지? 분명 오늘 초대받았는데.", "showPortrait": true, "nextId": "HaruRei1_24" }
+    ]
+  },
+  {
+    "id": "HaruRei1_24",
+    "speaker": "하루",
+    "lines": [
+      { "text": "연회장이 여기가 맞는 거야?", "showPortrait": true, "nextId": "HaruRei1_25" }
+    ]
+  },
+  {
+    "id": "HaruRei1_25",
+    "speaker": "레이",
+    "lines": [
+      { "text": "맞아. 확실해.", "showPortrait": true, "nextId": "HaruRei1_26" }
+    ]
+  },
+  {
+    "id": "HaruRei1_26",
+    "speaker": "하루",
+    "lines": [
+      { "text": "잠시만… 근데 나도 오려던 곳이 여기 같은데.", "showPortrait": true, "nextId": "HaruRei1_27" }
+    ]
+  },
+  {
+    "id": "HaruRei1_27",
+    "speaker": "레이",
+    "lines": [
+      { "text": "뭐라고?", "showPortrait": true, "nextId": "HaruRei1_28" }
+    ]
+  },
+  {
+    "id": "HaruRei1_28",
+    "speaker": "하루",
+    "lines": [
+      { "text": "음, 주소 보니까 이 안쪽이 폐촬영장이라고 되어 있는데…", "showPortrait": true, "nextId": "HaruRei1_29" }
+    ]
+  },
+  {
+    "id": "HaruRei1_29",
+    "speaker": "하루",
+    "lines": [
+      { "text": "들어갈 방법이 없네.", "showPortrait": true, "nextId": "HaruRei1_30" }
+    ]
+  },
+  {
+    "id": "HaruRei1_30",
+    "speaker": "하루",
+    "lines": [
+      { "text": "벨도 없고, 사람 기척도 안 들려.", "showPortrait": true, "nextId": "HaruRei1_31" }
+    ]
+  },
+  {
+    "id": "HaruRei1_31",
+    "speaker": "레이",
+    "lines": [
+      { "text": "아! 내가 들어가는 길을 알아.", "showPortrait": true, "nextId": "HaruRei1_32" }
+    ]
+  },
+  {
+    "id": "HaruRei1_32",
+    "speaker": "레이",
+    "lines": [
+      { "text": "정원 쪽으로 돌아가면 작은 영사실이 하나 있던 걸로 기억해.", "showPortrait": true, "nextId": "HaruRei1_33" }
+    ]
+  },
+  {
+    "id": "HaruRei1_33",
+    "speaker": "레이",
+    "lines": [
+      { "text": "영사실로 가면 내부로 들어갈 수 있을 거야.", "showPortrait": true, "nextId": "HaruRei1_34" }
+    ]
+  },
+  {
+    "id": "HaruRei1_34",
+    "speaker": "하루",
+    "lines": [
+      { "text": "영사실?", "showPortrait": true, "nextId": "HaruRei1_35" }
+    ]
+  },
+  {
+    "id": "HaruRei1_35",
+    "speaker": "레이",
+    "lines": [
+      { "text": "응, 여기 호텔 주인이 곳곳에 개인 영화관 같은 방을 많이 만들어 놨다고 했거든.", "showPortrait": true, "nextId": "HaruRei1_36" }
+    ]
+  },
+  {
+    "id": "HaruRei1_36",
+    "speaker": "레이",
+    "lines": [
+      { "text": "외부랑 연결된 영사실이 정원 안쪽에 있을 거야.", "showPortrait": true, "nextId": "HaruRei1_37" }
+    ]
+  },
+  {
+    "id": "HaruRei1_37",
+    "speaker": "하루",
+    "lines": [
+      { "text": "여기 처음 온 거 아니었어?", "showPortrait": true, "nextId": "HaruRei1_38" }
+    ]
+  },
+  {
+    "id": "HaruRei1_38",
+    "speaker": "하루",
+    "lines": [
+      { "text": "어떻게 그렇게 잘 알아?", "showPortrait": true, "nextId": "HaruRei1_39" }
+    ]
+  },
+  {
+    "id": "HaruRei1_39",
+    "speaker": "레이",
+    "lines": [
+      { "text": "연회에 기다리고 있는 사람이 많아, 빨리 따라와!", "showPortrait": true }
+    ]
+  }
+]

@@ -15,11 +15,11 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
     public SpriteRenderer HaruSpriteRenderer;
     public Sprite HaruSitDownSprite;
 
-    public SpriteRenderer ReySpriteRenderer;
-    public Sprite ReySitDownSprite;
+    public SpriteRenderer ReiSpriteRenderer;
+    public Sprite ReiSitDownSprite;
 
     public Animator HaruAnimator;
-    public Animator ReyAnimator;
+    public Animator ReiAnimator;
 
     public AudioClip HeadPhoneBGM;
     public AudioClip TrainBGM;
@@ -30,7 +30,7 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
 
     public PlayerMove_Test_Lerp PlayMove;
 
-    public DialogueObject ReyDialogueObject;
+    public DialogueObject ReiDialogueObject;
     public List<DialoguePoint> DialoguePoints;
 
     protected override void Awake()
@@ -42,33 +42,32 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
     {
         switch (dialogueId)
         {
-            case "HaruRey1_2":
+            case "HaruRei1_2":
                 SoundManager.Instance.StopBGM();
                 SoundManager.Instance.SetBGMSourceVolume(0.5f);
                 SoundManager.Instance.PlayBGM(TrainBGM);
                 HaruSpriteRenderer.sprite = HaruSitDownSprite;
                 break;
-            case "HaruRey1_29":
-                PlayDirector(Director2);
+            case "HaruRei1_29":
+                Utility.PlayDirector(Director2);
                 HaruSpriteRenderer.sprite = HaruSitDownSprite;
                 PlayMove.enabled = false;
-
                 break;
-            case "HaruRey1_30":
+            case "HaruRei1_30":
                 SoundManager.Instance.SetBGMSourceVolume(1.0f);
 
                 break;
-            case "HaruRey1_32":
+            case "HaruRei1_32":
                 StartCoroutine(FadeOutToIn(1.0f));
                 break;
-            case "HaruRey1_33":
-                ReyAnimator.enabled = false;
-                ReySpriteRenderer.sprite = ReySitDownSprite;
+            case "HaruRei1_33":
+                ReiAnimator.enabled = false;
+                ReiSpriteRenderer.sprite = ReiSitDownSprite;
                 break;
-            case "HaruRey1_36":
-                ReyDialogueObject.IsDisposable = false;
-                ReyDialogueObject.hasBeenInspected = false;
-                ReyDialogueObject.StartDialogue = "HaruRepeat";
+            case "HaruRei1_36":
+                ReiDialogueObject.IsDisposable = false;
+                ReiDialogueObject.hasBeenInspected = false;
+                ReiDialogueObject.StartDialogue = "HaruRepeat";
                 foreach(var dialoguePoint in DialoguePoints) 
                     dialoguePoint.gameObject.SetActive(false);
                 break;
@@ -83,14 +82,13 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
     public override void OnStartedDialogue(string DialogueID)
     {
         base.OnStartedDialogue(DialogueID);
-        if (DialogueID == "HaruRey1_1")
+        if (DialogueID == "HaruRei1_1")
         {
             HaruAnimator.enabled = false;
         }
-        if (DialogueID == "HaruRey1_30")
+        if (DialogueID == "HaruRei1_30")
         {
-            //TODO 레이 애니메이션 전환
-            //ReyAnimator.SetTrigger("");
+            ReiAnimator.SetTrigger("isSleep");
         }
     }
 
@@ -106,12 +104,6 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
     {
     }
 
-    private void PlayDirector(PlayableDirector _director)
-    {
-        _director.time = 0;
-        _director.RebuildGraph();
-        _director.Play();
-    }
 
     IEnumerator FadeOutToIn(float fadeDuration)
     {

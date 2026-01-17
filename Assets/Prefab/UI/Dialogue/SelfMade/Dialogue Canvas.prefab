@@ -127,7 +127,7 @@ MonoBehaviour:
   speakerInfos:
   - speakerName: "\uD558\uB8E8"
     portrait: {fileID: 21300000, guid: 90d0c3f22410e5e4e95098401c7a1a3b, type: 3}
-  advanceKey: 32
+  advanceKey: 13
   enterKey: 13
   IsStop: 0
   _playerMove: {fileID: 0}
