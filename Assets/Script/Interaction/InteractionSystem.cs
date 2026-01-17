@@ -26,7 +26,7 @@ public class InteractionSystem : MonoBehaviour
         // ★ 앉아 있는 동안에는 F = 일어나기 전용
         if (actionController != null && actionController.IsSitting)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.Space))
                 actionController.StandUp();
             return;
         }
@@ -94,6 +94,7 @@ public class InteractionSystem : MonoBehaviour
 
         if (obj.TryGetComponent(out SitObject seat))
         {
+            Debug.Log("앉기 상호작용");
             if (actionController != null)
             {
                 if (!actionController.IsSitting)
@@ -118,6 +119,7 @@ public class InteractionSystem : MonoBehaviour
 
         if (obj.TryGetComponent(out PushableObject pushable))
         {
+            Debug.Log("밀기 상호작용");
             TryPush(pushable);
             interacted = true;
         }

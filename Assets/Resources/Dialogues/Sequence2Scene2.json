@@ -1,0 +1,164 @@
+[
+  {
+    "_comment": "   1   -   1   ",
+    "id": "Haru_Car",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "내가 몰고 온 자동차다.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "_comment": "   1   -   2   ",
+    "id": "Road",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "영화 시간이 얼마 남지 않은 듯하다. 서둘러 들어가야 할 것 같다.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "_comment": "   1   -   3   ",
+    "id": "Parked_Car",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "갓길에 바짝 주차되어있는 자동차다.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "_comment": "   1   -   4   ,   2   -   2",
+    "id": "Poster",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "상영 중인 영화의 포스터인 듯하다",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "_comment": "   2   -   1   ",
+    "id": "Pamphlet",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "영화 팜플렛들이 꽂혀있다.",
+        "showPortrait": false
+      }
+    ]
+  },
+
+
+
+  {
+    "_comment": "2            티켓직원 대화 시작                 ",
+    "id": "TicketBooth01",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "요즘 영화들 재밌어요?",
+        "showPortrait": true,
+        "nextId": "TicketBooth02"
+      }
+    ]
+  },
+
+  {
+    "id": "TicketBooth02",
+    "speaker": "매표소 직원",
+    "lines": [
+      {
+        "text": "거의 다 지루해요.",
+        "showPortrait": true
+      },
+      {
+        "text": "어떤 영화 보실 건데요?",
+        "showPortrait": true,
+        "nextId": "TicketBooth03"
+      }
+    ]
+  },
+
+  {
+    "id": "TicketBooth03",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "음…",
+        "showPortrait": true,
+        "nextId": "TicketBooth04"
+      }
+    ]
+  },
+
+  {
+    "id": "TicketBooth04",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "어떤 영화를 볼까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      {
+        "text": "릴리에 관한 모든 것",
+        "nextId": "TicketBooth05"
+      },
+      {
+        "text": "멀홀랜드 드라이빙",
+        "nextId": "TicketBooth05"
+      },
+      {
+        "text": "하나 혹은 둘",
+        "nextId": "TicketBooth05"
+      }
+    ]
+  },
+
+  {
+    "id": "TicketBooth05",
+    "speaker": "매표소 직원",
+    "lines": [
+      {
+        "text": "아, 그 영화는 재밌어요.",
+        "showPortrait": true
+      },
+      {
+        "text": "이제 곧 상영해요.",
+        "showPortrait": true,
+        "nextId": "TicketBooth06"
+      }
+    ]
+  },
+
+  {
+    "id": "TicketBooth06",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "네. 볼게요. 한 장 주세요.",
+        "showPortrait": true,
+        "nextId": "TicketBooth_Received"
+      }
+    ]
+  },
+
+  {
+    "id": "TicketBooth_Received",
+    "speaker": "매표소 직원",
+    "lines": [
+      {
+        "text": "오른쪽 문으로 들어가시면 돼요.",
+        "showPortrait": true
+      }
+    ]
+  }
+]
