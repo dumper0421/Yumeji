@@ -1,0 +1,65 @@
+[
+  { "id": "HaruRei1_01", "speaker": "하루", "lines": [{ "text": "이 앞은… 미로인가?", "showPortrait": true,"nextId": "HaruRei1_02"  }] },
+  { "id": "HaruRei1_02", "speaker": "레이", "lines": [{ "text": "그런가 봐.", "showPortrait": true,"nextId": "HaruRei1_03" }] },
+  { "id": "HaruRei1_03", "speaker": "레이", "lines": [{ "text": "안개 때문에 앞이 하나도 안 보이네.", "showPortrait": true,"nextId": "HaruRei1_04"  }] },
+  { "id": "HaruRei1_04", "speaker": "하루", "lines": [{ "text": "일단은 길을 찾아보자. 조심해.", "showPortrait": true }] },
+  
+  {
+    "id": "Rose1",
+    "speaker": "",
+    "lines": [
+      { "text": "장미꽃 가운데에 작은 스위치가 있다. 눌러볼까?", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "누른다.", "nextId": "Rose1_Pushed"},
+      { "text": "누르지 않는다.", "nextId": "End"}
+    ]
+  },
+  { "id": "Rose1_Pushed", "lines": [{ "text": "스위치가 눌렸다.", "showPortrait": false }] },
+
+    {
+    "id": "Rose2",
+    "speaker": "",
+    "lines": [
+      { "text": "장미꽃 가운데에 작은 스위치가 있다. 눌러볼까?", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "누른다.", "nextId": "Rose2_Pushed"},
+      { "text": "누르지 않는다.", "nextId": "End"}
+    ]
+  },
+  { "id": "Rose2_Pushed", "lines": [{ "text": "스위치가 눌렸다.", "showPortrait": false }] },
+
+    {
+    "id": "Rose3",
+    "speaker": "",
+    "lines": [
+      { "text": "장미꽃 가운데에 작은 스위치가 있다. 눌러볼까?", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "누른다.", "nextId": "Rose3_Pushed"},
+      { "text": "누르지 않는다.", "nextId": "End"}
+    ]
+  },
+  { "id": "Rose3_Pushed", "lines": [{ "text": "스위치가 눌렸다.", "showPortrait": false }] },
+
+    {
+    "id": "Rose4",
+    "speaker": "",
+    "lines": [
+      { "text": "장미꽃 가운데에 작은 스위치가 있다. 눌러볼까?", "showPortrait": false }
+    ],
+    "options": [
+      { "text": "누른다.", "nextId": "Rose4_Pushed"},
+      { "text": "누르지 않는다.", "nextId": "End"}
+    ]
+  },
+  { "id": "Rose4_Pushed", "lines": [{ "text": "스위치가 눌렸다.", "showPortrait": false }] },
+    { "id": "Already_Pushed", "lines": [{ "text": "스위치가 이미 눌렸있다.", "showPortrait": false }] },
+    { "id": "Zero_LampPushed", "lines": [{ "text": "우체통 주변에 얼음이 꽝꽝 얼어서 열리지 않는다. 겨울도 아닌데…?", "showPortrait": false }] },
+    { "id": "Less_LampPushed", "lines": [{ "text": "얼음이 조금 녹긴 했지만, 아직 열리지 않는다.", "showPortrait": false }] },
+    { "id": "CompletedPushed", "lines": [{ "text": "우체통 안에 낡은 열쇠가 들어있다.", "showPortrait": false,"nextId":"GetRose"}] },
+    {"id":"GetRose","lines":[{"text":"‘낡은 열쇠’ 아이템 습득"}]},
+    {"id":"RequiredKey","lines":[{"text":"굳게 잠겨있다. 열쇠가 필요할 것 같다."}]},
+    {"id":"OpenDoor"}
+]
