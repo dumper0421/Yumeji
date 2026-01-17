@@ -88,8 +88,7 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
         }
         if (DialogueID == "HaruRei1_30")
         {
-            //TODO 레이 애니메이션 전환
-            //ReiAnimator.SetTrigger("");
+            ReiAnimator.SetTrigger("isSleep");
         }
     }
 
