@@ -49,7 +49,9 @@ public class Sequence1Scen4Controller : SceneController
     protected override IEnumerator StopPlayer()
     {
         playerMoveTestLerp.enabled = false;
-        playerAnimator.enabled = false;
+        playerAnimator.SetBool("Walking", false);
+
+        //  playerAnimator.enabled = false;
         yield return new WaitForSeconds(stopInterval);
 
  
@@ -62,16 +64,13 @@ public class Sequence1Scen4Controller : SceneController
     {
        
         yield return new WaitForSeconds(1.5f);
-        pressFIcon.SetActive(true);
+        //pressFIcon.SetActive(true);
     }
   
     protected override void OnStopIntervalReached()
     {
         playerMoveTestLerp.enabled = true;
         playerAnimator.enabled = true;
-
- 
-
 
         if (stopInterval == 2.5f)
         {

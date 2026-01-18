@@ -21,6 +21,21 @@ EditorBuildSettings:
     path: Assets/Scenes/2026QA/Sequence2S#3_3CutScene.unity
     guid: 3e52935cf4021c948a595dff2bff0c44
   - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence2S#3_4.unity
+    guid: d575184b35b57e34b9e90cbb7817c225
+  - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence2S#3_5.unity
+    guid: 589f12e23ac72de4386941203943d45c
+  - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence2S#3_6.unity
+    guid: 64e5fa2ab8acc5f4dbba110255a07c60
+  - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence2S#3_7.unity
+    guid: d59b55fd969f6bf4896d898a2d13ba34
+  - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence2S#3_8.unity
+    guid: dfbd3e3c01954b24db7ff07f503019ea
+  - enabled: 1
     path: Assets/Scenes/2026QA/Sequence2S#4.unity
     guid: 91c6885cfceedee41bcbedff2220b485
   - enabled: 1

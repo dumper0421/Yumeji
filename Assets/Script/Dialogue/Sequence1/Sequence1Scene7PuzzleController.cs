@@ -49,12 +49,11 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             delayTimer += Time.deltaTime;
             PlayerMove.enabled = false;
             dialogueManager.IsStop = true;
-            if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && delayTimer >= 0.5f) 
+            if ((Input.GetKeyDown(KeyCode.Return)) && delayTimer >= 0.5f) 
             {
                 CharredPhotograph.gameObject.SetActive(false);
                 dialogueManager.IsStop = false;
                 dialogueManager._waitingForInput = true;
-                PlayerMove.enabled = true;
                 delayTimer = 0;
             }
         }
@@ -63,7 +62,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         {
             delayTimer += Time.deltaTime;
             PlayerMove.enabled = false;
-            if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && delayTimer >= 0.5f)
+            if ((Input.GetKeyDown(KeyCode.Return)) && delayTimer >= 0.5f)
             {
                 if (ShowBrokenHaruImageCoroutine == null)
                 ShowBrokenHaruImageCoroutine = StartCoroutine(ShowBrokenHaruImage());
@@ -87,10 +86,12 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 InventoryManager.Instance.AddItem(CharredPhotographData);
                 InteractionLight[1].SetActive(false);
                 break;
+            case "Bookshelf1_Illust":
+                PlayerMove.enabled = false;
+                break;
             case "Fireplace_Lit":
                 FirePlace.StartDialogue = "Fireplace2";
                 FirePlaceAnimator.enabled = true;
-
                 break;
             case "LPPlayerPlaying":
                 SoundManager.Instance.StopAllSFX();
@@ -103,6 +104,9 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 HaruMirror.gameObject.SetActive(true);
                 Mirror.StartDialogue = "Mirror_Break";
                 MirrorRenderer.sprite = BrokenMirror;
+                break;
+            case "Bookshelf1_Illust_Earn":
+                PlayerMove.enabled = true;
                 break;
         }
         TryProgress();
@@ -142,7 +146,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             anim.gameObject.SetActive(true);
             anim.enabled = true;
         }
-
+        Bloom.SetActive(true);
         state = S1S7State.Clear;
         Cutton.gameObject.SetActive(false);
         SceneChangeTrigger.SetActive(true);
