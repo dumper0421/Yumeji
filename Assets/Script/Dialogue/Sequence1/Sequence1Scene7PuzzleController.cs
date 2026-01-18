@@ -62,6 +62,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         {
             delayTimer += Time.deltaTime;
             PlayerMove.enabled = false;
+            dialogueManager.isRunning = true;
             if ((Input.GetKeyDown(KeyCode.Return)) && delayTimer >= 0.5f)
             {
                 if (ShowBrokenHaruImageCoroutine == null)
@@ -165,6 +166,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         SoundManager.Instance.PlaySFX(MirrorBrokeClip);
         yield return new WaitForSeconds(2f);
         HaruMirrorBroken.gameObject.SetActive(false);
+        dialogueManager.isRunning = false;
         PlayerMove.enabled = true;
     }
 }
