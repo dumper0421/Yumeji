@@ -3956,7 +3956,7 @@ MonoBehaviour:
   TornTrianTicketData: {fileID: 11400000, guid: f1227aa9daa83a8458325834279c19c3, type: 2}
   StationChairObject: {fileID: 1292369777}
   TrainDoorObject: {fileID: 242405232}
-  InteractionLight: {fileID: 0}
+  InteractionLight: {fileID: 7310820455520739453, guid: ee99eb725a5ef114a90f44d07b121677, type: 3}
   nextSceneName: Sequence1S#6
 --- !u!1 &1618213405
 GameObject:
