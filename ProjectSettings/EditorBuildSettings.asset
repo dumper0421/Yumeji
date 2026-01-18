@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2026QA/Sequence2S#4.unity
     guid: 91c6885cfceedee41bcbedff2220b485
+  - enabled: 1
+    path: Assets/Scenes/Woo/Sequence2S#2.unity
+    guid: e4d6771a14331844796595061133dd32
+  - enabled: 1
+    path: Assets/Scenes/Woo/Sequence2S#2_2.unity
+    guid: 43dbab9156f3e674eb59dd7a19f5c6ca
   m_configObjects: {}

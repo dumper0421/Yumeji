@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,33 +11,33 @@ public class Sequence2Scene2Controller : SceneController
     private bool isBgmPlaying;
 
     [Header("Event - References")]
-    [SerializeField] private DialogueManager dialogueManager;          // ¾À¿¡ ÀÖ´Â DialogueManager ¿¬°á
-    [SerializeField] private PlayerActionController playerAction;      // Player¿¡ ºÙ¾îÀÖ´Â PlayerActionController (ºñ¿öµÎ¸é ÀÚµ¿ Å½»ö)
+    [SerializeField] private DialogueManager dialogueManager;          // ì”¬ì— ìˆëŠ” DialogueManager ì—°ê²°
+    [SerializeField] private PlayerActionController playerAction;      // Playerì— ë¶™ì–´ìˆëŠ” PlayerActionController (ë¹„ì›Œë‘ë©´ ìë™ íƒìƒ‰)
 
     [Header("Event - Projector SFX (Loop)")]
-    [SerializeField] private AudioSource projectorSource;             // loop¿ë AudioSource (¾øÀ¸¸é ÀÚµ¿ »ı¼º)
-    [SerializeField] private AudioClip projectorLoopClip;             // "Æ½...Æ½..." ·çÇÁ Å¬¸³
+    [SerializeField] private AudioSource projectorSource;             // loopìš© AudioSource (ì—†ìœ¼ë©´ ìë™ ìƒì„±)
+    [SerializeField] private AudioClip projectorLoopClip;             // "í‹±...í‹±..." ë£¨í”„ í´ë¦½
 
     [Header("Event - Fade (CanvasGroup)")]
-    [SerializeField] private CanvasGroup fadeCanvasGroup;             // ÀüÃ¼ È­¸é °ËÁ¤ CanvasGroup (¾ËÆÄ·Î ÆäÀÌµå)
+    [SerializeField] private CanvasGroup fadeCanvasGroup;             // ì „ì²´ í™”ë©´ ê²€ì • CanvasGroup (ì•ŒíŒŒë¡œ í˜ì´ë“œ)
 
     [Header("Event - Flicker Overlay (Choose one)")]
-    [SerializeField] private SpriteRenderer flickerSprite;            // 2D ½ºÇÁ¶óÀÌÆ® ¿À¹ö·¹ÀÌ ¹æ½Ä
-    [SerializeField] private Image flickerImage;                      // UI ÀÌ¹ÌÁö ¿À¹ö·¹ÀÌ ¹æ½Ä(µÑ Áß ÇÏ³ª¸¸ ½áµµ µÊ)
+    [SerializeField] private SpriteRenderer flickerSprite;            // 2D ìŠ¤í”„ë¼ì´íŠ¸ ì˜¤ë²„ë ˆì´ ë°©ì‹
+    [SerializeField] private Image flickerImage;                      // UI ì´ë¯¸ì§€ ì˜¤ë²„ë ˆì´ ë°©ì‹(ë‘˜ ì¤‘ í•˜ë‚˜ë§Œ ì¨ë„ ë¨)
 
     [SerializeField]
     private Color[] flickerColors = new Color[]
     {
-        new Color(0.05f, 0.10f, 0.18f, 0.25f), // Â£Àº ÆÄ¶û Åæ
-        new Color(0.06f, 0.16f, 0.10f, 0.25f), // Å¹ÇÑ ³ì»ö Åæ
-        new Color(0.18f, 0.05f, 0.05f, 0.25f)  // ÇÍºû ºÓÀº Åæ
+        new Color(0.05f, 0.10f, 0.18f, 0.25f), // ì§™ì€ íŒŒë‘ í†¤
+        new Color(0.06f, 0.16f, 0.10f, 0.25f), // íƒí•œ ë…¹ìƒ‰ í†¤
+        new Color(0.18f, 0.05f, 0.05f, 0.25f)  // í•ë¹› ë¶‰ì€ í†¤
     };
     [SerializeField] private Vector2 flickerIntervalRange = new Vector2(1f, 2f);
 
     [Header("Event - Dialogue IDs (JSON)")]
     [SerializeField] private string emptyCinemaMonologueId = "Cinema01";
 
-    // Æ¼ÄÏº° 1~2¹øÂ° ´ë»ç id (JSON¿¡ ÇØ´ç id·Î Dialogues°¡ Á¸ÀçÇØ¾ß ÇÔ)
+    // í‹°ì¼“ë³„ 1~2ë²ˆì§¸ ëŒ€ì‚¬ id (JSONì— í•´ë‹¹ idë¡œ Dialoguesê°€ ì¡´ì¬í•´ì•¼ í•¨)
     [SerializeField] private string lilyLine1Id = "TicketA_01";
     [SerializeField] private string lilyLine2Id = "TicketA_02";
 
@@ -52,8 +52,12 @@ public class Sequence2Scene2Controller : SceneController
     [SerializeField] private string mulTicketItemName = "MovieTicketB";
     [SerializeField] private string yiyiTicketItemName = "MovieTicketC";
 
+    [SerializeField] private string nextSceneName;
+
+
     private bool eventRunning = false;
     private Coroutine flickerCo;
+
 
     private void Awake()
     {
@@ -70,7 +74,7 @@ public class Sequence2Scene2Controller : SceneController
         projectorSource.playOnAwake = false;
         projectorSource.loop = true;
 
-        // ÆäÀÌµå ÃÊ±â°ª
+        // í˜ì´ë“œ ì´ˆê¸°ê°’
         if (fadeCanvasGroup != null)
         {
             fadeCanvasGroup.alpha = 0f;
@@ -107,7 +111,7 @@ public class Sequence2Scene2Controller : SceneController
     }
 
     /// <summary>
-    /// CinemaSeatTrigger¿¡¼­ È£ÃâÇÒ ÇÔ¼ö
+    /// CinemaSeatTriggerì—ì„œ í˜¸ì¶œí•  í•¨ìˆ˜
     /// </summary>
     public void StartCinemaSeatEvent()
     {
@@ -118,50 +122,51 @@ public class Sequence2Scene2Controller : SceneController
 
     private IEnumerator CoCinemaSeatEvent()
     {
-        // 1) Á¶ÀÛ Á¦ÇÑ (¾É±â Ç®¸®´Â ¹®Á¦µµ ¿©±â¼­ ÇØ°á)
-        LockPlayerControls(true);
+        if (playerAction != null)
+            playerAction.enabled = false;
+        // ğŸ”’ í”Œë ˆì´ì–´ ì´ë™ + í–‰ë™ ì „ë¶€ ì°¨ë‹¨
 
-        // 1-2) ¿µ»ç±â »ç¿îµå ·çÇÁ ½ÃÀÛ
+        // 1-2) ì˜ì‚¬ê¸° ì‚¬ìš´ë“œ ë£¨í”„ ì‹œì‘
         PlayProjectorLoop(true);
 
-        // 1-3) µ¶¹é: ¡°¡¦¿µÈ­°ü¿¡ »ç¶÷ÀÌ ¾ø³×. ¿À½ÏÇÑ°É.¡±
+        // 1-3) ë…ë°±: â€œâ€¦ì˜í™”ê´€ì— ì‚¬ëŒì´ ì—†ë„¤. ì˜¤ì‹¹í•œê±¸.â€
         yield return StartDialogueAndWait(emptyCinemaMonologueId);
 
-        // 1-4) 2ÃÊ ÆäÀÌµå¾Æ¿ô
+        // 1-4) 2ì´ˆ í˜ì´ë“œì•„ì›ƒ
         yield return FadeTo(1f, 2f);
 
-        // 2) ¾ÏÀü 1ÃÊ À¯Áö
+        // 2) ì•”ì „ 1ì´ˆ ìœ ì§€
         yield return new WaitForSeconds(1f);
 
-        // 2-2) 2ÃÊ ÆäÀÌµåÀÎ + Á¡¸ê ½ÃÀÛ
-        yield return FadeTo(0f, 2f);
+        // 2-2) 2ì´ˆ í˜ì´ë“œì¸ + ì ë©¸ ì‹œì‘
+        yield return FadeTo(0.8f, 2f);
         StartFlicker();
 
-        // 3) Á¡¸ê ½ÃÀÛ ÈÄ 5ÃÊ ¡æ Ã¹ ¹øÂ° ´ë»ç
+        // 3) ì ë©¸ ì‹œì‘ í›„ 5ì´ˆ â†’ ì²« ë²ˆì§¸ ëŒ€ì‚¬
         yield return new WaitForSeconds(5f);
         var (line1, line2) = GetTicketDialoguePair();
         if (!string.IsNullOrEmpty(line1))
             yield return StartDialogueAndWait(line1);
 
-        // 3-2) ÇÃ·¹ÀÌ¾î°¡ ³Ñ±â°í ³ª¸é 5ÃÊ ¡æ µÎ ¹øÂ° ´ë»ç
-        yield return new WaitForSeconds(5f);
+        // 3-2) í”Œë ˆì´ì–´ê°€ ë„˜ê¸°ê³  ë‚˜ë©´ 5ì´ˆ â†’ ë‘ ë²ˆì§¸ ëŒ€ì‚¬
+        yield return new WaitForSeconds(3f);
         if (!string.IsNullOrEmpty(line2))
             yield return StartDialogueAndWait(line2);
 
-        // 4) µÎ ¹øÂ° ´ë»ç ³Ñ±â¸é Á¡¸ê 5ÃÊ ´õ
-        yield return new WaitForSeconds(5f);
+        // 4) ë‘ ë²ˆì§¸ ëŒ€ì‚¬ ë„˜ê¸°ë©´ ì ë©¸ 5ì´ˆ ë”
+        yield return new WaitForSeconds(3f);
 
-        // 4-2) 2ÃÊ ÆäÀÌµå¾Æ¿ô (¿ÏÀü ¾ÏÀü)
-        yield return FadeTo(1f, 2f);
+        // 4-2) 2ì´ˆ í˜ì´ë“œì•„ì›ƒ (ì™„ì „ ì•”ì „)
+        yield return FadeTo(1f, 5f);
 
-        // 4-3) »ç¿îµåµµ Á¾·á(ÆäÀÌµå¾Æ¿ô ³¡³¯ ¶§ ¸Ü°Ô)
+        // 4-3) ì‚¬ìš´ë“œë„ ì¢…ë£Œ(í˜ì´ë“œì•„ì›ƒ ëë‚  ë•Œ ë©ê²Œ)
         PlayProjectorLoop(false);
         StopFlicker();
 
-        // ÀÌº¥Æ® Á¾·á: Á¶ÀÛ Ç®±â
-        LockPlayerControls(false);
-
-        eventRunning = false;
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
+        }
     }
 
     // ====== Helpers ======
@@ -171,12 +176,12 @@ public class Sequence2Scene2Controller : SceneController
         if (playerMoveTestLerp != null)
             playerMoveTestLerp.canMove = !locked;
 
-        // ¡°´Ù½Ã »óÈ£ÀÛ¿ëÅ° ´©¸£¸é ¾É±â Ç®¸²¡± ¹æÁö:
-        // ÀÌº¥Æ® Áß¿£ PlayerActionController ÀÚÃ¼¸¦ ²¨¹ö¸®¸é °¡Àå È®½ÇÇß´Ù.
+        // â€œë‹¤ì‹œ ìƒí˜¸ì‘ìš©í‚¤ ëˆ„ë¥´ë©´ ì•‰ê¸° í’€ë¦¼â€ ë°©ì§€:
+        // ì´ë²¤íŠ¸ ì¤‘ì—” PlayerActionController ìì²´ë¥¼ êº¼ë²„ë¦¬ë©´ ê°€ì¥ í™•ì‹¤í–ˆë‹¤.
         if (playerAction != null)
             playerAction.enabled = !locked;
 
-        // ¾Ö´Ï¸ŞÀÌÅÍ ÀÚÃ¼¸¦ ²ô¸é ¾ÉÀº ÀÚ¼¼°¡ ±úÁú ¼ö ÀÖ¾î¼­ ¿©±â¼± ²ôÁö ¾Ê¾Ò´Ù.
+        
     }
 
     private void PlayProjectorLoop(bool play)
@@ -247,7 +252,7 @@ public class Sequence2Scene2Controller : SceneController
         if (InventoryManager.Instance.HasItem(yiyiTicketItemName))
             return (yiyiLine1Id, yiyiLine2Id);
 
-        Debug.Log("Æ¼ÄÏ¾øÀ½");
+        Debug.Log("í‹°ì¼“ì—†ìŒ");
         return (lilyLine1Id, lilyLine2Id);
     }
 

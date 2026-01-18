@@ -78,6 +78,8 @@ public class CinemaSeatTrigger : SitObject
             {
                 fired = true;
                 Debug.Log($"✅ [Seat:{name}] 착석 완료 감지! (이벤트 실행)");
+                if (action != null)
+                    action.enabled = false;
                 OnSeatEventTriggered();
                 yield break;
             }

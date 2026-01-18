@@ -22,6 +22,8 @@ public class Sequence2Scene2DialogueController : DialogueController<S2S2State>
 
     [Header("SFX")]
     [SerializeField] private AudioClip haruCarSFX;
+
+    [SerializeField] private string nextSceneName;
     protected override void HandleOption(string text, string nextId)
     {
         // 선택지 → 티켓 결정
@@ -47,6 +49,12 @@ public class Sequence2Scene2DialogueController : DialogueController<S2S2State>
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
+        if (dialogueId == "Wall_After_Movie")
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
+
+        }
+
         if (dialogueId == "Haru_Car" && haruCarSFX != null)
         {
             SoundManager.Instance.PlaySFX(haruCarSFX);

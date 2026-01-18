@@ -187,14 +187,13 @@
       },
       {
         "text": "하지만 그들 때문에 상처 받는 일도 많다.",
-        "showPortrait": true,
-        "nextId": "TicketA_02"
+        "showPortrait": true
       }
     ]
   },
   {
     "id": "TicketA_02",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
       {
         "text": "우린 모두 그걸 견디며 살아간다.",
@@ -209,14 +208,14 @@
     "lines": [
       {
         "text": "영화를 찍는 것과 같아. 다른 사람인 척 하는 거야.",
-        "showPortrait": true,
-        "nextId": "TicketB_02"
+        "showPortrait": true
+
       }
     ]
   },
   {
     "id": "TicketB_02",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
       {
         "text": "밴드도 오케스트라도 없어요. 하지만 듣고 싶다면 들으세요.",
@@ -239,17 +238,27 @@
       },
       {
         "text": "영화는 인생과 같아. 그래서 우리가 좋아하는 거야.",
-        "showPortrait": true,
-        "nextId": "TicketC_02"
+        "showPortrait": true
+
       }
     ]
   },
   {
     "id": "TicketC_02",
-    "speaker": "하루",
+    "speaker": "",
     "lines": [
       {
         "text": "남이 모르는 일을 알려주고, 못 보는 걸 보여주고 싶어요.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "Wall_After_Movie",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "피곤하니까 얼른 집으로 돌아가자.",
         "showPortrait": true
       }
     ]
