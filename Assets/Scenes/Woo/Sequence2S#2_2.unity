@@ -1724,7 +1724,7 @@ MonoBehaviour:
   mulhollandTicket: {fileID: 11400000, guid: 323cb0f8ac1233241b943c90573eeeda, type: 2}
   oneOrTwoTicket: {fileID: 11400000, guid: 83b3f6ed0b42587498ff2b4295ff729e, type: 2}
   haruCarSFX: {fileID: 8300000, guid: 86212451f16bd4a40851044adb2ab809, type: 3}
-  nextSceneName: Sequence2S#3_3
+  nextSceneName: Sequence2S#3_3CutScene
 --- !u!114 &603143316 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4940917532608049192, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
@@ -3910,7 +3910,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.5, y: -7.5, z: 0}
-  m_LocalScale: {x: 15, y: 2, z: 1}
+  m_LocalScale: {x: 50, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 914760425}
@@ -4760,7 +4760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   hasBeenInspected: 0
-  StartDialogue: Haru_Car
+  StartDialogue: Car_After_Movie
   DialogueManager: {fileID: 603143316}
 --- !u!1001 &2036418575
 PrefabInstance:

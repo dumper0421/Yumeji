@@ -1,0 +1,77 @@
+[
+  {
+    "id": "Theater_Seat",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "레이 옆으로 가서 앉자.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "Theater_Door",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "문이 잠겨 있네. 우선 같이 봐볼까…",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "Lay_Dialogue01",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "뭐가 이렇게 복잡해…",
+        "showPortrait": true
+      },
+      {
+        "text": "여기가 호텔로 연결된다고?",
+        "showPortrait": true,
+        "nextId": "Lay_Dialogue02"
+      }
+    ]
+  },
+  {
+    "id": "Lay_Dialogue02",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "평생 못 나오는 줄 알았어.",
+        "showPortrait": true,
+        "nextId": "Lay_Dialogue03"
+      }
+    ]
+  },
+  {
+    "id": "Lay_Dialogue03",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "저쪽 문으로 나가면 되는 건가?",
+        "showPortrait": true
+      },
+      {
+        "text": "근데… 이 스크린, 왜 켜져 있지?",
+        "showPortrait": true,
+        "nextId": "Lay_Dialogue04"
+      }
+    ]
+  },
+  {
+    "id": "Lay_Dialogue04",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "흐응, 그러게. 계속 틀어져 있던 건가?",
+        "showPortrait": true
+      },
+      {
+        "text": "우리 잠깐만 보고 갈까…?",
+        "showPortrait": true
+      }
+    ]
+  }
+]
