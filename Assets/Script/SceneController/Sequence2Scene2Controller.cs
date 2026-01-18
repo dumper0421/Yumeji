@@ -38,27 +38,26 @@ public class Sequence2Scene2Controller : SceneController
     [SerializeField] private string emptyCinemaMonologueId = "Cinema01";
 
     // 티켓별 1~2번째 대사 id (JSON에 해당 id로 Dialogues가 존재해야 함)
-    [SerializeField] private string lilyLine1Id = "Ticket_Lily_01";
-    [SerializeField] private string lilyLine2Id = "Ticket_Lily_02";
+    [SerializeField] private string lilyLine1Id = "TicketA_01";
+    [SerializeField] private string lilyLine2Id = "TicketA_02";
 
-    [SerializeField] private string mulLine1Id = "Ticket_Mulholland_01";
-    [SerializeField] private string mulLine2Id = "Ticket_Mulholland_02";
+    [SerializeField] private string mulLine1Id = "TicketB_01";
+    [SerializeField] private string mulLine2Id = "TicketB_02";
 
-    [SerializeField] private string yiyiLine1Id = "Ticket_YiYi_01";
-    [SerializeField] private string yiyiLine2Id = "Ticket_YiYi_02";
+    [SerializeField] private string yiyiLine1Id = "TicketC_01";
+    [SerializeField] private string yiyiLine2Id = "TicketC_02";
 
     [Header("Event - Ticket Item Names (Inventory)")]
-    [SerializeField] private string lilyTicketItemName = "릴리에 관한 모든 것 영화 티켓";
-    [SerializeField] private string mulTicketItemName = "멀홀랜드 드라이빙 영화 티켓";
-    [SerializeField] private string yiyiTicketItemName = "하나 그리고 둘 영화 티켓";
+    [SerializeField] private string lilyTicketItemName = "MovieTicketA";
+    [SerializeField] private string mulTicketItemName = "MovieTicketB";
+    [SerializeField] private string yiyiTicketItemName = "MovieTicketC";
 
     private bool eventRunning = false;
     private Coroutine flickerCo;
 
     private void Awake()
     {
-        // SceneController.Awake가 private라서 base.Awake 호출은 못 함(네 기존 코드 구조상)
-        // 대신 여기서 필요한 것만 보강한다.
+        
 
         if (Player != null && playerAction == null)
             playerAction = Player.GetComponent<PlayerActionController>();
@@ -84,7 +83,7 @@ public class Sequence2Scene2Controller : SceneController
 
     private void Update()
     {
-        // ===== BGM Y 기준 로직 유지 =====
+        // ===== bgm
         if (Player == null) return;
 
         float playerY = Player.transform.position.y;
@@ -248,8 +247,8 @@ public class Sequence2Scene2Controller : SceneController
         if (InventoryManager.Instance.HasItem(yiyiTicketItemName))
             return (yiyiLine1Id, yiyiLine2Id);
 
-        // 티켓이 없으면(예외) 대사 없음 처리
-        return (null, null);
+        Debug.Log("티켓없음");
+        return (lilyLine1Id, lilyLine2Id);
     }
 
     private IEnumerator StartDialogueAndWait(string dialogueId)

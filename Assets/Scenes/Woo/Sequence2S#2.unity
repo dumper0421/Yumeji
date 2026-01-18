@@ -2024,12 +2024,12 @@ MonoBehaviour:
   - {r: 0.18, g: 0.05, b: 0.05, a: 0.25}
   flickerIntervalRange: {x: 1, y: 2}
   emptyCinemaMonologueId: Cinema01
-  lilyLine1Id: Road
-  lilyLine2Id: Road
-  mulLine1Id: Road
-  mulLine2Id: Road
-  yiyiLine1Id: Road
-  yiyiLine2Id: Road
+  lilyLine1Id: TicketA_01
+  lilyLine2Id: TicketA_02
+  mulLine1Id: TicketB_01
+  mulLine2Id: TicketB_02
+  yiyiLine1Id: TicketC_01
+  yiyiLine2Id: TicketC_02
   lilyTicketItemName: MovieTicketA
   mulTicketItemName: MovieTicketB
   yiyiTicketItemName: MovieTicketC
