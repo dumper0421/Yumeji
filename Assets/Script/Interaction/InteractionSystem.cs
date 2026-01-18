@@ -72,7 +72,6 @@ public class InteractionSystem : MonoBehaviour
 
             GameObject obj = hit.collider.gameObject;
             InteractWithObject(obj);
-            return;
         }
     }
 
