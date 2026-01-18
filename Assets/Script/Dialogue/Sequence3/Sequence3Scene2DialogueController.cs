@@ -33,6 +33,8 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
     public DialogueObject ReiDialogueObject;
     public List<DialoguePoint> DialoguePoints;
 
+    public ExitTrigger ExitTrigger;
+
     protected override void Awake()
     {
         base.Awake();
@@ -70,6 +72,7 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
                 ReiDialogueObject.StartDialogue = "HaruRepeat";
                 foreach(var dialoguePoint in DialoguePoints) 
                     dialoguePoint.gameObject.SetActive(false);
+                ExitTrigger.IsClear = true;
                 break;
         }
     }

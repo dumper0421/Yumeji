@@ -30,7 +30,7 @@ public class ExitTrigger : MonoBehaviour
     public IEnumerator FadeOutChangeScene(float fadeDuration)
     {
         if (FadeImage == null) yield break;
-
+        FadeImage.gameObject.SetActive(true);
         float elapsed = 0f;
         Color c = FadeImage.color;
 
