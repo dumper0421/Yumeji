@@ -1633,6 +1633,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3902842902446320557, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902842902446320557, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1277631547
+      objectReference: {fileID: 0}
     - target: {fileID: 4023259955170500439, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_Name
       value: BottomObjects
@@ -1643,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5570129393042135585, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5570129393042135585, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_SortingLayerID
@@ -1663,7 +1671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6343734898765174829, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6343734898765174829, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_SortingOrder
@@ -1679,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8278232716379868184, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8278232716379868184, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_SortingOrder
@@ -2604,7 +2612,7 @@ MonoBehaviour:
   stopInterval: 1
   bgm: {fileID: 8300000, guid: 91da3de867d806544879cc16a99b58fe, type: 3}
   Player: {fileID: 177639301}
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 1565904549}
   cinemachineCameras: []
   cinemachineBase: {fileID: 1007308792}
 --- !u!4 &1247918224
@@ -2942,6 +2950,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa52e7ce41e0d2a45bdd1697a8414406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1565904549 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7815632663773047571, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
+  m_PrefabInstance: {fileID: 1565904539}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1612575405
 PrefabInstance:
   m_ObjectHideFlags: 0
