@@ -51,6 +51,7 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
             case "GetRose":
                 InventoryManager.Instance.AddItem(OldKeyData);
                 PostBox.transform.GetChild(0).gameObject.SetActive(false);
+                PostBox.GetComponent<DialogueObject>().IsDisposable = true;
                 break;
             case "OpenDoor":
                 SoundManager.Instance.PlaySFX(OpenSound);
