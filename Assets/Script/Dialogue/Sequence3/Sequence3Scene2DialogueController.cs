@@ -133,7 +133,7 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
         }
 
         FadeImage.color = new Color(c.r, c.g, c.b, 0f);
-        PlayMove.gameObject.transform.position = new Vector3(-11.5f, 0.5f);
+        PlayMove.gameObject.transform.position = new Vector3(-11.5f, 0.25f);
         HaruAnimator.enabled = true;
         HaruAnimator.ResetTrigger("SitDown");
         HaruAnimator.SetTrigger("SitDownEnd");
