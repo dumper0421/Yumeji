@@ -4055,14 +4055,14 @@ PrefabInstance:
     - target: {fileID: 914170508783254819, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 1ddce715c39f05c4ba99d34bdc1d2dd2, type: 2}
+      objectReference: {fileID: 11400000, guid: ec63526d4f71bc14faeb743acfd58df4, type: 2}
     - target: {fileID: 914170508783254819, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -8892034061087294220, guid: 1ddce715c39f05c4ba99d34bdc1d2dd2, type: 2}
     - target: {fileID: 914170508783254819, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_Name
