@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using static UnityEditor.Progress;
+#endif
 
 // 아이템이 있을 때만 대화 걸 수 있는 오브젝트
 public class RequiresItemDialogueObject : DialogueObject

@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public enum S3S3PState
 {
@@ -28,6 +30,8 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
 
     public ItemData OldKeyData;
 
+    public string NextScene;
+
 
     public int PushCnt { get; private set; } = 0;
 
@@ -51,10 +55,11 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
             case "GetRose":
                 InventoryManager.Instance.AddItem(OldKeyData);
                 PostBox.transform.GetChild(0).gameObject.SetActive(false);
+                PostBox.GetComponent<DialogueObject>().IsDisposable = true;
                 break;
             case "OpenDoor":
                 SoundManager.Instance.PlaySFX(OpenSound);
-                //TODO Change Scene;
+                StartCoroutine(ChangeScene());
                 break;
         }       
 
@@ -127,4 +132,10 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
         PostBoxSpriteRender.sprite = PostBoxSprite;
     }
     protected override void TryProgress() { }
+
+    IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(NextScene);
+    }
 }

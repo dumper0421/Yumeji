@@ -12,6 +12,9 @@ public class Sequence3Scene1DialogueController : DialogueController<S3S1State>
     private Animator _haruAnimator;
     [SerializeField]
     private Animator _kenAnimator;
+    [SerializeField]
+    private ExitTrigger ExitTrigger;
+
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
@@ -23,6 +26,7 @@ public class Sequence3Scene1DialogueController : DialogueController<S3S1State>
 
                 _kenAnimator.SetFloat("DirX", -1);
                 _kenAnimator.SetFloat("DirY", 0);
+                ExitTrigger.IsClear = true;
                 break;
         }
     }

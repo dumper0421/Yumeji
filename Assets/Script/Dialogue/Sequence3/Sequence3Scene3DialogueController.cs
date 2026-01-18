@@ -30,6 +30,8 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
 
     public AudioClip WaveBGM;
 
+    public ExitTrigger ExitTrigger;
+
     protected override void Awake()
     {
         base.Awake();
@@ -69,6 +71,7 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
             case "HaruRei1_39":
                 Utility.PlayDirector(HoleDirector);
                 HaruAnimator.enabled = false;
+                ExitTrigger.IsClear = true;
                 break;
         }
     }

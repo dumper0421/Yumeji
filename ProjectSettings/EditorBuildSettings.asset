@@ -42,6 +42,24 @@ EditorBuildSettings:
     path: Assets/Scenes/2026QA/Sequence2S#3_8.unity
     guid: dfbd3e3c01954b24db7ff07f503019ea
   - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence2S#3_9.unity
+    guid: 7726b12af505235468b625085d6b5c86
+  - enabled: 1
     path: Assets/Scenes/2026QA/Sequence2S#4.unity
     guid: 91c6885cfceedee41bcbedff2220b485
+  - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence3S#1.unity
+    guid: 626bb47bcdfcc7c40bed546fa0d8e4ff
+  - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence3S#2.unity
+    guid: 003e3c09bdd048149ac64d89c90d0451
+  - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence3S#3.unity
+    guid: 6577011d1f74f11469f2853e9c1e0daf
+  - enabled: 1
+    path: Assets/Scenes/2026QA/Sequence3S#3Puzzle.unity
+    guid: 3996ce5aaed2e374cb5c2b9990398472
+  - enabled: 1
+    path: Assets/Scenes/2026QA/EndingScene.unity
+    guid: 62ace9de465c93942a6a31bd5390217e
   m_configObjects: {}
