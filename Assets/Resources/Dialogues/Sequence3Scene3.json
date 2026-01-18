@@ -27,6 +27,8 @@
   { "id": "HaruRei1_19", "speaker": "하루", "lines": [{ "text": "에이, 그래도 그건 좀…", "showPortrait": true, "nextId": "HaruRei1_20" }]},
   { "id": "HaruRei1_20", "speaker": "레이", "lines": [{ "text": "시간 아깝지 않아?", "showPortrait": true, "nextId": "HaruRei1_21" }]},
   { "id": "HaruRei1_21", "speaker": "레이", "lines": [{ "text": "연회에 늦으면 어떡해.", "showPortrait": true }]},
+  { "id": "ReiExit1", "speaker": "레이", "lines": [{ "text": "얼른 나와!", "showPortrait": true, "nextId": "ReiExit2"}]},
+  { "id": "ReiExit2", "speaker": "하루", "lines": [{ "text": "에휴.", "showPortrait": true }]},
   {
     "id": "HaruRei1_22",
     "speaker": "레이",
@@ -151,6 +153,97 @@
     "speaker": "레이",
     "lines": [
       { "text": "연회에 기다리고 있는 사람이 많아, 빨리 따라와!", "showPortrait": true }
+    ]
+  },
+  {
+    "id":"StationSign",
+    "speaker":"",
+     "lines": [
+      { "text": "글자가 다 벗겨져 있어 읽을 수가 없다.", "showPortrait": false }
+    ]
+  },
+    {
+    "id":"train",
+    "speaker":"하루",
+     "lines": [
+      { "text": "살면서 처음 보는 기차 디자인 같은데… 잘 모르겠지만 어디서 봤던 것 같은 기분이 들어...", "showPortrait": false }
+    ]
+  },
+  {
+    "id":"chair1",
+    "speaker":"하루",
+     "lines": [
+      { "text": "...비어있네. 낡은 의자들뿐이야.", "showPortrait": true,"nextId":"chair2" }
+    ]
+  },
+    {
+    "id":"chair2",
+    "speaker":"레이",
+     "lines": [
+      { "text": "언제부터 사람이 없었던 걸까? 가끔은 관리하는 걸로 알고 있는데.", "showPortrait": true,"nextId":"chair3" }
+    ]
+  },
+   {
+    "id":"chair3",
+    "speaker":"하루",
+     "lines": [
+      { "text": "먼지가 이 정도로 쌓였으면 금방은 아닐 거야. 아주 오랫동안 비어있었겠지.", "showPortrait": true,"nextId":"chair4" }
+    ]
+  },
+  {
+    "id":"chair4",
+    "speaker":"레이",
+     "lines": [
+      { "text": "그래? 뭔가 께름칙하네…", "showPortrait": true }
+    ]
+  },
+  {
+    "id":"stationChair0",
+    "speaker":"하루",
+     "lines": [
+      { "text": "앉기에는 지저분해 보이는 의자다.", "showPortrait": false}
+    ]
+  },
+    {
+    "id":"stationChair1",
+    "speaker":"레이",
+     "lines": [
+      { "text": "함부로 앉지 않는 게 좋을 것 같아.", "showPortrait": true,"nextId":"stationChair2" }
+    ]
+  },
+    {
+    "id":"stationChair2",
+    "speaker":"하루",
+     "lines": [
+      { "text": "왜?", "showPortrait": true,"nextId":"stationChair3" }
+    ]
+  },
+   {
+    "id":"stationChair3",
+    "speaker":"레이",
+     "lines": [
+      { "text": "지저분해 보이기도 하고… 뭔가 느낌이 그래.", "showPortrait": true,"nextId":"stationChair4" }
+    ]
+  },
+  {
+    "id":"stationChair4",
+    "speaker":"하루",
+     "lines": [
+      { "text": "알겠어.", "showPortrait": true,"nextId":"chair4" }
+    ]
+  },
+    {
+    "id":"stationChairAlone",
+    "speaker":"하루",
+     "lines": [
+      { "text": "괜히 찝찝해질 것 같네. 레이 말대로 앉지 않는 편이 좋겠어..", "showPortrait": false}
+    ]
+  },
+      {
+    "id":"Door",
+    "speaker":"하루",
+     "lines": [
+      { "text": "날씨 때문인가… 뿌예서 잘 보이지 않아.", "showPortrait": false}
     ]
   }
 ]

@@ -25,6 +25,11 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
 
     public PlayerMove_Test_Lerp HaruMove;
     public CompanionSystem ReiCompanionSystem;
+
+    public List<DialogueObject> Seats;
+
+    public AudioClip WaveBGM;
+
     protected override void Awake()
     {
         base.Awake();
@@ -32,8 +37,10 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
     }
 
     private void Start()
-    {
+    { 
+        SoundManager.Instance.StopBGM();
         dialogueManager.StartDialogue("Haru_01");
+        SoundManager.Instance.PlayBGM(WaveBGM);
     }
     protected override void HandleDialogueEnd(string dialogueId)
     {
@@ -41,6 +48,8 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
         {
             case "HaruRei1_02": 
                 Utility.PlayDirector(ReiWalkDownDirector);
+                SoundManager.Instance.StopBGM();
+                HaruMove.enabled = false;
                 break;
             case "HaruRei1_11":
                 HaruAnimator.enabled = true;
@@ -51,6 +60,10 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
                 Utility.PlayDirector(TurnstileDirector);
                 HaruMove.ReleaseCompanion();
                 ReiCompanionSystem.gameObject.SetActive(false);
+                foreach(var seat in Seats)
+                {
+                    seat.StartDialogue = "stationChairAlone";
+                }
                 break;
 
             case "HaruRei1_39":

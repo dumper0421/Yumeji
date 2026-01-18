@@ -499,10 +499,10 @@ public class DialogueManager : MonoBehaviour
         leftPortraitImage.gameObject.SetActive(false);
         rightPortraitImage.gameObject.SetActive(false);
 
-        OnDialogueComplete?.Invoke(_current != null ? _current.id : "");
-
         if (_playerMove != null)
             _playerMove.enabled = true;
+
+        OnDialogueComplete?.Invoke(_current != null ? _current.id : "");
     }
 
     private void SetNextPrompt(bool show)
