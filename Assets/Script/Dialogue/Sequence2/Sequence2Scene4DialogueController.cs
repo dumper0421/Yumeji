@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,13 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 
     [Header("Scene Start Dialogue")]
     [SerializeField] private string wakeUpMonologueId = "WakeUp_Monologue";
+
+    // ✅ 추가: 씬 시작 연출(누워있기 → 기상)
+    [Header("Scene Start Cut")]
+    [SerializeField] private GameObject lieObject;          // 누워있는 하루(더미/스프라이트)
+    [SerializeField] private GameObject playerObject;       // 실제 플레이어 루트 오브젝트
+    [SerializeField] private Transform playerSpawnPoint;    // (선택) 침대 앞 위치
+    [SerializeField] private float introDelay = 2f;         // 2초
 
     [Header("Non-phone one-liner IDs (UNIQUE)")]
     [SerializeField]
@@ -79,10 +87,43 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
         }
 
         StopPhoneRingingEffects();
+
+        // ✅ 추가: 시작 상태 세팅(누워있는 오브젝트만 보이게)
+        // (인스펙터에서 playerObject를 처음부터 꺼둬도 되지만, 여기서도 안전하게 맞춰줬다.)
+        if (playerObject != null) playerObject.SetActive(false);
+        if (lieObject != null) lieObject.SetActive(true);
     }
 
     private void Start()
     {
+        // ❌ 기존: 시작하자마자 독백
+        // if (!string.IsNullOrEmpty(wakeUpMonologueId))
+        // {
+        //     dialogueManager.StartDialogue(wakeUpMonologueId);
+        // }
+
+        // ✅ 변경: 2초 연출 후 독백 시작
+        StartCoroutine(CoSceneIntroThenMonologue());
+    }
+
+    private IEnumerator CoSceneIntroThenMonologue()
+    {
+        // 1) 2초 동안 누워있는 하루만 보여주기
+        yield return new WaitForSeconds(introDelay);
+
+        // 2) 누운 오브젝트 삭제 + 플레이어 등장
+        if (lieObject != null) Destroy(lieObject);
+
+        if (playerObject != null)
+        {
+            playerObject.SetActive(true);
+
+            // (선택) 침대 앞으로 위치 잡기
+            if (playerSpawnPoint != null)
+                playerObject.transform.position = playerSpawnPoint.position;
+        }
+
+        // 3) 독백 시작
         if (!string.IsNullOrEmpty(wakeUpMonologueId))
         {
             dialogueManager.StartDialogue(wakeUpMonologueId);

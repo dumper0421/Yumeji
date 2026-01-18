@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final/EndingCrediit.unity
     guid: 1c139faaccf26d945aa1e26c318494ac
+  - enabled: 1
+    path: Assets/Scenes/Woo/Sequence3S#4.unity
+    guid: 924a8a598a539e04bbc86aafa5fe7b1c
   m_configObjects: {}
