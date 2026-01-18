@@ -1512,6 +1512,7 @@ GameObject:
   - component: {fileID: 408163152}
   - component: {fileID: 408163154}
   - component: {fileID: 408163155}
+  - component: {fileID: 408163156}
   m_Layer: 6
   m_Name: ANI_haruFishTank_v1_0
   m_TagString: Untagged
@@ -1557,8 +1558,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2000920791
-  m_SortingLayer: 2
+  m_SortingLayerID: 1277631547
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -304654770, guid: c7e1650d46484c24b9df93d68247b877, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1618,7 +1619,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.51774}
+  m_Offset: {x: 0, y: -0.256747}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1629,7 +1630,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.046875, y: 5.074187}
+  m_Size: {x: 4.046875, y: 3.5252128}
   m_EdgeRadius: 0
 --- !u!114 &408163155
 MonoBehaviour:
@@ -1647,6 +1648,18 @@ MonoBehaviour:
   hasBeenInspected: 0
   StartDialogue: FishTank
   DialogueManager: {fileID: 603143303}
+--- !u!114 &408163156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408163151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &412112121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3410,9 +3423,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2000920791
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: 1277631547
+  m_SortingLayer: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 2637416dd3fbea544b6f873025688f80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3471,7 +3484,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.66344464}
+  m_Offset: {x: 0, y: -0.11104268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3482,7 +3495,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3.3268893}
+  m_Size: {x: 2, y: 1.7779146}
   m_EdgeRadius: 0
 --- !u!114 &844963348
 MonoBehaviour:
@@ -5552,6 +5565,7 @@ GameObject:
   - component: {fileID: 1376536161}
   - component: {fileID: 1376536163}
   - component: {fileID: 1376536162}
+  - component: {fileID: 1376536164}
   m_Layer: 6
   m_Name: OBJ_HaruChair_v1
   m_TagString: Untagged
@@ -5606,7 +5620,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5305786}
+  m_Offset: {x: 0.114267826, y: -0.24390817}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5617,7 +5631,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3125, y: 4.311157}
+  m_Size: {x: 2.0839643, y: 2.7621832}
   m_EdgeRadius: 0
 --- !u!212 &1376536163
 SpriteRenderer:
@@ -5657,8 +5671,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2000920791
-  m_SortingLayer: 2
+  m_SortingLayerID: 1277631547
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6a0581d467b93704787830a63cda327a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5671,6 +5685,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1376536164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376536160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1451366621
 GameObject:
   m_ObjectHideFlags: 0
@@ -6589,6 +6615,7 @@ GameObject:
   - component: {fileID: 1724868851}
   - component: {fileID: 1724868852}
   - component: {fileID: 1724868853}
+  - component: {fileID: 1724868854}
   m_Layer: 0
   m_Name: OBJ_haruDesk_v1
   m_TagString: Untagged
@@ -6650,8 +6677,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2000920791
-  m_SortingLayer: 2
+  m_SortingLayerID: 1277631547
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6a7119d574e9fd640ba1853d1be15629, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6709,6 +6736,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5625, y: 4.4375}
   m_EdgeRadius: 0
+--- !u!114 &1724868854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724868850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1726219625
 GameObject:
   m_ObjectHideFlags: 0
