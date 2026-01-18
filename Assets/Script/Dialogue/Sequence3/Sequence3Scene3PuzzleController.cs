@@ -40,8 +40,6 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
     private void Start()
     {
         dialogueManager.StartDialogue(StartDialogueId);
-        Door.GetComponent<RequiresItemDialogueObject>().enabled = false;
-        Door.GetComponent<DialogueObject>().enabled = true;
     }
 
     protected override void HandleDialogueEnd(string dialogueId)
@@ -52,8 +50,6 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
                 break;
             case "GetRose":
                 InventoryManager.Instance.AddItem(OldKeyData);
-                Door.GetComponent<RequiresItemDialogueObject>().enabled = true;
-                Door.GetComponent<DialogueObject>().enabled = false;
                 PostBox.transform.GetChild(0).gameObject.SetActive(false);
                 break;
             case "OpenDoor":

@@ -14,6 +14,11 @@ public class RequiresItemDialogueObject : DialogueObject
     [SerializeField]
     private bool _isUse;
 
+    [SerializeField]
+    private bool _noItem = false;
+
+    [SerializeField]
+    private string startDialogue2;
 
     protected override void OnInspect()
     {
@@ -22,6 +27,8 @@ public class RequiresItemDialogueObject : DialogueObject
             if (!InventoryManager.Instance.HasItem(item.ItemName))
             {
                 hasBeenInspected = false;
+                if (!DialogueManager.isRunning && _isUse)
+                    DialogueManager.StartDialogue(startDialogue2);
                 return;
             }
         }
