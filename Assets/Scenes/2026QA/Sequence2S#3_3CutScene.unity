@@ -576,7 +576,7 @@ MonoBehaviour:
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Scequence1Scene3CutScene
   state: 0
-  SceneString: Sequence1S#3
+  SceneString: Scenes/2026QA/Sequence2S#3_3
 --- !u!114 &422200497 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4940917532608049192, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
@@ -1228,6 +1228,10 @@ PrefabInstance:
       propertyPath: confirmationDialog_
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6451293306502761599, guid: c5603249b58190a45b91a16c5655dc5d, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 239909688}
     - target: {fileID: 7995029902021454598, guid: c5603249b58190a45b91a16c5655dc5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.91999817
@@ -1429,7 +1433,7 @@ PrefabInstance:
       objectReference: {fileID: -1243032671, guid: 9c020242053cc2945b62a97bdea1448b, type: 3}
     - target: {fileID: 4356581996258023559, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4356581996258023559, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
       propertyPath: m_SortingLayerID
@@ -1607,7 +1611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Director: {fileID: 1686620103}
-  SceneString: Scenes/Choiwoohyck/Sequence1S#3
+  SceneString: Scenes/2026QA/Sequence2S#3_3
 --- !u!1 &1697230512
 GameObject:
   m_ObjectHideFlags: 0

@@ -3006,7 +3006,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2884431256638277996, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
       propertyPath: speed_
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2884431256638277996, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
       propertyPath: m_Enabled
@@ -3014,7 +3014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2884431256638277996, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
       propertyPath: runSpeed_
-      value: 2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4356581996258023559, guid: 414c071a5d7120e4da1d5e083c2f793b, type: 3}
       propertyPath: m_Enabled
@@ -3980,12 +3980,20 @@ PrefabInstance:
       value: 2.0889022
       objectReference: {fileID: 0}
     - target: {fileID: 2970159955217569348, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0082169
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970159955217569348, guid: 472413e002ebd3140b5411b148592a55, type: 3}
       propertyPath: m_Offset.x
       value: 0.04950261
       objectReference: {fileID: 0}
+    - target: {fileID: 2970159955217569348, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.5613146
+      objectReference: {fileID: 0}
     - target: {fileID: 3912880102021664023, guid: 472413e002ebd3140b5411b148592a55, type: 3}
       propertyPath: sceneName_
-      value: Sequence1S#4
+      value: Sequence2S#3_4
       objectReference: {fileID: 0}
     - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
       propertyPath: m_LocalPosition.x
