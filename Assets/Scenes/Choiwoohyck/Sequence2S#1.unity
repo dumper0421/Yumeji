@@ -1031,7 +1031,7 @@ Transform:
   m_GameObject: {fileID: 281434535}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16, y: -31.5, z: 0}
+  m_LocalPosition: {x: -16, y: -30.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3412,6 +3412,8 @@ MonoBehaviour:
   _requiredItemDatas:
   - {fileID: 11400000, guid: 43b9e150aefe037469848fa998d3e4d2, type: 2}
   _isUse: 1
+  _noItem: 0
+  startDialogue2: 
 --- !u!114 &784921023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4319,7 +4321,7 @@ Transform:
   m_GameObject: {fileID: 1059056000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.424141, y: -0.013931423, z: -10}
+  m_LocalPosition: {x: 2.924141, y: -0.013931185, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9823,6 +9825,8 @@ MonoBehaviour:
   _requiredItemDatas:
   - {fileID: 11400000, guid: d9231b529dbc6874fa1065b13ad30e14, type: 2}
   _isUse: 1
+  _noItem: 0
+  startDialogue2: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
