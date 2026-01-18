@@ -47,6 +47,8 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
     private PlayableDirector _director3;
 
 
+    [SerializeField]
+    private List<GameObject> _interactionLights;
 
     [SerializeField]
     private ChangeLightTrigger _changeLightTrigger;
@@ -58,6 +60,7 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
             case "Storage_Box":
                 InventoryManager.Instance.AddItem(_yellowPhotoEnvelopeItemData);
                 _interactionSystem.InteractDistance = 3f;
+                _interactionLights[0].SetActive(false);
                 break;
             case "Guest_Dialogue17":
                 _badCustomer.GetComponent<Animator>().enabled = true;
@@ -65,9 +68,11 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
                 Utility.PlayDirector(_director);
                 _filmStageBox.IsFinshBadGuest = true;
                 _filmStageBox.hasBeenInspected = false;
+                _interactionLights[1].SetActive(true);
                 break;
             case "Storage_Box2":
                 InventoryManager.Instance.AddItem(_SlideFilmItemData);
+                _interactionLights[1].SetActive(false);
                 _interactionSystem.InteractDistance = 3f;
                 break;
 
