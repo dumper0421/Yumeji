@@ -20,6 +20,8 @@ public class Sequence2Scene2DialogueController : DialogueController<S2S2State>
 
     private ItemData selectedTicket;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip haruCarSFX;
     protected override void HandleOption(string text, string nextId)
     {
         // 선택지 → 티켓 결정
@@ -45,6 +47,11 @@ public class Sequence2Scene2DialogueController : DialogueController<S2S2State>
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
+        if (dialogueId == "Haru_Car" && haruCarSFX != null)
+        {
+            SoundManager.Instance.PlaySFX(haruCarSFX);
+        }
+
         if (dialogueId == "TicketBooth06"
             && state == S2S2State.TicketSelected
             && selectedTicket != null)

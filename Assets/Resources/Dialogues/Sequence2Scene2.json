@@ -160,5 +160,16 @@
         "showPortrait": true
       }
     ]
+  },
+
+  {
+    "id": "Cinema01",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "...영화관에 사람이 없네. 오싹한걸.",
+        "showPortrait": true
+      }
+    ]
   }
 ]
