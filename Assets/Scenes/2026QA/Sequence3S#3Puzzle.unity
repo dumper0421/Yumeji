@@ -4649,7 +4649,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.50200176}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4660,7 +4660,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 4}
+  m_Size: {x: 2, y: 2.9959965}
   m_EdgeRadius: 0
 --- !u!114 &894932957
 MonoBehaviour:
@@ -5444,6 +5444,14 @@ PrefabInstance:
     - target: {fileID: 2466477119206410730, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201616847189911868, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.99966526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201616847189911868, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.50016737
       objectReference: {fileID: 0}
     - target: {fileID: 5332561930835996375, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
       propertyPath: m_Name
@@ -7908,6 +7916,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5201616847189911868, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.98361695
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201616847189911868, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5081915
+      objectReference: {fileID: 0}
     - target: {fileID: 5332561930835996375, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
       propertyPath: m_Name
       value: Lamp3
@@ -10185,6 +10201,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5201616847189911868, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.98896694
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201616847189911868, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5055165
+      objectReference: {fileID: 0}
     - target: {fileID: 5332561930835996375, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
       propertyPath: m_Name
       value: Lamp4
@@ -11648,6 +11672,14 @@ PrefabInstance:
     - target: {fileID: 2466477119206410730, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201616847189911868, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.98143435
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201616847189911868, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5092828
       objectReference: {fileID: 0}
     - target: {fileID: 5332561930835996375, guid: 7724b52e862ae1840a67dc996229cb4d, type: 3}
       propertyPath: m_Name
