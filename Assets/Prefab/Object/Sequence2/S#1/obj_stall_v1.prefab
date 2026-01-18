@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5292342299980283368}
   - component: {fileID: 5693308292348181288}
   - component: {fileID: 3358922171901797309}
-  - component: {fileID: 3473472461417244116}
   m_Layer: 6
   m_Name: obj_stall_v1
   m_TagString: Untagged
@@ -131,17 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.70615005}
   m_EdgeRadius: 0
---- !u!114 &3473472461417244116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7417903754625066612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 145d1e84e611eac4abf1b934ff34e72e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sitOffset: {x: 0, y: 0}
-  sitDirection: {x: 0, y: -1}
