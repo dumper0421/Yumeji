@@ -4,11 +4,11 @@
     "speaker": "하루",
     "lines": [
       {
-        "text": "으…",
+        "text": "으...",
         "showPortrait": true
       },
       {
-        "text": "머리가 깨질 것 같아…",
+        "text": "머리가 깨질 것 같아...",
         "showPortrait": true
       },
       {
@@ -16,7 +16,7 @@
         "showPortrait": true
       },
       {
-        "text": "우선 좀 움직이자.",
+        "text": "우선 좀 움직여보자.",
         "showPortrait": true
       }
     ]
@@ -47,7 +47,7 @@
     "speaker": "",
     "lines": [
       {
-        "text": "진통제와 수면제 등이 들어 있다. 요즘은 최대한 먹지 않으려 한다.",
+        "text": "여러 종류의 진통제와 수면제들이 들어 있다. 요즘은 최대한 먹지 않으려 한다.",
         "showPortrait": true
       }
     ]
@@ -131,7 +131,7 @@
     "speaker": "하루",
     "lines": [
       {
-        "text": "…여보세요?",
+        "text": "...여보세요?",
         "showPortrait": true,
         "nextId": "Phone_Call_02"
       }
@@ -142,7 +142,7 @@
     "speaker": "루나",
     "lines": [
       {
-        "text": "…하루? 나야.",
+        "text": "...하루? 나야.",
         "showPortrait": true,
         "nextId": "Phone_Call_03"
       }
@@ -153,7 +153,7 @@
     "speaker": "하루",
     "lines": [
       {
-        "text": "…루나? 정말 루나야? 너 대체 어디에…",
+        "text": "...루나? 정말 루나야? 너 대체 어디에...",
         "showPortrait": true,
         "nextId": "Phone_Call_04"
       }
@@ -186,7 +186,7 @@
     "speaker": "하루",
     "lines": [
       {
-        "text": "응? 잠시만, 근데…",
+        "text": "응? 잠시만, 근데 어디...",
         "showPortrait": true,
         "nextId": "Phone_Call_07"
       }
@@ -219,7 +219,7 @@
     "speaker": "루나",
     "lines": [
       {
-        "text": "<유메지> 필름 갖고 여기 있거든 나.",
+        "text": "<유메지> 필름 갖고서 여기 있거든, 나.",
         "showPortrait": true,
         "nextId": "Phone_Call_10"
       }
@@ -241,7 +241,7 @@
     "speaker": "하루",
     "lines": [
       {
-        "text": "유메지? 거긴 한참 전에 폐쇄됐잖아. 그리고 넌…",
+        "text": "<유메지>? 거긴 한참 전에 폐쇄됐잖아. 그리고 넌...",
         "showPortrait": true,
         "nextId": "Phone_Call_12"
       }
@@ -252,7 +252,7 @@
     "speaker": "루나",
     "lines": [
       {
-        "text": "기다릴게.",
+        "text": "그럼 기다릴게.",
         "showPortrait": true,
         "nextId": "After_Call_Monologue"
       }
@@ -268,7 +268,7 @@
         "showPortrait": true
       },
       {
-        "text": "기다린다니… 우선 최대한 빨리 가봐야겠어.",
+        "text": "기다린다니... 우선 최대한 빨리 가봐야겠어.",
         "showPortrait": true
       }
     ]
@@ -279,7 +279,7 @@
     "speaker": "",
     "lines": [
       {
-        "text": "조금만 더… 방에서 쉬자.",
+        "text": "조금만 더... 방에서 쉬자.",
         "showPortrait": true
       }
     ]
