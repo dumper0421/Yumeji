@@ -2489,6 +2489,7 @@ MonoBehaviour:
   DialogueManager: {fileID: 603143303}
   EngineSFX: {fileID: 0}
   StartSFX: {fileID: 0}
+  NextSceneName: Scenes/2026QA/Sequence2S#2
 --- !u!50 &503809291
 Rigidbody2D:
   serializedVersion: 4
@@ -5686,6 +5687,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2020785536}
     m_Modifications:
+    - target: {fileID: 4227850638527161723, guid: ee99eb725a5ef114a90f44d07b121677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4227850638527161723, guid: ee99eb725a5ef114a90f44d07b121677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4227850638527161723, guid: ee99eb725a5ef114a90f44d07b121677, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9359,6 +9368,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1024896437}
     m_Modifications:
+    - target: {fileID: 4227850638527161723, guid: ee99eb725a5ef114a90f44d07b121677, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4227850638527161723, guid: ee99eb725a5ef114a90f44d07b121677, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4227850638527161723, guid: ee99eb725a5ef114a90f44d07b121677, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

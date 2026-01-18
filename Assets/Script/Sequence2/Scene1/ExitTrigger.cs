@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ExitTrigger : MonoBehaviour
@@ -12,6 +13,9 @@ public class ExitTrigger : MonoBehaviour
     [Header("SFX Clips")]
     public AudioClip EngineSFX;
     public AudioClip StartSFX;
+
+    public string NextSceneName;
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,6 +49,10 @@ public class ExitTrigger : MonoBehaviour
         SoundManager.Instance.PlaySFX(EngineSFX);
 
         DialogueManager.StartDialogue("Haru_monologue1");
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene(NextSceneName);
 
     }
 }
