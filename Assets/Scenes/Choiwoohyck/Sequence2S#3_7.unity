@@ -4290,8 +4290,8 @@ MonoBehaviour:
   controller: {fileID: 412064061}
   ReturnPos: {x: -3.5, y: 1.25, z: 0}
   WaitSeconds: 2
-  ReturnCamera: {fileID: 437852095}
-  ReturnCameraBase: {fileID: 437852095}
+  ReturnCamera: {fileID: 448830024}
+  ReturnCameraBase: {fileID: 448830024}
   DarkRoomSFX: {fileID: 8300000, guid: 376e30fd5abe03b40a57b7fdac9d1a06, type: 3}
 --- !u!50 &882874633
 Rigidbody2D:
@@ -10154,6 +10154,10 @@ PrefabInstance:
     - target: {fileID: 4699796353751769070, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
       propertyPath: m_Name
       value: DialoguePoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699796353751769070, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8741570845649080117, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
       propertyPath: DialogueManager
