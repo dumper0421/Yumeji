@@ -9,14 +9,14 @@ public class SceneChanger : MonoBehaviour
     {
         SoundManager.Instance.StopAllSFX();
         SoundManager.Instance.StopBGM();
-        SceneManager.LoadScene("Scenes/Final/OpeningScene");
+        SceneManager.LoadScene("Scenes/2026QA/OpeningScene");
     }
 
     public void OnTitleButtonClicked()
     {
         SoundManager.Instance.StopAllSFX();
         SoundManager.Instance.StopBGM();
-        SceneManager.LoadScene("Scenes/Final/TitleScene");
+        SceneManager.LoadScene("Scenes/2026QA/TitleScene");
     } 
 
     public void ChangeScene(string sceneName)

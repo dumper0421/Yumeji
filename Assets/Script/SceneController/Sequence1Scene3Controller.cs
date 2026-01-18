@@ -14,7 +14,7 @@ public class Sequence1Scene3Controller : SceneController
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !_firstEnabled)
+        if (Input.GetKeyDown(KeyCode.Space) && !_firstEnabled)
         {
             cinemachineBase.Follow = Player.transform;
             Player.GetComponent<SpriteRenderer>().enabled = true;

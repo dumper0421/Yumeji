@@ -145,6 +145,6 @@ public class OpeningDialogueController : DialogueController<OpeningState>
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(1f);
-        SceneChanger.ChangeScene("Scenes/Final/Sequence1S#3_1_CutScene1");
+        SceneChanger.ChangeScene("Scenes/2026QA/Sequence2S#1");
     }
 }
