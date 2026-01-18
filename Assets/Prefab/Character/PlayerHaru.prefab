@@ -168,7 +168,7 @@ MonoBehaviour:
   runSpeed_: 2
   vector: {x: 0, y: 0, z: 0}
   canMove: 1
-  animator: {fileID: 0}
+  animator: {fileID: 7815632663773047571}
   flashTiles: {x: 3, y: 4}
   tileSize: {x: 1, y: 1}
   flashableLayer:

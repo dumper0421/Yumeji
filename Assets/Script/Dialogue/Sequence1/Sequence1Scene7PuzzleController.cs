@@ -143,7 +143,6 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             anim.enabled = true;
         }
 
-        Bloom.gameObject.SetActive(true);
         state = S1S7State.Clear;
         Cutton.gameObject.SetActive(false);
         SceneChangeTrigger.SetActive(true);
