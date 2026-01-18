@@ -49,7 +49,7 @@ public class Sequence2Scene2DialogueController : DialogueController<S2S2State>
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
-        if (dialogueId == "Wall_After_Movie")
+        if (dialogueId == "Car_After_Movie")
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
 
