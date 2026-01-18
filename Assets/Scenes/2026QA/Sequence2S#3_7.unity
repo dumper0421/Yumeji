@@ -2476,7 +2476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &465576770
 Transform:
   m_ObjectHideFlags: 0
@@ -4357,8 +4357,8 @@ MonoBehaviour:
   controller: {fileID: 412064061}
   ReturnPos: {x: -3.5, y: 1.25, z: 0}
   WaitSeconds: 2
-  ReturnCamera: {fileID: 437852095}
-  ReturnCameraBase: {fileID: 437852095}
+  ReturnCamera: {fileID: 448830024}
+  ReturnCameraBase: {fileID: 448830024}
   DarkRoomSFX: {fileID: 8300000, guid: 376e30fd5abe03b40a57b7fdac9d1a06, type: 3}
 --- !u!50 &882874633
 Rigidbody2D:
