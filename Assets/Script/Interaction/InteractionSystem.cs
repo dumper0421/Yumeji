@@ -68,10 +68,10 @@ public class InteractionSystem : MonoBehaviour
         {
             if (hit.collider == null) continue;
             if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("IgnoreRaycast"))
-                continue;
+                 continue;
 
             GameObject obj = hit.collider.gameObject;
-            InteractWithObject(obj);
+             InteractWithObject(obj);
         }
     }
 
