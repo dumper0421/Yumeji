@@ -37,14 +37,19 @@ public class SoundManager : Singleton<SoundManager>
     {
         DontDestroyOnLoad(gameObject);
 
-        // 오디오 믹서 로드 및 저장된 볼륨 복원
         _audioMixer = Resources.Load<AudioMixer>("Audio/AudioMixer");
-        float master = PlayerPrefs.GetFloat(KEY_MASTER, 1f);
-        float bgm = PlayerPrefs.GetFloat(KEY_BGM, 1f);
-        float sfx = PlayerPrefs.GetFloat(KEY_SFX, 1f);
+
+        float master = PlayerPrefs.HasKey(KEY_MASTER) ? PlayerPrefs.GetFloat(KEY_MASTER) : 0.5f;
+        float bgm = PlayerPrefs.HasKey(KEY_BGM) ? PlayerPrefs.GetFloat(KEY_BGM) : 0.5f;
+        float sfx = PlayerPrefs.HasKey(KEY_SFX) ? PlayerPrefs.GetFloat(KEY_SFX) : 0.5f;
+
         SetMasterVolume(master, save: false);
         SetBGMVolume(bgm, save: false);
         SetSFXVolume(sfx, save: false);
+
+         if (!PlayerPrefs.HasKey(KEY_MASTER)) PlayerPrefs.SetFloat(KEY_MASTER, master);
+        if (!PlayerPrefs.HasKey(KEY_BGM)) PlayerPrefs.SetFloat(KEY_BGM, bgm);
+        if (!PlayerPrefs.HasKey(KEY_SFX)) PlayerPrefs.SetFloat(KEY_SFX, sfx);
 
         // BGM Source
         _bgmSource = CreateAudioSource("BGM");

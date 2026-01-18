@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public enum S3S3PState
 {
@@ -27,6 +29,8 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
     [SerializeField] private GameObject Door;
 
     public ItemData OldKeyData;
+
+    public string NextScene;
 
 
     public int PushCnt { get; private set; } = 0;
@@ -55,7 +59,7 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
                 break;
             case "OpenDoor":
                 SoundManager.Instance.PlaySFX(OpenSound);
-                //TODO Change Scene;
+                StartCoroutine(ChangeScene());
                 break;
         }       
 
@@ -128,4 +132,10 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
         PostBoxSpriteRender.sprite = PostBoxSprite;
     }
     protected override void TryProgress() { }
+
+    IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(NextScene);
+    }
 }

@@ -56,4 +56,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2026QA/Sequence3S#3Puzzle.unity
     guid: 3996ce5aaed2e374cb5c2b9990398472
+  - enabled: 1
+    path: Assets/Scenes/2026QA/EndingScene.unity
+    guid: 62ace9de465c93942a6a31bd5390217e
   m_configObjects: {}
