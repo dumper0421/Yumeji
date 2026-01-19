@@ -229,7 +229,7 @@
     "id":"stationChair4",
     "speaker":"하루",
      "lines": [
-      { "text": "알겠어.", "showPortrait": true,"nextId":"chair4" }
+      { "text": "알겠어.", "showPortrait": true}
     ]
   },
     {

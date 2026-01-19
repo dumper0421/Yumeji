@@ -59,7 +59,7 @@
     { "id": "Zero_LampPushed", "lines": [{ "text": "우체통 주변에 얼음이 꽝꽝 얼어서 열리지 않는다. 겨울도 아닌데…?", "showPortrait": false }] },
     { "id": "Less_LampPushed", "lines": [{ "text": "얼음이 조금 녹긴 했지만, 아직 열리지 않는다.", "showPortrait": false }] },
     { "id": "CompletedPushed", "lines": [{ "text": "우체통 안에 낡은 열쇠가 들어있다.", "showPortrait": false,"nextId":"GetRose"}] },
-    {"id":"GetRose","lines":[{"text":"‘낡은 열쇠’ 아이템 습득"}]},
+    {"id":"GetRose","lines":[{"text":"낡은 열쇠를 우체통에서 꺼냈다."}]},
     {"id":"RequiredKey","lines":[{"text":"굳게 잠겨있다. 열쇠가 필요할 것 같다."}]},
     {"id":"OpenDoor"}
 ]
