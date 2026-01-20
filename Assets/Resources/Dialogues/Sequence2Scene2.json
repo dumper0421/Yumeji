@@ -156,7 +156,11 @@
     "speaker": "매표소 직원",
     "lines": [
       {
-        "text": "오른쪽 문으로 들어가시면 돼요.",
+        "text": "티켓에 좌석 위치 적혀 있으니 확인해주시구요.",
+        "showPortrait": true
+      },
+      {
+        "text": "바로 오른쪽 문으로 들어가시면 돼요.",
         "showPortrait": true
       }
     ]
