@@ -53,7 +53,8 @@
     "speaker": "",
     "lines": [
       {"text": "보관함 안에 노란색 사진 봉투가 있다.","showPortrait": false },
-      {"text": "노란색 사진 봉투를 얻었다.","showPortrait": false }
+      {"text": "노란색 사진 봉투를 얻었다.","showPortrait": false },
+      {"text": "Esc 키로 메뉴를 열어 아이템을 주머니에 제대로 넣었는지 확인해보자.","showPortrait": false }
     ]
   },
   {

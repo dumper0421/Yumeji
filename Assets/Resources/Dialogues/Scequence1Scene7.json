@@ -35,17 +35,17 @@
     "id": "PaintingA",
     "speaker": "",
     "lines": [
-      { "text": "늦은 밤, 도시의 한구석을 밝히는 식당을 그린 그림이다.", "showPortrait": true },
-      { "text": "창 안의 사람들은 서로에게 무심한 듯, 각자의 시간에 잠겨있는 듯하다.", "showPortrait": true }
+      { "text": "시간이 흘러내리고 있는 기묘한 상상력의 그림이다.", "showPortrait": true },
+      { "text": "기억 또한 시간의 흐름 속에서 서서히 일그러져,", "showPortrait": true },
+      { "text": "마침내 녹아내릴지도 모른다.", "showPortrait": true }
     ]
   },
   {
     "id": "PaintingB",
     "speaker": "",
     "lines": [
-      { "text": "시간이 흘러내리고 있는 기묘한 상상력의 그림이다.", "showPortrait": true },
-      { "text": "기억 또한 시간의 흐름 속에서 서서히 일그러져,", "showPortrait": true },
-      { "text": "마침내 녹아내릴지도 모른다.", "showPortrait": true }
+      { "text": "늦은 밤, 도시의 한구석을 밝히는 식당을 그린 그림이다.", "showPortrait": true },
+      { "text": "창 안의 사람들은 서로에게 무심한 듯, 각자의 시간에 잠겨있는 듯하다.", "showPortrait": true }
     ]
   },
   {
