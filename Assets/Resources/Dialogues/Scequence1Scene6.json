@@ -4,7 +4,9 @@
     "speaker": "",
     "lines": [
       { "text": "잘못된 표인 걸 알고도 타셨네요, 손님.", "showPortrait": false},
-      { "text": "잡히면 다시는 깨어나실 수 없습니다.", "showPortrait": false}
+      { "text": "잡히면 다시는 깨어나실 수 없습니다.", "showPortrait": false},
+      { "text": "(Shift 키를 눌러 달릴 수 있습니다.)", "showPortrait": false}
+
     ]
   }
 ]
