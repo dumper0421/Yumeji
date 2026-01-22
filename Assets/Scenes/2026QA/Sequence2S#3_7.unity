@@ -1011,6 +1011,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 586412927}
     m_Modifications:
+    - target: {fileID: 137838772870836930, guid: 6868d1069809244418f56240e3869de2, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7839665
+      objectReference: {fileID: 0}
+    - target: {fileID: 137838772870836930, guid: 6868d1069809244418f56240e3869de2, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.2143934
+      objectReference: {fileID: 0}
     - target: {fileID: 164165363609192610, guid: 6868d1069809244418f56240e3869de2, type: 3}
       propertyPath: m_Name
       value: obj_lamp_v1 (2)
@@ -1507,7 +1515,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.41985703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1518,7 +1526,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 6}
+  m_Size: {x: 2, y: 5.160286}
   m_EdgeRadius: 0
 --- !u!212 &370576025
 SpriteRenderer:
@@ -3883,7 +3891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e518fbd121cb24d849fc11cb4e401d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetPoint: {x: -30.5, y: 35, z: 0}
+  TargetPoint: {x: -30.5, y: 35.25, z: 0}
   cinemachine: {fileID: 2046404612}
   cinemachineBase: {fileID: 2046404612}
   controller: {fileID: 412064061}
@@ -5456,7 +5464,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -15.662018, y: 18.067661}
+  m_Offset: {x: -15.662018, y: 18.370886}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5467,7 +5475,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 33.49228, y: 2.7990627}
+  m_Size: {x: 33.49228, y: 3.4055138}
   m_EdgeRadius: 0
 --- !u!1 &1225973837
 GameObject:
@@ -5706,7 +5714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9016131898785329110, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 9016131898785329110, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5907,6 +5915,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 586412927}
     m_Modifications:
+    - target: {fileID: 137838772870836930, guid: 6868d1069809244418f56240e3869de2, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8460774
+      objectReference: {fileID: 0}
+    - target: {fileID: 137838772870836930, guid: 6868d1069809244418f56240e3869de2, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.2454488
+      objectReference: {fileID: 0}
     - target: {fileID: 164165363609192610, guid: 6868d1069809244418f56240e3869de2, type: 3}
       propertyPath: m_Name
       value: obj_lamp_v1 (1)
@@ -6531,7 +6547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9016131898785329110, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 9016131898785329110, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8440,7 +8456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9016131898785329110, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 9016131898785329110, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8929,7 +8945,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06871796, y: 9.263039}
+  m_Offset: {x: 0.06871796, y: 9.5491705}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8940,7 +8956,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0308075, y: 19.793026}
+  m_Size: {x: 2.0308075, y: 19.220762}
   m_EdgeRadius: 0
 --- !u!1001 &1868700787
 PrefabInstance:
@@ -9501,6 +9517,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 586412927}
     m_Modifications:
+    - target: {fileID: 137838772870836930, guid: 6868d1069809244418f56240e3869de2, type: 3}
+      propertyPath: m_Size.y
+      value: 2.3740196
+      objectReference: {fileID: 0}
+    - target: {fileID: 137838772870836930, guid: 6868d1069809244418f56240e3869de2, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8129902
+      objectReference: {fileID: 0}
     - target: {fileID: 164165363609192610, guid: 6868d1069809244418f56240e3869de2, type: 3}
       propertyPath: m_Name
       value: obj_lamp_v1 (3)
@@ -10646,7 +10670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9016131898785329110, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 9016131898785329110, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
       propertyPath: m_LocalPosition.z
