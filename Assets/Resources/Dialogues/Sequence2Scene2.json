@@ -165,6 +165,16 @@
       }
     ]
   },
+  {
+    "id": "TheaterSeat",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "자리가 어디였지...? 티켓을 확인해보자.",
+        "showPortrait": true
+      }
+    ]
+  },
 
   {
     "id": "Cinema01",
