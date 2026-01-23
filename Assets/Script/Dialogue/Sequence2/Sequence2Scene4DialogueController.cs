@@ -25,12 +25,17 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
     [Header("Scene Start Dialogue")]
     [SerializeField] private string wakeUpMonologueId = "WakeUp_Monologue";
 
-    // ✅ 추가: 씬 시작 연출(누워있기 → 기상)
+    // ✅ 씬 시작 연출(누워있기 → 기상)
     [Header("Scene Start Cut")]
     [SerializeField] private GameObject lieObject;          // 누워있는 하루(더미/스프라이트)
     [SerializeField] private GameObject playerObject;       // 실제 플레이어 루트 오브젝트
     [SerializeField] private Transform playerSpawnPoint;    // (선택) 침대 앞 위치
     [SerializeField] private float introDelay = 2f;         // 2초
+
+    // ✅ 추가: 씬 시작 즉시 페이드 인
+    [Header("Fade In")]
+    [SerializeField] private CanvasGroup fadeCanvas;        // 전체화면 검정 Image의 CanvasGroup
+    [SerializeField] private float fadeInDuration = 1f;     // 페이드 시간
 
     [Header("Non-phone one-liner IDs (UNIQUE)")]
     [SerializeField]
@@ -88,26 +93,34 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 
         StopPhoneRingingEffects();
 
-        // ✅ 추가: 시작 상태 세팅(누워있는 오브젝트만 보이게)
-        // (인스펙터에서 playerObject를 처음부터 꺼둬도 되지만, 여기서도 안전하게 맞춰줬다.)
+        // ✅ 시작 상태: 플레이어 숨기고 lieObject만 보이게
         if (playerObject != null) playerObject.SetActive(false);
         if (lieObject != null) lieObject.SetActive(true);
+
+        // ✅ 시작 즉시 검정 덮개(혹시 인스펙터가 0으로 되어 있어도 안전)
+        if (fadeCanvas != null)
+        {
+            fadeCanvas.gameObject.SetActive(true);
+            fadeCanvas.alpha = 1f;
+        }
     }
 
     private void Start()
     {
-        // ❌ 기존: 시작하자마자 독백
-        // if (!string.IsNullOrEmpty(wakeUpMonologueId))
-        // {
-        //     dialogueManager.StartDialogue(wakeUpMonologueId);
-        // }
-
-        // ✅ 변경: 2초 연출 후 독백 시작
-        StartCoroutine(CoSceneIntroThenMonologue());
+        // ✅ 페이드인 -> 인트로(2초) -> 독백 시작
+        StartCoroutine(CoFadeInThenIntro());
     }
 
-    private IEnumerator CoSceneIntroThenMonologue()
+    private IEnumerator CoFadeInThenIntro()
     {
+        // 0) 씬 시작 즉시 페이드 인 (검정 -> 투명)
+        if (fadeCanvas != null)
+        {
+            yield return StartCoroutine(CoFade(1f, 0f, fadeInDuration));
+            fadeCanvas.alpha = 0f;
+            fadeCanvas.gameObject.SetActive(false); // 완전히 꺼도 됨(원하면 유지해도 됨)
+        }
+
         // 1) 2초 동안 누워있는 하루만 보여주기
         yield return new WaitForSeconds(introDelay);
 
@@ -128,6 +141,31 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
         {
             dialogueManager.StartDialogue(wakeUpMonologueId);
         }
+    }
+
+    private IEnumerator CoFade(float from, float to, float duration)
+    {
+        if (fadeCanvas == null) yield break;
+
+        float t = 0f;
+        fadeCanvas.alpha = from;
+
+        // duration이 0이면 즉시 전환
+        if (duration <= 0f)
+        {
+            fadeCanvas.alpha = to;
+            yield break;
+        }
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float k = Mathf.Clamp01(t / duration);
+            fadeCanvas.alpha = Mathf.Lerp(from, to, k);
+            yield return null;
+        }
+
+        fadeCanvas.alpha = to;
     }
 
     protected override void HandleDialogueEnd(string dialogueId)
@@ -209,7 +247,7 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 
         if (phoneRingVfx != null)
         {
-            // phoneRingVfx엔 Phone 본체 넣지 말고, 별도 오브젝트만 넣어야 했다.
+            // phoneRingVfx엔 Phone 본체 넣지 말고, 별도 오브젝트만 넣어야 한다.
             phoneRingVfx.SetActive(true);
         }
     }
