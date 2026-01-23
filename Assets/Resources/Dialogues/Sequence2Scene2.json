@@ -278,6 +278,17 @@
     ]
   },
   {
+    "id": "Haru_After_Movie",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "기대 안 했는데… 시간 가는 줄 모르고 봤네.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
     "id": "Car_After_Movie",
     "speaker": "",
     "lines": [
