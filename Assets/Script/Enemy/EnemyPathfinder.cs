@@ -36,8 +36,7 @@ public class EnemyPathfinder : MonoBehaviour
     [Header("Grid Mapping")]
     public float cellSize = 1f;
 
-    // 타일맵/그리드가 0.5 올라가있다 했으니 기본값을 (0.5, 0.5)로 둠
-    // 씬에 따라 y만 어긋나면 (0.5, 0) 또는 (0.5, 1.0)처럼 여기만 조정하면 됨
+
     public Vector2 cellOffset = new Vector2(0.5f, 0f);
 
     [Header("Obstacle Check")]
@@ -99,7 +98,6 @@ public class EnemyPathfinder : MonoBehaviour
         Node start = nodes[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];
         Node target = nodes[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];
 
-        // 시작/목표가 잘못 벽 판정되면 길이 끊겨서 멈추는 원인이 됨
         start.isWall = false;
         target.isWall = false;
 
@@ -172,7 +170,6 @@ public class EnemyPathfinder : MonoBehaviour
                     Node side1 = nodes[nx - bottomLeft.x, cur.y - bottomLeft.y];
                     Node side2 = nodes[cur.x - bottomLeft.x, ny - bottomLeft.y];
 
-                    // 코너 끼고 비집고 들어가는 걸 막으려면 OR가 맞음
                     if (side1.isWall || side2.isWall)
                         continue;
                 }
@@ -190,7 +187,6 @@ public class EnemyPathfinder : MonoBehaviour
             }
         }
 
-        // 길이 없으면: 현재 셀 중심으로 유지 (이게 멈춘 것처럼 보였던 케이스)
         return GridToWorld(startPos);
     }
 
