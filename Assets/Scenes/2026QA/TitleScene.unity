@@ -1692,7 +1692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectBorder: {fileID: 1312274072}
   SaveLoadPopUp: {fileID: 1378332009}
-  BGM: {fileID: 0}
+  BGM: {fileID: 8300000, guid: 3d09c48cb1b7696459955bcab8de506d, type: 3}
 --- !u!114 &1767712515
 MonoBehaviour:
   m_ObjectHideFlags: 0

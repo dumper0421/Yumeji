@@ -11,47 +11,31 @@ public enum S2S1State
 
 public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
 {
-    [SerializeField]
-    private PlayerMove_Test_Lerp _playerMove;
+    [SerializeField] private PlayerMove_Test_Lerp _playerMove;
+    [SerializeField] private GameObject _badCustomer;
+    [SerializeField] private FilmStageBox _filmStageBox;
 
-    [SerializeField]
-    private GameObject _badCustomer;
+    [SerializeField] private Sprite _badCustomerBackSprite;
 
-    [SerializeField]
-    private FilmStageBox _filmStageBox;
+    [SerializeField] private GameObject _Ken;
+    [SerializeField] private Sprite _KenBackSprite;
 
-    [SerializeField]
-    private Sprite _badCustomerBackSprite;
+    [SerializeField] private ItemData _yellowPhotoEnvelopeItemData;
 
-    [SerializeField]
-    private GameObject _Ken;
-    [SerializeField]
-    private Sprite _KenBackSprite;
+    [SerializeField] private ItemData _SlideFilmItemData;
 
-    [SerializeField]
-    private ItemData _yellowPhotoEnvelopeItemData;
+    [SerializeField] private InteractionSystem _interactionSystem;
 
-    [SerializeField]
-    private ItemData _SlideFilmItemData;
-
-    [SerializeField]
-    private InteractionSystem _interactionSystem;
-
-    [SerializeField]
-    private PlayableDirector _director;
-
-    [SerializeField]
-    private PlayableDirector _director2;
-
-    [SerializeField]
-    private PlayableDirector _director3;
+    [SerializeField] private PlayableDirector _director;
+    [SerializeField] private PlayableDirector _director2;
+    [SerializeField] private PlayableDirector _director3;
 
 
-    [SerializeField]
-    private List<GameObject> _interactionLights;
+    [SerializeField] private List<GameObject> _interactionLights;
 
-    [SerializeField]
-    private ChangeLightTrigger _changeLightTrigger;
+    [SerializeField] private ChangeLightTrigger _changeLightTrigger;
+
+    [SerializeField]private string _nextSceneName;
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
@@ -85,8 +69,11 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
                 Utility.PlayDirector(_director3);
                 _changeLightTrigger.CanLeave = true;
                 break;
+            case "Haru_monologue3":
+                SceneManager.LoadScene(_nextSceneName);
+                break;
         }
-                TryProgress();
+        TryProgress();
     }
     protected override void DialogueRunning(string dialogueId)
     {

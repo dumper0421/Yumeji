@@ -8012,6 +8012,7 @@ MonoBehaviour:
   PostBoxSprite: {fileID: 21300000, guid: ae6a7724bbc421646bbac3b05f55d4db, type: 3}
   PostBox: {fileID: 894932954}
   Door: {fileID: 18709252}
+  BGM: {fileID: 8300000, guid: 46d080bc3c662ce47bd6ce34f8f9a63a, type: 3}
   OldKeyData: {fileID: 11400000, guid: 4b95bb24429ec904b845a56285cf2d96, type: 2}
   NextScene: EndingScene
 --- !u!114 &1621025470
