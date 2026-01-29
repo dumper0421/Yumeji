@@ -1840,7 +1840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopInterval: 1
-  bgm: {fileID: 0}
+  bgm: {fileID: 8300000, guid: 3fd5ba07ac367fd46b1c2f4953759a5f, type: 3}
   Player: {fileID: 1876760501}
   playerAnimator: {fileID: 1876760505}
   cinemachineCameras:
@@ -7821,6 +7821,7 @@ MonoBehaviour:
   FireLPBgm: {fileID: 8300000, guid: 2cd227d0dd86c3549a59e00a444f716e, type: 3}
   FireSFX: {fileID: 8300000, guid: 96007e9fa72b42a46900bc0a9317b92e, type: 3}
   FirePlaceAnimator: {fileID: 1888182608}
+  PlayerAnimator: {fileID: 1876760505}
   FireAnimators:
   - {fileID: 565403447}
   - {fileID: 801008466}

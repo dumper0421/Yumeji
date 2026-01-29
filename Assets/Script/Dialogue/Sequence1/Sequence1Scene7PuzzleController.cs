@@ -33,6 +33,8 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
 
     public Animator FirePlaceAnimator;
+    public Animator PlayerAnimator;
+
     public Animator[] FireAnimators;
 
     public Sprite BrokenMirror;
@@ -82,6 +84,8 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             case "Drawer_Match":
                 InventoryManager.Instance.AddItem(MatchData);
                 InteractionLight[0].SetActive(false);
+                PlayerAnimator.enabled = true;
+                PlayerMove.enabled = true;
                 break;
             case "Bookshelf1_Slot1":
                 InventoryManager.Instance.AddItem(CharredPhotographData);
@@ -119,6 +123,10 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         {
             case "Bookshelf1_Illust":
                 CharredPhotograph.gameObject.SetActive(true);
+                break;
+            case "Drawer_Match":
+                PlayerMove.enabled = false;
+                PlayerAnimator.enabled = false;
                 break;
         }
     }

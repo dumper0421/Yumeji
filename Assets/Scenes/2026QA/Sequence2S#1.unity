@@ -694,6 +694,10 @@ PrefabInstance:
       propertyPath: speakerInfos.Array.data[2].speakerName
       value: "\uCF04"
       objectReference: {fileID: 0}
+    - target: {fileID: 6288456928709144228, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6780722168633269861, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2479,9 +2483,10 @@ MonoBehaviour:
   IsClear: 0
   FadeImage: {fileID: 1798157587}
   DialogueManager: {fileID: 603143303}
-  EngineSFX: {fileID: 0}
+  EngineSFX: {fileID: 8300000, guid: b19d26d0ed290fb4e90dc8b1b0540eb1, type: 3}
   StartSFX: {fileID: 0}
   NextSceneName: Scenes/2026QA/Sequence2S#2
+  isScene2_1: 1
 --- !u!50 &503809291
 Rigidbody2D:
   serializedVersion: 4
@@ -2880,6 +2885,7 @@ MonoBehaviour:
   - {fileID: 896402134}
   - {fileID: 1735277637}
   _changeLightTrigger: {fileID: 807177167}
+  _nextSceneName: Scenes/2026QA/Sequence2S#2
 --- !u!224 &603143309 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6780722168633269861, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
@@ -4468,7 +4474,7 @@ Transform:
   m_GameObject: {fileID: 1059056000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.924141, y: -0.013931185, z: -10}
+  m_LocalPosition: {x: 2.9286456, y: -0.013931185, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5808,7 +5814,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!4 &1346606728 stripped
 Transform:
@@ -5892,6 +5898,55 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.002868, y: 1.4175051}
   m_EdgeRadius: 0
+--- !u!1 &1388189291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388189292}
+  - component: {fileID: 1388189293}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1388189292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388189291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.33, y: -6.98208, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1388189293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388189291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496d7b96564df5743b2675676ff538b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopInterval: 1
+  bgm: {fileID: 8300000, guid: 82cb932a1f438b640a3ac6999daba199, type: 3}
+  Player: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  cinemachineCameras: []
 --- !u!1 &1448235978
 GameObject:
   m_ObjectHideFlags: 0
@@ -10055,3 +10110,4 @@ SceneRoots:
   - {fileID: 1262413024}
   - {fileID: 2138373561}
   - {fileID: 341136331}
+  - {fileID: 1388189292}

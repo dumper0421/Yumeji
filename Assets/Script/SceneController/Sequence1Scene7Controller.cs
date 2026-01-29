@@ -6,9 +6,9 @@ using UnityEngine;
 public class Sequence1Scene7Controller : SceneController
 {
 
-    private void Start()
+    protected override void Start()
     {
-
+        SoundManager.Instance.PlaySFX(bgm);
 
     }
     protected override void OnStopIntervalReached()

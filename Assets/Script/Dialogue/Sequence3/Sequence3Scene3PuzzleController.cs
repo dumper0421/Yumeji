@@ -28,6 +28,8 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
 
     [SerializeField] private GameObject Door;
 
+    [SerializeField] private AudioClip BGM;
+
     public ItemData OldKeyData;
 
     public string NextScene;
@@ -44,6 +46,8 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
     private void Start()
     {
         dialogueManager.StartDialogue(StartDialogueId);
+        SoundManager.Instance.StopBGM();
+        SoundManager.Instance.PlayBGM(BGM);
     }
 
     protected override void HandleDialogueEnd(string dialogueId)

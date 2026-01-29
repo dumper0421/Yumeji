@@ -19,7 +19,7 @@ public abstract class SceneController : MonoBehaviour
 
     public List<CinemachineVirtualCamera> cinemachineCameras;
 
-    protected void Start()
+    protected virtual void Start()
     {
         if (bgm != null)
             SoundManager.Instance.PlayBGM(bgm);

@@ -16,6 +16,7 @@ public class ExitTrigger : MonoBehaviour
 
     public string NextSceneName;
 
+    public bool isScene2_1 = false;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,7 +53,8 @@ public class ExitTrigger : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        SceneManager.LoadScene(NextSceneName);
+        if (!isScene2_1)
+            SceneManager.LoadScene(NextSceneName);
 
     }
 }
