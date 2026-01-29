@@ -122,8 +122,7 @@ public class Sequence2Scene2Controller : SceneController
 
     private IEnumerator CoCinemaSeatEvent()
     {
-        if (playerAction != null)
-            playerAction.enabled = false;
+        LockPlayerControls(true);
         // 🔒 플레이어 이동 + 행동 전부 차단
 
         // 1-2) 영사기 사운드 루프 시작
@@ -179,7 +178,7 @@ public class Sequence2Scene2Controller : SceneController
         // “다시 상호작용키 누르면 앉기 풀림” 방지:
         // 이벤트 중엔 PlayerActionController 자체를 꺼버리면 가장 확실했다.
         if (playerAction != null)
-            playerAction.enabled = !locked;
+            playerAction.IsLockedByEvent = true;
 
         
     }
