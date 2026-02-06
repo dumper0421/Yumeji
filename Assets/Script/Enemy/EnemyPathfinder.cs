@@ -24,24 +24,24 @@ public class EnemyPathfinder : MonoBehaviour
         }
     }
 
-    public Vector2Int bottomLeft;
-    public Vector2Int topRight;
+    [SerializeField] private Vector2Int bottomLeft;
+    [SerializeField] private Vector2Int topRight;
 
     [HideInInspector] public Vector2Int startPos;
     [HideInInspector] public Vector2Int targetPos;
 
-    public bool allowDiagonal = false;
-    public bool dontCrossCorner = true;
+    [SerializeField] private bool allowDiagonal = false;
+    [SerializeField] private bool dontCrossCorner = true;
 
     [Header("Grid Mapping")]
     public float cellSize = 1f;
 
 
-    public Vector2 cellOffset = new Vector2(0.5f, 0f);
+    [SerializeField] private Vector2 cellOffset = new Vector2(0.5f, 0f);
 
     [Header("Obstacle Check")]
-    public Vector2 overlapBoxSize = new Vector2(0.9f, 0.9f);
-    public string obstacleLayerName = "Obstacle";
+    [SerializeField] private Vector2 overlapBoxSize = new Vector2(0.9f, 0.9f);
+    [SerializeField] private string obstacleLayerName = "Obstacle";
 
     [HideInInspector] public List<Node> FinalNodeList = new List<Node>();
 

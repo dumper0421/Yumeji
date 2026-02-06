@@ -25,41 +25,21 @@ public enum EmergencyDoorState
 public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorState>
 {
     [Header("Bus & Scooter References")]
-    /// <summary>버스 애니메이터 레퍼런스.</summary>
-    public Animator BusAnimator;
-
-    /// <summary>혈흔(이펙트) 애니메이터 레퍼런스.</summary>
-    public Animator BloodAnimator;
-
-    /// <summary>스쿠터 오브젝트. 점멸(Flash) 코루틴 사용.</summary>
-    public ScooterObject Scooter;
+    [SerializeField] private Animator _bustAnimator;
+    [SerializeField] private Animator _bloodAnimator;
+    [SerializeField] private ScooterObject _scooter;
 
     [Header("Audio Clips")]
-    /// <summary>문/차량 두드림 SFX.</summary>
-    public AudioClip KnockClip;
+    [SerializeField] private AudioClip _knockClip;
+    [SerializeField] private AudioClip _bloodClip;
+    [SerializeField] private AudioClip _hornClip;
+    [SerializeField] private AudioClip _carHornClip;
+    [SerializeField] private AudioClip _crashClip;
 
-    /// <summary>혈흔(충격) SFX.</summary>
-    public AudioClip BloodClip;
+    [SerializeField] private DialogueObject _bus;
+    [SerializeField] private DialogueObject _yellowCar;
+    [SerializeField] private GameObject _sceneChangeTrigger;
 
-    /// <summary>스쿠터 경적 SFX.</summary>
-    public AudioClip HornClip;
-
-    /// <summary>자동차 경적 SFX.</summary>
-    public AudioClip CarHornClip;
-
-    /// <summary>충돌/파손 SFX.</summary>
-    public AudioClip CrashClip;
-
-    /// <summary>버스 관련 대화 오브젝트.</summary>
-    public DialogueObject Bus;
-
-    /// <summary>노란차(옐로우 카) 관련 대화 오브젝트.</summary>
-    public DialogueObject YellowCar;
-
-    /// <summary>퍼즐 완료 시 활성화할 씬 전환 트리거.</summary>
-    public GameObject SceneChangeTrigger;
-
-    /// <summary>옐로우 카 상호작용 누적 횟수(조건 분기 등에 사용).</summary>
     private int _yellowCarInteractionCount = 0;
 
     /// <summary>
@@ -74,20 +54,20 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
         {
             case "CarD_LookInside":
                 state = EmergencyDoorState.CarDTriggered;
-                SoundManager.Instance.PlaySFX(CarHornClip);
+                SoundManager.Instance.PlaySFX(_carHornClip);
                 StartCoroutine(CameraManager.Instance.Shake(1f, 1f, 0.3f));
                 break;
 
             case "CarB_Knock":
                 state = EmergencyDoorState.CarBKnocked;
-                SoundManager.Instance.PlaySFX(KnockClip);
+                SoundManager.Instance.PlaySFX(_knockClip);
                 _yellowCarInteractionCount++;
                 StartCoroutine(DelayedKnock());
                 break;
 
             case "CarE_Knock":
                 state = EmergencyDoorState.CarEKnocked;
-                SoundManager.Instance.PlaySFX(KnockClip);
+                SoundManager.Instance.PlaySFX(_knockClip);
                 StartCoroutine(PlayBloodSequence());
                 _yellowCarInteractionCount++;
                 break;
@@ -101,7 +81,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     private IEnumerator DelayedKnock()
     {
         yield return new WaitForSeconds(1f);
-        SoundManager.Instance.PlaySFX(KnockClip);
+        SoundManager.Instance.PlaySFX(_knockClip);
         _yellowCarInteractionCount++;
     }
 
@@ -127,13 +107,13 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
             case "Scooter":
                 // 스쿠터 대화 완료 → 경적 + 점멸
                 state = EmergencyDoorState.ScooterHonked;
-                SoundManager.Instance.PlaySFX(HornClip);
-                Scooter.StartCoroutine(Scooter.Flash());
+                SoundManager.Instance.PlaySFX(_hornClip);
+                _scooter.StartCoroutine(_scooter.Flash());
                 break;
 
             case "CarE_AfterKnock":
                 // CarE 상호작용 이후 버스 후속 대화로 연결
-                Bus.StartDialogue = "Bus_After";
+                _bus.StartDialogue = "Bus_After";
                 break;
 
             case "Bus_After":
@@ -143,8 +123,8 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
 
             case "Wall_Hint":
                 // 벽 힌트 이후 스쿠터 피드백
-                Scooter.StartCoroutine(Scooter.Flash());
-                SoundManager.Instance.PlaySFX(HornClip);
+                _scooter.StartCoroutine(_scooter.Flash());
+                SoundManager.Instance.PlaySFX(_hornClip);
                 break;
         }
 
@@ -171,7 +151,7 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     protected override void OnPuzzleComplete()
     {
         Debug.Log("[Puzzle] Emergency Door opened!");
-        SceneChangeTrigger.SetActive(true);
+        _sceneChangeTrigger.SetActive(true);
         // TODO: 추가 후속 로직(보상, 체크포인트 등)
     }
 
@@ -182,18 +162,18 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     /// </summary>
     private IEnumerator PlayBloodSequence()
     {
-        BloodAnimator.enabled = true;
-        BloodAnimator.gameObject.SetActive(true);
+        _bloodAnimator.enabled = true;
+        _bloodAnimator.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.2f);
 
-        SoundManager.Instance.PlaySFX(BloodClip);
+        SoundManager.Instance.PlaySFX(_bloodClip);
 
         yield return new WaitForSeconds(0.5f);
 
         dialogueManager.StartDialogue("CarE_AfterKnock");
         state = EmergencyDoorState.CarEKnocked;
 
-        YellowCar.IsDisposable = true;
+        _yellowCar.IsDisposable = true;
     }
 
     /// <summary>
@@ -202,8 +182,8 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
     /// </summary>
     private IEnumerator PlayBusSequence()
     {
-        BusAnimator.enabled = true;
-        SoundManager.Instance.PlaySFX(CrashClip);
+        _bustAnimator.enabled = true;
+        SoundManager.Instance.PlaySFX(_crashClip);
         yield return new WaitForSeconds(0.5f);
 
         dialogueManager.StartDialogue("Bus_DoorOpen");

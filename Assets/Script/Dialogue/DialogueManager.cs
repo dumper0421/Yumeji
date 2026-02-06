@@ -72,19 +72,19 @@ public class DialogueManager : MonoBehaviour
     public event Action<string> OnDialogueAction;
 
     [Header("UI References")]
-    public GameObject dialoguePanel;
-    public Image leftPortraitImage;
-    public Image rightPortraitImage;
-    public TextMeshProUGUI dialogueText;
-    public Transform optionPanel;
-    public Button buttonPrefab;
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private Image leftPortraitImage;
+    [SerializeField] private Image rightPortraitImage;
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private Transform optionPanel;
+    [SerializeField] private Button buttonPrefab;
 
     [Header("Speakers")]
-    public SpeakerInfo[] speakerInfos;
+    [SerializeField] private SpeakerInfo[] speakerInfos;
 
     [Header("Input Keys")]
-    public KeyCode advanceKey = KeyCode.Space;
-    public KeyCode enterKey = KeyCode.Return;
+    [SerializeField] private KeyCode advanceKey = KeyCode.Space;
+    [SerializeField] private KeyCode enterKey = KeyCode.Return;
     public bool IsStop = false;
 
     private Dictionary<string, Dialogue> _dialogues;
@@ -97,8 +97,7 @@ public class DialogueManager : MonoBehaviour
     private List<Button> optionButtons = new List<Button>();
     private int selectedOption = 0;
 
-    [SerializeField]
-    private PlayerMove_Test_Lerp _playerMove;
+    [SerializeField] private PlayerMove_Test_Lerp _playerMove;
 
     [SerializeField] private Color32 normalColor = new Color32(0, 0, 0, 128);
     [SerializeField] private Color32 selectedColor = new Color32(128, 128, 0, 128);
@@ -107,17 +106,17 @@ public class DialogueManager : MonoBehaviour
     public bool isRunning = false;
 
     [Header("Next Prompt")]
-    public RectTransform nextPrompt;
-    public float promptAmplitude = 6f;   // 위아래 이동 폭
-    public float promptSpeed = 3f;       // 이동 속도
+    [SerializeField] private RectTransform nextPrompt;
+    [SerializeField] private float promptAmplitude = 6f;   // 위아래 이동 폭
+    [SerializeField] private float promptSpeed = 3f;       // 이동 속도
     private Vector2 nextPromptBasePos;
     private bool nextPromptActive = false;
 
     [Header("Typewriter")]
-    public bool useTypewriter = true;
-    public float charsPerSecond = 35f;   // 1초에 몇 글자
-    public float commaPause = 0.05f;     // , 일 때 추가 멈춤
-    public float periodPause = 0.12f;    // .!? 일 때 추가 멈춤
+    [SerializeField] private bool useTypewriter = true;
+    [SerializeField] private float charsPerSecond = 35f;   // 1초에 몇 글자
+    [SerializeField] private float commaPause = 0.05f;     // , 일 때 추가 멈춤
+    [SerializeField] private float periodPause = 0.12f;    // .!? 일 때 추가 멈춤
 
     private Coroutine typingCo;
     private Coroutine autoAdvanceCo;
@@ -186,7 +185,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        // NextPrompt 둥실둥실
+        // NextPrompt 표시
         if (nextPromptActive && nextPrompt != null)
         {
             float y = Mathf.Sin(Time.unscaledTime * promptSpeed) * promptAmplitude;

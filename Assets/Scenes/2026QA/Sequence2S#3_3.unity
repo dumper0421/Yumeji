@@ -2147,6 +2147,11 @@ PrefabInstance:
       addedObject: {fileID: 1410486375}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5603249b58190a45b91a16c5655dc5d, type: 3}
+--- !u!1 &734783819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3520858899258842267, guid: c5603249b58190a45b91a16c5655dc5d, type: 3}
+  m_PrefabInstance: {fileID: 734783818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &781172248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,17 +2630,17 @@ MonoBehaviour:
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Scequence1Scene3
   state: 0
-  BusAnimator: {fileID: 1154757942}
-  BloodAnimator: {fileID: 373361320}
-  Scooter: {fileID: 1760390905}
-  KnockClip: {fileID: 8300000, guid: c04f8f0617ca0e442a5e5fd2936b0f21, type: 3}
-  BloodClip: {fileID: 8300000, guid: 39b211d506097774893be8b148895222, type: 3}
-  HornClip: {fileID: 8300000, guid: b4754676533f654419b30ec6ea8e8a17, type: 3}
-  CarHornClip: {fileID: 8300000, guid: b28a1459d3fbd2148bb80347af557459, type: 3}
-  CrashClip: {fileID: 8300000, guid: a19152a34c0dfb749abd808df0c4a71e, type: 3}
-  Bus: {fileID: 1154757946}
-  YellowCar: {fileID: 1747621680}
-  SceneChangeTrigger: {fileID: 1849643106}
+  _bustAnimator: {fileID: 1154757942}
+  _bloodAnimator: {fileID: 1684030439}
+  _scooter: {fileID: 1760390905}
+  _knockClip: {fileID: 8300000, guid: aa686b11009dcf148a7f5ec42090a3d5, type: 3}
+  _bloodClip: {fileID: 8300000, guid: 4f8102fc0f819e840b7097c6f9a0842a, type: 3}
+  _hornClip: {fileID: 8300000, guid: f089fe71a6b239f409420d94e41af7bb, type: 3}
+  _carHornClip: {fileID: 8300000, guid: f089fe71a6b239f409420d94e41af7bb, type: 3}
+  _crashClip: {fileID: 8300000, guid: 2b4e2b235a8b97a44b3c86ba1349690d, type: 3}
+  _bus: {fileID: 1154757946}
+  _yellowCar: {fileID: 1747621680}
+  _sceneChangeTrigger: {fileID: 734783819}
 --- !u!1 &1154757936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1421237558298320979, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
@@ -3649,11 +3654,6 @@ BoxCollider2D:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1284263777061076135, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
   m_PrefabInstance: {fileID: 474780517}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1849643106 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6774578378606041050, guid: 472413e002ebd3140b5411b148592a55, type: 3}
-  m_PrefabInstance: {fileID: 2062445060567566461}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1989126469
 PrefabInstance:
