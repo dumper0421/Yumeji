@@ -78,9 +78,10 @@ public class CinemaSeatTrigger : SitObject
             {
                 fired = true;
                 Debug.Log($"✅ [Seat:{name}] 착석 완료 감지! (이벤트 실행)");
+
                 if (action != null)
-                    action.enabled = false;
-                OnSeatEventTriggered();
+                    action.IsLockedByEvent = true;
+                scene2Controller.StartCinemaSeatEvent();
                 yield break;
             }
 
@@ -88,14 +89,4 @@ public class CinemaSeatTrigger : SitObject
         }
     }
 
-    private void OnSeatEventTriggered()
-    {
-        if (scene2Controller == null)
-        {
-            Debug.LogWarning($"⚠️ [Seat:{name}] Sequence2Scene2Controller를 못 찾았다.");
-            return;
-        }
-
-        scene2Controller.StartCinemaSeatEvent(); // ✅ 여기서 이벤트 시작
-    }
 }

@@ -8,6 +8,8 @@ public class PlayerActionController : MonoBehaviour
     [Header("Sit Settings")]
     [SerializeField] private float sitMoveDuration = 0.15f;
     [SerializeField] private bool bypassNoPassOnSit = true;
+    //앉기 제어
+    public bool IsLockedByEvent { get; set; } = false;
 
     private bool isSitting = false;
     private Vector3 standReturnPos;
@@ -35,6 +37,7 @@ public class PlayerActionController : MonoBehaviour
 
     public void SitAt(SitObject seat)
     {
+        if (IsLockedByEvent) return;
         if (move == null) return;
         if (IsPushing) return;
         if (isSitting && currentSeat == seat) return;
@@ -45,6 +48,7 @@ public class PlayerActionController : MonoBehaviour
 
     public void StandUp()
     {
+        if (IsLockedByEvent) return;
         if (!isSitting) return;
         StopAllCoroutines();
         StartCoroutine(CoSitExit());
