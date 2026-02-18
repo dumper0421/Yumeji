@@ -10,6 +10,8 @@ public class MainMenuController : MonoBehaviour
 {
     public GameObject SelectBorder;
     public GameObject SaveLoadPopUp;
+    public GameObject SettingCanvasObject;
+
     public AudioClip BGM;
 
     private Button[] buttons_;
@@ -18,7 +20,7 @@ public class MainMenuController : MonoBehaviour
     {
         buttons_ = GetComponentsInChildren<Button>();
         Time.timeScale = 1f;
-        Screen.SetResolution(1344, 960,true);
+        Screen.SetResolution(1344, 960, true);
     }
 
     public void Start()
@@ -29,7 +31,7 @@ public class MainMenuController : MonoBehaviour
 
     public void Update()
     {
-        if (SaveLoadPopUp.gameObject.activeSelf) return;
+        if (SaveLoadPopUp.gameObject.activeSelf || SettingCanvasObject.activeSelf) return;
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {

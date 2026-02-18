@@ -157,4 +157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDisposable: 0
-  hasBeenInspected: 1
+  hasBeenInspected: 0

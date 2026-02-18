@@ -2543,6 +2543,7 @@ MonoBehaviour:
   DialoguePoints:
   - {fileID: 1496556906}
   - {fileID: 27248843}
+  ExitTrigger: {fileID: 0}
 --- !u!114 &348329112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2890,6 +2891,10 @@ PrefabInstance:
     - target: {fileID: 7703343506138680696, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073127927272997991, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8321,7 +8326,7 @@ Transform:
   m_GameObject: {fileID: 1696625634}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.56, y: 0.95, z: -10}
+  m_LocalPosition: {x: -8.56, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

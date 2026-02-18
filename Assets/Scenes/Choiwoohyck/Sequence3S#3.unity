@@ -6941,6 +6941,8 @@ MonoBehaviour:
   - {fileID: 5503933605485640285}
   - {fileID: 2096369461}
   WaveBGM: {fileID: 8300000, guid: 229f015aabcf453479579d899d9bab7e, type: 3}
+  ExitTrigger: {fileID: 0}
+  TicketOffice: {fileID: 1882949532}
 --- !u!1 &1603986500
 GameObject:
   m_ObjectHideFlags: 0
@@ -7911,7 +7913,7 @@ GameObject:
   - component: {fileID: 1882949531}
   - component: {fileID: 1882949532}
   m_Layer: 6
-  m_Name: MiddleWall
+  m_Name: TicketOffice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8877,6 +8879,10 @@ PrefabInstance:
     - target: {fileID: 2353751064306357566, guid: 367debc9ed878324395d50b8978f94ae, type: 3}
       propertyPath: m_Name
       value: Turnstile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353751064306357566, guid: 367debc9ed878324395d50b8978f94ae, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5192770341558825066, guid: 367debc9ed878324395d50b8978f94ae, type: 3}
       propertyPath: m_LocalPosition.x

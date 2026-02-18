@@ -99,6 +99,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private PlayerMove_Test_Lerp _playerMove;
 
+
     [SerializeField] private Color32 normalColor = new Color32(0, 0, 0, 128);
     [SerializeField] private Color32 selectedColor = new Color32(128, 128, 0, 128);
 

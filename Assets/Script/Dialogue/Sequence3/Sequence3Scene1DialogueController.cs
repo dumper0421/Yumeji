@@ -23,7 +23,7 @@ public class Sequence3Scene1DialogueController : DialogueController<S3S1State>
             case "KenHaru_16":
                 _haruAnimator.enabled = true;
                 _kenAnimator.enabled = true;
-
+                _haruAnimator.GetComponent<InteractionSystem>().enabled = true; 
                 _kenAnimator.SetFloat("DirX", -1);
                 _kenAnimator.SetFloat("DirY", 0);
                 ExitTrigger.IsClear = true;
@@ -48,6 +48,5 @@ public class Sequence3Scene1DialogueController : DialogueController<S3S1State>
         dialogueManager.StartDialogue(DialogueID);
         _haruAnimator.enabled = false;
         _kenAnimator.enabled = false;
-
     }
 }

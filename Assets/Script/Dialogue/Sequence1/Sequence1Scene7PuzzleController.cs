@@ -56,6 +56,8 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 CharredPhotograph.gameObject.SetActive(false);
                 dialogueManager.IsStop = false;
                 dialogueManager._waitingForInput = true;
+                PlayerMove.enabled = true;
+                PlayerAnimator.enabled = true;
                 delayTimer = 0;
             }
         }
@@ -75,7 +77,10 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
     }
     protected override void HandleDialogueEnd(string dialogueId)
     {
-        switch(dialogueId)
+        PlayerAnimator.enabled = true;
+        PlayerMove.enabled = true;
+
+        switch (dialogueId)
         {
             case "Save":
                 PopupUIManager.Instance.SetSaveLoadPopup(true);
@@ -84,6 +89,10 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             case "Drawer_Match":
                 InventoryManager.Instance.AddItem(MatchData);
                 InteractionLight[0].SetActive(false);
+                PlayerAnimator.enabled = true;
+                PlayerMove.enabled = true;
+                break;
+            case "Drawer1":
                 PlayerAnimator.enabled = true;
                 PlayerMove.enabled = true;
                 break;
@@ -119,12 +128,19 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     protected override void DialogueRunning(string dialogueId)
     {
-        switch(dialogueId)
+        PlayerMove.enabled = false;
+        PlayerAnimator.enabled = false;
+
+        switch (dialogueId)
         {
             case "Bookshelf1_Illust":
                 CharredPhotograph.gameObject.SetActive(true);
                 break;
             case "Drawer_Match":
+                PlayerMove.enabled = false;
+                PlayerAnimator.enabled = false;
+                break;
+            case "Drawer1":
                 PlayerMove.enabled = false;
                 PlayerAnimator.enabled = false;
                 break;

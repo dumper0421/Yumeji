@@ -2297,7 +2297,7 @@ MonoBehaviour:
   isTurnOn: 0
   _BadCustomer: {fileID: 7703343505012776099}
   _isGusetEntry: 1
-  _targetPosition: {x: 7.5, y: -2.5, z: 0}
+  _targetPosition: {x: 7.5, y: -2, z: 0}
   _exitTrigger: {fileID: 0}
   CanLeave: 0
   DialogueManager: {fileID: 603143303}
@@ -4110,7 +4110,7 @@ MonoBehaviour:
   isTurnOn: 0
   _BadCustomer: {fileID: 7703343505012776099}
   _isGusetEntry: 1
-  _targetPosition: {x: 7.5, y: -2.5, z: 0}
+  _targetPosition: {x: 7.5, y: -2, z: 0}
   _exitTrigger: {fileID: 0}
   CanLeave: 0
   DialogueManager: {fileID: 0}
@@ -4632,7 +4632,7 @@ Transform:
   m_GameObject: {fileID: 1059056000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9208078, y: -0.013931185, z: -10}
+  m_LocalPosition: {x: 2.9263783, y: -0.013931185, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

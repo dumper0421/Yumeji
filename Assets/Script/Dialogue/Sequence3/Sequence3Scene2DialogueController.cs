@@ -141,5 +141,7 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
         HaruAnimator.ResetTrigger("SitDown");
         HaruAnimator.SetTrigger("SitDownEnd");
         PlayMove.enabled = true;
+        PlayMove.gameObject.GetComponent<InteractionSystem>().enabled = true;
+
     }
 }

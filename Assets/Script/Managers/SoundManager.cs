@@ -84,6 +84,7 @@ public class SoundManager : Singleton<SoundManager>
         _bgmSource.Play();
     }
     public void PauseBGM() => _bgmSource.Pause();
+
     public void StopBGM()
     {
         if (_bgmSource != null)
@@ -168,4 +169,67 @@ public class SoundManager : Singleton<SoundManager>
         if (save) { PlayerPrefs.SetFloat(KEY_SFX, linear); PlayerPrefs.Save(); }
     }
     #endregion
+
+    #region Utility
+
+    private readonly List<AudioSource> _pausedSfxSources = new List<AudioSource>();
+    private bool _bgmWasPaused = false;
+    private bool _sequentialWasPaused = false;
+
+    public void PauseAllAudio()
+    {
+        // BGM
+        _bgmWasPaused = false;
+        if (_bgmSource != null && _bgmSource.isPlaying)
+        {
+            _bgmSource.Pause();
+            _bgmWasPaused = true;
+        }
+
+        // Sequential SFX
+        _sequentialWasPaused = false;
+        if (_sequentialSFXSource != null && _sequentialSFXSource.isPlaying)
+        {
+            _sequentialSFXSource.Pause();
+            _sequentialWasPaused = true;
+        }
+
+        // Simultaneous SFX (풀에 있는 소스들 중 재생중인 것들만 Pause)
+        _pausedSfxSources.Clear();
+        foreach (var src in _sfxSources)
+        {
+            if (src != null && src.isPlaying)
+            {
+                src.Pause();
+                _pausedSfxSources.Add(src);
+            }
+        }
+    }
+
+ 
+    public void ResumeAllAudio()
+    {
+        // BGM
+        if (_bgmWasPaused && _bgmSource != null)
+            _bgmSource.UnPause();
+
+        // Sequential SFX
+        if (_sequentialWasPaused && _sequentialSFXSource != null)
+            _sequentialSFXSource.UnPause();
+
+        // Simultaneous SFX
+        for (int i = 0; i < _pausedSfxSources.Count; i++)
+        {
+            var src = _pausedSfxSources[i];
+            if (src != null)
+                src.UnPause();
+        }
+        _pausedSfxSources.Clear();
+
+        _bgmWasPaused = false;
+        _sequentialWasPaused = false;
+    }
+
+    #endregion
+
 }

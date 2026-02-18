@@ -32,6 +32,8 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
 
     public ExitTrigger ExitTrigger;
 
+    public DialogueObject TicketOffice;
+
     protected override void Awake()
     {
         base.Awake();
@@ -66,6 +68,7 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
                 {
                     seat.StartDialogue = "stationChairAlone";
                 }
+                TicketOffice.hasBeenInspected = true;
                 break;
 
             case "HaruRei1_39":

@@ -6,6 +6,6 @@ public class SaveObject : InspectableObject
 {
     protected override void OnInspect()
     {
-        //PopupUIManager.Instance.SetSaveLoadPopup(true);
+        PopupUIManager.Instance.SetSaveLoadPopup(true);
     }
 }

@@ -23,12 +23,21 @@ public class PauseUI : MonoBehaviour
 
     private int CurrentSelectIndex = 0;
 
+    private GameObject _dialogueCanvas;
+    private InteractionSystem _interactionSystem;
+
     private void Awake()
     {
         if (_playerMove_Test_Lerp == null)
         {
             _playerMove_Test_Lerp = FindAnyObjectByType<PlayerMove_Test_Lerp>();
         }
+
+        if(_dialogueCanvas == null)
+            _dialogueCanvas = GameObject.Find("Dialogue Canvas").transform.GetChild(2).gameObject;
+
+        if(_interactionSystem == null)
+            _interactionSystem = _playerMove_Test_Lerp.gameObject.GetComponent<InteractionSystem>();
     }
 
     void Start()
@@ -53,6 +62,8 @@ public class PauseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_dialogueCanvas.activeSelf)
+            return;
 
         if (SaveLoadPopup.activeSelf)
         {
@@ -67,8 +78,10 @@ public class PauseUI : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 BackGround.gameObject.SetActive(true);
+                SoundManager.Instance.PauseAllAudio();
                 _playerMove_Test_Lerp.enabled = false;
                 Time.timeScale = 0f;
+                _interactionSystem.enabled = false;
             }
 
             return;
@@ -92,7 +105,10 @@ public class PauseUI : MonoBehaviour
         {
             ClosePauseUI();
             Time.timeScale = 1f;
+            _interactionSystem.enabled = true;
             _playerMove_Test_Lerp.enabled = true;
+            SoundManager.Instance.ResumeAllAudio();
+
         }
     }
 
