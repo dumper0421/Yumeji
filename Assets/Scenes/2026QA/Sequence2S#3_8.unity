@@ -184,6 +184,11 @@ MonoBehaviour:
   cinemachine: {fileID: 2068433263}
   cinemachineBase: {fileID: 2068433263}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &501851
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -566,6 +571,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1813008117}
   cinemachineBase: {fileID: 1813008117}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &47184246
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -939,6 +949,11 @@ MonoBehaviour:
   cinemachine: {fileID: 246123540}
   cinemachineBase: {fileID: 246123540}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &69412622
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1281,6 +1296,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1988606859}
   cinemachineBase: {fileID: 1988606859}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &87462100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1403,6 +1423,11 @@ MonoBehaviour:
   cinemachine: {fileID: 144415358}
   cinemachineBase: {fileID: 144415358}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &103950663
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2073,6 +2098,11 @@ MonoBehaviour:
   cinemachine: {fileID: 449630875}
   cinemachineBase: {fileID: 449630875}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &120316059
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2269,6 +2299,11 @@ MonoBehaviour:
   cinemachine: {fileID: 246123540}
   cinemachineBase: {fileID: 246123540}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &122259559
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2813,6 +2848,11 @@ MonoBehaviour:
   cinemachine: {fileID: 2014862730}
   cinemachineBase: {fileID: 2014862730}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &139941999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3411,6 +3451,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1989923560}
   cinemachineBase: {fileID: 1989923560}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &196740208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4106,6 +4151,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1872962572}
   cinemachineBase: {fileID: 1872962572}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &223543238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5973,6 +6023,11 @@ MonoBehaviour:
   cinemachine: {fileID: 2068433263}
   cinemachineBase: {fileID: 2068433263}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &302147354
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6225,6 +6280,11 @@ MonoBehaviour:
   cinemachine: {fileID: 144415358}
   cinemachineBase: {fileID: 144415358}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &307884349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6477,6 +6537,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1044765891}
   cinemachineBase: {fileID: 1044765891}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &318918433
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6729,6 +6794,11 @@ MonoBehaviour:
   cinemachine: {fileID: 2068433263}
   cinemachineBase: {fileID: 2068433263}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &328271520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6851,6 +6921,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1813008117}
   cinemachineBase: {fileID: 1813008117}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &328474442
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10474,6 +10549,11 @@ MonoBehaviour:
   cinemachine: {fileID: 246123540}
   cinemachineBase: {fileID: 246123540}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &540289791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10796,6 +10876,11 @@ MonoBehaviour:
   cinemachine: {fileID: 630296019}
   cinemachineBase: {fileID: 630296019}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &571027021
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12216,6 +12301,11 @@ MonoBehaviour:
   cinemachine: {fileID: 444173308}
   cinemachineBase: {fileID: 444173308}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &673492887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12687,6 +12777,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1958774948}
   cinemachineBase: {fileID: 1958774948}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 0}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &675682293
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13305,6 +13400,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1813008117}
   cinemachineBase: {fileID: 1813008117}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &737656278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13427,6 +13527,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1981479176}
   cinemachineBase: {fileID: 1981479176}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &751134591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15142,6 +15247,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1078459564}
   cinemachineBase: {fileID: 1078459564}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &835302291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15483,6 +15593,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1044765891}
   cinemachineBase: {fileID: 1044765891}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &865788390
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15829,6 +15944,11 @@ MonoBehaviour:
   cinemachine: {fileID: 246123540}
   cinemachineBase: {fileID: 246123540}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &906035902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15951,6 +16071,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1084638959}
   cinemachineBase: {fileID: 1084638959}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &918225120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17088,6 +17213,108 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &997721240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997721244}
+  - component: {fileID: 997721243}
+  - component: {fileID: 997721242}
+  - component: {fileID: 997721241}
+  m_Layer: 5
+  m_Name: FadeCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &997721241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997721240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &997721242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997721240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 64
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &997721243
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997721240}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &997721244
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997721240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1775732830}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1021413251
 GameObject:
   m_ObjectHideFlags: 0
@@ -17165,6 +17392,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1958774948}
   cinemachineBase: {fileID: 1958774948}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1021413255
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17784,6 +18016,11 @@ MonoBehaviour:
   cinemachine: {fileID: 449630875}
   cinemachineBase: {fileID: 449630875}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1080275409
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20295,6 +20532,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1044765891}
   cinemachineBase: {fileID: 1044765891}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1220349386
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22953,6 +23195,11 @@ MonoBehaviour:
   cinemachine: {fileID: 367313525}
   cinemachineBase: {fileID: 367313525}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1396476518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23205,6 +23452,11 @@ MonoBehaviour:
   cinemachine: {fileID: 836478872}
   cinemachineBase: {fileID: 836478872}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1400724695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23327,6 +23579,11 @@ MonoBehaviour:
   cinemachine: {fileID: 144415358}
   cinemachineBase: {fileID: 144415358}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1403715280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24382,6 +24639,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1044765891}
   cinemachineBase: {fileID: 1044765891}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1461304012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24715,6 +24977,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1813008117}
   cinemachineBase: {fileID: 1813008117}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1473723823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29792,6 +30059,11 @@ MonoBehaviour:
   cinemachine: {fileID: 449630875}
   cinemachineBase: {fileID: 449630875}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 0}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1735797317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30341,6 +30613,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1886692721}
   cinemachineBase: {fileID: 1886692721}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1763938934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30601,6 +30878,94 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6126453425730776897, guid: 7d4760727a1520141a7e069237071c69, type: 3}
   m_PrefabInstance: {fileID: 1768807313}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1775732829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775732830}
+  - component: {fileID: 1775732833}
+  - component: {fileID: 1775732832}
+  - component: {fileID: 1775732831}
+  m_Layer: 5
+  m_Name: Black
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1775732830
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775732829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 997721244}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0}
+--- !u!225 &1775732831
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775732829}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1775732832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775732829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1775732833
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775732829}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1779813983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31676,6 +32041,11 @@ MonoBehaviour:
   cinemachine: {fileID: 144415358}
   cinemachineBase: {fileID: 144415358}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1868550264
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32317,6 +32687,11 @@ MonoBehaviour:
   cinemachine: {fileID: 449630875}
   cinemachineBase: {fileID: 449630875}
   controller: {fileID: 1314153136}
+  useFade: 1
+  fadeGroup: {fileID: 1775732831}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1903598556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36983,6 +37358,7 @@ SceneRoots:
   - {fileID: 1602845154}
   - {fileID: 195462436}
   - {fileID: 1994011352}
+  - {fileID: 997721244}
   - {fileID: 49845336}
   - {fileID: 2943003072695951995}
   - {fileID: 954703202}

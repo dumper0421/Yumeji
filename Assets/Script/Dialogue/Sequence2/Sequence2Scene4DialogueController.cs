@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum S2S4State
 {
@@ -15,6 +16,8 @@ public enum S2S4State
 
 public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 {
+    public Image BathroomMirror;
+
     [Header("Dialogue Objects")]
     [SerializeField] private DialogueObject phoneObject;
     [SerializeField] private DialogueObject frontDoorObject;
@@ -64,6 +67,7 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
     [Header("Exit (Optional)")]
     [SerializeField] private bool loadNextSceneOnDoorOpenDialogueEnd = false;
     [SerializeField] private string nextSceneName;
+
 
     // runtime
     private readonly HashSet<string> inspectedNonPhoneIds = new HashSet<string>();
@@ -169,7 +173,15 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
     }
 
     protected override void HandleDialogueEnd(string dialogueId)
+        
     {
+        //초상화 끄기
+        if (dialogueId == "BathroomMirror")
+        {
+            if (BathroomMirror != null)
+                BathroomMirror.gameObject.SetActive(false);
+        }
+
         // 1) 전화기 제외 조사 누적(중복 방지)
         if (!hasFinishedCall && nonPhoneOneLinerIds.Contains(dialogueId))
         {
@@ -215,7 +227,14 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
         TryProgress();
     }
 
-    protected override void DialogueRunning(string dialogueId) { }
+    protected override void DialogueRunning(string dialogueId)
+    {
+        if (dialogueId == "BathroomMirror")
+        {
+            if (BathroomMirror != null)
+                BathroomMirror.gameObject.SetActive(true);
+        }
+    }
     protected override void HandleOption(string text, string nextId) { }
 
     protected override void TryProgress()

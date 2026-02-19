@@ -312,7 +312,7 @@ MonoBehaviour:
   targetPoint: {x: 10, y: 15, z: 0}
   fadeGroup: {fileID: 999797617262632390}
   fadeOutTime: 0.2
-  holdBlackTime: 2
+  holdBlackTime: 0.5
   fadeInTime: 0.3
   switchToCamera: {fileID: 0}
   followBase: {fileID: 0}

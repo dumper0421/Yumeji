@@ -1356,6 +1356,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1335160525409358301, guid: 879cdc4782a9f5c46ba22721207eb776, type: 3}
   m_PrefabInstance: {fileID: 1418635744}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &338612567 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1117960211570058543, guid: e86c1fd7c3ab90e40a2560e06ea572ef, type: 3}
+  m_PrefabInstance: {fileID: 7347780006946843000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &357986179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8882577846526841092, guid: 6868d1069809244418f56240e3869de2, type: 3}
@@ -1673,6 +1678,11 @@ MonoBehaviour:
   cinemachine: {fileID: 437852095}
   cinemachineBase: {fileID: 437852095}
   controller: {fileID: 412064061}
+  useFade: 1
+  fadeGroup: {fileID: 338612567}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &375333322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3895,6 +3905,11 @@ MonoBehaviour:
   cinemachine: {fileID: 2046404612}
   cinemachineBase: {fileID: 2046404612}
   controller: {fileID: 412064061}
+  useFade: 1
+  fadeGroup: {fileID: 338612567}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &781454690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5039,6 +5054,11 @@ MonoBehaviour:
   cinemachine: {fileID: 437852095}
   cinemachineBase: {fileID: 437852095}
   controller: {fileID: 412064061}
+  useFade: 1
+  fadeGroup: {fileID: 338612567}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1109827717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7394,6 +7414,11 @@ MonoBehaviour:
   cinemachine: {fileID: 1198721169}
   cinemachineBase: {fileID: 1198721169}
   controller: {fileID: 412064061}
+  useFade: 1
+  fadeGroup: {fileID: 0}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1605706705
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9373,6 +9398,11 @@ MonoBehaviour:
   cinemachine: {fileID: 448830024}
   cinemachineBase: {fileID: 448830024}
   controller: {fileID: 412064061}
+  useFade: 1
+  fadeGroup: {fileID: 338612567}
+  fadeOutTime: 0.2
+  holdBlackTime: 0.5
+  fadeInTime: 0.3
 --- !u!61 &1913220279
 BoxCollider2D:
   m_ObjectHideFlags: 0

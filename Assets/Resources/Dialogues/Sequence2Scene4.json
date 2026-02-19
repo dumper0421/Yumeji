@@ -127,6 +127,17 @@
   },
 
   {
+    "id": "BathroomMirror",
+    "speaker": "",
+    "lines": [
+      {
+        "text": null,
+        "showPortrait": false
+      }
+    ]
+  },
+
+  {
     "id": "Phone_Call_01",
     "speaker": "하루",
     "lines": [

@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 117056945}
   - component: {fileID: 117056947}
   - component: {fileID: 117056946}
-  - component: {fileID: 117056948}
+  - component: {fileID: 117056949}
   m_Layer: 6
   m_Name: OBJ_haruWashStand_v1
   m_TagString: Untagged
@@ -630,7 +630,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &117056948
+--- !u!114 &117056949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -644,8 +644,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   hasBeenInspected: 0
-  StartDialogue: 
-  DialogueManager: {fileID: 0}
+  StartDialogue: BathroomMirror
+  DialogueManager: {fileID: 603143303}
 --- !u!1 &124952760
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +837,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6780722168633269861, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2144741257}
+    - targetCorrespondingSourceObject: {fileID: 6780722168633269861, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 469849918}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       insertIndex: -1
@@ -1904,6 +1907,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &469849917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469849918}
+  - component: {fileID: 469849920}
+  - component: {fileID: 469849919}
+  m_Layer: 5
+  m_Name: HaruMirroImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &469849918
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469849917}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.19999641, y: 0.19999641, z: 0.19999641}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 603143309}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 6000, y: 4716}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &469849919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469849917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c796d5afb467fad4c89d9058b53d5059, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &469849920
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469849917}
+  m_CullTransparentMesh: 1
 --- !u!1 &476801816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,6 +2883,7 @@ MonoBehaviour:
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Sequence2Scene4
   state: 0
+  BathroomMirror: {fileID: 469849919}
   phoneObject: {fileID: 844963348}
   frontDoorObject: {fileID: 1113669147}
   frontDoorBlockObject: {fileID: 1113669145}
