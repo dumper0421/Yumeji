@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class DarkTeleportPoint : TeleportPoint
+public class DarkTeleportPoint : TeleportPointLegacy
 {
     public Vector3 ReturnPos;
     public float WaitSeconds = 2f;
