@@ -10,6 +10,11 @@ public enum S1S3CutSceneState
 public class S1S3CutSceneDialogueController : DialogueController<S1S3CutSceneState>
 {
     public string SceneString;
+
+    protected override void ApplyWorldByState()
+    {
+    }
+
     protected override void HandleDialogueEnd(string dialogueId)
     {
         if(dialogueId == "PlayerStart")

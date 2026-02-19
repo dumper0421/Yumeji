@@ -49,4 +49,8 @@ public class Sequence3Scene1DialogueController : DialogueController<S3S1State>
         _haruAnimator.enabled = false;
         _kenAnimator.enabled = false;
     }
+
+    protected override void ApplyWorldByState()
+    {
+    }
 }

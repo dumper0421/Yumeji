@@ -14,6 +14,10 @@ public class Sequence1Scene6DialogueController : DialogueController<S1S6State>
     public Animator PlayAnimaotr;
     [SerializeField] private AudioClip _appearedSFX;
 
+    protected override void ApplyWorldByState()
+    {
+    }
+
     protected override void HandleDialogueEnd(string dialogueId)
     {
        if (dialogueId == "CrewMember")

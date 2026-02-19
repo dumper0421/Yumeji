@@ -31,6 +31,9 @@ public class MainMenuController : MonoBehaviour
 
     public void Update()
     {
+        if (!SaveLoadPopUp || !SettingCanvasObject || !SelectBorder || buttons_ == null || buttons_.Length == 0)
+            return;
+
         if (SaveLoadPopUp.gameObject.activeSelf || SettingCanvasObject.activeSelf) return;
 
         if (Input.GetKeyDown(KeyCode.UpArrow))

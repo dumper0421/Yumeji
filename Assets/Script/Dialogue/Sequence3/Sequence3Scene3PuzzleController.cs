@@ -142,4 +142,8 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(NextScene);
     }
+
+    protected override void ApplyWorldByState()
+    {
+    }
 }

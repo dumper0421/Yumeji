@@ -193,4 +193,8 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         dialogueManager.isRunning = false;
         PlayerMove.enabled = true;
     }
+
+    protected override void ApplyWorldByState()
+    {
+    }
 }

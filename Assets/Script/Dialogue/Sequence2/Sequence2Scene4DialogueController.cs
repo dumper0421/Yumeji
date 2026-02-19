@@ -290,4 +290,8 @@ public class Sequence2Scene4DialogueController : DialogueController<S2S4State>
 
         state = S2S4State.DoorCleared;
     }
+
+    protected override void ApplyWorldByState()
+    {
+    }
 }

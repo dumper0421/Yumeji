@@ -114,5 +114,8 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
         }
     }
 
+    protected override void ApplyWorldByState()
+    {
+    }
 }
 

@@ -17,17 +17,6 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
     
     public string nextSceneName;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-        
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
@@ -74,6 +63,10 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
     {
 
 
+    }
+
+    protected override void ApplyWorldByState()
+    {
     }
 }
 

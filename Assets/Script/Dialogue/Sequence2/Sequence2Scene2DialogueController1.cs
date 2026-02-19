@@ -41,4 +41,8 @@ public class Sequence2Scene2DialogueController1 : DialogueController<S2S2State1>
     }
 
     protected override void OnPuzzleComplete() { }
+
+    protected override void ApplyWorldByState()
+    {
+    }
 }

@@ -119,4 +119,8 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
         HaruMove.enabled = true;
         HaruAnimator.enabled = true;
     }
+
+    protected override void ApplyWorldByState()
+    {
+    }
 }

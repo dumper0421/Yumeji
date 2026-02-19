@@ -7,6 +7,8 @@ public class DialogueLoader : ScriptableObject
     public Dictionary<string, Dialogue> LoadDialogues(string DialogueName)
     {
         var asset = Resources.Load<TextAsset>($"Dialogues/{DialogueName}");
+        if (asset == null) return null;
+
         var wrapper = JsonUtility.FromJson<DialogueArrayWrapper>(
             "{\"dialogues\":" + asset.text + "}"
         );

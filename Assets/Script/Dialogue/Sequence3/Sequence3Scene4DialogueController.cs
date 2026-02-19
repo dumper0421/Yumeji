@@ -46,5 +46,7 @@ public class Sequence3Scene4DialogueController : DialogueController<S3S4State>
 
     }
 
-    
+    protected override void ApplyWorldByState()
+    {
+    }
 }

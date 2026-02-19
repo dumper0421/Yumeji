@@ -81,4 +81,8 @@ public class Sequence2Scene2DialogueController : DialogueController<S2S2State>
     }
 
     protected override void OnPuzzleComplete() { }
+
+    protected override void ApplyWorldByState()
+    {
+    }
 }

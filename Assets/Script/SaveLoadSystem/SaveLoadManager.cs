@@ -1,13 +1,26 @@
-// SaveLoadManager.cs
 using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 [Serializable]
+public class BoolEntry
+{
+    public string Key;
+    public bool Value;
+}
+
+[Serializable]
+public class IntEntry
+{
+    public string Key;
+    public int Value;
+}
+
+[Serializable]
 public class PlayerSaveData
 {
-    public int SlotIndex;        // 저장된 슬롯 인덱스
+    public int SlotIndex;
     public int SequenceNum;
     public Vector3 PlayerPosition;
     public string PlayTime;
@@ -15,9 +28,21 @@ public class PlayerSaveData
     public string CharacterName;
     public string CompanionName;
 
+    public string StateName;
 
-    public PlayerSaveData(int slotIndex, int sequenceNum, Vector3 playerPosition, 
-        string playTime, string currentSceneName, string characterName, string companionName    )
+    public List<BoolEntry> BoolStates = new List<BoolEntry>();
+    public List<IntEntry> IntStates = new List<IntEntry>();
+
+    public PlayerSaveData(
+        int slotIndex,
+        int sequenceNum,
+        Vector3 playerPosition,
+        string playTime,
+        string currentSceneName,
+        string characterName,
+        string companionName,
+        string stateName
+    )
     {
         SlotIndex = slotIndex;
         SequenceNum = sequenceNum;
@@ -26,85 +51,79 @@ public class PlayerSaveData
         CurrentSceneName = currentSceneName;
         CharacterName = characterName;
         CompanionName = companionName;
+        StateName = string.IsNullOrEmpty(stateName) ? "" : stateName;
     }
 }
 
 public class SaveLoadManager : Singleton<SaveLoadManager>
 {
-    [SerializeField] private const int saveSlotCount_ = 5;
+    private const int SaveSlotCount = 5;
+    private const string SaveFileNameFormat = "saveSlot{0}.json";
 
-    private const string inventoryFileNameFormat = "saveSlot{0}.json";
-
-    protected override void Init()
-    {
-        // 필요 시 초기화 로직
-    }
+    protected override void Init() { }
 
     public void SaveGame(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= saveSlotCount_)
+        if (slotIndex < 0 || slotIndex >= SaveSlotCount)
         {
             Debug.LogError($"[SaveLoadManager] Invalid save slot: {slotIndex}");
             return;
         }
 
-        // 플레이어 위치 가져오기
-        var playerObj = GameObject.Find("Haru_Player");
+        GameObject playerObj = (GameManager.Instance != null && GameManager.Instance.Player != null)
+            ? GameManager.Instance.Player
+            : GameObject.Find("Haru_Player"); 
+
         if (playerObj == null)
         {
-            Debug.LogError("[SaveLoadManager] PlayerHaru 오브젝트를 찾을 수 없습니다.");
+            Debug.LogError("[SaveLoadManager] Player 오브젝트를 찾을 수 없습니다.");
             return;
         }
+
         Vector3 pos = playerObj.transform.position;
 
-        // GameManager에 저장 요청 (slotIndex 포함)
         PlayerSaveData data = GameManager.Instance.SaveGameData(slotIndex, pos);
 
-        // JSON 직렬화 및 파일 쓰기
         string json = JsonUtility.ToJson(data, true);
-        string path = Path.Combine(Application.persistentDataPath,
-                     string.Format(inventoryFileNameFormat, slotIndex));
+        string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));
         File.WriteAllText(path, json);
+
         Debug.Log($"[SaveLoadManager] Saved slot {slotIndex} → {path}");
 
-        // 인벤토리도 저장
         InventoryManager.Instance.SaveInventory(slotIndex);
     }
 
     public PlayerSaveData LoadGame(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= saveSlotCount_)
+        if (slotIndex < 0 || slotIndex >= SaveSlotCount)
         {
             Debug.LogError($"[SaveLoadManager] Invalid load slot: {slotIndex}");
             return null;
         }
 
-        string path = Path.Combine(Application.persistentDataPath,
-                     string.Format(inventoryFileNameFormat, slotIndex));
+        string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));
         if (!File.Exists(path))
         {
             Debug.LogWarning($"[SaveLoadManager] No save file at slot {slotIndex}");
             return null;
         }
 
-        // JSON 읽기 및 역직렬화
         string json = File.ReadAllText(path);
         PlayerSaveData data = JsonUtility.FromJson<PlayerSaveData>(json);
-        Debug.Log($"[SaveLoadManager] Loaded slot {slotIndex} ← {path}");
 
+        Debug.Log($"[SaveLoadManager] Loaded slot {slotIndex} ← {path}");
         return data;
     }
 
     public void DeleteSave(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= saveSlotCount_)
+        if (slotIndex < 0 || slotIndex >= SaveSlotCount)
         {
             Debug.LogError($"[SaveLoadManager] Invalid delete slot: {slotIndex}");
             return;
         }
 
-        string path = Path.Combine(Application.persistentDataPath,
-                     string.Format(inventoryFileNameFormat, slotIndex));
+        string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));
         if (File.Exists(path))
         {
             File.Delete(path);

@@ -1,49 +1,55 @@
 using UnityEngine;
 
-// T 타입의 Manager를 싱글톤으로 만들어주는 클래스
-// T 타입의 Manager는 Init 함수를 구현해야 한다.
-// T 타입의 Manager는 Singleton<T>를 상속받아야 한다.
 public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
-    private static T _instance = null;
+    private static T _instance;
+    private static bool _isQuitting;
 
-    // T 타입의 Manager를 반환하는 프로퍼티
     public static T Instance
     {
         get
         {
-            if (_instance is null)
-                _instance = InitManager<T>();
+            if (_isQuitting) return null;
+
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<T>();
+
+                if (_instance == null)
+                {
+                    var go = new GameObject(typeof(T).Name);
+                    _instance = go.AddComponent<T>(); 
+                }
+            }
+
             return _instance;
         }
     }
 
-    // T 타입의 Manager를 생성하고 반환하는 함수
-    private static U InitManager<U>() where U : MonoBehaviour
+    protected virtual void Awake()
     {
-        GameObject go = null;
-        U manager = FindObjectOfType<U>();
-        if (manager is null)
+        if (_instance != null && _instance != this)
         {
-            go = new GameObject(typeof(U).Name);
-            manager = go.AddComponent<U>();
-        }
-        else
-            go = manager.gameObject;
-
-        DontDestroyOnLoad(go);
-        return manager;
-    }
-
-    private void Awake()
-    {
-        if (_instance == null)
-            _instance = this as T;
-        else if (_instance != this)
             Destroy(gameObject);
+            return;
+        }
+
+        _instance = (T)this;
+        DontDestroyOnLoad(gameObject);
+
         Init();
     }
 
-    // 초기화 함수
+    protected virtual void OnApplicationQuit()
+    {
+        _isQuitting = true;
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if (_instance == this)
+            _instance = null;
+    }
+
     protected abstract void Init();
 }

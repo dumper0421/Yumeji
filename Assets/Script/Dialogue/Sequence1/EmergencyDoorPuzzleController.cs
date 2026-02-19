@@ -189,4 +189,9 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
         dialogueManager.StartDialogue("Bus_DoorOpen");
         state = EmergencyDoorState.BusInteracted;
     }
+
+    protected override void ApplyWorldByState()
+    {
+        ;
+    }
 }

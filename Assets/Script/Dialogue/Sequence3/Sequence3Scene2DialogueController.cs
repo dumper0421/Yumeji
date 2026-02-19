@@ -144,4 +144,8 @@ public class Sequence3Scene2DialogueController : DialogueController<S3S2State>
         PlayMove.gameObject.GetComponent<InteractionSystem>().enabled = true;
 
     }
+
+    protected override void ApplyWorldByState()
+    {
+    }
 }
