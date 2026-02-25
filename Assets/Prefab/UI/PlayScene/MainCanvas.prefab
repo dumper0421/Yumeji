@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c8c6f58aa1d4a48a9ffbf00b66a04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDontDestroyOnLoad: 0
   BGM: {fileID: 8300000, guid: 909a51fde6ac44a409b09792150c2472, type: 3}
   GameOverUI: {fileID: 3300001172249527631}
   MainCanvas: {fileID: 3785081686529955086}

@@ -18,7 +18,7 @@ public class SettingManager : Singleton<SettingManager>
 
     protected override void Init()
     {
-        DontDestroyOnLoad(gameObject);
+      //  DontDestroyOnLoad(gameObject);
         sliders = new[] { MasterSlider, BgmSlider, SfxSlider };
 
         // 저장된 설정 로드 및 오디오 매니저에 적용

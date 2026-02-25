@@ -5,6 +5,8 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
     private static T _instance;
     private static bool _isQuitting;
 
+    public bool IsDontDestroyOnLoad = true;
+
     public static T Instance
     {
         get
@@ -35,7 +37,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
         }
 
         _instance = (T)this;
-        DontDestroyOnLoad(gameObject);
+
+        if(IsDontDestroyOnLoad)
+            DontDestroyOnLoad(gameObject);
 
         Init();
     }

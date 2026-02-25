@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40d8dab15fd634459884ab3b2eda956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDontDestroyOnLoad: 0
   BlockImage: {fileID: 8193921876262895847}
   confirmationDialog_: {fileID: 5507955877152167752}
   saveLoadPopup_: {fileID: 3268988014314548100}
