@@ -28,7 +28,7 @@
     "lines": [
 
       {
-        "text": "…누구시죠? 이 이상한 곳에 대해 아시는 겁니까?",
+        "text": "...누구시죠? 이 이상한 곳에 대해 아시는 겁니까?",
         "showPortrait": true,
         "nextId": "RabbitMan_Hint3"
       }
@@ -70,7 +70,7 @@
     "autoAdvanceDelay": 0,
     "lines": [
       {
-        "text": "제 카메라 말인가요? 이걸로 뭘 어떻게…",
+        "text": "제 카메라 말인가요? 이걸로 뭘 어떻게...",
         "showPortrait": true,
         "nextId": "RabbitMan_Hint5"
       }
@@ -100,7 +100,7 @@
     "autoAdvanceDelay": 0,
     "lines": [
       {
-        "text": "카메라로… 벽에 뭐가 나타난다고요?",
+        "text": "카메라로... 벽에 뭐가 나타난다고요?",
         "showPortrait": true,
         "nextId": "RabbitMan_Hint7"
       }

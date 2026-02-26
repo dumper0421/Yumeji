@@ -1791,11 +1791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100316966863710185, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_Size.y
-      value: 6.70944
+      value: 7.406515
       objectReference: {fileID: 0}
     - target: {fileID: 8100316966863710185, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_Offset.y
-      value: 2.763053
+      value: 3.1115904
       objectReference: {fileID: 0}
     - target: {fileID: 8278232716379868184, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
       propertyPath: m_SortingLayer
@@ -2629,6 +2629,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 1115952508}
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Scequence1Scene3
+  puzzleId: Puzzle
   state: 0
   _bustAnimator: {fileID: 1154757942}
   _bloodAnimator: {fileID: 1684030439}
@@ -2872,6 +2873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edeb89319eaa9244830702a2bffb0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDontDestroyOnLoad: 1
 --- !u!1 &1449422755 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7037183210530273600, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}

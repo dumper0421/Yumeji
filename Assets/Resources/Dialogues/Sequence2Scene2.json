@@ -91,7 +91,7 @@
     "speaker": "하루",
     "lines": [
       {
-        "text": "음…",
+        "text": "음...",
         "showPortrait": true,
         "nextId": "TicketBooth04"
       }
@@ -145,7 +145,11 @@
     "lines": [
       {
         "text": "네. 볼게요. 한 장 주세요.",
-        "showPortrait": true,
+        "showPortrait": true
+      },
+      {
+        "text": "영화 티켓을 얻었다.",
+        "showPortrait": false,
         "nextId": "TicketBooth_Received"
       }
     ]

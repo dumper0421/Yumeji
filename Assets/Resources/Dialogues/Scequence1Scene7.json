@@ -21,7 +21,7 @@
     "speaker": "",
     "lines": [
       { "text": "서랍 안쪽, 다른 물건은 없이 성냥 한 개비만 덩그러니 놓여있다.", "showPortrait": true ,"nextId":"GetMatch"},
-      { "text": "‘성냥’ 아이템 습득", "showPortrait": false }
+      { "text": "성냥을 얻었다.", "showPortrait": false }
     ]
   },  
   {
@@ -35,9 +35,7 @@
     "id": "PaintingA",
     "speaker": "",
     "lines": [
-      { "text": "시간이 흘러내리고 있는 기묘한 상상력의 그림이다.", "showPortrait": true },
-      { "text": "기억 또한 시간의 흐름 속에서 서서히 일그러져,", "showPortrait": true },
-      { "text": "마침내 녹아내릴지도 모른다.", "showPortrait": true }
+      { "text": "시간이 흘러내리고 있는 기묘한 상상력의 그림이다.", "showPortrait": true }
     ]
   },
   {
@@ -45,7 +43,7 @@
     "speaker": "",
     "lines": [
       { "text": "늦은 밤, 도시의 한구석을 밝히는 식당을 그린 그림이다.", "showPortrait": true },
-      { "text": "창 안의 사람들은 서로에게 무심한 듯, 각자의 시간에 잠겨있는 듯하다.", "showPortrait": true }
+      { "text": "창 안의 사람들은 각자의 시간에 잠겨있는 듯하다.", "showPortrait": true }
     ]
   },
   {
@@ -100,10 +98,11 @@
     "id": "Bookshelf1_Illust_Earn",
     "speaker": "",
     "lines": [
-      { "text": "어둠이 내려앉은 해변인 듯한 배경 위로, 두 사람의 잔상이 남아있다.", "showPortrait": false },
-      { "text": "사진의 윗부분이 심하게 그을렸지만,", "showPortrait": false },
-      { "text": "그 순간의 온기만큼은 희미하게 전해져 오는 듯하다.", "showPortrait": false },
-      { "text": "‘그을린 사진’을 획득했다.", "showPortrait": false }
+      {
+        "text": "사진의 윗부분이 심하게 그을렸지만, 어떤 온기만큼은 희미하게 전해져 오는 듯한 사진이다.",
+        "showPortrait": false
+      },
+      { "text": "그을린 사진을 얻었다.", "showPortrait": false }
 
     ]
   },
