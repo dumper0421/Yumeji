@@ -152,6 +152,7 @@ public class InventoryManager : Singleton<InventoryManager>
     public void AddItem(ItemData data)
     {
         // 1) 이미 있는 아이템이면 수량만 증가
+
         var existing = _slots.Find(s => !s.IsEmpty && s.GetItemData().ItemName == data.ItemName);
         if (existing != null)
         {

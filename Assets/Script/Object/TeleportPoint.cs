@@ -92,6 +92,12 @@ public class TeleportPoint : MonoBehaviour
             Vector3 delta = TargetPoint - before;
             cinemachineBase.OnTargetObjectWarped(playerCol.transform, delta);
         }
+
+        if (GameManager.Instance.HasCompanion() && mover.Companion != null)
+        {
+            mover.Companion.StopAllCoroutines();
+            mover.Companion.ImmediatelySetPosition(TargetPoint - mover.vector, mover.vector);
+        }
     }
 
     private IEnumerator FadeTo(float targetAlpha, float duration)

@@ -233,4 +233,9 @@ public class GameManager : Singleton<GameManager>
         }
         return "";
     }
+
+    public bool HasCompanion()
+    {
+        return saveData_.CompanionName != "";
+    }
 }

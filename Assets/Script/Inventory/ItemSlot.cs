@@ -21,6 +21,7 @@ public class ItemSlot : MonoBehaviour
         IconImage.sprite = ResourceManager.Instance.Load<Sprite>("ItemIcon/" + data.ItemName);
         UpdateCountText();
         gameObject.SetActive(true);
+        Debug.Log(gameObject.name);
     }
 
     public void IncrementCount(int amount = 1)

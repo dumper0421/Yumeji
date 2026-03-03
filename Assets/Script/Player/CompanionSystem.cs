@@ -50,6 +50,14 @@ public class CompanionSystem : MonoBehaviour
         StartCoroutine(MoveCoroutine());
     }
 
+    public void ImmediatelySetPosition(Vector3 targetPos, Vector3 direction)
+    {
+        _animator.SetFloat("DirX", Direction.x);
+        _animator.SetFloat("DirY", Direction.y);
+
+        transform.position = targetPos;
+    }
+
     public IEnumerator MoveCoroutine()
     {
         _animator.SetFloat("DirX", Direction.x);
