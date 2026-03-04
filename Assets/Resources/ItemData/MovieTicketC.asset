@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673db5f514e154247bc0d9793fbc76dd, type: 3}
   m_Name: MovieTicketC
   m_EditorClassIdentifier: 
-  ItemId: 0
+  ItemId: 10
   ItemName: "'\uD558\uB098 \uD639\uC740 \uB458' \uD2F0\uCF13"
   Description: "\uC601\uD654 '\uD558\uB098 \uD639\uC740 \uB458'\uC758 \uC81C\uBAA9\uC774
     \uC778\uC1C4\uB41C \uD2F0\uCF13\uC774\uB2E4.  \uAD00\uB78C\uC88C\uC11D: E\uC5F4

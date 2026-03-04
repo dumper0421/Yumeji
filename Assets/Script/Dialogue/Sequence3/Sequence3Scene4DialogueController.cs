@@ -12,6 +12,8 @@ public enum S3S4State
 }
 public class Sequence3Scene4DialogueController : DialogueController<S3S4State>
 {
+    [SerializeField] private ReiMoveController layDialogueMover;
+
 
     protected override void Awake()
     {
@@ -19,7 +21,18 @@ public class Sequence3Scene4DialogueController : DialogueController<S3S4State>
     }
     protected override void HandleDialogueEnd(string dialogueId)
     {
+        if (dialogueId == "Lay_Dialogue04")
+        {
+            if (layDialogueMover == null)
+            {
+                Debug.LogWarning("[S3S4] layDialogueMover가 비었다.");
+                return;
+            }
+
+            layDialogueMover.Play();
+        }
     }
+
 
     public void StopPlayer()
     {
