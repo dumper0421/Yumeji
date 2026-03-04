@@ -47,22 +47,19 @@ public class Sequence2Scene2Controller : SceneController
     [SerializeField] private string yiyiLine1Id = "TicketC_01";
     [SerializeField] private string yiyiLine2Id = "TicketC_02";
 
-    [Header("Event - Ticket Item Names (Inventory)")]
-    [SerializeField] private string lilyTicketItemName = "MovieTicketA";
-    [SerializeField] private string mulTicketItemName = "MovieTicketB";
-    [SerializeField] private string yiyiTicketItemName = "MovieTicketC";
+
+    [Header("Event - Ticket Item IDs (Inventory)")]
+    [SerializeField] private int lilyTicketId = 8;
+    [SerializeField] private int mulTicketId = 9;
+    [SerializeField] private int yiyiTicketId = 10;
 
     [SerializeField] private string nextSceneName;
-
 
     private bool eventRunning = false;
     private Coroutine flickerCo;
 
-
     private void Awake()
     {
-        
-
         if (Player != null && playerAction == null)
             playerAction = Player.GetComponent<PlayerActionController>();
 
@@ -147,15 +144,15 @@ public class Sequence2Scene2Controller : SceneController
         if (!string.IsNullOrEmpty(line1))
             yield return StartDialogueAndWait(line1);
 
-        // 3-2) 플레이어가 넘기고 나면 5초 → 두 번째 대사
+        // 3-2) 플레이어가 넘기고 나면 3초 → 두 번째 대사
         yield return new WaitForSeconds(3f);
         if (!string.IsNullOrEmpty(line2))
             yield return StartDialogueAndWait(line2);
 
-        // 4) 두 번째 대사 넘기면 점멸 5초 더
+        // 4) 두 번째 대사 넘기면 점멸 3초 더
         yield return new WaitForSeconds(3f);
 
-        // 4-2) 2초 페이드아웃 (완전 암전)
+        // 4-2) 5초 페이드아웃 (완전 암전)
         yield return FadeTo(1f, 5f);
 
         // 4-3) 사운드도 종료(페이드아웃 끝날 때 멎게)
@@ -175,12 +172,9 @@ public class Sequence2Scene2Controller : SceneController
         if (playerMoveTestLerp != null)
             playerMoveTestLerp.canMove = !locked;
 
-        // “다시 상호작용키 누르면 앉기 풀림” 방지:
-        // 이벤트 중엔 PlayerActionController 자체를 꺼버리면 가장 확실했다.
+        // 이벤트 중엔 행동 컨트롤 차단
         if (playerAction != null)
-            playerAction.IsLockedByEvent = true;
-
-        
+            playerAction.IsLockedByEvent = locked;
     }
 
     private void PlayProjectorLoop(bool play)
@@ -240,18 +234,39 @@ public class Sequence2Scene2Controller : SceneController
         if (flickerImage != null) flickerImage.color = c;
     }
 
+    // ===== Ticket Check (by ItemId) =====
+
+    private bool HasItemId(int id)
+    {
+        var inv = InventoryManager.Instance;
+        if (inv == null || inv._slots == null) return false;
+
+        foreach (var slot in inv._slots)
+        {
+            if (slot == null || slot.IsEmpty) continue;
+
+            var item = slot.GetItemData();
+            if (item != null && item.ItemId == id)
+                return true;
+        }
+        return false;
+    }
+
     private (string line1, string line2) GetTicketDialoguePair()
     {
-        if (InventoryManager.Instance.HasItem(lilyTicketItemName))
-            return (lilyLine1Id, lilyLine2Id);
+        bool hasA = HasItemId(lilyTicketId);
+        bool hasB = HasItemId(mulTicketId);
+        bool hasC = HasItemId(yiyiTicketId);
 
-        if (InventoryManager.Instance.HasItem(mulTicketItemName))
-            return (mulLine1Id, mulLine2Id);
+        Debug.Log($"[TicketCheck] A id={lilyTicketId} => {hasA}");
+        Debug.Log($"[TicketCheck] B id={mulTicketId} => {hasB}");
+        Debug.Log($"[TicketCheck] C id={yiyiTicketId} => {hasC}");
 
-        if (InventoryManager.Instance.HasItem(yiyiTicketItemName))
-            return (yiyiLine1Id, yiyiLine2Id);
+        if (hasA) return (lilyLine1Id, lilyLine2Id);
+        if (hasB) return (mulLine1Id, mulLine2Id);
+        if (hasC) return (yiyiLine1Id, yiyiLine2Id);
 
-        Debug.Log("티켓없음");
+        Debug.Log("[TicketCheck] 티켓없음");
         return (lilyLine1Id, lilyLine2Id);
     }
 
@@ -261,6 +276,7 @@ public class Sequence2Scene2Controller : SceneController
             yield break;
 
         dialogueManager.StartDialogue(dialogueId);
+
         yield return new WaitUntil(() => !dialogueManager.isRunning);
     }
 

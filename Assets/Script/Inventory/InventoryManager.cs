@@ -173,6 +173,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
         int slotIndex = _slots.IndexOf(slot);
         MoveSelectBorderTo(slotIndex);
+
+        Debug.Log($"[AddItem] SO.name='{data.name}', ItemName='{data.ItemName}'");
     }
 
     public void MoveSelectBorder(int offset)
