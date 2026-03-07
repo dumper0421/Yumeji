@@ -65,6 +65,8 @@ public class Sequence2Scene2DialogueController : DialogueController<S2S2State>
             && selectedTicket != null)
         {
             InventoryManager.Instance.AddItem(selectedTicket);
+            //인벤토리 체크
+            Debug.Log($"[AddItem] added SO.name='{selectedTicket.name}'");
             state = S2S2State.TicketReceived;
 
             ticketBoothObject.StartDialogue = "TicketBooth_Received";
