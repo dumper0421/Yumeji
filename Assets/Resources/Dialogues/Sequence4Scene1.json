@@ -140,5 +140,18 @@
     "lines": [
       { "text": "이쪽으로 들어가시면 되겠습니다.", "showPortrait": true}
     ]
+  },
+    {
+    "id": "Statue",
+    "lines": [
+      { "text": "날개 돋친 머리 모양의 석상이다.", "showPortrait": false}
+    ]
+  },
+
+   {
+    "id": "StairBlockingRope",
+    "lines": [
+      { "text": "2층으로 향하는 계단이다. 지금은 차단 로프가 쳐져 있다.", "showPortrait": false}
+    ]
   }
 ]

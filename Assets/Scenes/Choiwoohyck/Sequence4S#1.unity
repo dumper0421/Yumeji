@@ -2181,6 +2181,7 @@ GameObject:
   - component: {fileID: 1090944837}
   - component: {fileID: 1090944836}
   - component: {fileID: 1090944835}
+  - component: {fileID: 1090944840}
   m_Layer: 6
   m_Name: Ken
   m_TagString: Untagged
@@ -2286,7 +2287,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.110916376}
+  m_Offset: {x: 0, y: 0.25151896}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2297,7 +2298,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 4.175113}
+  m_Size: {x: 2, y: 3.4502425}
   m_EdgeRadius: 0
 --- !u!212 &1090944839
 SpriteRenderer:
@@ -2351,6 +2352,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1090944840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090944833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1109036389 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7703343506138680696, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
@@ -3070,6 +3083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1480176182}
   - component: {fileID: 1480176183}
+  - component: {fileID: 1480176184}
   m_Layer: 6
   m_Name: Stair
   m_TagString: Untagged
@@ -3137,6 +3151,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.994308, y: 6.458063}
   m_EdgeRadius: 0
+--- !u!114 &1480176184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480176181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDisposable: 0
+  hasBeenInspected: 0
+  StartDialogue: StairBlockingRope
+  DialogueManager: {fileID: 603143303}
 --- !u!1001 &1529622687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11301,6 +11331,7 @@ GameObject:
   - component: {fileID: 5796171893446771880}
   - component: {fileID: 2292509418969841186}
   - component: {fileID: 5416310868292239202}
+  - component: {fileID: 6387768243465921143}
   m_Layer: 6
   m_Name: obj_sculpture_v2
   m_TagString: Untagged
@@ -11308,6 +11339,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6387768243465921143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387768243465921142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDisposable: 0
+  hasBeenInspected: 0
+  StartDialogue: Statue
+  DialogueManager: {fileID: 603143303}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
