@@ -1,0 +1,145 @@
+[
+  {
+    "id": "HotelBanquet_Haru_WherePeople",
+    "speaker": "하루",
+    "lines": [
+      { "text": "이게 다 뭐야…? 사람들은 어디 있어?", "showPortrait": true, "nextId": "HotelBanquet_Ray_TheyreHere" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Ray_TheyreHere",
+    "speaker": "레이",
+    "lines": [
+      { "text": "여기 있잖아. 다들 우릴 보고 웃으며 반겨 주고 있어. 안 보여?", "showPortrait": true, "nextId": "HotelBanquet_Haru_Mannequins" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Haru_Mannequins",
+    "speaker": "하루",
+    "lines": [
+      { "text": "정신 차려. 이건 마네킹이야, 플라스틱 덩어리라고. 설명을 좀 해봐.", "showPortrait": true, "nextId": "HotelBanquet_Ray_PhotoExhibit" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Ray_PhotoExhibit",
+    "speaker": "레이",
+    "lines": [
+      { "text": "이 분은 네 저번 사진전이 아주 인상적이었대.", "showPortrait": true },
+      { "text": "특히 그… 풍경 섹션이 특히 좋으셨다는데.", "showPortrait": true, "nextId": "HotelBanquet_Haru_WhatExhibit" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Haru_WhatExhibit",
+    "speaker": "하루",
+    "lines": [
+      { "text": "내 사진전? 내가 언제 그런 걸 했다고…", "showPortrait": true, "nextId": "HotelBanquet_Ray_WhySo" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Ray_WhySo",
+    "speaker": "레이",
+    "lines": [
+      { "text": "오늘 왜 이래? 그냥 즐기면 되는데.", "showPortrait": true, "nextId": "HotelBanquet_Haru_AskName" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Haru_AskName",
+    "speaker": "하루",
+    "lines": [
+      { "text": "… 잠시만, 네 이름이 뭐였지?", "showPortrait": true, "nextId": "HotelBanquet_Ray_YouDontKnow" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Ray_YouDontKnow",
+    "speaker": "레이",
+    "lines": [
+      { "text": "뭐라고 지금? 내 이름을 몰라?", "showPortrait": true, "nextId": "HotelBanquet_Haru_JustAnswer" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Haru_JustAnswer",
+    "speaker": "하루",
+    "lines": [
+      { "text": "그냥 한 번만 대답해줘.", "showPortrait": true, "nextId": "HotelBanquet_Ray_NameIsRay" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Ray_NameIsRay",
+    "speaker": "레이",
+    "lines": [
+      { "text": "레이.", "showPortrait": true, "nextId": "HotelBanquet_Haru_ThisIsSet" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Haru_ThisIsSet",
+    "speaker": "하루",
+    "lines": [
+      { "text": "레이… 내 말 잘 들어. 여기는 촬영장이야. 현실이 아니라고.", "showPortrait": true, "nextId": "HotelBanquet_Ray_WhatsSet" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Ray_WhatsSet",
+    "speaker": "레이",
+    "lines": [
+      { "text": "촬영장이라는 게 뭔데?", "showPortrait": true },
+      { "text": "무슨 말 하는 건지 모르겠어.", "showPortrait": true },
+      { "text": "여기 이 많은 사람들은 그럼 누군데?", "showPortrait": true, "nextId": "HotelBanquet_Haru_Pause" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Haru_Pause",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…", "showPortrait": true, "nextId": "HotelBanquet_Haru_LeaveToLook" }
+    ]
+  },
+  {
+    "id": "HotelBanquet_Haru_LeaveToLook",
+    "speaker": "하루",
+    "lines": [
+      { "text": "알았어, 잠시만. 난 잠시 둘러보고 올게. 여기 있어.", "showPortrait": true,"nextId":"Haru_Monologue"}
+    ]
+  },
+  {
+    "id": "Haru_Monologue",
+    "speaker": "하루",
+    "lines": [
+      { "text": "정신을 차리게 할만한 물건이 필요해. 한번 찾아보자.", "showPortrait": true}
+    ]
+  },
+  {
+    "id": "Lock_Door",
+    "lines":[{"text":"잠겼었던 문이 지금은 열려 있다."}]
+  },
+  {
+    "id": "Statue",
+    "lines": [
+      { "text": "날개 돋친 머리 모양의 석상이다."}
+    ]
+  },
+     {
+    "id": "Already_Hotelier",
+    "speaker":"호텔리어",
+    "lines": [
+      { "text": "이쪽으로 들어가시면 되겠습니다."}
+    ]
+  },
+     {
+    "id": "Mannequins",
+    "lines": [
+      { "text": "화려하게 굳어 있는 마네킹이다. 차가운 플라스틱 냄새가 난다."}
+    ]
+  },
+     {
+    "id": "Stage_Door",
+    "lines": [
+      { "text": "의심스러운 문이 굳게 잠겨 있다."}
+    ]
+  },
+   {
+    "id": "StairBlockingRope",
+    "lines": [
+      { "text": "2층으로 향하는 계단이다. 지금은 차단 로프가 쳐져 있다."}
+    ]
+  }
+]
