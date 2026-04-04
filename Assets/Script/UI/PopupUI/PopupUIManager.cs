@@ -16,6 +16,8 @@ public class PopupUIManager : Singleton<PopupUIManager>
     private LinkedList<PopupUI> activePopupList_ = new LinkedList<PopupUI>();
     private List<PopupUI> allPopupList_ = new List<PopupUI>();
 
+    [SerializeField] private SavePointFlashEffect currentSaveEffect_;
+
     private void Update()
     {
 
@@ -26,12 +28,17 @@ public class PopupUIManager : Singleton<PopupUIManager>
         ;
     }
 
+    public void RegisterSaveEffect(SavePointFlashEffect flashEffect)
+    {
+        currentSaveEffect_ = flashEffect;
+    }
+
     public void SetSaveConfirmationDialog(int slotNum, bool hasData)
     {
         if (confirmationDialog_.gameObject.activeSelf) return;
-        
+
         ConfirmationDialog saveDialog = confirmationDialog_.GetComponent<ConfirmationDialog>();
-        
+
         BlockImage.gameObject.SetActive(true);
         confirmationDialog_.gameObject.SetActive(true);
         activePopupList_.AddFirst(confirmationDialog_);
@@ -39,17 +46,15 @@ public class PopupUIManager : Singleton<PopupUIManager>
         Action denyAction = () => {
             saveDialog.gameObject.SetActive(false);
             BlockImage.gameObject.SetActive(false);
+            activePopupList_.Remove(confirmationDialog_);
         };
 
         Action confirmAction = () => {
-            SaveLoadManager.Instance.SaveGame(slotNum);
-            saveLoadPopup_.GetComponent<SaveLoadPopup>().AllUpdateSaveSlot();
-            saveDialog.gameObject.SetActive(false);
-            BlockImage.gameObject.SetActive(false);
+            StartCoroutine(CoSaveWithEffect(slotNum, saveDialog));
         };
 
         saveDialog.SetAction(confirmAction, denyAction);
-        if(hasData)
+        if (hasData)
             saveDialog.SetContentText("현재 진행 상황을" + System.Environment.NewLine + "슬롯에 덮어쓰기합니다.");
         else
             saveDialog.SetContentText("현재 진행 상황을 저장합니다.");
@@ -64,6 +69,34 @@ public class PopupUIManager : Singleton<PopupUIManager>
         saveLoadPopup_.gameObject.SetActive(true);
         activePopupList_.AddFirst(saveLoadPopup_);
         saveLoadPopup_.GetComponent<SaveLoadPopup>().SwitchSaveLoadUI(isSave);
+    }
+
+    private IEnumerator CoSaveWithEffect(int slotNum, ConfirmationDialog saveDialog)
+    {
+        // 1. 먼저 UI 닫기
+        saveDialog.gameObject.SetActive(false);
+
+        if (saveLoadPopup_ != null)
+            saveLoadPopup_.gameObject.SetActive(false);
+
+        if (BlockImage != null)
+            BlockImage.gameObject.SetActive(false);
+
+        activePopupList_.Remove(confirmationDialog_);
+        activePopupList_.Remove(saveLoadPopup_);
+
+        // 2. UI가 실제로 화면에서 사라진 뒤 연출이 보이도록 한 프레임 대기
+        yield return null;
+
+        // 3. 저장 연출 실행
+        if (currentSaveEffect_ != null)
+            yield return StartCoroutine(currentSaveEffect_.PlayEffect());
+
+        // 4. 실제 저장
+        SaveLoadManager.Instance.SaveGame(slotNum);
+
+        // 5. 슬롯 정보 갱신
+        saveLoadPopup_.GetComponent<SaveLoadPopup>().AllUpdateSaveSlot();
     }
 
     public void CloseTopPopUp()

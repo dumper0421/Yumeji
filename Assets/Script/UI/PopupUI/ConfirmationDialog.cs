@@ -30,7 +30,7 @@ public class ConfirmationDialog : PopupUI
         {
             gameObject.SetActive(false);
         }
-
+        
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (_selectbutton == confirmButton_) 
