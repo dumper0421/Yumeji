@@ -88,6 +88,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         if (actionController == null || !actionController.IsPushing)
             canMove = true;
     }
+    
 
     void Update()
     {
@@ -231,5 +232,44 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     {
         Companion = null;
         GameManager.Instance.InitCompanion();
+    }
+
+    public IEnumerator MoveToPositionCoroutine(Vector3 targetPos, float speed = 1)
+    {
+        canMove = false;
+
+        Vector3 startPos = transform.position;
+        Vector3 dir = (targetPos - startPos).normalized;
+
+        animator.SetFloat("DirX", dir.x);
+        animator.SetFloat("DirY", dir.y);
+
+        animator.SetBool("Walking", true);
+        animator.SetFloat("AnimSpeed", 1);
+
+        if (Companion != null)
+            Companion.MoveSpeed = speed;
+
+        while (Vector3.Distance(transform.position, targetPos) > 0.01f)
+        {
+            Vector3 moveDir = (targetPos - transform.position).normalized;
+
+            animator.SetFloat("DirX", moveDir.x);
+            animator.SetFloat("DirY", moveDir.y);
+
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPos,
+                speed * Time.deltaTime
+            );
+
+            yield return null;
+        }
+
+        transform.position = targetPos;
+
+        animator.SetBool("Walking", false);
+
+        canMove = true;
     }
 }

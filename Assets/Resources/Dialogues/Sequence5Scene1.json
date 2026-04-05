@@ -1,0 +1,84 @@
+[
+  {
+    "id": "Sequence5Scene1_Ray_OnlyToday",
+    "speaker": "레이",
+    "lines": [
+      { "text": "딱 오늘 하루만이야.", "showPortrait": true },
+      { "text": "원래 무대 뒤로 들어가는 건 금지되어 있거든.", "showPortrait": true, "nextId": "Sequence5Scene1_Haru_Backstage" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Haru_Backstage",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…너 뭐라고 했어? 무대 뒤라고?", "showPortrait": true, "nextId": "Sequence5Scene1_Ray_YesStage" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Ray_YesStage",
+    "speaker": "레이",
+    "lines": [
+      { "text": "그래, 네 말대로야. 여긴 하나의 무대가 맞아.", "showPortrait": true, "nextId": "Sequence5Scene1_Haru_ExplainHotel" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Haru_ExplainHotel",
+    "speaker": "하루",
+    "lines": [
+      { "text": "이해할 수 있게 말해줘. 아까는 분명 호텔이라고 네가 그랬잖아.", "showPortrait": true, "nextId": "Sequence5Scene1_Ray_WhatsImportant" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Ray_WhatsImportant",
+    "speaker": "레이",
+    "lines": [
+      { "text": "글쎄, 뭐가 중요해?", "showPortrait": true },
+      { "text": "어차피 문을 열면 나타나는 건 똑같을 텐데.", "showPortrait": true, "nextId": "Sequence5Scene1_Haru_WhatsBeyondDoor" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Haru_WhatsBeyondDoor",
+    "speaker": "하루",
+    "lines": [
+      { "text": "똑같다니. 저 문 너머엔 뭐가 있는데? 밖으로 나가는 길이야?", "showPortrait": true, "nextId": "Sequence5Scene1_Ray_NotExit" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Ray_NotExit",
+    "speaker": "레이",
+    "lines": [
+      { "text": "아쉽지만 아니야.", "showPortrait": true, "nextId": "Sequence5Scene1_Haru_ThenWhere" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Haru_ThenWhere",
+    "speaker": "하루",
+    "lines": [
+      { "text": "그럼 어디로 들어가는 건데? 나가는 길이 아니면?", "showPortrait": true, "nextId": "Sequence5Scene1_Ray_AlwaysCurious" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Ray_AlwaysCurious",
+    "speaker": "레이",
+    "lines": [
+      { "text": "사실… 예전부터 꼭 한 번 들어가보고 싶었어.", "showPortrait": true, "nextId": "Sequence5Scene1_Haru_What" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Haru_What",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…뭐라고?", "showPortrait": true, "nextId": "Sequence5Scene1_Ray_WhatsHidden" }
+    ]
+  },
+  {
+    "id": "Sequence5Scene1_Ray_WhatsHidden",
+    "speaker": "레이",
+    "lines": [
+      { "text": "이 무대 뒤편엔 대체 뭐가 숨겨져 있는지 항상 궁금했거든.", "showPortrait": true },
+      { "text": "연회가 끝나고 나면 다들 어디로 사라지는지도.", "showPortrait": true },
+      { "text": "너가 찾아준 열쇠 덕분에 오늘 들어갈 수 있게 됐어.", "showPortrait": true },
+      { "text": "조심해서 따라와.", "showPortrait": true }
+    ]
+  }
+]
