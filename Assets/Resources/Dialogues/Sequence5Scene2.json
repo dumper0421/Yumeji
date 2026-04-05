@@ -1,0 +1,169 @@
+[
+  {
+    "id": "SummerWindFilm_01",
+    "lines": [
+      {
+        "text": "'<여름 바람> 필름을 얻었다.'",
+        "showPortrait": false,
+        "nextId": "SummerWindFilm_02"
+      }
+    ]
+  },
+  {
+    "id": "SummerWindFilm_02",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…<여름 바람>?",
+        "showPortrait": true,
+        "nextId": "SummerWindFilm_03"
+      }
+    ]
+  },
+  {
+    "id": "SummerWindFilm_03",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "말도 안 돼. 이게 왜 여기에…",
+        "showPortrait": true,
+        "nextId": "SummerWindFilm_04"
+      }
+    ]
+  },
+  {
+    "id": "SummerWindFilm_04",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "내가 대학 때 루나랑 찍었던 단편 영화잖아…?",
+        "showPortrait": true,
+        "nextId": "SummerWindFilm_05"
+      }
+    ]
+  },
+  {
+    "id": "SummerWindFilm_05",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "분명히 사진관에 두었을 텐데…",
+        "showPortrait": true,
+        "nextId": "SummerWindFilm_06"
+      }
+    ]
+  },
+  {
+    "id": "SummerWindFilm_06",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "레이! 이리 와서 이것 좀 봐!",
+        "showPortrait": true,
+        "nextId": "SummerWindFilm_07"
+      }
+    ]
+  },
+  {
+    "id": "SummerWindFilm_07",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "사진관에 있던 게 왜 여기에…",
+        "showPortrait": true
+      }
+    ]
+  },
+   {
+    "id": "Piano_01",
+    "lines": [
+      {
+        "text": "건반이 돌덩이처럼 굳어서 아예 눌리질 않는다.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "ReyBeforeFilm_01",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "8년 전 그 영화제의 트로피가 여기 있었을 줄이야.",
+        "showPortrait": true,
+        "nextId": "ReyBeforeFilm_02"
+      }
+    ]
+  },
+  {
+    "id": "ReyBeforeFilm_02",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "무슨 영화제? 트로피라기엔 너무 기형적으로 커보이는데?",
+        "showPortrait": true,
+        "nextId": "ReyBeforeFilm_03"
+      }
+    ]
+  },
+  {
+    "id": "ReyBeforeFilm_03",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그러게. 원래는 한 손에 들어올 만큼 작았는데.",
+        "showPortrait": true,
+        "nextId": "ReyBeforeFilm_04"
+      }
+    ]
+  },
+  {
+    "id": "ReyBeforeFilm_04",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "애초에 그 트로피가 왜 여기 있는 건데?",
+        "showPortrait": true,
+        "nextId": "ReyBeforeFilm_05"
+      }
+    ]
+  },
+  {
+    "id": "ReyBeforeFilm_05",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "글쎄… 나도 모르겠어 그건.",
+        "showPortrait": true,
+        "nextId": "ReyBeforeFilm_06"
+      }
+    ]
+  },
+  {
+    "id": "ReyBeforeFilm_06",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "난 이걸 좀 더 보고 있을 테니까, 먼저 둘러보고 와.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "DoorBeforeFilmBeforeChase_01",
+    "lines": [
+      {
+        "text": "조금 더 방을 둘러봐야할 것 같다.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "MemoByFilmWall_01",
+    "lines": [
+      {
+        "text": "‘연출된 여정과 사적인 기억이 하나의 길 위에서 함께 서식하는, 눈부신 여름의 질감’. 별 네 개.",
+        "showPortrait": false
+      }
+    ]
+  }
+]
