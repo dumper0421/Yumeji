@@ -71,9 +71,10 @@ public class PopupUIManager : Singleton<PopupUIManager>
         saveLoadPopup_.GetComponent<SaveLoadPopup>().SwitchSaveLoadUI(isSave);
     }
 
+    //세이브 연출
     private IEnumerator CoSaveWithEffect(int slotNum, ConfirmationDialog saveDialog)
     {
-        // 1. 먼저 UI 닫기
+        // UI 닫기
         saveDialog.gameObject.SetActive(false);
 
         if (saveLoadPopup_ != null)
@@ -85,17 +86,17 @@ public class PopupUIManager : Singleton<PopupUIManager>
         activePopupList_.Remove(confirmationDialog_);
         activePopupList_.Remove(saveLoadPopup_);
 
-        // 2. UI가 실제로 화면에서 사라진 뒤 연출이 보이도록 한 프레임 대기
+        // 프레임 대기
         yield return null;
 
-        // 3. 저장 연출 실행
+        //  저장 연출 실행->세이브오브젝트에서
         if (currentSaveEffect_ != null)
             yield return StartCoroutine(currentSaveEffect_.PlayEffect());
 
-        // 4. 실제 저장
+       
         SaveLoadManager.Instance.SaveGame(slotNum);
 
-        // 5. 슬롯 정보 갱신
+        
         saveLoadPopup_.GetComponent<SaveLoadPopup>().AllUpdateSaveSlot();
     }
 

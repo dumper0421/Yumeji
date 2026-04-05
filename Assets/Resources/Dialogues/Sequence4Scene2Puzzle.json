@@ -53,5 +53,141 @@
         "text": "먼지 쌓인 잡동사니들이 가득한 선반이다. 별로 건드리고 싶지 않다."
       }
     ]
+
+  },
+  {
+    "id": "hanger_noMask",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "각종 의상과 소품이 걸린 행거다.",
+        "showPortrait": true
+      },
+      {
+        "text": "소품을 하나 챙겨볼까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      {
+        "text": "챙긴다",
+        "nextId": "hanger_pickMask",
+        "hasIntermediateAction": false
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End",
+        "hasIntermediateAction": false
+      }
+    ]
+  },
+  {
+    "id": "hanger_pickMask",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "어느 것을 가져갈까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      {
+        "text": "검은색 깃털이 달린 검은색 가면",
+        "nextId": "hanger_blackBlack_get",
+        "hasIntermediateAction": true
+      },
+      {
+        "text": "흰색 깃털이 달린 검은색 가면",
+        "nextId": "hanger_whiteBlack_get",
+        "hasIntermediateAction": true
+      },
+      {
+        "text": "흰색 깃털이 달린 흰색 가면",
+        "nextId": "hanger_whiteWhite_get",
+        "hasIntermediateAction": true
+      }
+    ]
+  },
+  {
+    "id": "hanger_hasMask",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "각종 의상과 소품이 걸린 행거다.",
+        "showPortrait": true
+      },
+      {
+        "text": "들고 있는 가면을 다시 걸어둘까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      {
+        "text": "걸어둔다",
+        "nextId": "hanger_putBack",
+        "hasIntermediateAction": true
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End",
+        "hasIntermediateAction": false
+      }
+    ]
+  },
+  {
+    "id": "hanger_blackBlack_get",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "검은색 깃털이 달린 검은색 가면을 얻었다.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "hanger_whiteBlack_get",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "흰색 깃털이 달린 검은색 가면을 얻었다.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "hanger_whiteWhite_get",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "흰색 깃털이 달린 흰색 가면을 얻었다.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "hanger_putBack",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "가면을 다시 걸어두었다.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+
+  {
+    "id": "mannequin1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "가면을 쓰지 않은 여자 마네킹이 슬픈 표정으로 서 있다."
+      },
+      {
+        "text": "이 마네킹을 위해 무언가 해줄 수 있는 게 있을까?"
+      }
+    ]
   }
+
 ]
+

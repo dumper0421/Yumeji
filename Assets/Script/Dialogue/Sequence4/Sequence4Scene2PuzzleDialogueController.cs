@@ -4,17 +4,23 @@ using System.Drawing.Drawing2D;
 using UnityEngine;
 public enum S4S2PuzzleState
 {
-
+    None
 }
 public class Sequence4Scene2PuzzleDialogueController : DialogueController<S4S2PuzzleState>
 {
-
+    [Header("Shelf")]
     public ItemData ScriptPage;
     public GameObject InteractionLight;
     public DialogueObject shelfObject;
 
+    [Header("Hanger Masks")]
+    public ItemData BlackFeatherBlackMask;
+    public ItemData WhiteFeatherBlackMask;
+    public ItemData WhiteFeatherWhiteMask;
+
     protected override void ApplyWorldByState() 
     {
+        
     }
 
     protected override void HandleDialogueEnd(string dialogueId)

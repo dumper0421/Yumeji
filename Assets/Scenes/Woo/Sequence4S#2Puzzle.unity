@@ -393,7 +393,7 @@ SpriteRenderer:
   m_SortingLayerID: 1277631547
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 807dcc132cb099843a3d2b5f3f4dab1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bb35e41455bcf74e87b50073151c27a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1336,6 +1336,9 @@ MonoBehaviour:
   ScriptPage: {fileID: 11400000, guid: 0f8ec058383843145bb9839070c30125, type: 2}
   InteractionLight: {fileID: 1145936746}
   shelfObject: {fileID: 2026735472}
+  BlackFeatherBlackMask: {fileID: 0}
+  WhiteFeatherBlackMask: {fileID: 0}
+  WhiteFeatherWhiteMask: {fileID: 0}
 --- !u!1 &905651364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2858,7 @@ GameObject:
   - component: {fileID: 1371947988}
   - component: {fileID: 1371947990}
   - component: {fileID: 1371947991}
+  - component: {fileID: 1371947992}
   m_Layer: 6
   m_Name: OBJ_mannequin_mask_v1
   m_TagString: Untagged
@@ -2903,7 +2907,7 @@ SpriteRenderer:
   m_SortingLayerID: 1277631547
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 807dcc132cb099843a3d2b5f3f4dab1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82ee1d7e7ea980948b2018d42f9f7a0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2986,6 +2990,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1371947992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371947987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDisposable: 0
+  hasBeenInspected: 0
+  StartDialogue: mannequin1
+  DialogueManager: {fileID: 603143303}
 --- !u!1 &1417940018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,6 +3018,7 @@ GameObject:
   - component: {fileID: 1417940020}
   - component: {fileID: 1417940019}
   - component: {fileID: 1417940022}
+  - component: {fileID: 1417940023}
   m_Layer: 6
   m_Name: "\uD5F9\uAC70"
   m_TagString: Untagged
@@ -3129,6 +3150,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1417940023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417940018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDisposable: 0
+  hasBeenInspected: 0
+  StartDialogue: hanger_noMask
+  DialogueManager: {fileID: 603143303}
 --- !u!1 &1443102889
 GameObject:
   m_ObjectHideFlags: 0
