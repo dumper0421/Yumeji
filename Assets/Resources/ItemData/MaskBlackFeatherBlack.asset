@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673db5f514e154247bc0d9793fbc76dd, type: 3}
+  m_Name: MaskBlackFeatherBlack
+  m_EditorClassIdentifier: 
+  ItemId: 12
+  ItemName: "\uAC80\uC740\uC0C9 \uAE43\uD138\uC774 \uB2EC\uB9B0 \uAC80\uC740\uC0C9
+    \uAC00\uBA74"
+  Description: "\uAC80\uC740\uC0C9 \uAE43\uD138\uC774 \uB2EC\uB9B0 \uAC80\uC740\uC0C9
+    \uAC00\uBA74"
+  IsConsumable: 0

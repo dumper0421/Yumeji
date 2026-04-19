@@ -56,6 +56,188 @@
 
   },
   {
+    "id": "table_noGlass",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "두 개의 샴페인 잔이 놓여있다."
+      },
+      {
+        "text": "한 잔은 비어 있고, 한 잔은 가득 차 있다."
+      },
+      {
+        "text": "빈 샴페인 잔을 주울까?"
+      }
+    ],
+    "options": [
+      {
+        "text": "줍는다",
+        "nextId": "table_getEmptyGlass"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "table_getEmptyGlass",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "빈 샴페인 잔을 얻었다."
+      }
+    ]
+  },
+  {
+    "id": "table_hasEmptyGlass",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "지금은 샴페인 잔이 하나만 놓여있다."
+      }
+    ]
+  },
+  {
+    "id": "table_hasFullGlass",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "지금은 샴페인 잔이 하나만 놓여있다."
+      },
+      {
+        "text": "가득 찬 샴페인 잔을 놓을까?"
+      }
+    ],
+    "options": [
+      {
+        "text": "놓는다",
+        "nextId": "table_putFullGlass"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "table_putFullGlass",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "테이블에 가득 찬 샴페인 잔을 놓았다."
+      }
+    ]
+  },
+  {
+    "id": "table_afterSet",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "두 잔의 샴페인이 대칭을 이룬다. 마음이 편안해졌다."
+      }
+    ]
+  },
+  {
+    "id": "waterLeak_default",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "천장의 작은 구멍으로부터 정체 모를 액체가 떨어지고 있다."
+      }
+    ]
+  },
+  {
+    "id": "waterLeak_fillAsk",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "천장의 작은 구멍으로부터 정체 모를 액체가 떨어지고 있다."
+      },
+      {
+        "text": "빈 샴페인 잔에 액체를 채워볼까?"
+      }
+    ],
+    "options": [
+      {
+        "text": "채운다",
+        "nextId": "waterLeak_filled"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "waterLeak_filled",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "빈 샴페인 잔에 액체가 가득 찼다. 눈으로 보기에는 샴페인이 담긴 잔처럼 보인다."
+      },
+      {
+        "text": "가득 찬 샴페인 잔을 얻었다."
+      }
+    ]
+  },
+  {
+    "id": "light1_off",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "꺼진 조명이다. 조명을 켜볼까?"
+      }
+    ],
+    "options": [
+      {
+        "text": "조명을 켠다",
+        "nextId": "light1_on"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "light1_on",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "조명의 스위치를 눌렀다. 조명이 켜졌다."
+      }
+    ]
+  },
+  {
+    "id": "light2_off",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "꺼진 조명이다. 조명을 켜볼까?"
+      }
+    ],
+    "options": [
+      {
+        "text": "조명을 켠다",
+        "nextId": "light2_on"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "light2_on",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "조명의 스위치를 눌렀다. 조명이 켜졌다."
+      }
+    ]
+  },
+  {
     "id": "hanger_noMask",
     "speaker": "하루",
     "lines": [
@@ -71,13 +253,11 @@
     "options": [
       {
         "text": "챙긴다",
-        "nextId": "hanger_pickMask",
-        "hasIntermediateAction": false
+        "nextId": "hanger_pickMask"
       },
       {
         "text": "그만둔다",
-        "nextId": "End",
-        "hasIntermediateAction": false
+        "nextId": "End"
       }
     ]
   },
@@ -93,18 +273,15 @@
     "options": [
       {
         "text": "검은색 깃털이 달린 검은색 가면",
-        "nextId": "hanger_blackBlack_get",
-        "hasIntermediateAction": true
+        "nextId": "hanger_blackBlack_get"
       },
       {
         "text": "흰색 깃털이 달린 검은색 가면",
-        "nextId": "hanger_whiteBlack_get",
-        "hasIntermediateAction": true
+        "nextId": "hanger_whiteBlack_get"
       },
       {
         "text": "흰색 깃털이 달린 흰색 가면",
-        "nextId": "hanger_whiteWhite_get",
-        "hasIntermediateAction": true
+        "nextId": "hanger_whiteWhite_get"
       }
     ]
   },
@@ -124,13 +301,11 @@
     "options": [
       {
         "text": "걸어둔다",
-        "nextId": "hanger_putBack",
-        "hasIntermediateAction": true
+        "nextId": "hanger_putBack"
       },
       {
         "text": "그만둔다",
-        "nextId": "End",
-        "hasIntermediateAction": false
+        "nextId": "End"
       }
     ]
   },
@@ -187,7 +362,52 @@
         "text": "이 마네킹을 위해 무언가 해줄 수 있는 게 있을까?"
       }
     ]
+  },
+  {
+    "id": "mannequin2_default",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "마네킹이다. 별다른 특징은 없어 보인다."
+      }
+    ]
+  },
+  {
+    "id": "mannequin2_poseCorrect",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "마네킹이 어딘가 편안해 보인다."
+      }
+    ]
+  },
+  {
+    "id": "mannequinPoseButton",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "정체를 알 수 없는 버튼이 있다. 눌러볼까?"
+      }
+    ],
+    "options": [
+      {
+        "text": "누른다",
+        "nextId": "mannequinPoseButton_pressed"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "mannequinPoseButton_pressed",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "눌렀다."
+      }
+    ]
   }
-
 ]
 

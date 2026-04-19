@@ -147,7 +147,7 @@ TextureImporter:
       name: ANI_waterLeak_v1_5
       rect:
         serializedVersion: 2
-        x: 133
+        x: 132
         y: 0
         width: 120
         height: 256
@@ -231,7 +231,7 @@ TextureImporter:
       name: ANI_waterLeak_v1_9
       rect:
         serializedVersion: 2
-        x: 645
+        x: 644
         y: 0
         width: 120
         height: 256
