@@ -1373,7 +1373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3907,7 +3907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5142,7 +5142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5780,6 +5780,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1083270701}
     m_Modifications:
+    - target: {fileID: 6432390204892746347, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 200989479b8b69b48acbe3af6977b127, type: 3}
     - target: {fileID: 7843715912866423326, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_Name
       value: OBJ_bigPot (1)
@@ -5996,6 +6000,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1083270701}
     m_Modifications:
+    - target: {fileID: 6432390204892746347, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 200989479b8b69b48acbe3af6977b127, type: 3}
     - target: {fileID: 7843715912866423326, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_Name
       value: OBJ_bigPot (2)
@@ -18458,7 +18466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19101,7 +19109,7 @@ Transform:
   m_GameObject: {fileID: 1643186722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
