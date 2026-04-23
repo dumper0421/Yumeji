@@ -9,6 +9,8 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     [SerializeField] private float speed_ = 1f;
     [SerializeField] private float runSpeed_ = 2f;
+    [SerializeField] private float originSpeed = 1f;
+
 
     public Vector3 vector;
     [HideInInspector] public bool canMove = true;
@@ -271,5 +273,18 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         animator.SetBool("Walking", false);
 
         canMove = true;
+    }
+
+    public void ChangeSpeed(float speed, float runSpeed)
+    {
+        originSpeed = speed_;
+        speed_ = speed;
+        runSpeed_ = runSpeed;
+    }
+
+    public void RevertSpeed()
+    {
+        speed_ = originSpeed;
+        runSpeed_ = speed_ * 2;
     }
 }

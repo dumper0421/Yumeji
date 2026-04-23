@@ -1,4 +1,3 @@
-// EnemyPathfinder.cs
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ public class EnemyPathfinder : MonoBehaviour
     {
         public bool isWall;
         public Node parent;
-        public int x, y;   // grid coord
+        public int x, y;
         public int g, h;
         public int f => g + h;
 
@@ -36,7 +35,6 @@ public class EnemyPathfinder : MonoBehaviour
     [Header("Grid Mapping")]
     public float cellSize = 1f;
 
-
     [SerializeField] private Vector2 cellOffset = new Vector2(0.5f, 0f);
 
     [Header("Obstacle Check")]
@@ -47,8 +45,27 @@ public class EnemyPathfinder : MonoBehaviour
 
     private int sizeX, sizeY;
     private Node[,] nodes;
-
     private int obstacleMask;
+
+    private static readonly Vector2Int[] CardinalDirs =
+    {
+        new Vector2Int(1, 0),
+        new Vector2Int(-1, 0),
+        new Vector2Int(0, 1),
+        new Vector2Int(0, -1)
+    };
+
+    private static readonly Vector2Int[] AllDirs =
+    {
+        new Vector2Int(1, 0),
+        new Vector2Int(-1, 0),
+        new Vector2Int(0, 1),
+        new Vector2Int(0, -1),
+        new Vector2Int(1, 1),
+        new Vector2Int(-1, 1),
+        new Vector2Int(-1, -1),
+        new Vector2Int(1, -1)
+    };
 
     private void Awake()
     {
@@ -67,7 +84,7 @@ public class EnemyPathfinder : MonoBehaviour
         return new Vector2(grid.x * cellSize + cellOffset.x, grid.y * cellSize + cellOffset.y);
     }
 
-    public Vector2 PathFinding()
+    public bool TryGetNextWorld(out Vector2 nextWorld)
     {
         startPos.x = Mathf.Clamp(startPos.x, bottomLeft.x, topRight.x);
         startPos.y = Mathf.Clamp(startPos.y, bottomLeft.y, topRight.y);
@@ -102,10 +119,12 @@ public class EnemyPathfinder : MonoBehaviour
         target.isWall = false;
 
         start.g = 0;
-        start.h = (Mathf.Abs(start.x - target.x) + Mathf.Abs(start.y - target.y)) * 10;
+        start.h = Heuristic(start, target);
 
         List<Node> open = new List<Node> { start };
         HashSet<Node> closed = new HashSet<Node>();
+
+        Node bestNode = start;
 
         while (open.Count > 0)
         {
@@ -113,45 +132,24 @@ public class EnemyPathfinder : MonoBehaviour
             for (int k = 1; k < open.Count; k++)
             {
                 Node n = open[k];
-                bool better =
-                    n.f < cur.f ||
-                    (n.f == cur.f && n.h < cur.h);
-                if (better) cur = n;
+                bool better = n.f < cur.f || (n.f == cur.f && n.h < cur.h);
+                if (better)
+                    cur = n;
             }
 
             open.Remove(cur);
             closed.Add(cur);
 
+            if (cur.h < bestNode.h || (cur.h == bestNode.h && cur.g < bestNode.g))
+                bestNode = cur;
+
             if (cur == target)
             {
-                Node p = target;
-                while (p != null && p != start)
-                {
-                    FinalNodeList.Add(p);
-                    p = p.parent;
-                }
-                FinalNodeList.Add(start);
-                FinalNodeList.Reverse();
-
-                if (FinalNodeList.Count >= 2)
-                {
-                    Node nxt = FinalNodeList[1];
-                    return GridToWorld(new Vector2Int(nxt.x, nxt.y));
-                }
-
-                return GridToWorld(new Vector2Int(start.x, start.y));
+                nextWorld = BuildNextStepWorld(start, target);
+                return true;
             }
 
-            Vector2Int[] dirs = allowDiagonal
-                ? new Vector2Int[]
-                {
-                    new Vector2Int(1,0), new Vector2Int(-1,0), new Vector2Int(0,1), new Vector2Int(0,-1),
-                    new Vector2Int(1,1), new Vector2Int(-1,1), new Vector2Int(-1,-1), new Vector2Int(1,-1)
-                }
-                : new Vector2Int[]
-                {
-                    new Vector2Int(1,0), new Vector2Int(-1,0), new Vector2Int(0,1), new Vector2Int(0,-1)
-                };
+            Vector2Int[] dirs = allowDiagonal ? AllDirs : CardinalDirs;
 
             foreach (var d in dirs)
             {
@@ -180,14 +178,59 @@ public class EnemyPathfinder : MonoBehaviour
                 if (cost < nb.g)
                 {
                     nb.g = cost;
-                    nb.h = (Mathf.Abs(nb.x - target.x) + Mathf.Abs(nb.y - target.y)) * 10;
+                    nb.h = Heuristic(nb, target);
                     nb.parent = cur;
-                    if (!open.Contains(nb)) open.Add(nb);
+
+                    if (!open.Contains(nb))
+                        open.Add(nb);
                 }
             }
         }
 
+        if (bestNode != null && bestNode != start)
+        {
+            nextWorld = BuildNextStepWorld(start, bestNode);
+            return true;
+        }
+
+        nextWorld = GridToWorld(startPos);
+        return false;
+    }
+
+    public Vector2 PathFinding()
+    {
+        if (TryGetNextWorld(out Vector2 nextWorld))
+            return nextWorld;
+
         return GridToWorld(startPos);
+    }
+
+    private int Heuristic(Node a, Node b)
+    {
+        return (Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y)) * 10;
+    }
+
+    private Vector2 BuildNextStepWorld(Node start, Node endNode)
+    {
+        FinalNodeList.Clear();
+
+        Node p = endNode;
+        while (p != null && p != start)
+        {
+            FinalNodeList.Add(p);
+            p = p.parent;
+        }
+
+        FinalNodeList.Add(start);
+        FinalNodeList.Reverse();
+
+        if (FinalNodeList.Count >= 2)
+        {
+            Node nxt = FinalNodeList[1];
+            return GridToWorld(new Vector2Int(nxt.x, nxt.y));
+        }
+
+        return GridToWorld(new Vector2Int(start.x, start.y));
     }
 
     private void OnDrawGizmos()
