@@ -1,0 +1,144 @@
+[
+  {
+    "id": "HaruRei_01",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그래도 이걸 보여주면 정신을 차릴지도 몰라.",
+        "showPortrait": true,
+        "nextId": "HaruRei_02"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_02",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "이걸 봐. 여기… 방금 우리나 나눈 대사가 그대로 적혀 있어.",
+        "showPortrait": true,
+        "nextId": "HaruRei_03"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_03",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "…",
+        "showPortrait": true,
+        "nextId": "HaruRei_04"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_04",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "알겠어? 여기가 만들어진 가짜 무대라는 걸?",
+        "showPortrait": true,
+        "nextId": "HaruRei_05"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_05",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그래, 무대는 맞지.",
+        "showPortrait": true,
+        "nextId": "HaruRei_06"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_06",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "이거 다 어디서 찾았어?",
+        "showPortrait": true,
+        "nextId": "HaruRei_07"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_07",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그게 중요한 게 아니라…",
+        "showPortrait": true,
+        "nextId": "HaruRei_08"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_08",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "이거 다 어디서 찾았냐구.",
+        "showPortrait": true,
+        "nextId": "HaruRei_09"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_09",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "사람들 많은 데서 자랑하지 말고 우선 나한테 줘.",
+        "showPortrait": true,
+        "nextId": "HaruRei_10"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_10",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…응.",
+        "showPortrait": true,
+        "nextId": "HaruRei_11"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_11",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "이건 열쇠야. 여기 우리가 가야할 곳이 적혀 있네.",
+        "showPortrait": true,
+        "nextId": "HaruRei_12"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_12",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "“레이는 하루를 데리고 숨겨진 문을 연다.”",
+        "showPortrait": true,
+        "nextId": "HaruRei_13"
+      }
+    ]
+  },
+  {
+    "id": "HaruRei_13",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "따라와.",
+        "showPortrait": true
+      }
+    ]
+  }
+]
