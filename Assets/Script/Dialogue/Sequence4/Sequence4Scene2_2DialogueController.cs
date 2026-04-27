@@ -12,6 +12,10 @@ public class Sequence4Scene2_2DialogueController : DialogueController<S4S2_2Stat
     [SerializeField] private ItemData ClapperBoardData;
     [SerializeField] private ItemData SscriptPageData;
 
+    [SerializeField] private CompanionSystem _reiCompanionSystem;
+    [SerializeField] private PlayerMove_Test_Lerp _playerMove;
+    [SerializeField] private BoxCollider2D _reiBoxCollider;
+
 
     protected override void Start()
     {
@@ -31,6 +35,10 @@ public class Sequence4Scene2_2DialogueController : DialogueController<S4S2_2Stat
             case "HaruRei_10":
                 ClapperBoardData.Use();
                 SscriptPageData.Use();
+                break;
+            case "HaruRei_13":
+                _playerMove.SetCompanion(_reiCompanionSystem, "·¹ÀÌ");
+                _reiBoxCollider.enabled = false;
                 break;
         }
 
