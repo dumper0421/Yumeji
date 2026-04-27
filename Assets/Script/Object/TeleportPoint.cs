@@ -19,7 +19,7 @@ public class TeleportPoint : MonoBehaviour
     [SerializeField] private float holdBlackTime = 0.5f;
     [SerializeField] private float fadeInTime = 0.3f;
 
-    private bool _running;
+    public bool Isrunning;
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class TeleportPoint : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_running) return;
+        if (Isrunning) return;
         if (!collision.CompareTag("Player")) return;
 
         if (useFade && fadeGroup != null)
@@ -41,7 +41,7 @@ public class TeleportPoint : MonoBehaviour
 
     private IEnumerator CoFadeTeleport(Collider2D playerCol)
     {
-        _running = true;
+        Isrunning = true;
 
         var mover = playerCol.GetComponent<PlayerMove_Test_Lerp>();
         if (mover != null)
@@ -67,7 +67,7 @@ public class TeleportPoint : MonoBehaviour
 
         if (mover != null) mover.enabled = true;
 
-        _running = false;
+        Isrunning = false;
     }
 
     private void DoTeleportImmediate(Collider2D playerCol)
