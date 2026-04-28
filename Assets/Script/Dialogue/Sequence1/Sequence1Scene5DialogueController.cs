@@ -14,8 +14,8 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
     public DialogueObject StationChairObject;
     public DialogueObject TrainDoorObject;
     public GameObject InteractionLight;
+    public GameObject teleport;
     
-    public string nextSceneName;
 
 
     protected override void HandleDialogueEnd(string dialogueId)
@@ -35,7 +35,7 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
 
             case "TrainDoor_WithTicket":
                 TornTrianTicketData.Use();
-                SceneManager.LoadScene(nextSceneName);
+                teleport.SetActive(true);
                 break;
 
             case "TrainDoor_NoTicket":
