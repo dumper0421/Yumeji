@@ -372,81 +372,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &84902996
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 84902997}
-  - component: {fileID: 84902999}
-  - component: {fileID: 84902998}
-  m_Layer: 5
-  m_Name: FadeImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &84902997
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84902996}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 603143309}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &84902998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84902996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &84902999
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84902996}
-  m_CullTransparentMesh: 1
 --- !u!1 &121863693
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,10 +824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6780722168633269861, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 84902997}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       insertIndex: -1
@@ -2227,9 +2149,8 @@ GameObject:
   - component: {fileID: 905651366}
   - component: {fileID: 905651365}
   - component: {fileID: 905651368}
-  - component: {fileID: 905651369}
   m_Layer: 6
-  m_Name: "\uCE74\uBA54\uB77C"
+  m_Name: obj_redroom_tripod_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2359,36 +2280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &905651369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905651364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8b9290843380a4a87f112338f6218a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDisposable: 0
-  hasBeenInspected: 0
-  dialogueManager: {fileID: 603143303}
-  sceneController: {fileID: 177367112}
-  playerMoveTestLerp: {fileID: 1109036413}
-  PlayerActionController: {fileID: 1109036424}
-  playerAnimator: {fileID: 1109036417}
-  requiredDirY: 1
-  notReadyDialogueId: camera_notReady
-  readyDialogueId: camera_ready
-  wrongDirectionDialogueId: camera_wrongDirection
-  audioSource: {fileID: 0}
-  slateClip: {fileID: 0}
-  cutClip: {fileID: 0}
-  fadeImage: {fileID: 84902998}
-  fadeDuration: 1.3
-  delayBeforeCutSound: 0.6
-  nextSceneName: Sequence4S#2PuzzleSolved
 --- !u!1 &928743603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,17 +3156,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1310022008536058514, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
   m_PrefabInstance: {fileID: 412112121}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1109036424 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7868654815363359061, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
-  m_PrefabInstance: {fileID: 412112121}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109036389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b81281da67fb6247a2c4f09f8048161, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1116281888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,7 +3542,7 @@ GameObject:
   - component: {fileID: 1183976990}
   - component: {fileID: 1183976991}
   m_Layer: 6
-  m_Name: "\uAC10\uB3C5\uB9C8\uB124\uD0B9"
+  m_Name: OBJ_mannequin_clapperboard_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

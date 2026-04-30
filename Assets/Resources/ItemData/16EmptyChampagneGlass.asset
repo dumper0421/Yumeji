@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 16EmptyChampagneGlass
   m_EditorClassIdentifier: 
   ItemId: 16
-  ItemName: "\uBE44\uC5B4 \uC788\uB294 \uC0F4\uD398\uC778 \uC794"
-  Description: 
+  ItemName: "\uBE48 \uC0F4\uD398\uC778 \uC794"
+  Description: "\uC720\uB9AC\uB85C \uB41C \uC0F4\uD398\uC778 \uC794\uC774\uB2E4.
+    \uD145 \uBE44\uC5B4\uC788\uB2E4."
   IsConsumable: 0

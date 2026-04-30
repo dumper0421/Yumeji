@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 673db5f514e154247bc0d9793fbc76dd, type: 3}
-  m_Name: SscriptPage
+  m_Name: 12MaskBlackFeatherBlack
   m_EditorClassIdentifier: 
-  ItemId: 11
-  ItemName: "\uAC01\uBCF8\uC758 \uD55C \uD398\uC774\uC9C0"
-  Description: 
+  ItemId: 12
+  ItemName: "\uAC80\uC740\uC0C9 \uAE43\uD138\uC774 \uB2EC\uB9B0 \uAC80\uC740\uC0C9
+    \uAC00\uBA74"
+  Description: "\uC911\uC138 \uC2DC\uB300\uC5D0\uC11C\uB098 \uBCFC \uBC95\uD55C \uB514\uC790\uC778\uC758
+    \uAC00\uBA74\uC774\uB2E4."
   IsConsumable: 0

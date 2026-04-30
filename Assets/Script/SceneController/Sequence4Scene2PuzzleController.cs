@@ -8,13 +8,15 @@ public class Sequence4Scene2SceneController : MonoBehaviour
     [Header("Light Puzzle")]
     public PuzzleLightController Light1;
     public PuzzleLightController Light2;
-    [SerializeField] private bool IsLightlPuzzlesSolvedDebug;
+    [SerializeField] private bool IsLightPuzzleSolvedDebug;
 
     [Header("Mannequin Puzzle")]
-    public bool IsMannequinPuzzleSolved = false;
+    public bool IsMannequin1Solved = false;
+    public MannequinPoseController Mannequin2Controller;
+    [SerializeField] private bool IsMannequin2SolvedDebug;
 
     [Header("All Puzzle")]
-    [SerializeField] private bool areAllPuzzlesSolvedDebug;
+    [SerializeField] private bool AreAllPuzzlesSolvedDebug;
 
     public bool IsLightPuzzleSolved
     {
@@ -27,6 +29,25 @@ public class Sequence4Scene2SceneController : MonoBehaviour
         }
     }
 
+    public bool IsMannequin2Solved
+    {
+        get
+        {
+            if (Mannequin2Controller == null)
+                return false;
+
+            return Mannequin2Controller.IsSolved;
+        }
+    }
+
+    public bool IsMannequinPuzzleSolved
+    {
+        get
+        {
+            return IsMannequin1Solved && IsMannequin2Solved;
+        }
+    }
+
     public bool AreAllPuzzlesSolved
     {
         get
@@ -36,9 +57,11 @@ public class Sequence4Scene2SceneController : MonoBehaviour
                 && IsMannequinPuzzleSolved;
         }
     }
+
     private void Update()
     {
-        IsLightlPuzzlesSolvedDebug = IsLightPuzzleSolved;
-        areAllPuzzlesSolvedDebug = AreAllPuzzlesSolved;
+        IsLightPuzzleSolvedDebug = IsLightPuzzleSolved;
+        IsMannequin2SolvedDebug = IsMannequin2Solved;
+        AreAllPuzzlesSolvedDebug = AreAllPuzzlesSolved;
     }
 }

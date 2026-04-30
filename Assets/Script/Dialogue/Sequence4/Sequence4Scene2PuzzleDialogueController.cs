@@ -7,6 +7,9 @@ public enum S4S2PuzzleState
 
 public class Sequence4Scene2PuzzleDialogueController : DialogueController<S4S2PuzzleState>
 {
+    [Header("Scene Controller")]
+    public Sequence4Scene2SceneController sceneController;
+
     [Header("Shelf")]
     public ItemData ScriptPage;
     public GameObject InteractionLight;
@@ -32,10 +35,23 @@ public class Sequence4Scene2PuzzleDialogueController : DialogueController<S4S2Pu
     public MannequinPoseController mannequin2Controller;
     public DialogueObject mannequin2Object;
 
+    [Header("Hanger / Mannequin1")]
+    public ItemData BlackFeatherBlackMask;
+    public ItemData WhiteFeatherBlackMask;
+    public ItemData WhiteFeatherWhiteMask;
+
+    public DialogueObject hangerObject;
+    public DialogueObject mannequin1Object;
+
+    public GameObject mannequin1DefaultVisual;
+    public GameObject mannequin1MaskedVisual;
+
     protected override void ApplyWorldByState()
     {
         ApplyTableWorld();
         ApplyMannequin2World();
+        ApplyHangerWorld();
+        ApplyMannequin1World();
     }
 
     protected override void HandleDialogueEnd(string dialogueId)
@@ -88,6 +104,28 @@ public class Sequence4Scene2PuzzleDialogueController : DialogueController<S4S2Pu
 
                 ApplyMannequin2World();
                 break;
+
+            // 3) Çà°Å
+            case "°ËÀº»ö ±êÅÐÀÌ ´Þ¸° °ËÀº»ö °¡¸é":
+                TryTakeMask(BlackFeatherBlackMask);
+                break;
+
+            case "Èò»ö ±êÅÐÀÌ ´Þ¸° °ËÀº»ö °¡¸é":
+                TryTakeMask(WhiteFeatherBlackMask);
+                break;
+
+            case "Èò»ö ±êÅÐÀÌ ´Þ¸° Èò»ö °¡¸é":
+                TryTakeMask(WhiteFeatherWhiteMask);
+                break;
+
+            case "°É¾îµÐ´Ù":
+                TryPutBackMask();
+                break;
+
+            // 4) ¸¶³×Å·1
+            case "¾º¿î´Ù":
+                TryApplyMaskToMannequin1();
+                break;
         }
     }
 
@@ -116,13 +154,83 @@ public class Sequence4Scene2PuzzleDialogueController : DialogueController<S4S2Pu
 
         FullChampagneGlass.Use();
         isTableSetComplete = true;
+
+        if (sceneController != null)
+            sceneController.IsTablePuzzleSolved = true;
+
         ApplyTableWorld();
+    }
+
+    private void TryTakeMask(ItemData itemData)
+    {
+        if (sceneController != null && sceneController.IsMannequin1Solved) return;
+        if (itemData == null) return;
+        if (HasAnyMask()) return;
+
+        InventoryManager.Instance.AddItem(itemData);
+        ApplyHangerWorld();
+        ApplyMannequin1World();
+    }
+
+    private void TryPutBackMask()
+    {
+        if (sceneController != null && sceneController.IsMannequin1Solved) return;
+
+        if (HasItem(BlackFeatherBlackMask))
+            BlackFeatherBlackMask.Use();
+        else if (HasItem(WhiteFeatherBlackMask))
+            WhiteFeatherBlackMask.Use();
+        else if (HasItem(WhiteFeatherWhiteMask))
+            WhiteFeatherWhiteMask.Use();
+
+        ApplyHangerWorld();
+        ApplyMannequin1World();
+    }
+
+    private void TryApplyMaskToMannequin1()
+    {
+        if (sceneController != null && sceneController.IsMannequin1Solved) return;
+
+        if (HasCorrectMask())
+        {
+            WhiteFeatherWhiteMask.Use();
+
+            if (sceneController != null)
+                sceneController.IsMannequin1Solved = true;
+
+            ApplyMannequin1World();
+            ApplyHangerWorld();
+            return;
+        }
+
+        if (HasWrongMask())
+        {
+            dialogueManager.StartDialogue("mannequin1_wrongMask");
+            return;
+        }
     }
 
     private bool HasItem(ItemData itemData)
     {
         if (itemData == null) return false;
         return InventoryManager.Instance.HasItem(itemData.ItemName);
+    }
+
+    private bool HasAnyMask()
+    {
+        return HasItem(BlackFeatherBlackMask)
+            || HasItem(WhiteFeatherBlackMask)
+            || HasItem(WhiteFeatherWhiteMask);
+    }
+
+    private bool HasCorrectMask()
+    {
+        return HasItem(WhiteFeatherWhiteMask);
+    }
+
+    private bool HasWrongMask()
+    {
+        return HasItem(BlackFeatherBlackMask) || HasItem(WhiteFeatherBlackMask);
     }
 
     private void ApplyTableWorld()
@@ -174,6 +282,55 @@ public class Sequence4Scene2PuzzleDialogueController : DialogueController<S4S2Pu
             mannequin2Object.StartDialogue = "mannequin2_default";
     }
 
+    private void ApplyHangerWorld()
+    {
+        if (hangerObject == null) return;
+
+        if (sceneController != null && sceneController.IsMannequin1Solved)
+        {
+            hangerObject.StartDialogue = "hanger_afterSolved";
+            return;
+        }
+
+        if (HasAnyMask())
+            hangerObject.StartDialogue = "hanger_hasMask";
+        else
+            hangerObject.StartDialogue = "hanger_noMask";
+    }
+
+    private void ApplyMannequin1World()
+    {
+        if (mannequin1Object == null) return;
+
+        bool solved = sceneController != null && sceneController.IsMannequin1Solved;
+
+        if (solved)
+        {
+            mannequin1Object.StartDialogue = "mannequin1_afterSolved";
+
+            if (mannequin1DefaultVisual != null)
+                mannequin1DefaultVisual.SetActive(false);
+
+            if (mannequin1MaskedVisual != null)
+                mannequin1MaskedVisual.SetActive(true);
+
+            return;
+        }
+
+        if (HasCorrectMask())
+            mannequin1Object.StartDialogue = "mannequin1_hasCorrectMask";
+        else if (HasWrongMask())
+            mannequin1Object.StartDialogue = "mannequin1_hasWrongMask";
+        else
+            mannequin1Object.StartDialogue = "mannequin1_default";
+
+        if (mannequin1DefaultVisual != null)
+            mannequin1DefaultVisual.SetActive(true);
+
+        if (mannequin1MaskedVisual != null)
+            mannequin1MaskedVisual.SetActive(false);
+    }
+
     protected override void OnPuzzleComplete()
     {
     }
@@ -182,6 +339,8 @@ public class Sequence4Scene2PuzzleDialogueController : DialogueController<S4S2Pu
     {
         ApplyTableWorld();
         ApplyMannequin2World();
+        ApplyHangerWorld();
+        ApplyMannequin1World();
     }
 
     public void StartDialogue()

@@ -53,7 +53,6 @@
         "text": "먼지 쌓인 잡동사니들이 가득한 선반이다. 별로 건드리고 싶지 않다."
       }
     ]
-
   },
   {
     "id": "table_noGlass",
@@ -310,6 +309,15 @@
     ]
   },
   {
+    "id": "hanger_afterSolved",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "행거에는 더 이상 볼 일이 없다."
+      }
+    ]
+  },
+  {
     "id": "hanger_blackBlack_get",
     "speaker": "하루",
     "lines": [
@@ -349,10 +357,8 @@
       }
     ]
   },
-
-
   {
-    "id": "mannequin1",
+    "id": "mannequin1_default",
     "speaker": "하루",
     "lines": [
       {
@@ -360,6 +366,71 @@
       },
       {
         "text": "이 마네킹을 위해 무언가 해줄 수 있는 게 있을까?"
+      }
+    ]
+  },
+  {
+    "id": "mannequin1_hasCorrectMask",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "마네킹에게 가면을 씌울까?"
+      }
+    ],
+    "options": [
+      {
+        "text": "씌운다",
+        "nextId": "mannequin1_success"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "mannequin1_hasWrongMask",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "마네킹에게 가면을 씌울까?"
+      }
+    ],
+    "options": [
+      {
+        "text": "씌운다",
+        "nextId": "mannequin1_wrongMask"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "mannequin1_wrongMask",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "가면이 맞지 않는다. 이게 아닌가?"
+      }
+    ]
+  },
+  {
+    "id": "mannequin1_success",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "마네킹에게 가면을 씌웠다."
+      }
+    ]
+  },
+  {
+    "id": "mannequin1_afterSolved",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "가면을 쓴 마네킹이 어딘가 편안해 보인다."
       }
     ]
   },
@@ -408,6 +479,61 @@
         "text": "눌렀다."
       }
     ]
+  },
+  {
+    "id": "camera_notReady",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "작동이 가능한 카메라다."
+      },
+      {
+        "text": "카메라로 세트를 찍기 전에 아직 해야 할 일이 더 남은 것 같아."
+      },
+      {
+        "text": "각본의 한 페이지를 더 자세히 살펴보면 뭐가 부족한지 알 수 있을 거야."
+      }
+    ]
+  },
+  {
+    "id": "camera_ready",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "이 정도면 모든 세팅을 끝낸 것 같아."
+      },
+      {
+        "text": "카메라의 촬영 버튼을 눌러봐야겠어."
+      }
+    ]
+  },
+  {
+    "id": "camera_wrongDirection",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "카메라를 가리고 서면 안 되지."
+      }
+    ]
+  },
+  {
+    "id": "director_mannequin1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "손에 슬레이트를 들고 있는 걸 보니, 아마 감독 마네킹인 것 같다.",
+        "nextId": "director_mannequin2"
+      }
+    ]
+  },
+  {
+    "id": "director_mannequin2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "슬레이트가 마네킹 손에 단단히 끼어서 안 빠져. 방법을 찾아봐야겠어.",
+        "showPortrait": true
+      }
+    ]
   }
 ]
-
