@@ -8023,7 +8023,7 @@ MonoBehaviour:
   Door: {fileID: 18709252}
   BGM: {fileID: 8300000, guid: 46d080bc3c662ce47bd6ce34f8f9a63a, type: 3}
   OldKeyData: {fileID: 11400000, guid: 4b95bb24429ec904b845a56285cf2d96, type: 2}
-  NextScene: Sequence3S#4
+  NextScene: Scenes/2026PlayX4/Sequence3S#4
 --- !u!114 &1621025470
 MonoBehaviour:
   m_ObjectHideFlags: 0

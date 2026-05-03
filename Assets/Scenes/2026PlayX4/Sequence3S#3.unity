@@ -5529,6 +5529,7 @@ MonoBehaviour:
   fadeOutTime: 0.2
   holdBlackTime: 0.5
   fadeInTime: 0.3
+  Isrunning: 0
 --- !u!1 &1355116622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5683,7 +5684,12 @@ MonoBehaviour:
   StartDialogue: HaruRei1_22
   DialogueManager: {fileID: 1586323521}
   _playerMove: {fileID: 1565904541}
+  isSprite: 0
   CharacterAnimator: {fileID: 1363686255}
+  CharacterSpriteRenderer: {fileID: 0}
+  LeftSprite: {fileID: 0}
+  FrontSprite: {fileID: 0}
+  BackSprite: {fileID: 0}
 --- !u!82 &1363686254
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8513,7 +8519,7 @@ PrefabInstance:
       objectReference: {fileID: 522492473}
     - target: {fileID: 4446424973357666627, guid: 2823ebfc8c49aa348b12c93092591628, type: 3}
       propertyPath: NextSceneName
-      value: Sequence3S#3Puzzle
+      value: Scenes/2026PlayX4/Sequence3S#3Puzzle
       objectReference: {fileID: 0}
     - target: {fileID: 4446424973357666627, guid: 2823ebfc8c49aa348b12c93092591628, type: 3}
       propertyPath: DialogueManager
