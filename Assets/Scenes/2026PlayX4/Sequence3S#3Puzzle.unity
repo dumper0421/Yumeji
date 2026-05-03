@@ -2219,6 +2219,10 @@ PrefabInstance:
       propertyPath: CurrentSelectIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4015062592047068774, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
+      propertyPath: IsDontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6929026498104306244, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11027,6 +11031,10 @@ PrefabInstance:
       propertyPath: BackGround
       value: 
       objectReference: {fileID: 1371656532}
+    - target: {fileID: 7188801179530564603, guid: f1d0ce498c244d2499d222109742eaf4, type: 3}
+      propertyPath: IsDontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7339603344958764976, guid: f1d0ce498c244d2499d222109742eaf4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

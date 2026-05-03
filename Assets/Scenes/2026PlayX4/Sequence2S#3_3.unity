@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &49864444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6774578378606041050, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+  m_PrefabInstance: {fileID: 2062445060567566461}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &66368352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425809889499938745, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}
@@ -2147,11 +2152,6 @@ PrefabInstance:
       addedObject: {fileID: 1410486375}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5603249b58190a45b91a16c5655dc5d, type: 3}
---- !u!1 &734783819 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3520858899258842267, guid: c5603249b58190a45b91a16c5655dc5d, type: 3}
-  m_PrefabInstance: {fileID: 734783818}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &781172248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,7 +2641,7 @@ MonoBehaviour:
   _crashClip: {fileID: 8300000, guid: 2b4e2b235a8b97a44b3c86ba1349690d, type: 3}
   _bus: {fileID: 1154757946}
   _yellowCar: {fileID: 1747621680}
-  _sceneChangeTrigger: {fileID: 734783819}
+  _sceneChangeTrigger: {fileID: 49864444}
 --- !u!1 &1154757936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1421237558298320979, guid: 17539f11fcef49742936a98cf25d19e7, type: 3}

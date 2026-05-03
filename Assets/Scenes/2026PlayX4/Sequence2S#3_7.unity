@@ -8980,7 +8980,6 @@ MonoBehaviour:
   FirePlaceAnimator: {fileID: 1888182608}
   PlayerAnimator: {fileID: 1876760505}
   FireAnimators:
-  - {fileID: 0}
   - {fileID: 801008466}
   - {fileID: 444647320}
   - {fileID: 419275669}

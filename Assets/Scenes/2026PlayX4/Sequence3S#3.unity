@@ -7268,7 +7268,7 @@ MonoBehaviour:
   - {fileID: 2096369461}
   WaveBGM: {fileID: 8300000, guid: 229f015aabcf453479579d899d9bab7e, type: 3}
   ExitTrigger: {fileID: 2050034427}
-  TicketOffice: {fileID: 0}
+  TicketOffice: {fileID: 1882949532}
 --- !u!1 &1603986500
 GameObject:
   m_ObjectHideFlags: 0
