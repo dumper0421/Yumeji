@@ -145,7 +145,7 @@ public class OpeningDialogueController : DialogueController<OpeningState>
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(1f);
-        SceneChanger.ChangeScene("Scenes/2026QA/Sequence2S#1");
+        SceneChanger.ChangeScene("Scenes/2026PlayX4/Sequence2S#1");
     }
 
     protected override void ApplyWorldByState()
