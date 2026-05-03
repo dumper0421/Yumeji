@@ -3215,7 +3215,7 @@ MonoBehaviour:
   lilyTicketId: 8
   mulTicketId: 9
   yiyiTicketId: 10
-  nextSceneName: Sequence2S#2_2
+  nextSceneName: Scenes/2026PlayX4/Sequence2S#2_2
 --- !u!1 &178632531
 GameObject:
   m_ObjectHideFlags: 0

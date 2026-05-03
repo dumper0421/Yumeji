@@ -575,8 +575,9 @@ MonoBehaviour:
   dialogueManager: {fileID: 422200497}
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Scequence1Scene3CutScene
+  puzzleId: Puzzle
   state: 0
-  SceneString: Scenes/2026QA/Sequence2S#3_3
+  SceneString: Scenes/2026PlayX4/Sequence2S#3_3
 --- !u!114 &422200497 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4940917532608049192, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}

@@ -1728,10 +1728,11 @@ MonoBehaviour:
   dialogueManager: {fileID: 603143316}
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Sequence2Scene2
+  puzzleId: Puzzle
   state: 0
   haruCarSFX: {fileID: 8300000, guid: 86212451f16bd4a40851044adb2ab809, type: 3}
   StartDialogueId: Haru_After_Movie
-  nextSceneName: Sequence2S#3_3CutScene
+  nextSceneName: Scenes/2026PlayX4/Sequence2S#3_3CutScene
 --- !u!1 &736218994
 GameObject:
   m_ObjectHideFlags: 0

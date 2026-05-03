@@ -5941,7 +5941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70596c59b5954bf4d8275fe05d3a3c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName_: Sequence3S#1
+  sceneName_: Scenes/2026PlayX4/Sequence3S#1
   delay: 2
   triggerSFX: {fileID: 8300000, guid: b04d4ff7cf8e9f8458a21c83d1ee8be0, type: 3}
 --- !u!1 &1543463192
