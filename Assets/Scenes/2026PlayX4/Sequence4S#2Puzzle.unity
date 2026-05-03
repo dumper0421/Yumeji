@@ -6325,7 +6325,7 @@ MonoBehaviour:
   SpawnPoint: {fileID: 1826504996}
   SpawnedLightRoot: {fileID: 0}
   LightVariants: []
-  SolvedIndex: 3
+  SolvedIndex: 1
 --- !u!114 &1822869604
 MonoBehaviour:
   m_ObjectHideFlags: 0
