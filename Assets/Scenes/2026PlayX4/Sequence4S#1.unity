@@ -1892,7 +1892,8 @@ MonoBehaviour:
   _reiCompanionSystem: {fileID: 1413782119}
   _reiAnimator: {fileID: 1413782123}
   _partyDialoguePoint: {fileID: 1040795476}
-  _hotelier: {fileID: 0}
+  _sceneChangeTrigger: {fileID: 1598252426}
+  _hotelier: {fileID: 768642405}
 --- !u!1 &606181815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,6 +2314,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 498084204}
     m_Modifications:
+    - target: {fileID: 1903339600561733634, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
+      propertyPath: _playerMove
+      value: 
+      objectReference: {fileID: 1109036413}
+    - target: {fileID: 1903339600561733634, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
+      propertyPath: IsDisposable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903339600561733634, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
+      propertyPath: StartDialogue
+      value: HotelEntrance_StaffNarration
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903339600561733634, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
+      propertyPath: DialogueManager
+      value: 
+      objectReference: {fileID: 603143303}
     - target: {fileID: 2961733621866050186, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
       propertyPath: m_Name
       value: Hotelier
@@ -2367,6 +2384,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6837592590035176958, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
   m_PrefabInstance: {fileID: 768642402}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &768642405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1903339600561733634, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
+  m_PrefabInstance: {fileID: 768642402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40bc2e37d7965343b696feefe7c4d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &806258581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2461,7 +2489,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8741570845649080117, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
   m_PrefabInstance: {fileID: 1055716557}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1598252423}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0b6dac686ebb1d4baa5272276435465, type: 3}
@@ -2550,7 +2578,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4699796353751769070, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1598252426}
   m_SourcePrefab: {fileID: 100100000, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
 --- !u!1 &1059056000
 GameObject:
@@ -3290,6 +3321,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1083270701}
     m_Modifications:
+    - target: {fileID: 328931654384398029, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.8125
+      objectReference: {fileID: 0}
     - target: {fileID: 6432390204892746347, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3356,6 +3391,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1083270701}
     m_Modifications:
+    - target: {fileID: 328931654384398029, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.8125
+      objectReference: {fileID: 0}
     - target: {fileID: 6432390204892746347, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -10026,6 +10065,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e86c1fd7c3ab90e40a2560e06ea572ef, type: 3}
+--- !u!1 &1598252423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4699796353751769070, guid: 2adb9a548ba3fb842a2ec3d1a93bd16e, type: 3}
+  m_PrefabInstance: {fileID: 1055716557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1598252426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598252423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f8f9df5f765ef44b5ba3bd707abeec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName_: Sequence4S#2
 --- !u!1001 &1602532118
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3435,6 +3435,83 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.281476, y: 2.3549147}
   m_EdgeRadius: 0
+--- !u!1001 &957176792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2970159955217569348, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_Size.x
+      value: 2.822548
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970159955217569348, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_Size.y
+      value: 2.0502853
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970159955217569348, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.3861313
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970159955217569348, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.52514267
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912880102021664023, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: sceneName_
+      value: EndingScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 33.828735
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 84.596344
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.07941586
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774578378606041050, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: m_Name
+      value: SceneChangeTrigger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 472413e002ebd3140b5411b148592a55, type: 3}
 --- !u!1 &1012609591 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7595536410457461720, guid: e86c1fd7c3ab90e40a2560e06ea572ef, type: 3}
@@ -6418,7 +6495,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8235294}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Origin: {x: -1, y: -3, z: 0}
   m_Size: {x: 37, y: 90, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -14702,7 +14779,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8235294}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Origin: {x: 0, y: -2, z: 0}
   m_Size: {x: 35, y: 89, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -15969,3 +16046,4 @@ SceneRoots:
   - {fileID: 1121092423}
   - {fileID: 572205712}
   - {fileID: 2066428077}
+  - {fileID: 957176792}

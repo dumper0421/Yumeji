@@ -2518,7 +2518,6 @@ GameObject:
   - component: {fileID: 513303900}
   - component: {fileID: 513303899}
   - component: {fileID: 513303898}
-  - component: {fileID: 513303897}
   m_Layer: 6
   m_Name: OBJ_Stagedoor
   m_TagString: Untagged
@@ -2541,22 +2540,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1053576675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &513303897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513303895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDisposable: 0
-  hasBeenInspected: 0
-  StartDialogue: Stage_Door
-  DialogueManager: {fileID: 603143303}
 --- !u!61 &513303898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3146,6 +3129,7 @@ MonoBehaviour:
   _reiCompanionSystem: {fileID: 1413782125}
   _playerMove: {fileID: 1109036413}
   _reiBoxCollider: {fileID: 1413782123}
+  _stageDoor: {fileID: 513303895}
 --- !u!1 &619035029
 GameObject:
   m_ObjectHideFlags: 0
@@ -4941,6 +4925,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 498084204}
     m_Modifications:
+    - target: {fileID: 1903339600561733634, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
+      propertyPath: _playerMove
+      value: 
+      objectReference: {fileID: 1109036413}
+    - target: {fileID: 1903339600561733634, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
+      propertyPath: DialogueManager
+      value: 
+      objectReference: {fileID: 603143303}
     - target: {fileID: 2961733621866050186, guid: 0a5b1937aa5e84248831e2ffe3f48996, type: 3}
       propertyPath: m_Name
       value: Hotelier
