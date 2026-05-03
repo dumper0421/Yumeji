@@ -1,0 +1,33 @@
+[
+  {
+    "id": "director_mannequin1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "마네킹이 들고 있는 슬레이트가 부러져 달랑거린다."
+      },
+      {
+        "text": "깨진 슬레이트 조각을 얻었다."
+      }
+    ]
+  },
+
+  {
+    "id": "director_mannequin2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "마네킹이 완전히 망가졌다. 다시는 쓸 수 없을 것 같다."
+      }
+    ]
+  },
+  {
+    "id": "camera_solved",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "카메라가 더 이상 작동하지 않는다. 고장 난 모양이다."
+      }
+    ]
+  }
+]
