@@ -6,66 +6,87 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/2026QA/TitleScene.unity
-    guid: d6e5be01f2db7f54b830c3cee923b62c
+    path: Assets/Scenes/2026PlayX4/TitleScene.unity
+    guid: 6f62e547b2717c0429f5e7ec3cc8e891
   - enabled: 1
-    path: Assets/Scenes/2026QA/OpeningScene.unity
-    guid: 3c7d3778479b29c46a664c0f19a0dc54
+    path: Assets/Scenes/2026PlayX4/OpeningScene.unity
+    guid: ced794f2c5d6bbb44936fd4266db95d7
   - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#2.unity
-    guid: 83ce67694c457394aabe1ce73ee97492
+    path: Assets/Scenes/2026PlayX4/Sequence2S#1.unity
+    guid: bc4f6c14ad0973b45bee189dcd9dce9c
   - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#2_2.unity
-    guid: 276e3797afbfd7643bfd9be357e0a31d
+    path: Assets/Scenes/2026PlayX4/Sequence2S#2.unity
+    guid: 4bbc933668173b946bb0ffae94a5f265
   - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#3_3.unity
-    guid: d2882fd46feb5aa45a0be71bddf2561c
+    path: Assets/Scenes/2026PlayX4/Sequence2S#2_2.unity
+    guid: 754a21b6014e7744abaab501dcafc0b1
   - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#3_3CutScene.unity
-    guid: 3e52935cf4021c948a595dff2bff0c44
+    path: Assets/Scenes/2026PlayX4/Sequence2S#3_3.unity
+    guid: 549892e4e21d5354c90391b33f412226
   - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#3_4.unity
-    guid: d575184b35b57e34b9e90cbb7817c225
+    path: Assets/Scenes/2026PlayX4/Sequence2S#3_3CutScene.unity
+    guid: e3453e29b37830d4d92fb344bd411119
   - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#3_5.unity
-    guid: 589f12e23ac72de4386941203943d45c
+    path: Assets/Scenes/2026PlayX4/Sequence2S#3_4.unity
+    guid: 671fe05a2f2545b4aa442d6b788e2f10
   - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#3_6.unity
-    guid: 64e5fa2ab8acc5f4dbba110255a07c60
+    path: Assets/Scenes/2026PlayX4/Sequence2S#3_5.unity
+    guid: 2422d4788fecb7e4b95cde686178893c
   - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#3_7.unity
-    guid: d59b55fd969f6bf4896d898a2d13ba34
-  - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#3_8.unity
-    guid: dfbd3e3c01954b24db7ff07f503019ea
-  - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#3_9.unity
-    guid: 7726b12af505235468b625085d6b5c86
-  - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#4.unity
-    guid: 91c6885cfceedee41bcbedff2220b485
-  - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence3S#1.unity
-    guid: 626bb47bcdfcc7c40bed546fa0d8e4ff
-  - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence3S#2.unity
-    guid: 003e3c09bdd048149ac64d89c90d0451
-  - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence3S#3.unity
-    guid: 6577011d1f74f11469f2853e9c1e0daf
-  - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence3S#3Puzzle.unity
-    guid: 3996ce5aaed2e374cb5c2b9990398472
-  - enabled: 1
-    path: Assets/Scenes/2026QA/EndingScene.unity
-    guid: 62ace9de465c93942a6a31bd5390217e
-  - enabled: 1
-    path: Assets/Scenes/2026QA/Sequence2S#1.unity
-    guid: dcb33fcbfb3fdbc4983b3aee562f177e
-  - enabled: 1
-    path: Assets/Scenes/Choiwoohyck/Sequence5S#2.unity
-    guid: 0ca5d6555b1405f499b7feadbfd5b891
+    path: Assets/Scenes/2026PlayX4/Sequence2S#3_6.unity
+    guid: f5050121a6f2054468ab5b4618930460
   - enabled: 1
     path: Assets/Scenes/2026PlayX4/Sequence2S#3_7.unity
     guid: 409127cd2401d64439bd61bb258d2954
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence2S#3_8.unity
+    guid: 1d07df171c89f1f41843491adcc978cd
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence2S#3_9.unity
+    guid: 1f6c5be8fa38be3428118b3389b9022b
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence2S#4.unity
+    guid: 6ecba359bb500eb49bc037f54e47ba56
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence3S#1.unity
+    guid: 7ece9430c4038314b92d85fa4167a5fc
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence3S#2.unity
+    guid: bb002a2664398804a8e5579eaba95f0c
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence3S#3.unity
+    guid: fba7d84f4f457ae41acdf9d555e03aa2
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence3S#3Puzzle.unity
+    guid: 327b7a4e556bb114d81ef89dde585998
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence3S#4.unity
+    guid: 9a92d57213d4c9b47a0667ccdd64f8be
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence4S#1.unity
+    guid: 7445f6c791d6ab148b063c527ab31088
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence4S#2.unity
+    guid: deed3d0484519eb4db9b42ef14b99f15
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence4S#2_2.unity
+    guid: 9ca66c9086fffe34cbcfac425a403a38
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence4S#2Puzzle.unity
+    guid: 570ea94660e62804cabfb62573aa01b7
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence4S#2PuzzleSolved.unity
+    guid: 39f904ec1d755a4439ffaf869908e0d6
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence5S#1.unity
+    guid: c89816d0ec6464447904674556d4105c
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence5S#2.unity
+    guid: daf776897f3d4b647a93104d52d33e75
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence5S#3.unity
+    guid: 56489e6289042ca4f9a60838a2751d25
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/EndingScene.unity
+    guid: 0c952270921d174409eec1097b64c6f9
   m_configObjects: {}
