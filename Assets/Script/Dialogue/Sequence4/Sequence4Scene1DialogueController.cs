@@ -23,6 +23,7 @@ public class Sequence4Scene1DialogueController : DialogueController<S4S1State>
 
 
     [SerializeField] private DialoguePoint _partyDialoguePoint;
+    [SerializeField] private SceneChangeTrigger _sceneChangeTrigger;
     [SerializeField] private CharacterObject _hotelier;
 
     protected override void ApplyWorldByState()
@@ -49,7 +50,8 @@ public class Sequence4Scene1DialogueController : DialogueController<S4S1State>
                 break;
             case "HotelEntrance_Hotelier":
                 _invitationData.Use();
-                _partyDialoguePoint.gameObject.SetActive(false);
+                _partyDialoguePoint.enabled = false;
+                _sceneChangeTrigger.enabled = true;
                 _hotelier.StartDialogue = "Already_Hotelier";
                 break;
 

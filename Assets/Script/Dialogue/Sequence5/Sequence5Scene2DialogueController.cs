@@ -12,6 +12,7 @@ public class Sequence5Scene2DialogueController : DialogueController<S5S2State>
     [SerializeField] private GameObject _filmObject;
     [SerializeField] private GameObject _ReiObject;
     [SerializeField] private GameObject _activeTrigger;
+    [SerializeField] private SceneChangeTrigger _changeTrigger;
 
     protected override void ApplyWorldByState()
     {
@@ -26,6 +27,7 @@ public class Sequence5Scene2DialogueController : DialogueController<S5S2State>
                 _filmObject.SetActive(false);
                 _ReiObject.SetActive(false);
                 _activeTrigger.SetActive(true);
+                _changeTrigger.gameObject.SetActive(true);
                 break;
         }
     }
