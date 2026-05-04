@@ -23,6 +23,8 @@ public class CompanionSystem : MonoBehaviour
     private Animator _animator;
     [SerializeField]
     private BoxCollider2D _collider;
+
+    public bool isAnimationChange = true;
     #endregion
 
     void Start()
@@ -60,14 +62,17 @@ public class CompanionSystem : MonoBehaviour
 
     public IEnumerator MoveCoroutine()
     {
-        _animator.SetFloat("DirX", Direction.x);
-        _animator.SetFloat("DirY", Direction.y);
-        _animator.SetFloat("AnimSpeed", MoveSpeed);
+        if (isAnimationChange)
+        {
+            _animator.SetFloat("DirX", Direction.x);
+            _animator.SetFloat("DirY", Direction.y);
+            _animator.SetFloat("AnimSpeed", MoveSpeed);
+            _animator.SetBool("Walking", true);
+        }
 
         float elapsedTime = 0f;
         float moveDuration = 0.2f / MoveSpeed;
 
-        _animator.SetBool("Walking", true);
 
         while (elapsedTime < moveDuration)
         {

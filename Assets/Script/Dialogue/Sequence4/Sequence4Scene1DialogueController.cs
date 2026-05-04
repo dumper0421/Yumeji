@@ -23,8 +23,10 @@ public class Sequence4Scene1DialogueController : DialogueController<S4S1State>
 
 
     [SerializeField] private DialoguePoint _partyDialoguePoint;
-    [SerializeField] private SceneChangeTrigger _sceneChangeTrigger;
+    [SerializeField] private GameObject _sceneChangeTrigger;
     [SerializeField] private CharacterObject _hotelier;
+    [SerializeField] private GameObject _wall;
+
 
     protected override void ApplyWorldByState()
     {
@@ -40,19 +42,20 @@ public class Sequence4Scene1DialogueController : DialogueController<S4S1State>
         {
             case "HotelEntrance_Haru_TryRemember":
                 InventoryManager.Instance.AddItem(_invitationData);
-
                 StartCoroutine(FadeOut(2f));
                 break;
             case "HotelEntrance_CheckInvitePrompt":
                 _playerMove.SetCompanion(_reiCompanionSystem, "∑π¿Ã");
-                _reiAnimator.enabled = true;
+               // _reiAnimator.enabled = true;
                 _haruAnimator.enabled = true;
                 break;
             case "HotelEntrance_Hotelier":
                 _invitationData.Use();
-                _partyDialoguePoint.enabled = false;
-                _sceneChangeTrigger.enabled = true;
+                _partyDialoguePoint.gameObject.SetActive(false);
+                _sceneChangeTrigger.SetActive(true);
                 _hotelier.StartDialogue = "Already_Hotelier";
+
+                _wall.SetActive(false);
                 break;
 
         }
