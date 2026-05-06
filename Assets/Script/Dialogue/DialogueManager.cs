@@ -85,6 +85,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Input Keys")]
     [SerializeField] private KeyCode advanceKey = KeyCode.Space;
     [SerializeField] private KeyCode enterKey = KeyCode.Return;
+    [SerializeField] private KeyCode skipKey = KeyCode.Escape;
     public bool IsStop = false;
 
     private Dictionary<string, Dialogue> _dialogues;
@@ -166,6 +167,13 @@ public class DialogueManager : MonoBehaviour
             else if (Input.GetKeyDown(advanceKey) || Input.GetKeyDown(enterKey))
                 optionButtons[selectedOption].onClick.Invoke();
 
+            return;
+        }
+
+        // 대화 전체 스킵
+        if (!IsStop && Input.GetKeyDown(skipKey))
+        {
+            SkipToEnd();
             return;
         }
 
@@ -487,6 +495,47 @@ public class DialogueManager : MonoBehaviour
                 ? selectedColor
                 : normalColor;
         }
+    }
+
+    public void SkipToEnd()
+    {
+        if (!isRunning || IsStop) return;
+
+        StopTypingAndAutoAdvance();
+        ClearOptions();
+        SetNextPrompt(false);
+
+        // 현재 대화의 남은 라인 이벤트 발생
+        while (_lines != null && _lines.Count > 0)
+        {
+            currentLine = _lines.Dequeue();
+            OnDialogueAction?.Invoke(_current.id);
+        }
+
+        // nextId 체인 끝까지 따라가며 이벤트 발생
+        while (true)
+        {
+            string nextId = currentLine?.nextId ?? "";
+
+            if (string.IsNullOrEmpty(nextId) || !_dialogues.TryGetValue(nextId, out var next))
+                break;
+
+            OnDialogueComplete?.Invoke(_current.id);
+            _current = next;
+            currentLine = null;
+
+            // 선택지는 자동 스킵 불가
+            if (_current.options != null && _current.options.Length > 0)
+                break;
+
+            foreach (var line in _current.lines ?? Array.Empty<DialogueLine>())
+            {
+                currentLine = line;
+                OnDialogueAction?.Invoke(_current.id);
+            }
+        }
+
+        EndDialogue();
     }
 
     private void EndDialogue()

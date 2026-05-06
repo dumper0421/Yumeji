@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8863010060620430607}
   - component: {fileID: 6747995157967861393}
   - component: {fileID: 9138448219349321532}
+  - component: {fileID: 8822246800259278004}
   m_Layer: 6
   m_Name: obj_oneseat_v1 (2)
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6150665, y: 1.1360343}
   m_EdgeRadius: 0
+--- !u!114 &8822246800259278004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885020653434724208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59229e85665386749a76724ad11c0b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

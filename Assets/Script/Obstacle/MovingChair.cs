@@ -15,8 +15,9 @@ public class MovingChair : MonoBehaviour
     private bool _hasStart = false;
     private bool _hasEnd = false;
     private bool _playSFX = false;
-
     private Vector3 _targetPos;
+
+      
 
    void Start()
     {
@@ -33,6 +34,10 @@ public class MovingChair : MonoBehaviour
             {
                 SoundManager.Instance.PlaySFX(SFX);
                 _playSFX = true;
+                if (Offset.y < 0)
+                    ChairSpriteRenderer.sortingOrder = 0;
+                else
+                    ChairSpriteRenderer.sortingOrder = 2;
             }
         }
 

@@ -21,10 +21,17 @@ public class AstarEnemy : Enemy
     private Vector2Int _lastTargetGrid;
     private bool _hasLastTargetGrid;
 
+    private Animator animator;
+
+    private static readonly int HashIsWalk = Animator.StringToHash("isWalk");
+    private static readonly int HashDirX   = Animator.StringToHash("DirX");
+    private static readonly int HashDirY   = Animator.StringToHash("DirY");
+
     void Start()
     {
         originalMoveSpeed = moveSpeed;
         pathFinder = GetComponent<EnemyPathfinder>();
+        animator = GetComponent<Animator>();
 
         if (Target != null && pathFinder != null)
         {
@@ -56,7 +63,6 @@ public class AstarEnemy : Enemy
 
         Vector2Int currentTargetGrid = pathFinder.WorldToGrid(Target.transform.position);
 
-        // ÅÚ·¹Æ÷Æ® Æ÷ÇÔ, Å¸°Ù ±×¸®µå°¡ ¹Ù²î¸é Áï½Ã ÀçÅ½»ö
         if (!_hasLastTargetGrid || currentTargetGrid != _lastTargetGrid)
         {
             _lastTargetGrid = currentTargetGrid;
@@ -65,12 +71,28 @@ public class AstarEnemy : Enemy
             pathFinder.targetPos = currentTargetGrid;
             CancelMovement();
 
-            // ¹Ù·Î ´Ù½Ã ÃßÀû ½ÃÀÛÇÏ°Ô °­Á¦
             waitTimer = waitInterval;
         }
 
         if (isStop || !isMove)
+        {
+            if (animator != null)
+            {
+                Vector2 dirToTarget = (Target.transform.position - transform.position).normalized;
+                bool isHorizontal = Mathf.Abs(dirToTarget.x) >= Mathf.Abs(dirToTarget.y);
+                if (isHorizontal)
+                {
+                    animator.SetFloat(HashDirX, dirToTarget.x > 0 ? 1f : -1f);
+                    animator.SetFloat(HashDirY, 0f);
+                }
+                else
+                {
+                    animator.SetFloat(HashDirX, 0f);
+                    animator.SetFloat(HashDirY, dirToTarget.y > 0 ? 1f : -1f);
+                }
+            }
             return;
+        }
 
         waitTimer += Time.deltaTime;
         if (waitTimer < waitInterval)
@@ -85,8 +107,9 @@ public class AstarEnemy : Enemy
 
     IEnumerator Move(Vector2Int currentTargetGrid)
     {
-        Vector2 startWorld = transform.position;
-        pathFinder.startPos = pathFinder.WorldToGrid(startWorld);
+        Vector2 actualStart = transform.position;
+        Vector2 snappedStart = pathFinder.GridToWorld(pathFinder.WorldToGrid(actualStart));
+        pathFinder.startPos = pathFinder.WorldToGrid(actualStart);
         pathFinder.targetPos = currentTargetGrid;
 
         if (!pathFinder.TryGetNextWorld(out Vector2 nextWorld))
@@ -98,11 +121,31 @@ public class AstarEnemy : Enemy
 
         targetPos = nextWorld;
 
-        if (Vector2.Distance(startWorld, targetPos) < 0.001f)
+        if (Vector2.Distance(actualStart, targetPos) < 0.001f)
         {
             moveCoroutine = null;
             waitTimer = 0f;
             yield break;
+        }
+
+        Vector2 moveDir = targetPos - snappedStart;
+        bool isHorizontal = Mathf.Abs(moveDir.x) >= Mathf.Abs(moveDir.y);
+
+        // ì• ë‹ˆë©”ì´ì…˜: ê°€ë¡œ/ì„¸ë¡œ ì¤‘ ì´ë™ëŸ‰ì´ í° ì¶•ì„ ìš°ì„ 
+        if (animator != null)
+        {
+            animator.enabled = true;
+            animator.SetBool(HashIsWalk, true);
+            if (isHorizontal)
+            {
+                animator.SetFloat(HashDirX, moveDir.x > 0 ? 1f : -1f);
+                animator.SetFloat(HashDirY, 0f);
+            }
+            else
+            {
+                animator.SetFloat(HashDirX, 0f);
+                animator.SetFloat(HashDirY, moveDir.y > 0 ? 1f : -1f);
+            }
         }
 
         float elapsed = 0f;
@@ -110,27 +153,15 @@ public class AstarEnemy : Enemy
 
         while (elapsed < duration)
         {
-            transform.position = Vector2.Lerp(startWorld, targetPos, elapsed / duration);
+            transform.position = Vector2.Lerp(actualStart, targetPos, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         transform.position = targetPos;
 
-        if (targetPos.x > startWorld.x)
-        {
-            transform.localScale = new Vector3(
-                -Mathf.Abs(transform.localScale.x),
-                transform.localScale.y,
-                transform.localScale.z);
-        }
-        else
-        {
-            transform.localScale = new Vector3(
-                Mathf.Abs(transform.localScale.x),
-                transform.localScale.y,
-                transform.localScale.z);
-        }
+        if (animator != null)
+            animator.SetBool(HashIsWalk, false);
 
         moveCoroutine = null;
         waitTimer = 0f;
@@ -144,10 +175,13 @@ public class AstarEnemy : Enemy
             moveCoroutine = null;
         }
 
+        if (animator != null)
+            animator.SetBool(HashIsWalk, false);
+
         waitTimer = 0f;
     }
 
-    // ÅÚ·¹Æ÷Æ® ÄÚµå¿¡¼­ Á÷Á¢ È£ÃâÇÏ¸é ´õ È®½ÇÇÔ
+    // ï¿½Ú·ï¿½ï¿½ï¿½Æ® ï¿½Úµå¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½
     public void ForceRepathNow()
     {
         if (pathFinder == null || Target == null)
