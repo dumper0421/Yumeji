@@ -6189,8 +6189,8 @@ MonoBehaviour:
   portalCreateSfx: {fileID: 8300000, guid: ef847c5d57858bb4c8786c793e9fc971, type: 3}
   portalCreateStateName: Portal_Create
   portalIdleStateName: Portal_Idle
-  portalFrameRate: 12
-  createFrameCount: 3
+  portalFrameRate: 5
+  createFrameCount: 4
 --- !u!1001 &366631376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22003,7 +22003,7 @@ MonoBehaviour:
   portalAudioSource: {fileID: 383910876}
   portalDestroySfx: {fileID: 0}
   portalDestroyStateName: Portal_Destroy
-  portalFrameRate: 12
+  portalFrameRate: 6
   destroyFrameCount: 3
   disableTriggerAfterUse: 1
 --- !u!4 &1369570310
@@ -23600,7 +23600,7 @@ MonoBehaviour:
   portalAudioSource: {fileID: 383910876}
   portalDestroySfx: {fileID: 0}
   portalDestroyStateName: Portal_Destroy
-  portalFrameRate: 12
+  portalFrameRate: 6
   destroyFrameCount: 3
   disableTriggerAfterUse: 1
 --- !u!4 &1451399801
