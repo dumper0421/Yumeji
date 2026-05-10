@@ -1,0 +1,274 @@
+[
+  {
+    "id": "ray_dialogue_1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "아까는 갑자기 사라지더니… 여기서 뭐 하고 있는 거야.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_02"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_02",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "아주 조용하네, 여기는.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_03"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_03",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "내 말 잘 들어.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_04"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_04",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "네가 무슨 말을 하는 건지 정확히는 모르겠어. 모르겠는데…",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_05"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_05",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "확실한 건 여긴 네가 생각하는 무대나 연회장이 아니야.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_06"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_06",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "날 쫓아오는 이상한 남자, 너도 봤지?",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_07"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_07",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "누군가가 이 공간 자체를 통제하고 있다고.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_08"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_08",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "통제…",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_09"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_09",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그래서 너는 도망쳐 온 거야?",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_10"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_10",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "당연하지. 살아서는 나가야 될 거 아니야.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_11"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_11",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_12"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_12",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "점점 기시감이 들어. 이 냄새, 이 공기, 그리고… 이 필름.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_13"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_13",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그건 아까 그 방에서 찾은 거야?",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_14"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_14",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…<여름 바람>이라고, 내가… 오래전에 찍었던 단편 영화야.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_15"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_15",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "분명 사진관 구석에 처박아 뒀었는데, 왜 그 방에 있었는지 모르겠어…",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_16"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_16",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "감독… 이었구나.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_17"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_17",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_18"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_18",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그래서 늘 한 발짝 떨어져 있었구나? 감당할 용기는 없어서.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_19"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_19",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…뭐?",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_20"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_20",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그 필름 안에는 누가 들었는데? 네가 아는 사람이야?",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_1_21"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_1_21",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…나, 그리고 내가 알던 사람.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_2",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그럼 틀어봐.",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_2_02"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_2_02",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "하지만 이건…",
+        "showPortrait": true,
+        "nextId": "ray_dialogue_2_03"
+      }
+    ]
+  },
+  {
+    "id": "ray_dialogue_2_03",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "네가 멈춰버린 그 여름은 어땠는지, 나도 보고 싶어.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "ray_after_dialogue",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "빈 스크린은 너무 조용한 것 같아.",
+        "showPortrait": true
+      }
+    ]
+  }
+]

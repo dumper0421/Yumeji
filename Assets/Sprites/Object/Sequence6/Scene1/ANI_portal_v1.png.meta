@@ -121,7 +121,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ANI_portal_v1_0
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 125
+        width: 389
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfaba88556283784c9a26f68b4d24447
+      internalID: 421977853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_1
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 125
+        width: 387
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e98037683abd5c4fa570fd4db0dc1c9
+      internalID: 1164114387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_2
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 125
+        width: 387
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49cff8db1dd0a443adb33afa2d04e11
+      internalID: 1035075058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_3
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 125
+        width: 387
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9549c0eed612fc4fa99b3f58d912cbf
+      internalID: 2111034594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_4
+      rect:
+        serializedVersion: 2
+        x: 2173
+        y: 125
+        width: 390
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eafee7a98cd50404d952e6559e23e0db
+      internalID: 721068342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_5
+      rect:
+        serializedVersion: 2
+        x: 2686
+        y: 125
+        width: 389
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6da32e3a91c0644e8ddad711ff6bca4
+      internalID: -2147329708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_6
+      rect:
+        serializedVersion: 2
+        x: 3198
+        y: 125
+        width: 387
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52cd59fd0bd7ac4a871fa86df84a6f1
+      internalID: 1682431878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_7
+      rect:
+        serializedVersion: 2
+        x: 3711
+        y: 125
+        width: 386
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198d459c66c4b8d4da57a2fa7350c3a2
+      internalID: 64686621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_8
+      rect:
+        serializedVersion: 2
+        x: 4223
+        y: 125
+        width: 387
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734a97cc7937ae84a883f6c69a097b17
+      internalID: 226018503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_portal_v1_9
+      rect:
+        serializedVersion: 2
+        x: 4733
+        y: 125
+        width: 389
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade6872a5621b7f44a8f3a04272439b4
+      internalID: -1253642095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +342,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ANI_portal_v1_0: 421977853
+      ANI_portal_v1_1: 1164114387
+      ANI_portal_v1_2: 1035075058
+      ANI_portal_v1_3: 2111034594
+      ANI_portal_v1_4: 721068342
+      ANI_portal_v1_5: -2147329708
+      ANI_portal_v1_6: 1682431878
+      ANI_portal_v1_7: 64686621
+      ANI_portal_v1_8: 226018503
+      ANI_portal_v1_9: -1253642095
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

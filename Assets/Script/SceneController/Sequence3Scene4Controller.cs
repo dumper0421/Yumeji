@@ -103,7 +103,7 @@ public class Sequence3Scene4Controller : SceneController
         // 5. 영상 오버레이 표시
         if (videoCanvasGroup != null)
             yield return StartCoroutine(FadeCanvasGroup(videoCanvasGroup, 1f, videoFadeInDuration));
-
+        /*
         // 6. mp4 재생
         if (videoPlayer != null)
         {
@@ -122,6 +122,7 @@ public class Sequence3Scene4Controller : SceneController
             Debug.LogWarning("[S3S4] videoPlayer가 비어있었다. 영상 없이 다음 씬으로 이동했다.");
             yield return new WaitForSeconds(1f);
         }
+        */
 
         // 7. 다음 씬 이동
         if (!string.IsNullOrEmpty(nextSceneName))
