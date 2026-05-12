@@ -55,6 +55,7 @@ public class InventoryManager : Singleton<InventoryManager>
     public void Start()
     {
         LoadInventory(GameManager.Instance.CurrentSaveData.SlotIndex);
+        IsDontDestroyOnLoad = false;
         MoveSelectBorder(0);
     }
 

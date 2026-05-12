@@ -1745,7 +1745,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9829993, y: -6.4816303, z: -10}
+  m_LocalPosition: {x: -2.966622, y: -6.4816504, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2588,6 +2588,10 @@ PrefabInstance:
       objectReference: {fileID: 1036382162}
     - target: {fileID: 4015062592047068774, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
       propertyPath: CurrentSelectIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015062592047068774, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
+      propertyPath: IsDontDestroyOnLoad
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6929026498104306244, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
@@ -4948,6 +4952,10 @@ PrefabInstance:
       propertyPath: BackGround
       value: 
       objectReference: {fileID: 1884887611}
+    - target: {fileID: 7188801179530564603, guid: f1d0ce498c244d2499d222109742eaf4, type: 3}
+      propertyPath: IsDontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7339603344958764976, guid: f1d0ce498c244d2499d222109742eaf4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

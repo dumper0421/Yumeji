@@ -40,6 +40,7 @@ public class SettingManager : Singleton<SettingManager>
     public void Start()
     {
         LoadSettings();
+        IsDontDestroyOnLoad = false;
     }
 
     private void LoadSettings()

@@ -87,6 +87,9 @@ EditorBuildSettings:
     path: Assets/Scenes/2026PlayX4/Sequence5S#3.unity
     guid: 56489e6289042ca4f9a60838a2751d25
   - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence6S#1.unity
+    guid: 179f5585dffcb6140bf1d48ce8bcb5cb
+  - enabled: 1
     path: Assets/Scenes/2026PlayX4/EndingScene.unity
     guid: 0c952270921d174409eec1097b64c6f9
   m_configObjects: {}

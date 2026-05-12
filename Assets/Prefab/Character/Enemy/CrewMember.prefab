@@ -75,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1277631547
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 168552345, guid: 70abc9d5a5486ea488ca9d18d2ee2d2b, type: 3}
+  m_Sprite: {fileID: -451676290, guid: 50ad10e23be141d4f81a15e2bfcd0341, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 3792372318685056607}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9168a3f914be9934ba4f30b3ea9b688b, type: 2}
+  m_Controller: {fileID: 9100000, guid: ba507db86d80e9f45acf01a669068e2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -125,7 +125,10 @@ MonoBehaviour:
   Target: {fileID: 0}
   isStop: 0
   waitInterval: 2
-  IsSameLocation: 1
+  attackAllowedDistance: 1
+  fastDistance: 20
+  farMoveSpeed: 1.25
+  isMove: 0
 --- !u!114 &7081785245784065754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,10 +145,13 @@ MonoBehaviour:
   topRight: {x: 10, y: 3}
   startPos: {x: 9, y: -2}
   targetPos: {x: 0, y: 0}
-  endPos: {x: -10, y: -2}
-  FinalNodeList: []
   allowDiagonal: 0
   dontCrossCorner: 0
+  cellSize: 1
+  cellOffset: {x: 0.5, y: 0}
+  overlapBoxSize: {x: 0.9, y: 0.9}
+  obstacleLayerName: Obstacle
+  FinalNodeList: []
 --- !u!61 &3593929482662785455
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,8 +187,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 2.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.25, y: 4.06}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 2, y: 4}
     newSize: {x: 4.3399997, y: 8.220105}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

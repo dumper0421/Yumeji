@@ -1570,6 +1570,10 @@ PrefabInstance:
       propertyPath: BackGround
       value: 
       objectReference: {fileID: 374506668}
+    - target: {fileID: 7188801179530564603, guid: f1d0ce498c244d2499d222109742eaf4, type: 3}
+      propertyPath: IsDontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7339603344958764976, guid: f1d0ce498c244d2499d222109742eaf4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4701,7 +4705,7 @@ Transform:
   m_GameObject: {fileID: 1059056000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.924141, y: -0.013931185, z: -10}
+  m_LocalPosition: {x: 2.9281092, y: -0.013931185, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8897,6 +8901,10 @@ PrefabInstance:
     - target: {fileID: 1708859684730591300, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
       propertyPath: m_Name
       value: Inventory Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015062592047068774, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
+      propertyPath: IsDontDestroyOnLoad
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6929026498104306244, guid: d8ebee7e5c2acd74b87fdb4d4bd7cbe3, type: 3}
       propertyPath: m_Pivot.x
