@@ -459,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3318190146552875674, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_IsActive
@@ -655,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12
+      value: -11.75
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10187,7 +10187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12
+      value: -11.75
       objectReference: {fileID: 0}
     - target: {fileID: 8270437091883715835, guid: 6333b95a9150fd5408184a45fc89e6b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10438,6 +10438,10 @@ PrefabInstance:
       propertyPath: SaveLoadPopup
       value: 
       objectReference: {fileID: 525548860}
+    - target: {fileID: 940051765392364121, guid: 9268bdeae7735504884d0596e34d48a8, type: 3}
+      propertyPath: _playerMove_Test_Lerp
+      value: 
+      objectReference: {fileID: 1109036413}
     - target: {fileID: 1773931913110065265, guid: 9268bdeae7735504884d0596e34d48a8, type: 3}
       propertyPath: m_IsActive
       value: 0
