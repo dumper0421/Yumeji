@@ -1121,7 +1121,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 7ec6ca28b335e7942913d6378b51962d, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -1132,6 +1132,8 @@ PlayableDirector:
     value: {fileID: 1037080745}
   - key: {fileID: 7698559062069239092, guid: 7ec6ca28b335e7942913d6378b51962d, type: 2}
     value: {fileID: 1037080745}
+  - key: {fileID: 229129385758715270, guid: 7ec6ca28b335e7942913d6378b51962d, type: 2}
+    value: {fileID: 1586323524}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &393004969
@@ -1168,6 +1170,7 @@ MonoBehaviour:
   cinemachineCameras:
   - {fileID: 1007308792}
   - {fileID: 1727124171}
+  _dialogueController: {fileID: 1586323523}
 --- !u!4 &408481344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2022038431231663622, guid: acb48a52b4bab8842955b90a9e9e836f, type: 3}
@@ -1360,7 +1363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &428923722
 Transform:
   m_ObjectHideFlags: 0
@@ -1745,7 +1748,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.966622, y: -6.4816504, z: -10}
+  m_LocalPosition: {x: -3, y: -10.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2467,7 +2470,6 @@ GameObject:
   - component: {fileID: 1007308793}
   - component: {fileID: 1007308792}
   - component: {fileID: 1007308791}
-  - component: {fileID: 1007308794}
   m_Layer: 0
   m_Name: Virtaul Camera
   m_TagString: Untagged
@@ -2542,22 +2544,6 @@ Transform:
   - {fileID: 366983917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1007308794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007308790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 428923723}
-  m_Damping: 0.5
-  m_MaxWindowSize: -1
-  m_Padding: 0
 --- !u!1001 &1036382159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3488,6 +3474,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1737535193680112513, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1344
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737535193680112513, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 960
+      objectReference: {fileID: 0}
     - target: {fileID: 3785081686529955086, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
       propertyPath: m_Name
       value: MainCanvas
@@ -4298,6 +4292,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1586323523}
+    - targetCorrespondingSourceObject: {fileID: 2823997302007615534, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1586323524}
   m_SourcePrefab: {fileID: 100100000, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
 --- !u!1 &1586323520 stripped
 GameObject:
@@ -4337,11 +4334,42 @@ MonoBehaviour:
   sceneId: Scequence1Scene5
   puzzleId: Puzzle
   state: 0
+  _director: {fileID: 393004968}
   TornTrianTicketData: {fileID: 11400000, guid: f1227aa9daa83a8458325834279c19c3, type: 2}
   StationChairObject: {fileID: 1292369777}
   TrainDoorObject: {fileID: 242405232}
   InteractionLight: {fileID: 356339851}
   teleport: {fileID: 1908996096}
+--- !u!114 &1586323524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586323520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 790cd19f9b409bd418a97a22bd7fccec, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1586323523}
+          m_TargetAssemblyTypeName: Sequence1Scene5DialogueController, Assembly-CSharp
+          m_MethodName: SaveState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1618213405
 GameObject:
   m_ObjectHideFlags: 0
