@@ -1220,6 +1220,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1109036417}
+    - target: {fileID: 1203095132731695098, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
+      propertyPath: Companion
+      value: 
+      objectReference: {fileID: 1413782119}
     - target: {fileID: 3394479683923058493, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
       propertyPath: m_Size.y
       value: 1.0642064
