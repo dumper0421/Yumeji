@@ -104,6 +104,8 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
                 return;
         }
 
+        if (PopupUIManager.Instance.SaveLoadPopup.gameObject.activeSelf) return;
+
         // ★ canMove가 false면 (밀기/촬영/앉기 중) 아무 것도 안 함
         if (!canMove) return;
 

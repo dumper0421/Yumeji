@@ -16,6 +16,7 @@ public class PopupUIManager : Singleton<PopupUIManager>
     private LinkedList<PopupUI> activePopupList_ = new LinkedList<PopupUI>();
     private List<PopupUI> allPopupList_ = new List<PopupUI>();
 
+    public PopupUI SaveLoadPopup => saveLoadPopup_;
     [SerializeField] private SavePointFlashEffect currentSaveEffect_;
 
     private void Update()
@@ -55,15 +56,15 @@ public class PopupUIManager : Singleton<PopupUIManager>
 
         saveDialog.SetAction(confirmAction, denyAction);
         if (hasData)
-            saveDialog.SetContentText("ÇöÀç ÁøÇà »óÈ²À»" + System.Environment.NewLine + "½½·Ô¿¡ µ¤¾î¾²±âÇÕ´Ï´Ù.");
+            saveDialog.SetContentText("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½" + System.Environment.NewLine + "ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½î¾²ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
         else
-            saveDialog.SetContentText("ÇöÀç ÁøÇà »óÈ²À» ÀúÀåÇÕ´Ï´Ù.");
-        saveDialog.SetButtonText("Ãë¼Ò", "ÀúÀå");
+            saveDialog.SetContentText("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
+        saveDialog.SetButtonText("ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½");
 
         Debug.Log(saveDialog);
     }
 
-    //isSave°¡ trueÀÏ ‹š save·Î ¾Æ´Ò ¶§ µ¤¾î¾²±â·Î UI ¿­±â
+    //isSaveï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ saveï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½î¾²ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
     public void SetSaveLoadPopup(bool isSave)
     {
         saveLoadPopup_.gameObject.SetActive(true);
@@ -71,10 +72,10 @@ public class PopupUIManager : Singleton<PopupUIManager>
         saveLoadPopup_.GetComponent<SaveLoadPopup>().SwitchSaveLoadUI(isSave);
     }
 
-    //¼¼ÀÌºê ¿¬Ãâ
+    //ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
     private IEnumerator CoSaveWithEffect(int slotNum, ConfirmationDialog saveDialog)
     {
-        // UI ´Ý±â
+        // UI ï¿½Ý±ï¿½
         saveDialog.gameObject.SetActive(false);
 
         if (saveLoadPopup_ != null)
@@ -86,10 +87,10 @@ public class PopupUIManager : Singleton<PopupUIManager>
         activePopupList_.Remove(confirmationDialog_);
         activePopupList_.Remove(saveLoadPopup_);
 
-        // ÇÁ·¹ÀÓ ´ë±â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         yield return null;
 
-        //  ÀúÀå ¿¬Ãâ ½ÇÇà->¼¼ÀÌºê¿ÀºêÁ§Æ®¿¡¼­
+        //  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½->ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½
         if (currentSaveEffect_ != null)
             yield return StartCoroutine(currentSaveEffect_.PlayEffect());
 
