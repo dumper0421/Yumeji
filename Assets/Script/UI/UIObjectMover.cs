@@ -4,34 +4,34 @@ using System.Collections;
 
 public class UIObjectMover : MonoBehaviour
 {
-    [SerializeField] private RectTransform uiRect;  // ÀÌµ¿ÇÒ UI °´Ã¼
-    [SerializeField, Min(0f)] private float duration = 1f;  // ¾Ö´Ï¸ŞÀÌ¼Ç Áö¼Ó ½Ã°£(ÃÊ)
+    [SerializeField] private RectTransform uiRect;  // ì´ë™í•  UI ê°ì²´
+    [SerializeField, Min(0f)] private float duration = 1f;  // ì• ë‹ˆë©”ì´ì…˜ ì§€ì† ì‹œê°„(ì´ˆ)
     public SceneChanger sceneChanger;
     public AudioClip EndBGM;
 
     private void Start()
     {
-        // ½ÃÀÛ ½Ã ÀÚµ¿À¸·Î ÀÌµ¿À» ¿øÇÏÁö ¾ÊÀ¸¸é ÀÌ ÁÙÀ» Á¦°ÅÇÏ°í,
-        // ¿øÇÏ´Â ½ÃÁ¡¿¡ MoveUI()¸¦ È£ÃâÇÏ¼¼¿ä.
+        // ì‹œì‘ ì‹œ ìë™ìœ¼ë¡œ ì´ë™ì„ ì›í•˜ì§€ ì•Šìœ¼ë©´ ì´ ì¤„ì„ ì œê±°í•˜ê³ ,
+        // ì›í•˜ëŠ” ì‹œì ì— MoveUI()ë¥¼ í˜¸ì¶œí•˜ì„¸ìš”.
         StartCoroutine(MoveUI(400f, 4000f, duration));
         SoundManager.Instance.PlayBGM(EndBGM);
     }
 
     /// <summary>
-    /// y°ªÀ» from¿¡¼­ to·Î duration ÃÊ µ¿¾È ºÎµå·´°Ô ÀÌµ¿
+    /// yê°’ì„ fromì—ì„œ toë¡œ duration ì´ˆ ë™ì•ˆ ë¶€ë“œëŸ½ê²Œ ì´ë™
     /// </summary>
     private IEnumerator MoveUI(float from, float to, float duration)
     {
         if (uiRect == null)
         {
-            Debug.LogError("UIObjectMover: uiRect°¡ ÇÒ´çµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+            Debug.LogError("UIObjectMover: uiRectê°€ í• ë‹¹ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
             yield break;
         }
 
         Vector2 pos = uiRect.anchoredPosition;
         float elapsed = 0f;
 
-        // ÃÊ±â À§Ä¡ ¼¼ÆÃ
+        // ì´ˆê¸° ìœ„ì¹˜ ì„¸íŒ…
         pos.y = from;
         uiRect.anchoredPosition = pos;
 
@@ -39,7 +39,7 @@ public class UIObjectMover : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / duration);
-            // ºÎµå·¯¿î º¸°£ (Linear), ¿øÇÑ´Ù¸é Mathf.SmoothStep(t) »ç¿ë °¡´É
+            // ë¶€ë“œëŸ¬ìš´ ë³´ê°„ (Linear), ì›í•œë‹¤ë©´ Mathf.SmoothStep(t) ì‚¬ìš© ê°€ëŠ¥
             float newY = Mathf.Lerp(from, to, t);
 
             pos.y = newY;
@@ -48,14 +48,14 @@ public class UIObjectMover : MonoBehaviour
             yield return null;
         }
 
-        // ÃÖÁ¾ À§Ä¡ º¸Á¤
+        // ìµœì¢… ìœ„ì¹˜ ë³´ì •
         pos.y = to;
         uiRect.anchoredPosition = pos;
         sceneChanger.ChangeScene("Scenes/Final/TitleScene");
     }
 
     /// <summary>
-    /// ¿ÜºÎ¿¡¼­ È£ÃâÇØ¼­ ÀÌµ¿ ½ÃÀÛÇÏ±â
+    /// ì™¸ë¶€ì—ì„œ í˜¸ì¶œí•´ì„œ ì´ë™ ì‹œì‘í•˜ê¸°
     /// </summary>
     public void PlayMove()
     {

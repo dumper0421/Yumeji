@@ -21,7 +21,7 @@ public class Sequence1Scene8DialogueController : DialogueController<S1S8State>
             case "RabbitMan_Hint7":
  
                 RabbitManObject.StartDialogue = "RabbitMan_AfterHint";
-                RabbitManObject.hasBeenInspected = false;  // ´Ù½Ã Á¶»ç °¡´ÉÇÏ°Ô
+                RabbitManObject.hasBeenInspected = false;  // ë‹¤ì‹œ ì¡°ì‚¬ ê°€ëŠ¥í•˜ê²Œ
 
                 break;
         }

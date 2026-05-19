@@ -15,7 +15,7 @@ public class Sequence4Scene2CameraInteractObject : InspectableObject
 
     [Header("Direction Check")]
     public Animator playerAnimator;
-    [Tooltip("Ä«¸Ş¶ó ¾Æ·¡ÂÊ¿¡¼­ »óÈ£ÀÛ¿ëÇÒ ¶§ ÇÃ·¹ÀÌ¾î°¡ ¹Ù¶óºÁ¾ß ÇÏ´Â DirY °ª")]
+    [Tooltip("ì¹´ë©”ë¼ ì•„ë˜ìª½ì—ì„œ ìƒí˜¸ì‘ìš©í•  ë•Œ í”Œë ˆì´ì–´ê°€ ë°”ë¼ë´ì•¼ í•˜ëŠ” DirY ê°’")]
     public float requiredDirY = 1f;
 
     [Header("Dialogue IDs")]
@@ -28,16 +28,16 @@ public class Sequence4Scene2CameraInteractObject : InspectableObject
     public AudioClip slateClip;
     public AudioClip cutClip;
 
-    [Tooltip("¾ÏÀü¿ë ÀÌ¹ÌÁö(Canvas ¾ÈÀÇ °ËÀº Image)")]
+    [Tooltip("ì•”ì „ìš© ì´ë¯¸ì§€(Canvas ì•ˆì˜ ê²€ì€ Image)")]
     public Image fadeImage;
 
-    [Tooltip("¾ÏÀü ½Ã°£")]
+    [Tooltip("ì•”ì „ ì‹œê°„")]
     public float fadeDuration = 1.3f;
 
-    [Tooltip("ÄÆ ¼Ò¸® Àü ½½·¹ÀÌÆ® ÈÄ ´ë±â ½Ã°£")]
+    [Tooltip("ì»· ì†Œë¦¬ ì „ ìŠ¬ë ˆì´íŠ¸ í›„ ëŒ€ê¸° ì‹œê°„")]
     public float delayBeforeCutSound = 0.6f;
 
-    [Tooltip("´ÙÀ½ ¾À ÀÌ¸§")]
+    [Tooltip("ë‹¤ìŒ ì”¬ ì´ë¦„")]
     public string nextSceneName;
 
     private bool waitingForReadyDialogueEnd = false;
@@ -48,21 +48,21 @@ public class Sequence4Scene2CameraInteractObject : InspectableObject
         if (isSequencePlaying) return;
         if (dialogueManager == null || sceneController == null) return;
 
-        // 1. ÆÛÁñ ¹Ì¿Ï·á
+        // 1. í¼ì¦ ë¯¸ì™„ë£Œ
         if (!sceneController.AreAllPuzzlesSolved)
         {
             dialogueManager.StartDialogue(notReadyDialogueId);
             return;
         }
 
-        // 2. ¹æÇâ Æ²¸²
+        // 2. ë°©í–¥ í‹€ë¦¼
         if (!IsInteractingFromBelow())
         {
             dialogueManager.StartDialogue(wrongDirectionDialogueId);
             return;
         }
 
-        // 3. ÆÛÁñ ¿Ï·á + ¿Ã¹Ù¸¥ ¹æÇâ
+        // 3. í¼ì¦ ì™„ë£Œ + ì˜¬ë°”ë¥¸ ë°©í–¥
         waitingForReadyDialogueEnd = true;
         dialogueManager.OnDialogueComplete += OnDialogueCompleteOnce;
         dialogueManager.StartDialogue(readyDialogueId);
@@ -72,7 +72,7 @@ public class Sequence4Scene2CameraInteractObject : InspectableObject
     {
         if (playerAnimator == null) return false;
 
-        // ³× ÇÁ·ÎÁ§Æ®¿¡¼­ DirY·Î ¹æÇâ °ü¸®ÇÑ´Ù´Â ÀüÁ¦
+        // ë„¤ í”„ë¡œì íŠ¸ì—ì„œ DirYë¡œ ë°©í–¥ ê´€ë¦¬í•œë‹¤ëŠ” ì „ì œ
         float dirY = playerAnimator.GetFloat("DirY");
         return Mathf.Approximately(dirY, requiredDirY);
     }

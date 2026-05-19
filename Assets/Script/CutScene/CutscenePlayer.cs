@@ -6,50 +6,50 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
 
-// 1. ÀÌº¥Æ® Å¸ÀÔ Á¤ÀÇ
+// 1. ì´ë²¤íŠ¸ íƒ€ì… ì •ì˜
 [Serializable]
 public enum CutsceneActionType
 {
-    FadeIn,        // È­¸é ÆäÀÌµå ÀÎ
-    FadeOut,       // È­¸é ÆäÀÌµå ¾Æ¿ô
-    PlayBGM,       // BGM Àç»ı
-    StopBGM,       // BGM Á¤Áö
-    PlaySFX,       // SFX Àç»ı
-    ShowText,      // ÀÚ¸·(ÅØ½ºÆ®) Ç¥½Ã
-    HideText,      // ÀÚ¸· ¼û±â±â
-    Wait,          // ´ë±â
-    CameraCut      // Ä«¸Ş¶ó ÀüÈ¯
+    FadeIn,        // í™”ë©´ í˜ì´ë“œ ì¸
+    FadeOut,       // í™”ë©´ í˜ì´ë“œ ì•„ì›ƒ
+    PlayBGM,       // BGM ì¬ìƒ
+    StopBGM,       // BGM ì •ì§€
+    PlaySFX,       // SFX ì¬ìƒ
+    ShowText,      // ìë§‰(í…ìŠ¤íŠ¸) í‘œì‹œ
+    HideText,      // ìë§‰ ìˆ¨ê¸°ê¸°
+    Wait,          // ëŒ€ê¸°
+    CameraCut      // ì¹´ë©”ë¼ ì „í™˜
 }
 
-// 2. °¢ ÄÆ¾À ¾×¼Ç µ¥ÀÌÅÍ ÄÁÅ×ÀÌ³Ê
+// 2. ê° ì»·ì”¬ ì•¡ì…˜ ë°ì´í„° ì»¨í…Œì´ë„ˆ
 [Serializable]
 public class CutsceneAction
 {
     public CutsceneActionType actionType;
-    public float duration;       // ÆäÀÌµå³ª ´ë±â ½Ã°£
-    public string parameter;     // ¿Àµğ¿À Å¬¸³ ÀÌ¸§, ÀÚ¸· ³»¿ë, Ä«¸Ş¶ó ÀÌ¸§ µî
+    public float duration;       // í˜ì´ë“œë‚˜ ëŒ€ê¸° ì‹œê°„
+    public string parameter;     // ì˜¤ë””ì˜¤ í´ë¦½ ì´ë¦„, ìë§‰ ë‚´ìš©, ì¹´ë©”ë¼ ì´ë¦„ ë“±
 }
 
-// 3. ÄÆ¾À ÀÚ»ê: ¿¡µğÅÍ¿¡¼­ ¾×¼Ç ¸®½ºÆ®¸¦ ¼ø¼­´ë·Î Á¤ÀÇ
+// 3. ì»·ì”¬ ìì‚°: ì—ë””í„°ì—ì„œ ì•¡ì…˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ìˆœì„œëŒ€ë¡œ ì •ì˜
 [CreateAssetMenu(fileName = "NewCutscene", menuName = "Cutscene/Create Cutscene Asset")]
 public class CutsceneData : ScriptableObject
 {
     public List<CutsceneAction> actions = new List<CutsceneAction>();
 }
 
-// 4. ÄÆ¾À ÇÃ·¹ÀÌ¾î: MonoBehaviour·Î °ÔÀÓ¿ÀºêÁ§Æ®¿¡ ºÙ¿© »ç¿ë
+// 4. ì»·ì”¬ í”Œë ˆì´ì–´: MonoBehaviourë¡œ ê²Œì„ì˜¤ë¸Œì íŠ¸ì— ë¶™ì—¬ ì‚¬ìš©
 public class CutscenePlayer : MonoBehaviour
 {
     [Header("Cutscene Data")]
     public CutsceneData cutsceneData;
 
     [Header("References")]
-    public CanvasGroup fadeCanvas;         // È­¸é ÀüÃ¼ µ¤´Â CanvasGroup
-    public TextMeshProUGUI subtitleText;  // ÀÚ¸·¿ë TMP Text
-    public AudioSource bgmSource;         // BGM ¿Àµğ¿À ¼Ò½º
-    public AudioSource sfxSource;         // SFX ¿Àµğ¿À ¼Ò½º
+    public CanvasGroup fadeCanvas;         // í™”ë©´ ì „ì²´ ë®ëŠ” CanvasGroup
+    public TextMeshProUGUI subtitleText;  // ìë§‰ìš© TMP Text
+    public AudioSource bgmSource;         // BGM ì˜¤ë””ì˜¤ ì†ŒìŠ¤
+    public AudioSource sfxSource;         // SFX ì˜¤ë””ì˜¤ ì†ŒìŠ¤
     public AudioMixer audioMixer;         // Exposed params: Master/Bgm/SFX
-    public Camera[] cameras;              // ÄÆº° Ä«¸Ş¶ó ¸®½ºÆ®
+    public Camera[] cameras;              // ì»·ë³„ ì¹´ë©”ë¼ ë¦¬ìŠ¤íŠ¸
 
     int currentCamIndex = 0;
 
@@ -97,7 +97,7 @@ public class CutscenePlayer : MonoBehaviour
         }
     }
 
-    // È­¸é ÆäÀÌµå ÄÚ·çÆ¾
+    // í™”ë©´ í˜ì´ë“œ ì½”ë£¨í‹´
     private IEnumerator Fade(float from, float to, float duration)
     {
         float elapsed = 0f;
@@ -111,7 +111,7 @@ public class CutscenePlayer : MonoBehaviour
         fadeCanvas.alpha = to;
     }
 
-    // ¿Àµğ¿À Àç»ı ÇïÆÛ
+    // ì˜¤ë””ì˜¤ ì¬ìƒ í—¬í¼
     private void PlayAudio(AudioSource source, string clipName, bool loop)
     {
         var clip = Resources.Load<AudioClip>(clipName);
@@ -125,7 +125,7 @@ public class CutscenePlayer : MonoBehaviour
         source.Play();
     }
 
-    // Ä«¸Ş¶ó ÀüÈ¯
+    // ì¹´ë©”ë¼ ì „í™˜
     private void SwitchCamera(string camName)
     {
         foreach (var cam in cameras) cam.gameObject.SetActive(cam.name == camName);

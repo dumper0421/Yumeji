@@ -59,7 +59,7 @@ public class AnalogTVNoiseController : MonoBehaviour
     }
 
     /// <summary>
-    /// 0~100 °ªÀ» ¹Ş¾Æ È¿°ú °­µµ¸¦ Àû¿ë
+    /// 0~100 ê°’ì„ ë°›ì•„ íš¨ê³¼ ê°•ë„ë¥¼ ì ìš©
     /// </summary>
     public void SetStrengthPercent(float percent)
     {
@@ -68,7 +68,7 @@ public class AnalogTVNoiseController : MonoBehaviour
     }
 
     /// <summary>
-    /// È¿°ú ¿ÏÀü ²ô±â
+    /// íš¨ê³¼ ì™„ì „ ë„ê¸°
     /// </summary>
     public void SetOff()
     {
@@ -77,7 +77,7 @@ public class AnalogTVNoiseController : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇÁ¸®¼Â Àû¿ë
+    /// í”„ë¦¬ì…‹ ì ìš©
     /// </summary>
     public void SetPreset(TVNoisePreset preset)
     {
@@ -110,7 +110,7 @@ public class AnalogTVNoiseController : MonoBehaviour
 
         float t = Mathf.Clamp01(strengthPercent / 100f);
 
-        // °­µµ 0ÀÏ ¶§´Â ¿ÏÀü ²¨Áö°Ô
+        // ê°•ë„ 0ì¼ ë•ŒëŠ” ì™„ì „ êº¼ì§€ê²Œ
         float noiseIntensity = maxNoiseIntensity * t;
         float scanlineIntensity = maxScanlineIntensity * t;
         float jitterAmount = maxJitterAmount * t;
@@ -133,7 +133,7 @@ public class AnalogTVNoiseController : MonoBehaviour
 
         tvMaterial.SetFloat(BurstIntensityId, burstIntensity);
         tvMaterial.SetFloat(BurstChanceId, burstChance * t);
-        // °­µµ ³·À» ¶§ ¹ö½ºÆ®µµ ´ú ³ª¿À°Ô
+        // ê°•ë„ ë‚®ì„ ë•Œ ë²„ìŠ¤íŠ¸ë„ ëœ ë‚˜ì˜¤ê²Œ
 
         tvMaterial.SetFloat(BrightnessFlickerId, brightnessFlicker);
     }

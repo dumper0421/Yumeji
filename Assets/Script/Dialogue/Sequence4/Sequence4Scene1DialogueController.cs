@@ -45,7 +45,7 @@ public class Sequence4Scene1DialogueController : DialogueController<S4S1State>
                 StartCoroutine(FadeOut(2f));
                 break;
             case "HotelEntrance_CheckInvitePrompt":
-                _playerMove.SetCompanion(_reiCompanionSystem, "∑π¿Ã");
+                _playerMove.SetCompanion(_reiCompanionSystem, "Î†àÏù¥");
                // _reiAnimator.enabled = true;
                 _haruAnimator.enabled = true;
                 break;

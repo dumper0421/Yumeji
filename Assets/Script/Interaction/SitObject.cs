@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SitObject : MonoBehaviour
 {
-    [Tooltip("ÇÃ·¹ÀÌ¾î°¡ ¾É¾ÒÀ» ¶§ À§Ä¡ ¿ÀÇÁ¼Â (ÀÌ ¿ÀºêÁ§Æ® ±âÁØ)")]
+    [Tooltip("í”Œë ˆì´ì–´ê°€ ì•‰ì•˜ì„ ë•Œ ìœ„ì¹˜ ì˜¤í”„ì…‹ (ì´ ì˜¤ë¸Œì íŠ¸ ê¸°ì¤€)")]
     public Vector2 sitOffset = Vector2.zero;
 
-    [Tooltip("¾É¾ÒÀ» ¶§ ¹Ù¶óº¸´Â ¹æÇâ (4¹æ Áß ÇÏ³ª)")]
+    [Tooltip("ì•‰ì•˜ì„ ë•Œ ë°”ë¼ë³´ëŠ” ë°©í–¥ (4ë°© ì¤‘ í•˜ë‚˜)")]
     public Vector2 sitDirection = Vector2.down;
 }

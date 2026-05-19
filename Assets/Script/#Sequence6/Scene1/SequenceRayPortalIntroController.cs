@@ -46,31 +46,31 @@ public class SequenceRayPortalIntroController : MonoBehaviour
 
     private IEnumerator IntroSequence()
     {
-        // 1. ½ÃÀÛ ½Ã ÇÃ·¹ÀÌ¾î¿Í Æ÷Å» ¼û±è
+        // 1. ì‹œì‘ ì‹œ í”Œë ˆì´ì–´ì™€ í¬íƒˆ ìˆ¨ê¹€
         if (player != null)
             player.SetActive(false);
 
         if (portalObject != null)
             portalObject.SetActive(false);
 
-        // 2. ±âÁ¸ Ä«¸Ş¶ó Follow ÀúÀå
+        // 2. ê¸°ì¡´ ì¹´ë©”ë¼ Follow ì €ì¥
         if (vcam != null)
             originalFollow = vcam.Follow;
 
-        // 3. ÀÎÆ®·Î Å¸°Ù ½ÃÀÛ À§Ä¡ ¼³Á¤
+        // 3. ì¸íŠ¸ë¡œ íƒ€ê²Ÿ ì‹œì‘ ìœ„ì¹˜ ì„¤ì •
         if (cameraIntroTarget != null && cameraIntroStartPoint != null)
             cameraIntroTarget.position = cameraIntroStartPoint.position;
 
-        // 4. Ä«¸Ş¶ó°¡ ÀÎÆ®·Î Å¸°ÙÀ» µû¶ó°¡°Ô º¯°æ
+        // 4. ì¹´ë©”ë¼ê°€ ì¸íŠ¸ë¡œ íƒ€ê²Ÿì„ ë”°ë¼ê°€ê²Œ ë³€ê²½
         if (vcam != null && cameraIntroTarget != null)
             vcam.Follow = cameraIntroTarget;
 
         yield return null;
 
-        // 5. Æ¿Æ®´Ù¿î
+        // 5. í‹¸íŠ¸ë‹¤ìš´
         yield return StartCoroutine(PlayTiltDown());
 
-        // 6. Ä«¸Ş¶ó Follow¸¦ ´Ù½Ã ÇÃ·¹ÀÌ¾î·Î º¹±¸
+        // 6. ì¹´ë©”ë¼ Followë¥¼ ë‹¤ì‹œ í”Œë ˆì´ì–´ë¡œ ë³µêµ¬
         if (vcam != null)
         {
             if (playerFollowTarget != null)
@@ -79,10 +79,10 @@ public class SequenceRayPortalIntroController : MonoBehaviour
                 vcam.Follow = originalFollow;
         }
 
-        // 7. Æ÷Å» »ı¼º ÈÄ Idle ÁøÀÔ
+        // 7. í¬íƒˆ ìƒì„± í›„ Idle ì§„ì…
         yield return StartCoroutine(PlayPortalCreateThenIdle());
 
-        // 8. Æ÷Å» IdleÀ» Àá±ñ º¸¿©ÁØ µÚ ÇÃ·¹ÀÌ¾î µîÀå
+        // 8. í¬íƒˆ Idleì„ ì ê¹ ë³´ì—¬ì¤€ ë’¤ í”Œë ˆì´ì–´ ë“±ì¥
         yield return new WaitForSeconds(playerActiveDelayAfterPortalIdle);
 
         if (player != null)

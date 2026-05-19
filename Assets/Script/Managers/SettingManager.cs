@@ -21,9 +21,9 @@ public class SettingManager : Singleton<SettingManager>
       //  DontDestroyOnLoad(gameObject);
         sliders = new[] { MasterSlider, BgmSlider, SfxSlider };
 
-        // ÀúÀåµÈ ¼³Á¤ ·Îµå ¹× ¿Àµğ¿À ¸Å´ÏÀú¿¡ Àû¿ë
+        // ì €ì¥ëœ ì„¤ì • ë¡œë“œ ë° ì˜¤ë””ì˜¤ ë§¤ë‹ˆì €ì— ì ìš©
 
-        // ½½¶óÀÌ´õ ÀÌº¥Æ® ¿¬°á
+        // ìŠ¬ë¼ì´ë” ì´ë²¤íŠ¸ ì—°ê²°
         MasterSlider.onValueChanged.AddListener(v => SoundManager.Instance.SetMasterVolume(v));
         MasterSlider.onValueChanged.AddListener(v => PlayerPrefs.SetFloat("Master", v));
         BgmSlider.onValueChanged.AddListener(v => SoundManager.Instance.SetBGMVolume(v));
@@ -84,7 +84,7 @@ public class SettingManager : Singleton<SettingManager>
         {
             var s = sliders[selectedIndex];
             s.value = Mathf.Clamp01(s.value + dir * 0.002f);
-            // ½½¶óÀÌ´õ onValueChanged°¡ È£ÃâµÇ¾î SoundManager¿Í PlayerPrefs¿¡ ÀÚµ¿ ÀúÀå/Àû¿ëµÊ
+            // ìŠ¬ë¼ì´ë” onValueChangedê°€ í˜¸ì¶œë˜ì–´ SoundManagerì™€ PlayerPrefsì— ìë™ ì €ì¥/ì ìš©ë¨
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

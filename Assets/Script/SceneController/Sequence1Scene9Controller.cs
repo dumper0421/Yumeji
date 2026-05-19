@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Sequence1Scene9Controller : SceneController
 {
-    [Header("Button Press ½Ã Àç»ıÇÒ BGM")]
+    [Header("Button Press ì‹œ ì¬ìƒí•  BGM")]
     [SerializeField] private AudioClip buttonBgm;
 
     private void Awake()
@@ -21,13 +21,13 @@ public class Sequence1Scene9Controller : SceneController
         if (buttonBgm == null)
             return;
 
-        // PlayBGM È£ÃâÀ» ´ÙÀ½ ÇÁ·¹ÀÓÀ¸·Î ¹Ì·ë
+        // PlayBGM í˜¸ì¶œì„ ë‹¤ìŒ í”„ë ˆì„ìœ¼ë¡œ ë¯¸ë£¸
         StartCoroutine(PlayBGMNextFrame());
     }
 
     private IEnumerator PlayBGMNextFrame()
     {
-        // ¹°¸® ¾÷µ¥ÀÌÆ®°¡ ³¡³­ ´ÙÀ½ ÇÁ·¹ÀÓ±îÁö ´ë±â
+        // ë¬¼ë¦¬ ì—…ë°ì´íŠ¸ê°€ ëë‚œ ë‹¤ìŒ í”„ë ˆì„ê¹Œì§€ ëŒ€ê¸°
         yield return null;
 
         bgm = buttonBgm;

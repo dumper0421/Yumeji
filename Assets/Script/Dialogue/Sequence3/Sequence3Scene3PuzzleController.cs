@@ -37,7 +37,7 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
 
     public int PushCnt { get; private set; } = 0;
 
-    // ÀÌ¹Ì ´­¸° ½ºÀ§Ä¡ Áßº¹ Ä«¿îÆ® ¹æÁö
+    // ì´ë¯¸ ëˆŒë¦° ìŠ¤ìœ„ì¹˜ ì¤‘ë³µ ì¹´ìš´íŠ¸ ë°©ì§€
     private readonly HashSet<int> _pushed = new HashSet<int>();
 
     private const string StartDialogueId = "HaruRei1_01";
@@ -54,7 +54,7 @@ public class Sequence3Scene3PuzzleController : DialogueController<S3S3PState>
     {
         switch (dialogueId) { 
             case "HaruRei1_04": 
-                HaruMove.SetCompanion(ReiCompanionSystem, "·¹ÀÌ"); 
+                HaruMove.SetCompanion(ReiCompanionSystem, "ë ˆì´"); 
                 break;
             case "GetRose":
                 InventoryManager.Instance.AddItem(OldKeyData);

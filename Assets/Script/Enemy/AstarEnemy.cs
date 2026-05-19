@@ -181,7 +181,7 @@ public class AstarEnemy : Enemy
         waitTimer = 0f;
     }
 
-    // �ڷ���Ʈ �ڵ忡�� ���� ȣ���ϸ� �� Ȯ����
+    // 텔레포트 코드에서 직접 호출하면 더 확실함
     public void ForceRepathNow()
     {
         if (pathFinder == null || Target == null)

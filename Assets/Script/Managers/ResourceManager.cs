@@ -10,10 +10,10 @@ public class ResourceManager : Singleton<ResourceManager>
         return;
     }
     /// <summary>
-    ///   ¸®¼Ò½º¸¦ ·ÎµåÇÕ´Ï´Ù.
+    ///   ë¦¬ì†ŒìŠ¤ë¥¼ ë¡œë“œí•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="path">¸®¼Ò½º °æ·Î</param>
-    /// <typeparam name="T">¸ğµç ¿ÀºêÁ§Æ®</typeparam>
+    /// <param name="path">ë¦¬ì†ŒìŠ¤ ê²½ë¡œ</param>
+    /// <typeparam name="T">ëª¨ë“  ì˜¤ë¸Œì íŠ¸</typeparam>
     /// <returns></returns>
     public T Load<T>(string path) where T : UnityEngine.Object
     {
@@ -33,10 +33,10 @@ public class ResourceManager : Singleton<ResourceManager>
     }
 
     /// <summary>
-    ///     ÇÁ¸®ÆÕÀ» »ı¼ºÇÕ´Ï´Ù.
+    ///     í”„ë¦¬íŒ¹ì„ ìƒì„±í•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="path">ÇÁ¸®ÆÕÀÇ °æ·Î</param>
-    /// <param name="parent">ºÎ¸ğ ¿ÀºêÁ§Æ®</param>
+    /// <param name="path">í”„ë¦¬íŒ¹ì˜ ê²½ë¡œ</param>
+    /// <param name="parent">ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸</param>
     public GameObject Instantiate(string path, Transform parent = null)
     {
         GameObject prefab = Load<GameObject>(path);
@@ -50,9 +50,9 @@ public class ResourceManager : Singleton<ResourceManager>
     }
 
     /// <summary>
-    ///  ¿ÀºêÁ§Æ®¸¦ ÆÄ±«ÇÕ´Ï´Ù.
+    ///  ì˜¤ë¸Œì íŠ¸ë¥¼ íŒŒê´´í•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="gameObject">ÆÄ±«ÇÒ ¿ÀºêÁ§Æ®</param>
+    /// <param name="gameObject">íŒŒê´´í•  ì˜¤ë¸Œì íŠ¸</param>
     public void Destroy(GameObject gameObject)
     {
         if (gameObject == null)

@@ -4,20 +4,20 @@ using Cinemachine;
 
 public class CameraIntroThenFollow : MonoBehaviour
 {
-    [Header("ÂüÁ¶")]
+    [Header("ì°¸ì¡°")]
     public CinemachineVirtualCamera vcam;   // Virtual Camera
-    public Transform staticTarget;          // ÃÊ¹İ¿¡ ¹Ù¶óº¼ ºó ¿ÀºêÁ§Æ®
-    public Transform playerTarget;          // ÃÖÁ¾ FollowÇÒ PlayerHaru
+    public Transform staticTarget;          // ì´ˆë°˜ì— ë°”ë¼ë³¼ ë¹ˆ ì˜¤ë¸Œì íŠ¸
+    public Transform playerTarget;          // ìµœì¢… Followí•  PlayerHaru
 
-    [Header("¼³Á¤")]
-    public float introDuration = 3f;        // ÃÊ¹İ °íÁ¤ ½Ã°£(ÃÊ)
+    [Header("ì„¤ì •")]
+    public float introDuration = 3f;        // ì´ˆë°˜ ê³ ì • ì‹œê°„(ì´ˆ)
 
     void Start()
     {
-        // 1) Ã³À½¿£ staticTarget ¹Ù¶óº¸±â
+        // 1) ì²˜ìŒì—” staticTarget ë°”ë¼ë³´ê¸°
         vcam.Follow = staticTarget;
 
-        // 2) ÁöÁ¤µÈ ½Ã°£ ÈÄ¿¡ PlayerHaru ¹Ù¶óº¸µµ·Ï º¯°æ
+        // 2) ì§€ì •ëœ ì‹œê°„ í›„ì— PlayerHaru ë°”ë¼ë³´ë„ë¡ ë³€ê²½
         StartCoroutine(SwitchToPlayerAfterDelay());
     }
 
@@ -25,7 +25,7 @@ public class CameraIntroThenFollow : MonoBehaviour
     {
         yield return new WaitForSeconds(introDuration);
 
-        // Ä«¸Ş¶ó Follow Å¸±êÀ» ÇÃ·¹ÀÌ¾î·Î ÀüÈ¯
+        // ì¹´ë©”ë¼ Follow íƒ€ê¹ƒì„ í”Œë ˆì´ì–´ë¡œ ì „í™˜
         vcam.Follow = playerTarget;
     }
 }

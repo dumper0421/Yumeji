@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ItemObject : MonoBehaviour
 {
-    public Transform player; // ÇÃ·¹ÀÌ¾îÀÇ Transform
-    public float interactionRange = 1.0f; // »óÈ£ÀÛ¿ë °¡´ÉÇÑ °Å¸®
+    public Transform player; // í”Œë ˆì´ì–´ì˜ Transform
+    public float interactionRange = 1.0f; // ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ê±°ë¦¬
     public ItemData Data;    
 
     void Update()
@@ -16,11 +16,11 @@ public class ItemObject : MonoBehaviour
         {
 
             if (distance < interactionRange) { 
-                Debug.Log("¾ÆÀÌÅÛÀ» ¾òÀ½ (Transform)");
+                Debug.Log("ì•„ì´í…œì„ ì–»ìŒ (Transform)");
                 InventoryManager.Instance.AddItem(Data);
         }
         else
-            Debug.Log("¾ÆÀÌÅÛÀ» Ã£À» ¼ö ¾øÀ½(Transform)");
+            Debug.Log("ì•„ì´í…œì„ ì°¾ì„ ìˆ˜ ì—†ìŒ(Transform)");
         }
     }
 

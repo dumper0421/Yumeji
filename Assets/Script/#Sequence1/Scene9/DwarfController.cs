@@ -11,11 +11,11 @@ public class DwarfController : MonoBehaviour, IFlashable
     [SerializeField] private Animator aliveAnimator;
 
     [Header("Turn-to-Stone Settings")]
-    [Tooltip("µ¹·Î º¯ÇÏ´Â ¾Ö´Ï¸ŞÀÌ¼Ç ±æÀÌ(ÃÊ)")]
+    [Tooltip("ëŒë¡œ ë³€í•˜ëŠ” ì• ë‹ˆë©”ì´ì…˜ ê¸¸ì´(ì´ˆ)")]
     [SerializeField] private float turnAnimDuration = 1f;
 
     [Header("Sound Settings")]
-    [Tooltip("µ¹·Î º¯ÇÒ ¶§ Àç»ıÇÒ SFX")]
+    [Tooltip("ëŒë¡œ ë³€í•  ë•Œ ì¬ìƒí•  SFX")]
     [SerializeField] private AudioClip turnToStoneSFX;
     private AudioSource audioSource;
 
@@ -24,7 +24,7 @@ public class DwarfController : MonoBehaviour, IFlashable
 
     void Awake()
     {
-        // Ã³À½¿£ »ì¾ÆÀÖ´Â »óÅÂ
+        // ì²˜ìŒì—” ì‚´ì•„ìˆëŠ” ìƒíƒœ
         aliveChild.SetActive(true);
         statueChild.SetActive(false);
         isStatue = false;
@@ -41,14 +41,14 @@ public class DwarfController : MonoBehaviour, IFlashable
         if (isStatue) return;
      
 
-        // 1) µ¹·Î º¯ÇÏ´Â ¾Ö´Ï¸ŞÀÌ¼Ç Æ®¸®°Å
+        // 1) ëŒë¡œ ë³€í•˜ëŠ” ì• ë‹ˆë©”ì´ì…˜ íŠ¸ë¦¬ê±°
         aliveAnimator.SetTrigger("TurnToStone");
 
-        // 2)¼Ò¸®
+        // 2)ì†Œë¦¬
         if (turnToStoneSFX != null)
             audioSource.PlayOneShot(turnToStoneSFX);
 
-        // 3) ÀüÈ¯ ÄÚ·çÆ¾ ½ÃÀÛ
+        // 3) ì „í™˜ ì½”ë£¨í‹´ ì‹œì‘
         StartCoroutine(SwitchToStatueAfterDelay());
     }
 
@@ -56,7 +56,7 @@ public class DwarfController : MonoBehaviour, IFlashable
     {
         yield return new WaitForSeconds(turnAnimDuration);
 
-        // 3) Alive ¡æ Statue
+        // 3) Alive â†’ Statue
         aliveChild.SetActive(false);
         statueChild.transform.localPosition = Vector3.zero;
         statueChild.SetActive(true);
@@ -65,5 +65,5 @@ public class DwarfController : MonoBehaviour, IFlashable
         isStatue = true;
     }
 
-    // ¾ÀÀ» ¹ş¾î³µ´Ù°¡ ´Ù½Ã µé¾î¿À¸é Awake·Î µÇµ¹¾Æ¿É´Ï´Ù.
+    // ì”¬ì„ ë²—ì–´ë‚¬ë‹¤ê°€ ë‹¤ì‹œ ë“¤ì–´ì˜¤ë©´ Awakeë¡œ ë˜ëŒì•„ì˜µë‹ˆë‹¤.
 }

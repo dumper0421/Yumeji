@@ -231,27 +231,27 @@ public class GameManager : Singleton<GameManager>
         switch (num)
         {
             case 1:
-                return "������ ��";
+                return "오프닝 씬";
             case 2:
-                return "���";
+                return "사양";
             case 3:
-                return "��ũ��";
+                return "피크닉";
             case 4:
-                return "�ݿ���";
+                return "반영식";
             case 5:
-                return "���� ��";
+                return "꿈의 방";
             case 6:
-                return "���� �ٶ�";
+                return "여름 바람";
             case 7:
                 return "RETAKE";
             case 8:
-                return "�Ͻ�";
+                return "일식";
             case 9:
-                return "�ſ�";
+                return "거울";
             case 10:
-                return "����";
+                return "만년";
             case 11:
-                return "��Ʈ ��";
+                return "라스트 씬";
         }
         return "";
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class InspectableObject : MonoBehaviour
 {
-    //false¸é ¿©·¯¹ø Á¶»ç°¡´É true¸é ÇÑ¹ø¸¸
+    //falseë©´ ì—¬ëŸ¬ë²ˆ ì¡°ì‚¬ê°€ëŠ¥ trueë©´ í•œë²ˆë§Œ
     public bool IsDisposable = false;
     public bool hasBeenInspected = false; 
     protected abstract void OnInspect();

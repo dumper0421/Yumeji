@@ -2,21 +2,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// ÀÌ ÄÄÆ÷³ÍÆ®°¡ ºÙÀº ¿ÀºêÁ§Æ®¿Í F Å°·Î »óÈ£ÀÛ¿ëÇÏ¸é sceneName ¾ÀÀ¸·Î ÀüÈ¯ÇÕ´Ï´Ù.
+/// ì´ ì»´í¬ë„ŒíŠ¸ê°€ ë¶™ì€ ì˜¤ë¸Œì íŠ¸ì™€ F í‚¤ë¡œ ìƒí˜¸ì‘ìš©í•˜ë©´ sceneName ì”¬ìœ¼ë¡œ ì „í™˜í•©ë‹ˆë‹¤.
 /// </summary>
 public class SceneChanger_Interaction : MonoBehaviour
 {
-    [Tooltip("·ÎµåÇÒ ¾À ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä (Build Settings¿¡ µî·ÏµÈ ÀÌ¸§)")]
+    [Tooltip("ë¡œë“œí•  ì”¬ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” (Build Settingsì— ë“±ë¡ëœ ì´ë¦„)")]
     [SerializeField] private string sceneName;
 
     /// <summary>
-    /// »óÈ£ÀÛ¿ë ½Ã È£ÃâµÉ ¸Ş¼­µå
+    /// ìƒí˜¸ì‘ìš© ì‹œ í˜¸ì¶œë  ë©”ì„œë“œ
     /// </summary>
     public void ChangeScene()
     {
         if (string.IsNullOrEmpty(sceneName))
         {
-            Debug.LogWarning("SceneChanger: sceneNameÀÌ ºñ¾îÀÖ½À´Ï´Ù.");
+            Debug.LogWarning("SceneChanger: sceneNameì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.");
             return;
         }
         SceneManager.LoadScene(sceneName);

@@ -18,7 +18,7 @@ public class Sequence6Scene1Controller : SceneController
 
     protected override void OnStopIntervalReached()
     {
-        // ±âÁ¸ SceneController Èå¸§¿¡¼­ ¸ØÃã ½Ã°£ÀÌ ³¡³µÀ» ¶§ Ã³¸®ÇÒ ³»¿ëÀÌ ÀÖÀ¸¸é ¿©±â¿¡ ÀÛ¼º
+        // ê¸°ì¡´ SceneController íë¦„ì—ì„œ ë©ˆì¶¤ ì‹œê°„ì´ ëë‚¬ì„ ë•Œ ì²˜ë¦¬í•  ë‚´ìš©ì´ ìˆìœ¼ë©´ ì—¬ê¸°ì— ì‘ì„±
     }
 
     private void AddFilmOnSceneStart()

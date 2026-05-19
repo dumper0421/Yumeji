@@ -29,7 +29,7 @@ public class DialogueTrigger : MonoBehaviour
             return;
         }
 
-        Debug.Log("´ëÈ­½ÇÇà ");
+        Debug.Log("ëŒ€í™”ì‹¤í–‰ ");
         _triggered = true;
         dialogueManager.StartDialogue(dialogueId);
     }

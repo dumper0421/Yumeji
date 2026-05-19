@@ -3,7 +3,7 @@ using UnityEngine;
 public class ChangeSprite : MonoBehaviour, IFlashable
 {
     [Header("Sprite Change Settings")]
-    [SerializeField] private Sprite takenSprite;  // ÃÔ¿µ ÈÄ ¹Ù²Ü ½ºÇÁ¶óÀÌÆ®
+    [SerializeField] private Sprite takenSprite;  // ì´¬ì˜ í›„ ë°”ê¿€ ìŠ¤í”„ë¼ì´íŠ¸
 
     private SpriteRenderer spriteRenderer;
     private bool hasTaken = false;
@@ -15,10 +15,10 @@ public class ChangeSprite : MonoBehaviour, IFlashable
 
     public void OnPhotoTaken(bool isEnhanced)
     {
-        if (hasTaken) return;      // ÀÌ¹Ì ÃÔ¿µµÈ »óÅÂ¸é ¹«½Ã
+        if (hasTaken) return;      // ì´ë¯¸ ì´¬ì˜ëœ ìƒíƒœë©´ ë¬´ì‹œ
         hasTaken = true;
 
-        // ½ºÇÁ¶óÀÌÆ® ¿µ±¸ ±³Ã¼
+        // ìŠ¤í”„ë¼ì´íŠ¸ ì˜êµ¬ êµì²´
         spriteRenderer.sprite = takenSprite;
     }
 }

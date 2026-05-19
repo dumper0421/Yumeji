@@ -123,6 +123,7 @@ MonoBehaviour:
   BlockImage: {fileID: 8193921876262895847}
   confirmationDialog_: {fileID: 5507955877152167752}
   saveLoadPopup_: {fileID: 3268988014314548100}
+  currentSaveEffect_: {fileID: 0}
 --- !u!1 &2320104298988550077
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,8 +719,16 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 1647952593936100960, guid: aa22503375beca4449c7b49265bdd882, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 27422331b44656e41a46b3a1b52ea51b, type: 2}
+    - target: {fileID: 1647952593936100960, guid: aa22503375beca4449c7b49265bdd882, type: 3}
       propertyPath: m_fontSizeBase
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647952593936100960, guid: aa22503375beca4449c7b49265bdd882, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4256600455973276625, guid: aa22503375beca4449c7b49265bdd882, type: 3}
       propertyPath: m_Pivot.x

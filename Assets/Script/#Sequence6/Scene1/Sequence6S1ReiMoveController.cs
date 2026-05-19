@@ -40,7 +40,7 @@ public class Sequence6S1ReiMoveController : MonoBehaviour
 
         if (companion == null || waypoints == null || waypoints.Count == 0)
         {
-            Debug.LogWarning("[Sequence6S1ReiMoveController] companion ¶Ç´Â waypoints°¡ ºñ¾ú´Ù.");
+            Debug.LogWarning("[Sequence6S1ReiMoveController] companion ë˜ëŠ” waypointsê°€ ë¹„ì—ˆë‹¤.");
             IsPlaying = false;
             yield break;
         }

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class QASceneButton : MonoBehaviour
 {
-    [Header("ÀÌµ¿ÇÒ ¾À ÀÌ¸§")]
+    [Header("ì´ë™í•  ì”¬ ì´ë¦„")]
     [SerializeField] private string targetSceneName;
 
     public void LoadTargetScene()
@@ -11,7 +11,7 @@ public class QASceneButton : MonoBehaviour
         Debug.Log("targetscene");
         if (string.IsNullOrEmpty(targetSceneName))
         {
-            Debug.LogWarning("ÀÌµ¿ÇÒ ¾À ÀÌ¸§ÀÌ ºñ¾îÀÖ½À´Ï´Ù.");
+            Debug.LogWarning("ì´ë™í•  ì”¬ ì´ë¦„ì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.");
             return;
         }
 

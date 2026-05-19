@@ -5,14 +5,14 @@ using UnityEngine;
 using static UnityEditor.Progress;
 #endif
 
-// ¾ÆÀÌÅÛÀÌ ÀÖÀ» ¶§¸¸ ´ëÈ­ °É ¼ö ÀÖ´Â ¿ÀºêÁ§Æ®
+// ì•„ì´í…œì´ ìˆì„ ë•Œë§Œ ëŒ€í™” ê±¸ ìˆ˜ ìˆëŠ” ì˜¤ë¸Œì íŠ¸
 public class RequiresItemDialogueObject : DialogueObject
 {
-    // ÇÊ¿äÇÑ ¾ÆÀÌÅÛ µ¥ÀÌÅÍ
+    // í•„ìš”í•œ ì•„ì´í…œ ë°ì´í„°
     [SerializeField]
     private List<ItemData> _requiredItemDatas;
 
-    // ¾ÆÀÌÅÛ ¼Ò¸ğÇØ¾ß µÉ ¶§
+    // ì•„ì´í…œ ì†Œëª¨í•´ì•¼ ë  ë•Œ
     [SerializeField]
     private bool _isUse;
 

@@ -24,7 +24,7 @@ public class SaveObject : InspectableObject
 
         if (!CanInteractFromBelow())
         {
-            Debug.Log("¼¼ÀÌºê Æ÷ÀÎÆ®´Â ¾Æ·¡ ¹æÇâ¿¡¼­¸¸ »óÈ£ÀÛ¿ëÇÒ ¼ö ÀÖÀ½");
+            Debug.Log("ì„¸ì´ë¸Œ í¬ì¸íŠ¸ëŠ” ì•„ë˜ ë°©í–¥ì—ì„œë§Œ ìƒí˜¸ì‘ìš©í•  ìˆ˜ ìˆìŒ");
             return;
         }
 
@@ -41,7 +41,7 @@ public class SaveObject : InspectableObject
 
         if (playerTransform_ == null)
         {
-            Debug.LogWarning("ÇÃ·¹ÀÌ¾î¸¦ Ã£À» ¼ö ¾ø¾î¼­ ¼¼ÀÌºê »óÈ£ÀÛ¿ëÀ» ÇÒ ¼ö ¾øÀ½");
+            Debug.LogWarning("í”Œë ˆì´ì–´ë¥¼ ì°¾ì„ ìˆ˜ ì—†ì–´ì„œ ì„¸ì´ë¸Œ ìƒí˜¸ì‘ìš©ì„ í•  ìˆ˜ ì—†ìŒ");
             return false;
         }
 
@@ -53,20 +53,20 @@ public class SaveObject : InspectableObject
 
     private Transform FindPlayerTransform()
     {
-        // 1. GameManager¿¡ ÇÃ·¹ÀÌ¾î°¡ µî·ÏµÇ¾î ÀÖÀ¸¸é ¿ì¼± »ç¿ë
+        // 1. GameManagerì— í”Œë ˆì´ì–´ê°€ ë“±ë¡ë˜ì–´ ìˆìœ¼ë©´ ìš°ì„  ì‚¬ìš©
         if (GameManager.Instance != null && GameManager.Instance.Player != null)
         {
             return GameManager.Instance.Player.transform;
         }
 
-        // 2. Player ÅÂ±×°¡ ÀÖÀ¸¸é ÅÂ±×·Î Å½»ö
+        // 2. Player íƒœê·¸ê°€ ìˆìœ¼ë©´ íƒœê·¸ë¡œ íƒìƒ‰
         GameObject taggedPlayer = GameObject.FindGameObjectWithTag("Player");
         if (taggedPlayer != null)
         {
             return taggedPlayer.transform;
         }
 
-        // 3. ÀÌ¸§À¸·Î Å½»ö (ÇöÀç ÇÁ·ÎÁ§Æ® ±âÁØ fallback)
+        // 3. ì´ë¦„ìœ¼ë¡œ íƒìƒ‰ (í˜„ì¬ í”„ë¡œì íŠ¸ ê¸°ì¤€ fallback)
         GameObject namedPlayer = GameObject.Find("Haru_Player");
         if (namedPlayer != null)
         {

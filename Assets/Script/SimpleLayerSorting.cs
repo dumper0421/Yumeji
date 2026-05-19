@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SimpleLayerSorting : MonoBehaviour
 {
-    public Transform player;       // ÇÏ·ç Transform
-    public float yOffset;          // YÁÂÇ¥ º¸Á¤°ª
+    public Transform player;       // í•˜ë£¨ Transform
+    public float yOffset;          // Yì¢Œí‘œ ë³´ì •ê°’
 
     public int OrderA;
     public int OrderB;
@@ -22,14 +22,14 @@ public class SimpleLayerSorting : MonoBehaviour
         if (player == null)
             return;
 
-        // ÇÃ·¹ÀÌ¾îÀÇ YÁÂÇ¥°¡ ¿ÀºêÁ§Æ® YÁÂÇ¥(+ º¸Á¤°ª)º¸´Ù Å©¸é? (= ÇÃ·¹ÀÌ¾î°¡ ´õ À§¿¡ ÀÖÀ¸¸é)
+        // í”Œë ˆì´ì–´ì˜ Yì¢Œí‘œê°€ ì˜¤ë¸Œì íŠ¸ Yì¢Œí‘œ(+ ë³´ì •ê°’)ë³´ë‹¤ í¬ë©´? (= í”Œë ˆì´ì–´ê°€ ë” ìœ„ì— ìˆìœ¼ë©´)
         if (player.position.y > transform.position.y + yOffset)
         {
-            spriteRenderer.sortingOrder = OrderA; // Ç¥ÁöÆÇÀ» ÇÃ·¹ÀÌ¾î À§·Î ±×¸²
+            spriteRenderer.sortingOrder = OrderA; // í‘œì§€íŒì„ í”Œë ˆì´ì–´ ìœ„ë¡œ ê·¸ë¦¼
         }
         else
         {
-            spriteRenderer.sortingOrder = OrderB; // Ç¥ÁöÆÇÀ» ÇÃ·¹ÀÌ¾î ¾Æ·¡·Î ±×¸²
+            spriteRenderer.sortingOrder = OrderB; // í‘œì§€íŒì„ í”Œë ˆì´ì–´ ì•„ë˜ë¡œ ê·¸ë¦¼
         }
     }
 }

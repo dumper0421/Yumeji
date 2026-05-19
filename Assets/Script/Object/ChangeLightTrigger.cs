@@ -34,7 +34,7 @@ public class ChangeLightTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Light.enabled = isTurnOn;
-            // �ߺ� ����
+            // 중복 방지
             var col = GetComponent<BoxCollider2D>();
             StartCoroutine(ReenableAfter(0.2f));
         }

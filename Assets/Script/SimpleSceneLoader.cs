@@ -15,14 +15,14 @@ public class SimpleSceneLoader : MonoBehaviour
     {
         _btn = GetComponent<Button>();
         _btn.onClick.RemoveListener(Load);
-        _btn.onClick.AddListener(Load);  // ¡ç ÀÚµ¿À¸·Î OnClick ¿¬°á
+        _btn.onClick.AddListener(Load);  // â† ìë™ìœ¼ë¡œ OnClick ì—°ê²°
     }
 
     public void Load()
     {
         if (string.IsNullOrEmpty(sceneName))
         {
-            Debug.LogError("[SceneJump] sceneNameÀÌ ºñ¾îÀÖ´Ù.");
+            Debug.LogError("[SceneJump] sceneNameì´ ë¹„ì–´ìˆë‹¤.");
             return;
         }
 
@@ -35,11 +35,11 @@ public class SimpleSceneLoader : MonoBehaviour
         }
         if (!exists)
         {
-            Debug.LogError($"[SceneJump] '{sceneName}'°¡ Build Settings¿¡ ¾ø´Ù.");
+            Debug.LogError($"[SceneJump] '{sceneName}'ê°€ Build Settingsì— ì—†ë‹¤.");
             return;
         }
 
-        Debug.Log($"[SceneJump] '{sceneName}' ·Îµå ½Ãµµ (async={asyncLoad})");
+        Debug.Log($"[SceneJump] '{sceneName}' ë¡œë“œ ì‹œë„ (async={asyncLoad})");
         if (asyncLoad) StartCoroutine(LoadAsync(sceneName));
         else SceneManager.LoadScene(sceneName);
     }

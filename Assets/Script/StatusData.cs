@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewStatusData", menuName = "Status/StatusData")]
 public class StatusData : ScriptableObject
 {
-    // ±âÁØÀÌ µÇ´Â Status¸¸ ÀúÀå
+    // ê¸°ì¤€ì´ ë˜ëŠ” Statusë§Œ ì €ì¥
     public float MaxHealth = 100f;
     public float BaseSpeed = 5f;
 }

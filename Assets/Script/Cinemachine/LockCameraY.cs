@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LockCameraY : CinemachineExtension
 {
-    public float fixedY = 0f; // °íÁ¤ÇÒ yÁÂÇ¥
+    public float fixedY = 0f; // ê³ ì •í•  yì¢Œí‘œ
 
     protected override void PostPipelineStageCallback(
         CinemachineVirtualCameraBase vcam,
@@ -13,7 +13,7 @@ public class LockCameraY : CinemachineExtension
         if (stage == CinemachineCore.Stage.Finalize)
         {
             Vector3 pos = state.FinalPosition;
-            pos.y = fixedY; // yÃà °ªÀ» °­Á¦·Î °íÁ¤
+            pos.y = fixedY; // yì¶• ê°’ì„ ê°•ì œë¡œ ê³ ì •
             state.PositionCorrection += (pos - state.FinalPosition);
         }
     }

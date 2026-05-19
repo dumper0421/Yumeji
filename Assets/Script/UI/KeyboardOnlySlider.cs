@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// Slider¸¦ »ó¼ÓÇØ Æ÷ÀÎÅÍ/µå·¡±× ÀÔ·ÂÀ» ÅëÂ°·Î ¹«½ÃÇÕ´Ï´Ù.
+// Sliderë¥¼ ìƒì†í•´ í¬ì¸í„°/ë“œë˜ê·¸ ì…ë ¥ì„ í†µì§¸ë¡œ ë¬´ì‹œí•©ë‹ˆë‹¤.
 public class KeyboardOnlySlider : Slider
 {
     public override void OnPointerDown(PointerEventData eventData) { /* no-op */ }

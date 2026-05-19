@@ -4,23 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class VideoSceneController : MonoBehaviour
 {
-    [Tooltip("Inspector¿¡ VideoPlayer ÄÄÆ÷³ÍÆ®¸¦ ÇÒ´çÇÏ¼¼¿ä.")]
+    [Tooltip("Inspectorì— VideoPlayer ì»´í¬ë„ŒíŠ¸ë¥¼ í• ë‹¹í•˜ì„¸ìš”.")]
     public VideoPlayer videoPlayer;
 
-    [Tooltip("¿µ»ó Àç»ıÀÌ ³¡³­ µÚ ÀÌµ¿ÇÒ ¾À ÀÌ¸§")]
+    [Tooltip("ì˜ìƒ ì¬ìƒì´ ëë‚œ ë’¤ ì´ë™í•  ì”¬ ì´ë¦„")]
     public string nextSceneName = "MainScene";
 
     void Start()
     {
-        // Àç»ı ¿Ï·á Äİ¹é µî·Ï
+        // ì¬ìƒ ì™„ë£Œ ì½œë°± ë“±ë¡
         videoPlayer.loopPointReached += OnVideoFinished;
-        // ÇÊ¿äÇÏ´Ù¸é Prepare ÈÄ Play
+        // í•„ìš”í•˜ë‹¤ë©´ Prepare í›„ Play
         videoPlayer.Play();
     }
 
     void OnVideoFinished(VideoPlayer vp)
     {
-        // ¾À ÀüÈ¯
+        // ì”¬ ì „í™˜
         SceneManager.LoadScene(nextSceneName);
     }
 }
