@@ -1,0 +1,33 @@
+[
+  {
+    "id": "Haru_01",
+    "lines": [
+      {
+        "text": "뭐였지…? 따돌린 건가…?",
+        "showPortrait": false,
+        "nextId": "Haru_02"
+      }
+    ]
+  },
+  {
+    "id": "Haru_02",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…어, 잠깐만. 여긴 아까 그 복도가 아니잖아.",
+        "showPortrait": true,
+        "nextId": "Haru_03"
+      }
+    ]
+  },
+  {
+    "id": "Haru_03",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "레이는 또 어디로 간 거야?",
+        "showPortrait": true
+      }
+    ]
+  }
+]
