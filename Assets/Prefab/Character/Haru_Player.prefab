@@ -167,6 +167,7 @@ MonoBehaviour:
     m_Bits: 64
   speed_: 0.75
   runSpeed_: 1.25
+  originSpeed: 1
   vector: {x: 0, y: 0, z: 0}
   canMove: 1
   animator: {fileID: 0}
@@ -176,8 +177,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   flashVFXPrefab: {fileID: 1184421162603923759, guid: 8d71762eb41297a468e6c3d404fc9060, type: 3}
+  flashVFXPrefabUp: {fileID: 1184421162603923759, guid: 8d71762eb41297a468e6c3d404fc9060, type: 3}
   flashDuration: 0.3
-  flashVFXYOffset: 0.5
+  flashVFXSideOffset: {x: 0.3, y: 0.3}
   shootCooldown: 2
   photoSFX: {fileID: 8300000, guid: bdf49f1d4493d164d85c6f26d2f11849, type: 3}
   Companion: {fileID: 0}

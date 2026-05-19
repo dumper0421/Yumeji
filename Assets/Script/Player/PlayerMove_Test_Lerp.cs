@@ -11,7 +11,6 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     [SerializeField] private float runSpeed_ = 2f;
     [SerializeField] private float originSpeed = 1f;
 
-
     public Vector3 vector;
     [HideInInspector] public bool canMove = true;
     public Animator animator;
@@ -20,12 +19,21 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     [SerializeField] private Vector2Int flashTiles = new Vector2Int(3, 4);
     [SerializeField] private Vector2 tileSize = new Vector2(1f, 1f);
     [SerializeField] private LayerMask flashableLayer;
-    [SerializeField] private GameObject flashVFXPrefab;
+
+    [Header("Flash VFX Prefabs")]
+    [SerializeField] private GameObject flashVFXPrefab;      // 기본 플래시: 아래/좌/우
+    [SerializeField] private GameObject flashVFXPrefabUp;    // 위쪽 전용 플래시: 플레이어 부분이 비어 있는 이미지
+
     [SerializeField] private float flashDuration = 0.3f;
-    [SerializeField] private float flashVFXYOffset = 0.5f;
+
+    [Header("Flash VFX Position")]
+    [SerializeField] private Vector2 flashVFXSideOffset = new Vector2(0.3f, 0.3f);
+    // X: 좌우 촬영 시 옆으로 얼마나 밀지
+    // Y: 좌우 촬영 시 아래/위로 얼마나 보정할지
 
     [SerializeField] private float shootCooldown = 2f;
     private float nextShootTime = 0f;
+
     [SerializeField] private AudioClip photoSFX;
     private AudioSource audioSource;
 
@@ -50,25 +58,28 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         animator.SetFloat("DirY", vector.y);
 
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed_ : speed_;
+
         if (Companion != null)
         {
             Companion.MoveSpeed = moveSpeed;
             Companion.GetComponent<Animator>().enabled = true;
         }
+
         animator.SetFloat("AnimSpeed", moveSpeed);
 
         Vector2 direction = new Vector2(vector.x, vector.y);
         Vector2 startPos = transform.position;
         Vector2 targetPos = startPos + direction;
 
-        // 충돌 체크
         boxCollider.enabled = false;
         RaycastHit2D hit = Physics2D.Linecast(startPos, targetPos, NoPass);
         boxCollider.enabled = true;
+
         if (hit.collider != null)
         {
             if (actionController == null || !actionController.IsPushing)
                 canMove = true;
+
             yield break;
         }
 
@@ -89,27 +100,24 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
         transform.position = targetPos;
 
-        // ★ 밀기 중이 아닐 때만 이동 해제
         if (actionController == null || !actionController.IsPushing)
             canMove = true;
     }
-    
 
     void Update()
     {
-        // ★ 밀기/앉기 중이면 이동/촬영 모두 차단
         if (actionController != null)
         {
             if (actionController.IsPushing || actionController.IsSitting)
                 return;
         }
 
-        if (PopupUIManager.Instance.SaveLoadPopup.gameObject.activeSelf) return;
+        if (PopupUIManager.Instance.SaveLoadPopup.gameObject.activeSelf)
+            return;
 
-        // ★ canMove가 false면 (밀기/촬영/앉기 중) 아무 것도 안 함
-        if (!canMove) return;
+        if (!canMove)
+            return;
 
-        // 1) 이동 입력 처리
         Vector2 rawInput = new Vector2(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
@@ -119,12 +127,16 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
         if (_moveLock == MoveAxis.None)
         {
-            if (rawInput.x != 0f) _moveLock = MoveAxis.Horizontal;
-            else if (rawInput.y != 0f) _moveLock = MoveAxis.Vertical;
+            if (rawInput.x != 0f)
+                _moveLock = MoveAxis.Horizontal;
+            else if (rawInput.y != 0f)
+                _moveLock = MoveAxis.Vertical;
         }
 
-        if (_moveLock == MoveAxis.Horizontal) input.y = 0f;
-        else if (_moveLock == MoveAxis.Vertical) input.x = 0f;
+        if (_moveLock == MoveAxis.Horizontal)
+            input.y = 0f;
+        else if (_moveLock == MoveAxis.Vertical)
+            input.x = 0f;
 
         if (_moveLock == MoveAxis.Horizontal && rawInput.x == 0f)
             _moveLock = MoveAxis.None;
@@ -142,9 +154,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             return;
         }
 
-        // 2) 촬영 (정지 상태에서만)
-        if (Input.GetKeyDown(KeyCode.C)
-            && Time.time >= nextShootTime)
+        if (Input.GetKeyDown(KeyCode.C) && Time.time >= nextShootTime)
         {
             nextShootTime = Time.time + shootCooldown;
             canMove = false;
@@ -153,7 +163,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             animator.SetFloat("DirY", vector.y);
             animator.SetTrigger("TakeShoot");
 
-            if (photoSFX != null)
+            if (photoSFX != null && audioSource != null)
             {
                 audioSource.pitch = 2f;
                 audioSource.PlayOneShot(photoSFX);
@@ -161,20 +171,21 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         }
     }
 
-    // Teleport 호출용
     public void Teleport(Vector3 pos)
     {
         StopAllCoroutines();
+
         transform.position = pos;
+
         if (animator != null)
         {
             animator.SetBool("Walking", false);
             animator.SetBool("Pushing", false);
         }
+
         canMove = true;
     }
 
-    // 촬영 애니메이션 이벤트에서 호출
     public void EndTakeShoot()
     {
         canMove = true;
@@ -182,54 +193,95 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     public void HandleFlash()
     {
-        Vector2 dir = new Vector2(animator.GetFloat("DirX"), animator.GetFloat("DirY"));
+        Vector2 dir = new Vector2(
+            animator.GetFloat("DirX"),
+            animator.GetFloat("DirY")
+        );
+
         if (dir == Vector2.zero)
             dir = Vector2.down;
 
-        Vector2 boxSize = new Vector2(flashTiles.x * tileSize.x, flashTiles.y * tileSize.y);
+        Vector2 boxSize = new Vector2(
+            flashTiles.x * tileSize.x,
+            flashTiles.y * tileSize.y
+        );
+
         Vector2 boxCenter = (Vector2)transform.position + dir * (boxSize.y / 2f);
 
         Vector3 spawnPos = new Vector3(
             boxCenter.x,
-            boxCenter.y + flashVFXYOffset,
+            boxCenter.y,
             transform.position.z
         );
+
+        if (Mathf.Abs(dir.x) > 0f)
+        {
+            spawnPos.x += flashVFXSideOffset.x * Mathf.Sign(dir.x);
+            spawnPos.y += flashVFXSideOffset.y;
+        }
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         float angleOffset = -90f;
         Quaternion rot = Quaternion.Euler(0f, 0f, angle + angleOffset);
 
-        if (flashVFXPrefab != null)
+        GameObject selectedFlashPrefab = flashVFXPrefab;
+
+        if (dir.y > 0f && flashVFXPrefabUp != null)
         {
-            GameObject vfx = Instantiate(flashVFXPrefab, spawnPos, rot);
+            selectedFlashPrefab = flashVFXPrefabUp;
+        }
+
+        if (selectedFlashPrefab != null)
+        {
+            GameObject vfx = Instantiate(selectedFlashPrefab, spawnPos, rot);
             Destroy(vfx, flashDuration);
         }
 
-        Collider2D[] hits = Physics2D.OverlapBoxAll(boxCenter, boxSize, 0f, flashableLayer);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(
+            boxCenter,
+            boxSize,
+            0f,
+            flashableLayer
+        );
+
         foreach (var col in hits)
         {
             IFlashable flashable = col.GetComponent<IFlashable>();
+
             if (flashable != null)
+            {
                 flashable.OnPhotoTaken(false);
+            }
         }
     }
 
     void OnDrawGizmosSelected()
     {
         Vector2 dir = Vector2.down;
+
         if (animator != null)
         {
-            dir = new Vector2(animator.GetFloat("DirX"), animator.GetFloat("DirY"));
-            if (dir == Vector2.zero) dir = Vector2.down;
+            dir = new Vector2(
+                animator.GetFloat("DirX"),
+                animator.GetFloat("DirY")
+            );
+
+            if (dir == Vector2.zero)
+                dir = Vector2.down;
         }
-        Vector2 boxSize = new Vector2(flashTiles.x * tileSize.x, flashTiles.y * tileSize.y);
+
+        Vector2 boxSize = new Vector2(
+            flashTiles.x * tileSize.x,
+            flashTiles.y * tileSize.y
+        );
+
         Vector2 boxCenter = (Vector2)transform.position + dir * (boxSize.y / 2f);
 
         Gizmos.color = new Color(1f, 1f, 0f, 0.5f);
         Gizmos.DrawCube(boxCenter, boxSize);
     }
 
-    public void SetCompanion(CompanionSystem companion,string companionName)
+    public void SetCompanion(CompanionSystem companion, string companionName)
     {
         Companion = companion;
         GameManager.Instance.AddCompanion(companionName);

@@ -40645,12 +40645,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1203095132731695098, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
+      propertyPath: flashVFXPrefabUp
+      value: 
+      objectReference: {fileID: 1184421162603923759, guid: 8d71762eb41297a468e6c3d404fc9060, type: 3}
+    - target: {fileID: 1203095132731695098, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
       propertyPath: tileStepDuration
       value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1203095132731695098, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
       propertyPath: bypassNoPassOnSit
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203095132731695098, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
+      propertyPath: flashVFXSideOffset.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5141581012608900378, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
       propertyPath: m_LocalPosition.x
