@@ -126,9 +126,9 @@ TextureImporter:
       name: ANI_haruFishTank_v1_0
       rect:
         serializedVersion: 2
-        x: 31
+        x: 32
         y: 32
-        width: 259
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -147,9 +147,9 @@ TextureImporter:
       name: ANI_haruFishTank_v1_1
       rect:
         serializedVersion: 2
-        x: 319
+        x: 320
         y: 32
-        width: 258
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -168,9 +168,9 @@ TextureImporter:
       name: ANI_haruFishTank_v1_2
       rect:
         serializedVersion: 2
-        x: 607
+        x: 608
         y: 32
-        width: 258
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -191,7 +191,7 @@ TextureImporter:
         serializedVersion: 2
         x: 896
         y: 32
-        width: 257
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -210,9 +210,9 @@ TextureImporter:
       name: ANI_haruFishTank_v1_4
       rect:
         serializedVersion: 2
-        x: 1183
+        x: 1184
         y: 32
-        width: 258
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -231,9 +231,9 @@ TextureImporter:
       name: ANI_haruFishTank_v1_5
       rect:
         serializedVersion: 2
-        x: 1471
+        x: 1472
         y: 32
-        width: 257
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -252,9 +252,9 @@ TextureImporter:
       name: ANI_haruFishTank_v1_6
       rect:
         serializedVersion: 2
-        x: 1759
+        x: 1760
         y: 32
-        width: 258
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -273,9 +273,9 @@ TextureImporter:
       name: ANI_haruFishTank_v1_7
       rect:
         serializedVersion: 2
-        x: 2047
+        x: 2048
         y: 32
-        width: 258
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -294,9 +294,9 @@ TextureImporter:
       name: ANI_haruFishTank_v1_8
       rect:
         serializedVersion: 2
-        x: 2334
+        x: 2336
         y: 32
-        width: 259
+        width: 256
         height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
