@@ -1779,7 +1779,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4294967295
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1789,7 +1789,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4294967295
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1799,7 +1799,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4294967295
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1809,7 +1809,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4294967295
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1819,7 +1819,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 4294967295
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1838,16 +1838,16 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: 74cd8f997d47d1440b78daa848f4c6c3, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 091966871f56d1548b8edb5a4de5dc73, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 5
     m_Data:
@@ -2489,6 +2489,8 @@ MonoBehaviour:
   DialogueManager: {fileID: 603143303}
   EngineSFX: {fileID: 0}
   StartSFX: {fileID: 0}
+  NextSceneName: 
+  isScene2_1: 0
 --- !u!50 &503809291
 Rigidbody2D:
   serializedVersion: 4
@@ -2870,6 +2872,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 603143303}
   dialogueLoader: {fileID: 11400000, guid: 9c8007687fa65be41aeb166bb3634d72, type: 2}
   sceneId: Sequence2Scene1
+  puzzleId: Puzzle
   state: 0
   _playerMove: {fileID: 1109036413}
   _badCustomer: {fileID: 7703343505012776099}
@@ -2887,6 +2890,7 @@ MonoBehaviour:
   - {fileID: 896402134}
   - {fileID: 1735277637}
   _changeLightTrigger: {fileID: 807177167}
+  _nextSceneName: 
 --- !u!224 &603143309 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6780722168633269861, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
@@ -3755,7 +3759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Light: {fileID: 1109036399}
   isTurnOn: 0
-  _BadCustomer: {fileID: 603143301}
+  _BadCustomer: {fileID: 7703343505012776099}
   _isGusetEntry: 0
   _targetPosition: {x: 0, y: 0, z: 0}
   _exitTrigger: {fileID: 503809290}
@@ -4483,7 +4487,7 @@ Transform:
   m_GameObject: {fileID: 1059056000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9217196, y: -0.013931185, z: -10}
+  m_LocalPosition: {x: 2.924141, y: -0.013931185, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
