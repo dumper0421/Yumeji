@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
@@ -62,30 +62,49 @@ public class DialogueManager : MonoBehaviour
     /// 선택지가 선택될 때 발생하는 이벤트. (텍스트, 다음 대화 ID 반환)
     /// </summary>
     public event Action<string, string> OnOptionSelected;
+
     /// <summary>
     /// 대화가 완료될 때 발생하는 이벤트. (대화 ID 반환)
     /// </summary>
     public event Action<string> OnDialogueComplete;
+
     /// <summary>
     /// 대화가 진행될 때 발생하는 이벤트. (대화 ID 반환)
     /// </summary>
     public event Action<string> OnDialogueAction;
 
     [Header("UI References")]
-    [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private Image leftPortraitImage;
-    [SerializeField] private Image rightPortraitImage;
-    [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private Transform optionPanel;
-    [SerializeField] private Button buttonPrefab;
+    [SerializeField]
+    private GameObject dialoguePanel;
+
+    [SerializeField]
+    private Image leftPortraitImage;
+
+    [SerializeField]
+    private Image rightPortraitImage;
+
+    [SerializeField]
+    private TextMeshProUGUI dialogueText;
+
+    [SerializeField]
+    private Transform optionPanel;
+
+    [SerializeField]
+    private Button buttonPrefab;
 
     [Header("Speakers")]
-    [SerializeField] private SpeakerInfo[] speakerInfos;
+    [SerializeField]
+    private SpeakerInfo[] speakerInfos;
 
     [Header("Input Keys")]
-    [SerializeField] private KeyCode advanceKey = KeyCode.Space;
-    [SerializeField] private KeyCode enterKey = KeyCode.Return;
-    [SerializeField] private KeyCode skipKey = KeyCode.Escape;
+    [SerializeField]
+    private KeyCode advanceKey = KeyCode.Space;
+
+    [SerializeField]
+    private KeyCode enterKey = KeyCode.Return;
+
+    [SerializeField]
+    private KeyCode skipKey = KeyCode.Escape;
     public bool IsStop = false;
 
     private Dictionary<string, Dialogue> _dialogues;
@@ -98,27 +117,42 @@ public class DialogueManager : MonoBehaviour
     private List<Button> optionButtons = new List<Button>();
     private int selectedOption = 0;
 
-    [SerializeField] private PlayerMove_Test_Lerp _playerMove;
+    [SerializeField]
+    private PlayerMove_Test_Lerp _playerMove;
 
+    [SerializeField]
+    private Color32 normalColor = new Color32(0, 0, 0, 128);
 
-    [SerializeField] private Color32 normalColor = new Color32(0, 0, 0, 128);
-    [SerializeField] private Color32 selectedColor = new Color32(128, 128, 0, 128);
+    [SerializeField]
+    private Color32 selectedColor = new Color32(128, 128, 0, 128);
 
     public bool _waitingForInput = false;
     public bool isRunning = false;
 
     [Header("Next Prompt")]
-    [SerializeField] private RectTransform nextPrompt;
-    [SerializeField] private float promptAmplitude = 6f;   // 위아래 이동 폭
-    [SerializeField] private float promptSpeed = 3f;       // 이동 속도
+    [SerializeField]
+    private RectTransform nextPrompt;
+
+    [SerializeField]
+    private float promptAmplitude = 6f; // 위아래 이동 폭
+
+    [SerializeField]
+    private float promptSpeed = 3f; // 이동 속도
     private Vector2 nextPromptBasePos;
     private bool nextPromptActive = false;
 
     [Header("Typewriter")]
-    [SerializeField] private bool useTypewriter = true;
-    [SerializeField] private float charsPerSecond = 35f;   // 1초에 몇 글자
-    [SerializeField] private float commaPause = 0.05f;     // , 일 때 추가 멈춤
-    [SerializeField] private float periodPause = 0.12f;    // .!? 일 때 추가 멈춤
+    [SerializeField]
+    private bool useTypewriter = true;
+
+    [SerializeField]
+    private float charsPerSecond = 35f; // 1초에 몇 글자
+
+    [SerializeField]
+    private float commaPause = 0.05f; // , 일 때 추가 멈춤
+
+    [SerializeField]
+    private float periodPause = 0.12f; // .!? 일 때 추가 멈춤
 
     private Coroutine typingCo;
     private Coroutine autoAdvanceCo;
@@ -152,7 +186,8 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (!dialoguePanel.activeSelf) return;
+        if (!dialoguePanel.activeSelf)
+            return;
 
         // 옵션 선택 중이면 옵션 입력만 처리
         if (optionPanel.gameObject.activeSelf && optionButtons.Count > 0)
@@ -171,11 +206,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         // 대화 전체 스킵
-        if (!IsStop && Input.GetKeyDown(skipKey))
-        {
-            SkipToEnd();
-            return;
-        }
+        // if (!IsStop && Input.GetKeyDown(skipKey))
+        // {
+        //     SkipToEnd();
+        //     return;
+        // }
 
         // 타이핑 중/대기 중 입력 처리 (스킵 우선)
         if ((isTyping || _waitingForInput) && !IsStop)
@@ -245,7 +280,8 @@ public class DialogueManager : MonoBehaviour
         ClearOptions();
         _waitingForInput = false;
 
-        if (IsStop) return;
+        if (IsStop)
+            return;
 
         // 다음 라인 존재
         if (_lines.Count > 0)
@@ -360,7 +396,8 @@ public class DialogueManager : MonoBehaviour
 
     private void CompleteTyping()
     {
-        if (!isTyping) return;
+        if (!isTyping)
+            return;
 
         if (typingCo != null)
         {
@@ -433,7 +470,10 @@ public class DialogueManager : MonoBehaviour
 
         foreach (var opt in opts)
         {
-            if (!string.IsNullOrEmpty(opt.requiresItem) && !InventoryManager.Instance.HasItem(opt.requiresItem))
+            if (
+                !string.IsNullOrEmpty(opt.requiresItem)
+                && !InventoryManager.Instance.HasItem(opt.requiresItem)
+            )
                 continue;
 
             var btn = Instantiate(buttonPrefab, optionPanel);
@@ -482,7 +522,8 @@ public class DialogueManager : MonoBehaviour
 
     private void ChangeSelection(int delta)
     {
-        if (optionButtons.Count == 0) return;
+        if (optionButtons.Count == 0)
+            return;
         selectedOption = (selectedOption + delta + optionButtons.Count) % optionButtons.Count;
         UpdateOptionVisuals();
     }
@@ -491,15 +532,14 @@ public class DialogueManager : MonoBehaviour
     {
         for (int i = 0; i < optionButtons.Count; i++)
         {
-            optionButtons[i].image.color = (i == selectedOption)
-                ? selectedColor
-                : normalColor;
+            optionButtons[i].image.color = (i == selectedOption) ? selectedColor : normalColor;
         }
     }
 
     public void SkipToEnd()
     {
-        if (!isRunning || IsStop) return;
+        if (!isRunning || IsStop)
+            return;
 
         StopTypingAndAutoAdvance();
         ClearOptions();
@@ -556,7 +596,8 @@ public class DialogueManager : MonoBehaviour
 
     private void SetNextPrompt(bool show)
     {
-        if (nextPrompt == null) return;
+        if (nextPrompt == null)
+            return;
 
         nextPromptActive = show;
         nextPrompt.gameObject.SetActive(show);

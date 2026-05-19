@@ -8,20 +8,21 @@ public class ChangeLightTrigger : MonoBehaviour
     public Light2D Light;
     public bool isTurnOn;
     private Collider2D _col;
+
     [SerializeField]
     private GameObject _BadCustomer;
+
     [SerializeField]
     private bool _isGusetEntry;
+
     [SerializeField]
     private Vector3 _targetPosition;
+
     [SerializeField]
     private ExitTrigger _exitTrigger;
 
-
     public bool CanLeave;
     public DialogueManager DialogueManager;
-
-   
 
     void Awake()
     {
@@ -33,7 +34,7 @@ public class ChangeLightTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Light.enabled = isTurnOn;
-            // Áßº¹ ¹æÁö
+            // ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½
             var col = GetComponent<BoxCollider2D>();
             StartCoroutine(ReenableAfter(0.2f));
         }
@@ -52,7 +53,8 @@ public class ChangeLightTrigger : MonoBehaviour
     System.Collections.IEnumerator ReenableAfter(float sec)
     {
         _col.enabled = false;
-        yield return new WaitForSeconds(sec);         
-        if (_col) _col.enabled = true;
+        yield return new WaitForSeconds(sec);
+        if (_col)
+            _col.enabled = true;
     }
 }

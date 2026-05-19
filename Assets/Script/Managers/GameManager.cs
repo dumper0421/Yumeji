@@ -47,17 +47,15 @@ public class GameManager : Singleton<GameManager>
         intStates_.Clear();
     }
 
-    public bool GetFlag(string key, bool defaultValue = false)
-        => boolStates_.TryGetValue(key, out var v) ? v : defaultValue;
+    public bool GetFlag(string key, bool defaultValue = false) =>
+        boolStates_.TryGetValue(key, out var v) ? v : defaultValue;
 
-    public void SetFlag(string key, bool value = true)
-        => boolStates_[key] = value;
+    public void SetFlag(string key, bool value = true) => boolStates_[key] = value;
 
-    public int GetInt(string key, int defaultValue = 0)
-        => intStates_.TryGetValue(key, out var v) ? v : defaultValue;
+    public int GetInt(string key, int defaultValue = 0) =>
+        intStates_.TryGetValue(key, out var v) ? v : defaultValue;
 
-    public void SetInt(string key, int value)
-        => intStates_[key] = value;
+    public void SetInt(string key, int value) => intStates_[key] = value;
 
     public PlayerSaveData SaveGameData(int slotIndex, Vector3 currentPlayerPosition)
     {
@@ -90,7 +88,9 @@ public class GameManager : Singleton<GameManager>
         if (playerObj != null)
             playerObj.transform.position = saveData_.PlayerPosition;
 
-        Debug.Log($"[GameManager] Loaded slot {slotIndex}: pos restored, playTime={saveData_.PlayTime}");
+        Debug.Log(
+            $"[GameManager] Loaded slot {slotIndex}: pos restored, playTime={saveData_.PlayTime}"
+        );
     }
 
     private void ApplyLoadedSaveData(PlayerSaveData loaded)
@@ -113,12 +113,14 @@ public class GameManager : Singleton<GameManager>
     private static Dictionary<string, bool> ToBoolDict(List<BoolEntry> list)
     {
         var dict = new Dictionary<string, bool>();
-        if (list == null) return dict;
+        if (list == null)
+            return dict;
 
         for (int i = 0; i < list.Count; i++)
         {
             var e = list[i];
-            if (e == null || string.IsNullOrEmpty(e.Key)) continue;
+            if (e == null || string.IsNullOrEmpty(e.Key))
+                continue;
             dict[e.Key] = e.Value;
         }
         return dict;
@@ -135,12 +137,14 @@ public class GameManager : Singleton<GameManager>
     private static Dictionary<string, int> ToIntDict(List<IntEntry> list)
     {
         var dict = new Dictionary<string, int>();
-        if (list == null) return dict;
+        if (list == null)
+            return dict;
 
         for (int i = 0; i < list.Count; i++)
         {
             var e = list[i];
-            if (e == null || string.IsNullOrEmpty(e.Key)) continue;
+            if (e == null || string.IsNullOrEmpty(e.Key))
+                continue;
             dict[e.Key] = e.Value;
         }
         return dict;
@@ -177,21 +181,26 @@ public class GameManager : Singleton<GameManager>
         {
             int start = idx + token.Length;
             int end = start;
-            while (end < sceneName.Length && char.IsDigit(sceneName[end])) end++;
+            while (end < sceneName.Length && char.IsDigit(sceneName[end]))
+                end++;
 
             if (end > start)
             {
                 string digits = sceneName.Substring(start, end - start);
-                if (int.TryParse(digits, out int v)) return v;
+                if (int.TryParse(digits, out int v))
+                    return v;
             }
         }
 
         int i = 0;
-        while (i < sceneName.Length && !char.IsDigit(sceneName[i])) i++;
-        if (i == sceneName.Length) return 0;
+        while (i < sceneName.Length && !char.IsDigit(sceneName[i]))
+            i++;
+        if (i == sceneName.Length)
+            return 0;
 
         int j = i;
-        while (j < sceneName.Length && char.IsDigit(sceneName[j])) j++;
+        while (j < sceneName.Length && char.IsDigit(sceneName[j]))
+            j++;
 
         if (int.TryParse(sceneName.Substring(i, j - i), out int fallback))
             return fallback;
@@ -201,7 +210,8 @@ public class GameManager : Singleton<GameManager>
 
     public void AddCompanion(string companionName)
     {
-        if (saveData_ == null) return;
+        if (saveData_ == null)
+            return;
 
         if (string.IsNullOrEmpty(saveData_.CompanionName))
             saveData_.CompanionName = companionName;
@@ -211,7 +221,8 @@ public class GameManager : Singleton<GameManager>
 
     public void InitCompanion()
     {
-        if (saveData_ == null) return;
+        if (saveData_ == null)
+            return;
         saveData_.CompanionName = "";
     }
 
@@ -219,17 +230,28 @@ public class GameManager : Singleton<GameManager>
     {
         switch (num)
         {
-            case 1: return "¿ÀÇÁ´× ¾À";
-            case 2: return "»ç¾ç";
-            case 3: return "ÇÇÅ©´Ð";
-            case 4: return "¹Ý¿µ½Ä";
-            case 5: return "²ÞÀÇ ¹æ";
-            case 6: return "¿©¸§ ¹Ù¶÷";
-            case 7: return "RETAKE";
-            case 8: return "ÀÏ½Ä";
-            case 9: return "°Å¿ï";
-            case 10: return "¸¸³â";
-            case 11: return "¶ó½ºÆ® ¾À";
+            case 1:
+                return "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½";
+            case 2:
+                return "ï¿½ï¿½ï¿½";
+            case 3:
+                return "ï¿½ï¿½Å©ï¿½ï¿½";
+            case 4:
+                return "ï¿½Ý¿ï¿½ï¿½ï¿½";
+            case 5:
+                return "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½";
+            case 6:
+                return "ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶ï¿½";
+            case 7:
+                return "RETAKE";
+            case 8:
+                return "ï¿½Ï½ï¿½";
+            case 9:
+                return "ï¿½Å¿ï¿½";
+            case 10:
+                return "ï¿½ï¿½ï¿½ï¿½";
+            case 11:
+                return "ï¿½ï¿½Æ® ï¿½ï¿½";
         }
         return "";
     }
