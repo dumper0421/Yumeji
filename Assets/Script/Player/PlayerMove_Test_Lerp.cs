@@ -22,14 +22,22 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     [Header("Flash VFX Prefabs")]
     [SerializeField] private GameObject flashVFXPrefab;      // 기본 플래시: 아래/좌/우
-    [SerializeField] private GameObject flashVFXPrefabUp;    // 위쪽 전용 플래시: 플레이어 부분이 비어 있는 이미지
+    [SerializeField] private GameObject flashVFXPrefabUp;    // 위쪽 전용 플래시
 
     [SerializeField] private float flashDuration = 0.3f;
 
     [Header("Flash VFX Position")]
+    [SerializeField] private Vector2 flashVFXDownOffset = new Vector2(0f, 0f);
+    // X: 아래쪽 촬영 시 좌우 보정
+    // Y: 아래쪽 촬영 시 위/아래 보정
+
+    [SerializeField] private Vector2 flashVFXUpOffset = new Vector2(0f, 0.3f);
+    // X: 위쪽 촬영 시 좌우 보정
+    // Y: 위쪽 촬영 시 위/아래 보정
+
     [SerializeField] private Vector2 flashVFXSideOffset = new Vector2(0.3f, 0.3f);
     // X: 좌우 촬영 시 옆으로 얼마나 밀지
-    // Y: 좌우 촬영 시 아래/위로 얼마나 보정할지
+    // Y: 좌우 촬영 시 위/아래로 얼마나 보정할지
 
     [SerializeField] private float shootCooldown = 2f;
     private float nextShootTime = 0f;
@@ -214,7 +222,20 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             transform.position.z
         );
 
-        if (Mathf.Abs(dir.x) > 0f)
+        // 위쪽 촬영일 때 위치 보정
+        if (dir.y > 0f)
+        {
+            spawnPos.x += flashVFXUpOffset.x;
+            spawnPos.y += flashVFXUpOffset.y;
+        }
+        // 아래쪽 촬영일 때 위치 보정
+        else if (dir.y < 0f)
+        {
+            spawnPos.x += flashVFXDownOffset.x;
+            spawnPos.y += flashVFXDownOffset.y;
+        }
+        // 좌/우 촬영일 때 위치 보정
+        else if (Mathf.Abs(dir.x) > 0f)
         {
             spawnPos.x += flashVFXSideOffset.x * Mathf.Sign(dir.x);
             spawnPos.y += flashVFXSideOffset.y;
@@ -226,6 +247,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
         GameObject selectedFlashPrefab = flashVFXPrefab;
 
+        // 위쪽 촬영일 때만 위쪽 전용 플래시 이미지 사용
         if (dir.y > 0f && flashVFXPrefabUp != null)
         {
             selectedFlashPrefab = flashVFXPrefabUp;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1037219462143538988}
   - component: {fileID: 1470708181444402655}
   m_Layer: 0
-  m_Name: obj_ShootEffect_v1
+  m_Name: obj_ShootEffect_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 1277631547
   m_SortingLayer: 4
   m_SortingOrder: 999
-  m_Sprite: {fileID: 21300000, guid: d611bf0cc9b50cb4c9795dba8d03b929, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f48e67f957b737846b5c87fc2a842ae4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.6901961}
   m_FlipX: 0
   m_FlipY: 0
