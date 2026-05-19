@@ -13,7 +13,7 @@ public class PuzzleLightInteractObject : InspectableObject
     {
         if (lightController == null) return;
 
-        // ¾ÆÁ÷ ²¨Á® ÀÖÀ¸¸é ´ëÈ­
+        // ì•„ì§ êº¼ì ¸ ìˆìœ¼ë©´ ëŒ€í™”
         if (!lightController.IsActivated)
         {
             if (dialogueManager != null && !string.IsNullOrEmpty(FirstDialogueId))
@@ -23,7 +23,7 @@ public class PuzzleLightInteractObject : InspectableObject
             return;
         }
 
-        // ÀÌ¹Ì ÄÑÁ® ÀÖÀ¸¸é ¹Ù·Î »ö ÀüÈ¯
+        // ì´ë¯¸ ì¼œì ¸ ìˆìœ¼ë©´ ë°”ë¡œ ìƒ‰ ì „í™˜
         lightController.CycleLight();
     }
 }

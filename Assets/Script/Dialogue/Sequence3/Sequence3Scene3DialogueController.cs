@@ -58,7 +58,7 @@ public class Sequence3Scene3DialogueController : DialogueController<S3S3State>
             case "HaruRei1_11":
                 HaruAnimator.enabled = true;
                 ReiAnimator.enabled = true;
-                HaruMove.SetCompanion(ReiCompanionSystem, "∑π¿Ã");
+                HaruMove.SetCompanion(ReiCompanionSystem, "Î†àÏù¥");
                 break;
             case "HaruRei1_21":
                 Utility.PlayDirector(TurnstileDirector);

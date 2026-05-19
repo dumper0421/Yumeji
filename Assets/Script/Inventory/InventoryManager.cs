@@ -105,10 +105,10 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void LoadInventory(int slotIndex)
     {
-        // ½½·ÔÀÌ ÇÏ³ªµµ ¾øÀ¸¸é(¾ÆÁ÷ UI°¡ ÃÊ±âÈ­µÇÁö ¾Ê¾ÒÀ¸¸é) ·Îµå ¹«½Ã
+        // ìŠ¬ë¡¯ì´ í•˜ë‚˜ë„ ì—†ìœ¼ë©´(ì•„ì§ UIê°€ ì´ˆê¸°í™”ë˜ì§€ ì•Šì•˜ìœ¼ë©´) ë¡œë“œ ë¬´ì‹œ
         if (_slots == null || _slots.Count == 0)
         {
-            Debug.LogWarning("[InventoryManager] ½½·ÔÀÌ ÃÊ±âÈ­µÇÁö ¾Ê¾Æ ·Îµå »ı·«");
+            Debug.LogWarning("[InventoryManager] ìŠ¬ë¡¯ì´ ì´ˆê¸°í™”ë˜ì§€ ì•Šì•„ ë¡œë“œ ìƒëµ");
             return;
         }
 
@@ -152,7 +152,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void AddItem(ItemData data)
     {
-        // 1) ÀÌ¹Ì ÀÖ´Â ¾ÆÀÌÅÛÀÌ¸é ¼ö·®¸¸ Áõ°¡
+        // 1) ì´ë¯¸ ìˆëŠ” ì•„ì´í…œì´ë©´ ìˆ˜ëŸ‰ë§Œ ì¦ê°€
 
         var existing = _slots.Find(s => !s.IsEmpty && s.GetItemData().ItemName == data.ItemName);
         if (existing != null)
@@ -161,7 +161,7 @@ public class InventoryManager : Singleton<InventoryManager>
             return;
         }
 
-        // 2) ºó ½½·Ô Ã£±â (¾øÀ¸¸é »õ·Î »ı¼º)
+        // 2) ë¹ˆ ìŠ¬ë¡¯ ì°¾ê¸° (ì—†ìœ¼ë©´ ìƒˆë¡œ ìƒì„±)
         var slot = _slots.Find(s => s.IsEmpty);
         if (slot == null)
         {
@@ -170,7 +170,7 @@ public class InventoryManager : Singleton<InventoryManager>
             _slots.Add(slot);
         }
 
-        // 3) Ç×»ó count=1·Î ¼¼ÆÃ
+        // 3) í•­ìƒ count=1ë¡œ ì„¸íŒ…
         slot.SetItem(data, 1);
 
         int slotIndex = _slots.IndexOf(slot);
@@ -195,7 +195,7 @@ public class InventoryManager : Singleton<InventoryManager>
         if (slot.IsEmpty) return;
 
         var data = slot.GetItemData();
-        data.Use();  // UnityEvent ·Î ¿¬°áµÈ ·ÎÁ÷ ½ÇÇà
+        data.Use();  // UnityEvent ë¡œ ì—°ê²°ëœ ë¡œì§ ì‹¤í–‰
     }
 
     public bool HasItem(string itemName)
@@ -234,16 +234,16 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void MoveSelectBorderTo(int newIndex)
     {
-        // À¯È¿ ¹üÀ§ Ã¼Å©
+        // ìœ íš¨ ë²”ìœ„ ì²´í¬
         if (newIndex < 0 || newIndex >= _slots.Count) return;
         if (_slots[newIndex].IsEmpty) return;
 
         CurrentSelectIndex = newIndex;
 
-        // ¼³¸í °»½Å
+        // ì„¤ëª… ê°±ì‹ 
         DescriptionText.text = _slots[newIndex].GetItemData().Description;
 
-        // Ä¿¼­ À§Ä¡ ¿Å±â±â
+        // ì»¤ì„œ ìœ„ì¹˜ ì˜®ê¸°ê¸°
         SelectBorder.transform.SetParent(_slots[newIndex].transform, false);
         SelectBorder.transform.localPosition = Vector3.zero;
         SelectBorder.SetActive(true);

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// ¸¶¿ì½º(Pointer) ÀÌº¥Æ®¸¦ ¹Ş¾Æ¼­ Áï½Ã ¼Ò¸ğ(Use)ÇØ ¹ö¸³´Ï´Ù.
+// ë§ˆìš°ìŠ¤(Pointer) ì´ë²¤íŠ¸ë¥¼ ë°›ì•„ì„œ ì¦‰ì‹œ ì†Œëª¨(Use)í•´ ë²„ë¦½ë‹ˆë‹¤.
 public class BlockMouseInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     public void OnPointerDown(PointerEventData eventData) => eventData.Use();

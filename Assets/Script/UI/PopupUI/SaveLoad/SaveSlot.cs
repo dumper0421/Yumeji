@@ -55,7 +55,7 @@ public class SaveSlot : MonoBehaviour
             if (data.CompanionName != null && data.CompanionName.Length > 0)
             {
                 string[] companaionNames = data.CompanionName.Split(',');
-                // µ¿·á°¡ 2¸íÀÏ ‹š
+                // ë™ë£Œê°€ 2ëª…ì¼ ë–„
                 if (companaionNames.Length == 2)
                 {
                     characterIcons_[2].sprite = ResourceManager.Instance.Load<Sprite>("CharactersIcon/" + companaionNames[1] + "Icon");

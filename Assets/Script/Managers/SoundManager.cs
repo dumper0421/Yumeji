@@ -108,7 +108,7 @@ public class SoundManager : Singleton<SoundManager>
 
     #endregion
 
-    #region SFX (µ¿½Ã Àç»ı)
+    #region SFX (ë™ì‹œ ì¬ìƒ)
     public void PlaySFX(AudioClip clip, float volume = 1f)
     {
         if (clip == null || _sfxSources.Count == 0) return;
@@ -194,7 +194,7 @@ public class SoundManager : Singleton<SoundManager>
             _sequentialWasPaused = true;
         }
 
-        // Simultaneous SFX (Ç®¿¡ ÀÖ´Â ¼Ò½ºµé Áß Àç»ıÁßÀÎ °Íµé¸¸ Pause)
+        // Simultaneous SFX (í’€ì— ìˆëŠ” ì†ŒìŠ¤ë“¤ ì¤‘ ì¬ìƒì¤‘ì¸ ê²ƒë“¤ë§Œ Pause)
         _pausedSfxSources.Clear();
         foreach (var src in _sfxSources)
         {

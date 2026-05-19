@@ -37,7 +37,7 @@ public class Sequence4Scene2_2DialogueController : DialogueController<S4S2_2Stat
                 SscriptPageData.Use();
                 break;
             case "HaruRei_13":
-                _playerMove.SetCompanion(_reiCompanionSystem, "·¹ÀÌ");
+                _playerMove.SetCompanion(_reiCompanionSystem, "ë ˆì´");
                 _reiBoxCollider.enabled = false;
                 _stageDoor.SetActive(false);
                 break;

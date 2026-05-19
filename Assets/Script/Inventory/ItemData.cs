@@ -9,7 +9,7 @@ public class ItemData : ScriptableObject
     public bool IsConsumable;
 
     /// <summary>
-    /// ÀÌ ¸Ş¼­µå¸¦ ¾ÆÀÌÅÛ¸¶´Ù ¿À¹ö¶óÀÌµåÇØ¼­ µ¿ÀÛÀ» ±¸ÇöÇÏ¼¼¿ä.
+    /// ì´ ë©”ì„œë“œë¥¼ ì•„ì´í…œë§ˆë‹¤ ì˜¤ë²„ë¼ì´ë“œí•´ì„œ ë™ì‘ì„ êµ¬í˜„í•˜ì„¸ìš”.
     /// </summary>
     public virtual void Use()
     {

@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour
 
             vector.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), transform.position.z);
             
-            //¹æÇâÅ° 2°³´©¸¦ ¶§ ¹ö±×
+            //ë°©í–¥í‚¤ 2ê°œëˆ„ë¥¼ ë•Œ ë²„ê·¸
             if (vector.x != 0)
             {
                 vector.y = 0;
@@ -67,12 +67,12 @@ public class PlayerMove : MonoBehaviour
             animator.SetFloat("DirX", vector.x);
             animator.SetFloat("DirY", vector.y);
 
-            //ÀÌµ¿ ºÒ°¡ Áö¿ª
+            //ì´ë™ ë¶ˆê°€ ì§€ì—­
             RaycastHit2D hit;
-            Vector2 start=transform.position; //ÇöÀçÀ§Ä¡
-            Vector2 end=start+new Vector2(vector.x* speed_ * walkCount,vector.y* speed_ * walkCount);   //ÀÌµ¿À§Ä¡
+            Vector2 start=transform.position; //í˜„ì¬ìœ„ì¹˜
+            Vector2 end=start+new Vector2(vector.x* speed_ * walkCount,vector.y* speed_ * walkCount);   //ì´ë™ìœ„ì¹˜
 
-            boxCollider.enabled = false; //ÇÃ·¹ÀÌ¾î ¹Ú½ºÄİ¶óÀÌ´õ¿¡ ÀÎ½ÄµÇÁö ¾Ê°Ô
+            boxCollider.enabled = false; //í”Œë ˆì´ì–´ ë°•ìŠ¤ì½œë¼ì´ë”ì— ì¸ì‹ë˜ì§€ ì•Šê²Œ
             hit=Physics2D.Linecast(start,end,layerMask);
             boxCollider.enabled = true;
             if (hit.transform != null)
@@ -117,7 +117,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        #region ÇÃ·¹ÀÌ¾î Ã¼·Â ±ğ±â 
+        #region í”Œë ˆì´ì–´ ì²´ë ¥ ê¹ê¸° 
         if (Input.GetKeyUp(KeyCode.Z))
             StatusManager.Instance.playerStatus.TakeDamage(100);
         #endregion

@@ -1,8 +1,8 @@
 public interface IFlashable
 {
     /// <summary>
-    /// »çÁø ÃÔ¿µ ½Ã È£ÃâµË´Ï´Ù.
+    /// ì‚¬ì§„ ì´¬ì˜ ì‹œ í˜¸ì¶œë©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="isEnhanced">°­È­ ÃÔ¿µ ¿©ºÎ(Áö±İÀº Ç×»ó false)</param>
+    /// <param name="isEnhanced">ê°•í™” ì´¬ì˜ ì—¬ë¶€(ì§€ê¸ˆì€ í•­ìƒ false)</param>
     void OnPhotoTaken(bool isEnhanced);
 }

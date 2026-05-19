@@ -33,16 +33,16 @@ public class Sequence6S1ProjectorInteraction : InspectableObject
 
         LockPlayerControls(true);
 
-        // 1. ¾ÆÀÌÅÛ Á¦°Å
+        // 1. ì•„ì´í…œ ì œê±°
         if (requiredFilmItem != null)
         {
             requiredFilmItem.Use();
         }
 
-        // 2. È­ÀÌÆ®¾Æ¿ô
+        // 2. í™”ì´íŠ¸ì•„ì›ƒ
         yield return StartCoroutine(WhiteOut());
 
-        // 3. ÄÆ¾À ¾À ÀüÈ¯
+        // 3. ì»·ì”¬ ì”¬ ì „í™˜
         SceneManager.LoadScene(cutsceneSceneName);
     }
 

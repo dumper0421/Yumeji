@@ -129,7 +129,7 @@ public class SavePointFlashEffect : MonoBehaviour
             overlay.sortingLayerID = source.sortingLayerID;
             overlay.sortingOrder = source.sortingOrder + sortingOrderOffset_;
 
-            // ÇÙ½É: ¿øº»º¸´Ù »ìÂ¦ Å©°Ô ¸¸µé¾î °¡ÀåÀÚ¸®¿¡¼­ ºû³ª´Â ´À³¦ ÁÖ±â
+            // í•µì‹¬: ì›ë³¸ë³´ë‹¤ ì‚´ì§ í¬ê²Œ ë§Œë“¤ì–´ ê°€ì¥ìë¦¬ì—ì„œ ë¹›ë‚˜ëŠ” ëŠë‚Œ ì£¼ê¸°
             overlay.transform.position = source.transform.position;
             overlay.transform.rotation = source.transform.rotation;
             overlay.transform.localScale = Vector3.one * scaleMultiplier_;

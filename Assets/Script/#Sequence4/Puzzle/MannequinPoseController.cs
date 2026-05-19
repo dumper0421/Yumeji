@@ -3,7 +3,7 @@ using UnityEngine;
 public class MannequinPoseController : MonoBehaviour
 {
     [Header("Pose Visuals")]
-    [Tooltip("p0, p1, p2, p3 ¼ø¼­´ë·Î ³Ö±â")]
+    [Tooltip("p0, p1, p2, p3 ìˆœì„œëŒ€ë¡œ ë„£ê¸°")]
     public GameObject[] poseObjects;
 
     [SerializeField] private int poseIndex = 0;

@@ -84,46 +84,46 @@ public class Sequence4Scene2PuzzleDialogueController : DialogueController<S4S2Pu
     {
         switch (text)
         {
-            // 1) Å×ÀÌºí ¼ÂÆÃ
-            case "ÁÝ´Â´Ù":
+            // 1) í…Œì´ë¸” ì…‹íŒ…
+            case "ì¤ëŠ”ë‹¤":
                 TryTakeEmptyGlass();
                 break;
 
-            case "Ã¤¿î´Ù":
+            case "ì±„ìš´ë‹¤":
                 TryFillGlass();
                 break;
 
-            case "³õ´Â´Ù":
+            case "ë†“ëŠ”ë‹¤":
                 TryPlaceFullGlass();
                 break;
 
-            // 2) ¸¶³×Å·2 ¹öÆ°
-            case "´©¸¥´Ù":
+            // 2) ë§ˆë„¤í‚¹2 ë²„íŠ¼
+            case "ëˆ„ë¥¸ë‹¤":
                 if (mannequin2Controller != null)
                     mannequin2Controller.NextPose();
 
                 ApplyMannequin2World();
                 break;
 
-            // 3) Çà°Å
-            case "°ËÀº»ö ±êÅÐÀÌ ´Þ¸° °ËÀº»ö °¡¸é":
+            // 3) í–‰ê±°
+            case "ê²€ì€ìƒ‰ ê¹ƒí„¸ì´ ë‹¬ë¦° ê²€ì€ìƒ‰ ê°€ë©´":
                 TryTakeMask(BlackFeatherBlackMask);
                 break;
 
-            case "Èò»ö ±êÅÐÀÌ ´Þ¸° °ËÀº»ö °¡¸é":
+            case "í°ìƒ‰ ê¹ƒí„¸ì´ ë‹¬ë¦° ê²€ì€ìƒ‰ ê°€ë©´":
                 TryTakeMask(WhiteFeatherBlackMask);
                 break;
 
-            case "Èò»ö ±êÅÐÀÌ ´Þ¸° Èò»ö °¡¸é":
+            case "í°ìƒ‰ ê¹ƒí„¸ì´ ë‹¬ë¦° í°ìƒ‰ ê°€ë©´":
                 TryTakeMask(WhiteFeatherWhiteMask);
                 break;
 
-            case "°É¾îµÐ´Ù":
+            case "ê±¸ì–´ë‘”ë‹¤":
                 TryPutBackMask();
                 break;
 
-            // 4) ¸¶³×Å·1
-            case "¾º¿î´Ù":
+            // 4) ë§ˆë„¤í‚¹1
+            case "ì”Œìš´ë‹¤":
                 TryApplyMaskToMannequin1();
                 break;
         }

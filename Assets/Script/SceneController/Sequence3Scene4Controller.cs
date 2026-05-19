@@ -81,34 +81,34 @@ public class Sequence3Scene4Controller : SceneController
     private IEnumerator CoFantasyLightEvent()
     {
         if (debugLog)
-            Debug.Log("[S3S4] È¯»óÀÇ ºû ÀÌº¥Æ® ½ÃÀÛ");
+            Debug.Log("[S3S4] í™˜ìƒì˜ ë¹› ì´ë²¤íŠ¸ ì‹œì‘");
 
         LockPlayerControls(true);
 
-        // 1. ¿µ»ç±â ·çÇÁ ½ÃÀÛ
+        // 1. ì˜ì‚¬ê¸° ë£¨í”„ ì‹œì‘
         PlayProjectorLoop(true);
 
-        // 2. ¿µ»ç±â ¼Ò¸® Á¡Á¡ Å©°Ô
+        // 2. ì˜ì‚¬ê¸° ì†Œë¦¬ ì ì  í¬ê²Œ
         if (projectorSource != null)
             yield return StartCoroutine(FadeProjectorVolume(projectorStartVolume, projectorMaxVolume, projectorVolumeUpDuration));
 
-        // 3. È­¸é ÀüÃ¼¸¦ Èò ºûÀ¸·Î Ã¤¿ò
+        // 3. í™”ë©´ ì „ì²´ë¥¼ í° ë¹›ìœ¼ë¡œ ì±„ì›€
         if (whiteFadeCanvasGroup != null)
             yield return StartCoroutine(FadeCanvasGroup(whiteFadeCanvasGroup, 1f, whiteFadeDuration));
 
-        // 4. Àá±ñ Èò È­¸é À¯Áö
+        // 4. ì ê¹ í° í™”ë©´ ìœ ì§€
         if (holdWhiteTime > 0f)
             yield return new WaitForSeconds(holdWhiteTime);
 
-        // 5. ¿µ»ó ¿À¹ö·¹ÀÌ Ç¥½Ã
+        // 5. ì˜ìƒ ì˜¤ë²„ë ˆì´ í‘œì‹œ
         if (videoCanvasGroup != null)
             yield return StartCoroutine(FadeCanvasGroup(videoCanvasGroup, 1f, videoFadeInDuration));
         /*
-        // 6. mp4 Àç»ı
+        // 6. mp4 ì¬ìƒ
         if (videoPlayer != null)
         {
             if (debugLog)
-                Debug.Log("[S3S4] mp4 ¿µ»ó Àç»ı ½ÃÀÛ");
+                Debug.Log("[S3S4] mp4 ì˜ìƒ ì¬ìƒ ì‹œì‘");
 
             videoPlayer.Prepare();
             yield return new WaitUntil(() => videoPlayer.isPrepared);
@@ -119,22 +119,22 @@ public class Sequence3Scene4Controller : SceneController
         }
         else
         {
-            Debug.LogWarning("[S3S4] videoPlayer°¡ ºñ¾îÀÖ¾ú´Ù. ¿µ»ó ¾øÀÌ ´ÙÀ½ ¾ÀÀ¸·Î ÀÌµ¿Çß´Ù.");
+            Debug.LogWarning("[S3S4] videoPlayerê°€ ë¹„ì–´ìˆì—ˆë‹¤. ì˜ìƒ ì—†ì´ ë‹¤ìŒ ì”¬ìœ¼ë¡œ ì´ë™í–ˆë‹¤.");
             yield return new WaitForSeconds(1f);
         }
         */
 
-        // 7. ´ÙÀ½ ¾À ÀÌµ¿
+        // 7. ë‹¤ìŒ ì”¬ ì´ë™
         if (!string.IsNullOrEmpty(nextSceneName))
         {
             if (debugLog)
-                Debug.Log($"[S3S4] ´ÙÀ½ ¾À ÀÌµ¿: {nextSceneName}");
+                Debug.Log($"[S3S4] ë‹¤ìŒ ì”¬ ì´ë™: {nextSceneName}");
 
             SceneManager.LoadScene(nextSceneName);
         }
         else
         {
-            Debug.LogWarning("[S3S4] nextSceneNameÀÌ ºñ¾îÀÖ¾ú´Ù.");
+            Debug.LogWarning("[S3S4] nextSceneNameì´ ë¹„ì–´ìˆì—ˆë‹¤.");
         }
     }
 

@@ -28,7 +28,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
         float d = duration > 0f ? duration : FadeDuration;
         StartCoroutine(Fade(1f, 0f, () =>
         {
-            // ¿ÏÀü Åõ¸íÇØÁö¸é ²¨µµ µÊ(¼±ÅÃ)
+            // ì™„ì „ íˆ¬ëª…í•´ì§€ë©´ êº¼ë„ ë¨(ì„ íƒ)
             FadeImage.gameObject.SetActive(false);
             onComplete?.Invoke();
         }, d));

@@ -9,44 +9,44 @@ public class CameraManager : Singleton<CameraManager>
 
     protected override void Init()
     {
-        // ¾À¿¡ ÀÖ´Â VirtualCamera ÇÏ³ª¸¦ Ã£½À´Ï´Ù. 
-        // ¿©·¯ °³¶ó¸é tag³ª ÀÌ¸§À¸·Î ºĞ±âÇÏ¼¼¿ä.
+        // ì”¬ì— ìˆëŠ” VirtualCamera í•˜ë‚˜ë¥¼ ì°¾ìŠµë‹ˆë‹¤. 
+        // ì—¬ëŸ¬ ê°œë¼ë©´ tagë‚˜ ì´ë¦„ìœ¼ë¡œ ë¶„ê¸°í•˜ì„¸ìš”.
         _vcam = FindObjectOfType<CinemachineVirtualCamera>();
         if (_vcam == null)
         {
-            Debug.LogError("Cinemachine VirtualCamera¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+            Debug.LogError("Cinemachine VirtualCameraë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             return;
         }
-        // Noise ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // Noise ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
         _noise = _vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         if (_noise == null)
         {
-            Debug.LogError("VirtualCamera¿¡ BasicMultiChannelPerlinÀÌ ¾ø½À´Ï´Ù.");
+            Debug.LogError("VirtualCameraì— BasicMultiChannelPerlinì´ ì—†ìŠµë‹ˆë‹¤.");
         }
     }
 
     /// <summary>
-    /// Cinemachine Noise¸¦ ÀÌ¿ëÇÑ Ä«¸Ş¶ó Èçµé±â
+    /// Cinemachine Noiseë¥¼ ì´ìš©í•œ ì¹´ë©”ë¼ í”ë“¤ê¸°
     /// </summary>
-    /// <param name="amplitude">Èçµé¸² ¼¼±â</param>
-    /// <param name="frequency">Èçµé¸² ¼Óµµ</param>
-    /// <param name="duration">Áö¼Ó ½Ã°£</param>
+    /// <param name="amplitude">í”ë“¤ë¦¼ ì„¸ê¸°</param>
+    /// <param name="frequency">í”ë“¤ë¦¼ ì†ë„</param>
+    /// <param name="duration">ì§€ì† ì‹œê°„</param>
     public IEnumerator Shake(float amplitude, float frequency, float duration = 0.3f)
     {
         if (_noise == null)
             yield break;
 
-        // ¿ø·¡ °ª ÀúÀå
+        // ì›ë˜ ê°’ ì €ì¥
         float origAmp = _noise.m_AmplitudeGain;
         float origFreq = _noise.m_FrequencyGain;
 
-        // Èçµé±â ½ÃÀÛ
+        // í”ë“¤ê¸° ì‹œì‘
         _noise.m_AmplitudeGain = amplitude;
         _noise.m_FrequencyGain = frequency;
 
         yield return new WaitForSeconds(duration);
 
-        // ¿ø»óº¹±¸
+        // ì›ìƒë³µêµ¬
         _noise.m_AmplitudeGain = origAmp;
         _noise.m_FrequencyGain = origFreq;
     }
@@ -90,7 +90,7 @@ public class CameraManager : Singleton<CameraManager>
             yield return null;
         }
 
-        // Á¤È®È÷ ¸ñÇ¥Ä¡ °íÁ¤
+        // ì •í™•íˆ ëª©í‘œì¹˜ ê³ ì •
         var finalLens = zoomCamera.m_Lens;
         finalLens.OrthographicSize = to;
         zoomCamera.m_Lens = finalLens;

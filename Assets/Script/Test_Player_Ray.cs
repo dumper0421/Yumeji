@@ -22,11 +22,11 @@ public class Test_Player_Ray : MonoBehaviour
 
         if (hit.collider != null) 
         {
-            Debug.Log("»óÈ£ÀÛ¿ë(RayCast) " + hit.collider.name);
+            Debug.Log("ìƒí˜¸ì‘ìš©(RayCast) " + hit.collider.name);
         }
         else
         {
-            Debug.Log("NPC°¡ ±ÙÃ³¿¡ ¾øÀ½(RayCast)");
+            Debug.Log("NPCê°€ ê·¼ì²˜ì— ì—†ìŒ(RayCast)");
         }
 
         Debug.DrawRay(transform.position, rayDirection * rayDistance, Color.red, 0.5f);

@@ -70,13 +70,14 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
             return;
         }
 
-        GameObject playerObj = (GameManager.Instance != null && GameManager.Instance.Player != null)
-            ? GameManager.Instance.Player
-            : GameObject.Find("Haru_Player"); 
+        GameObject playerObj =
+            (GameManager.Instance != null && GameManager.Instance.Player != null)
+                ? GameManager.Instance.Player
+                : GameObject.Find("Haru_Player");
 
         if (playerObj == null)
         {
-            Debug.LogError("[SaveLoadManager] Player ø¿∫Í¡ß∆Æ∏¶ √£¿ª ºˆ æ¯Ω¿¥œ¥Ÿ.");
+            Debug.LogError("[SaveLoadManager] Player Ïò§Î∏åÏ†ùÌä∏Î•º Ï∞æÏùÑ Ïàò ÏóÜÏäµÎãàÎã§.");
             return;
         }
 
@@ -85,10 +86,13 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         PlayerSaveData data = GameManager.Instance.SaveGameData(slotIndex, pos);
 
         string json = JsonUtility.ToJson(data, true);
-        string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));
+        string path = Path.Combine(
+            Application.persistentDataPath,
+            string.Format(SaveFileNameFormat, slotIndex)
+        );
         File.WriteAllText(path, json);
 
-        Debug.Log($"[SaveLoadManager] Saved slot {slotIndex} °Ê {path}");
+        Debug.Log($"[SaveLoadManager] Saved slot {slotIndex} ‚Üí {path}");
 
         InventoryManager.Instance.SaveInventory(slotIndex);
     }
@@ -101,7 +105,10 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
             return null;
         }
 
-        string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));
+        string path = Path.Combine(
+            Application.persistentDataPath,
+            string.Format(SaveFileNameFormat, slotIndex)
+        );
         if (!File.Exists(path))
         {
             Debug.LogWarning($"[SaveLoadManager] No save file at slot {slotIndex}");
@@ -111,7 +118,7 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         string json = File.ReadAllText(path);
         PlayerSaveData data = JsonUtility.FromJson<PlayerSaveData>(json);
 
-        Debug.Log($"[SaveLoadManager] Loaded slot {slotIndex} °Á {path}");
+        Debug.Log($"[SaveLoadManager] Loaded slot {slotIndex} ‚Üê {path}");
         return data;
     }
 
@@ -123,7 +130,10 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
             return;
         }
 
-        string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));
+        string path = Path.Combine(
+            Application.persistentDataPath,
+            string.Format(SaveFileNameFormat, slotIndex)
+        );
         if (File.Exists(path))
         {
             File.Delete(path);

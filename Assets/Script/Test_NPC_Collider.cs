@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class ItemObject_Test: MonoBehaviour
 {
-    private bool isPlayerNearby = false; // ÇÃ·¹ÀÌ¾î°¡ ±ÙÃ³¿¡ ÀÖ´ÂÁö È®ÀÎ
+    private bool isPlayerNearby = false; // í”Œë ˆì´ì–´ê°€ ê·¼ì²˜ì— ìˆëŠ”ì§€ í™•ì¸
 
     void Update()
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.G))
         {
-            Debug.Log("NPC¿Í »óÈ£ÀÛ¿ëÇÔ!");
+            Debug.Log("NPCì™€ ìƒí˜¸ì‘ìš©í•¨!");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // ÇÃ·¹ÀÌ¾î°¡ ¹üÀ§¿¡ µé¾î¿ÔÀ» ¶§
+        if (other.CompareTag("Player")) // í”Œë ˆì´ì–´ê°€ ë²”ìœ„ì— ë“¤ì–´ì™”ì„ ë•Œ
         {
             isPlayerNearby = true;
-            Debug.Log("NPC ±ÙÃ³¿¡ ÇÃ·¹ÀÌ¾î Á¢±Ù");
+            Debug.Log("NPC ê·¼ì²˜ì— í”Œë ˆì´ì–´ ì ‘ê·¼");
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // ÇÃ·¹ÀÌ¾î°¡ ¹üÀ§¸¦ ¹ş¾î³µÀ» ¶§
+        if (other.CompareTag("Player")) // í”Œë ˆì´ì–´ê°€ ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ì„ ë•Œ
         {
             isPlayerNearby = false;
-            Debug.Log("NPC ±ÙÃ³¿¡¼­ ÇÃ·¹ÀÌ¾î ¶°³²");
+            Debug.Log("NPC ê·¼ì²˜ì—ì„œ í”Œë ˆì´ì–´ ë– ë‚¨");
         }
     }
 }

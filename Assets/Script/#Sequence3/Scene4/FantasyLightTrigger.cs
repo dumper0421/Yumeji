@@ -35,18 +35,18 @@ public class FantasyLightTrigger : SitObject
     {
         if (action == null)
         {
-            Debug.LogWarning($"[ReiSideSeatTrigger:{name}] PlayerActionController°¡ ºñ¾îÀÖ¾ú´Ù.");
+            Debug.LogWarning($"[ReiSideSeatTrigger:{name}] PlayerActionControllerê°€ ë¹„ì–´ìˆì—ˆë‹¤.");
             yield break;
         }
 
         if (scene4Controller == null)
         {
-            Debug.LogWarning($"[ReiSideSeatTrigger:{name}] Sequence3Scene4Controller°¡ ºñ¾îÀÖ¾ú´Ù.");
+            Debug.LogWarning($"[ReiSideSeatTrigger:{name}] Sequence3Scene4Controllerê°€ ë¹„ì–´ìˆì—ˆë‹¤.");
             yield break;
         }
 
         if (debugLog)
-            Debug.Log($"[ReiSideSeatTrigger:{name}] Watch ½ÃÀÛ");
+            Debug.Log($"[ReiSideSeatTrigger:{name}] Watch ì‹œì‘");
 
         while (!fired)
         {
@@ -64,7 +64,7 @@ public class FantasyLightTrigger : SitObject
                 fired = true;
 
                 if (debugLog)
-                    Debug.Log($"[ReiSideSeatTrigger:{name}] Âø¼® ¿Ï·á °¨Áö ¡æ È¯»óÀÇ ºû ÀÌº¥Æ® ½ÇÇà");
+                    Debug.Log($"[ReiSideSeatTrigger:{name}] ì°©ì„ ì™„ë£Œ ê°ì§€ â†’ í™˜ìƒì˜ ë¹› ì´ë²¤íŠ¸ ì‹¤í–‰");
 
                 action.IsLockedByEvent = true;
                 scene4Controller.StartFantasyLightEvent();

@@ -56,15 +56,15 @@ public class PopupUIManager : Singleton<PopupUIManager>
 
         saveDialog.SetAction(confirmAction, denyAction);
         if (hasData)
-            saveDialog.SetContentText("���� ���� ��Ȳ��" + System.Environment.NewLine + "���Կ� ������մϴ�.");
+            saveDialog.SetContentText("현재 진행 상황을" + System.Environment.NewLine + "슬롯에 덮어쓰기합니다.");
         else
-            saveDialog.SetContentText("���� ���� ��Ȳ�� �����մϴ�.");
-        saveDialog.SetButtonText("���", "����");
+            saveDialog.SetContentText("현재 진행 상황을 저장합니다.");
+        saveDialog.SetButtonText("취소", "저장");
 
         Debug.Log(saveDialog);
     }
 
-    //isSave�� true�� �� save�� �ƴ� �� ������ UI ����
+    //isSave가 true일 떄 save로 아닐 때 덮어쓰기로 UI 열기
     public void SetSaveLoadPopup(bool isSave)
     {
         saveLoadPopup_.gameObject.SetActive(true);
@@ -72,10 +72,10 @@ public class PopupUIManager : Singleton<PopupUIManager>
         saveLoadPopup_.GetComponent<SaveLoadPopup>().SwitchSaveLoadUI(isSave);
     }
 
-    //���̺� ����
+    //세이브 연출
     private IEnumerator CoSaveWithEffect(int slotNum, ConfirmationDialog saveDialog)
     {
-        // UI �ݱ�
+        // UI 닫기
         saveDialog.gameObject.SetActive(false);
 
         if (saveLoadPopup_ != null)
@@ -87,10 +87,10 @@ public class PopupUIManager : Singleton<PopupUIManager>
         activePopupList_.Remove(confirmationDialog_);
         activePopupList_.Remove(saveLoadPopup_);
 
-        // ������ ���
+        // 프레임 대기
         yield return null;
 
-        //  ���� ���� ����->���̺������Ʈ����
+        //  저장 연출 실행->세이브오브젝트에서
         if (currentSaveEffect_ != null)
             yield return StartCoroutine(currentSaveEffect_.PlayEffect());
 

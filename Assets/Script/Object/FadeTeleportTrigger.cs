@@ -9,15 +9,15 @@ public class FadeTeleportTrigger : MonoBehaviour
     [SerializeField] private Vector3 targetPoint;
 
     [Header("Fade UI (CanvasGroup)")]
-    [SerializeField] private CanvasGroup fadeGroup;   // °ËÀº ÀÌ¹ÌÁö°¡ ºÙÀº CanvasGroup
+    [SerializeField] private CanvasGroup fadeGroup;   // ê²€ì€ ì´ë¯¸ì§€ê°€ ë¶™ì€ CanvasGroup
     [SerializeField] private float fadeOutTime = 0.2f;
     [SerializeField] private float holdBlackTime = 2.0f;
     [SerializeField] private float fadeInTime = 0.3f;
 
     [Header("Camera (Optional)")]
     [SerializeField] private CinemachineVirtualCamera switchToCamera;
-    [SerializeField] private CinemachineVirtualCameraBase followBase; // BrainÀÌ ¾Æ´Ï¶ó Follow °¡Áø vcam base
-    [SerializeField] private SceneController sceneController;         // ³× ÇÁ·ÎÁ§Æ®¿¡ ÀÌ¹Ì ÀÖ´Â Ä«¸Ş¶ó ÀüÈ¯ ÇÔ¼ö
+    [SerializeField] private CinemachineVirtualCameraBase followBase; // Brainì´ ì•„ë‹ˆë¼ Follow ê°€ì§„ vcam base
+    [SerializeField] private SceneController sceneController;         // ë„¤ í”„ë¡œì íŠ¸ì— ì´ë¯¸ ìˆëŠ” ì¹´ë©”ë¼ ì „í™˜ í•¨ìˆ˜
 
     [Header("Audio (Optional)")]
     [SerializeField] private AudioClip enterSfx;
@@ -26,7 +26,7 @@ public class FadeTeleportTrigger : MonoBehaviour
 
     private void Reset()
     {
-        // Trigger ÀÚµ¿ ¼¼ÆÃ
+        // Trigger ìë™ ì„¸íŒ…
         var col = GetComponent<Collider2D>();
         col.isTrigger = true;
     }
@@ -45,10 +45,10 @@ public class FadeTeleportTrigger : MonoBehaviour
 
         var mover = playerCol.GetComponent<PlayerMove_Test_Lerp>();
 
-        // 1) ÇÃ·¹ÀÌ¾î ÀÔ·Â Â÷´Ü(½ºÅ©¸³Æ® ºñÈ°¼ºÈ­) - PlayerMove ¼öÁ¤ ¾øÀÌ °¡´ÉÇÑ °¡Àå È®½ÇÇÑ ¹æ¹ı
+        // 1) í”Œë ˆì´ì–´ ì…ë ¥ ì°¨ë‹¨(ìŠ¤í¬ë¦½íŠ¸ ë¹„í™œì„±í™”) - PlayerMove ìˆ˜ì • ì—†ì´ ê°€ëŠ¥í•œ ê°€ì¥ í™•ì‹¤í•œ ë°©ë²•
         if (mover != null)
         {
-            mover.canMove = false;               // È¤½Ã ³²¾ÆÀÖÀ» ÀÌµ¿ ÄÚ·çÆ¾ ´ëºñ
+            mover.canMove = false;               // í˜¹ì‹œ ë‚¨ì•„ìˆì„ ì´ë™ ì½”ë£¨í‹´ ëŒ€ë¹„
             mover.animator.SetBool("Walking", false);
             mover.animator.SetBool("Pushing", false);
             mover.enabled = false;
@@ -58,17 +58,17 @@ public class FadeTeleportTrigger : MonoBehaviour
         if (fadeGroup != null)
             yield return FadeTo(1f, fadeOutTime);
 
-        // 3) ¾ÏÀü ½ÃÀÛ SFX(¼±ÅÃ)
+        // 3) ì•”ì „ ì‹œì‘ SFX(ì„ íƒ)
         if (enterSfx != null && SoundManager.Instance != null)
             SoundManager.Instance.PlaySFX(enterSfx);
 
-        // 4) ¿ÏÀü ¾ÏÀü À¯Áö
+        // 4) ì™„ì „ ì•”ì „ ìœ ì§€
         yield return new WaitForSeconds(holdBlackTime);
 
-        // 5) ÅÚ·¹Æ÷Æ®
+        // 5) í…”ë ˆí¬íŠ¸
         if (mover != null)
         {
-            // mover.enabled=false¶óµµ Teleport´Â È£Ãâ °¡´É(¿ÜºÎ¿¡¼­ È£ÃâÀÌ¹Ç·Î)
+            // mover.enabled=falseë¼ë„ TeleportëŠ” í˜¸ì¶œ ê°€ëŠ¥(ì™¸ë¶€ì—ì„œ í˜¸ì¶œì´ë¯€ë¡œ)
             mover.Teleport(targetPoint);
         }
         else
@@ -76,7 +76,7 @@ public class FadeTeleportTrigger : MonoBehaviour
             playerCol.transform.position = targetPoint;
         }
 
-        // 6) Ä«¸Ş¶ó ÀüÈ¯(¼±ÅÃ)
+        // 6) ì¹´ë©”ë¼ ì „í™˜(ì„ íƒ)
         if (sceneController != null && switchToCamera != null)
             sceneController.ChangeCinemachineCamera(switchToCamera);
 
@@ -90,7 +90,7 @@ public class FadeTeleportTrigger : MonoBehaviour
         if (fadeGroup != null)
             yield return FadeTo(0f, fadeInTime);
 
-        // 8) ÀÔ·Â º¹±¸
+        // 8) ì…ë ¥ ë³µêµ¬
         if (mover != null)
             mover.enabled = true;
 
@@ -106,7 +106,7 @@ public class FadeTeleportTrigger : MonoBehaviour
 
         while (t < duration)
         {
-            t += Time.unscaledDeltaTime; // timescale ¿µÇâ ¾È ¹ŞÀ½
+            t += Time.unscaledDeltaTime; // timescale ì˜í–¥ ì•ˆ ë°›ìŒ
             float k = Mathf.Clamp01(t / duration);
             fadeGroup.alpha = Mathf.Lerp(start, targetAlpha, k);
             yield return null;

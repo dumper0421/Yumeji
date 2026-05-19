@@ -6,13 +6,13 @@ using UnityEngine;
 public class PushableObject : MonoBehaviour
 {
     [Header("Push Settings")]
-    [Tooltip("ÀÌ ·¹ÀÌ¾î¿¡ ¼ÓÇÑ ¿ÀºêÁ§Æ®¸¦ ¹Ğ ¼ö ¾ø½À´Ï´Ù.")]
+    [Tooltip("ì´ ë ˆì´ì–´ì— ì†í•œ ì˜¤ë¸Œì íŠ¸ë¥¼ ë°€ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.")]
     public LayerMask obstacleLayer;
-    [Tooltip("1 Å¸ÀÏ °Å¸® ¹Ğ ¶§ °É¸®´Â ½Ã°£(ÃÊ)")]
+    [Tooltip("1 íƒ€ì¼ ê±°ë¦¬ ë°€ ë•Œ ê±¸ë¦¬ëŠ” ì‹œê°„(ì´ˆ)")]
     public float pushDuration = 0.5f;
 
     [Header("Sound Settings")]
-    [Tooltip("¹Ğ¸± ¶§ Àç»ıÇÒ È¿°úÀ½")]
+    [Tooltip("ë°€ë¦´ ë•Œ ì¬ìƒí•  íš¨ê³¼ìŒ")]
     [SerializeField] private AudioClip pushSFX;
 
 
@@ -33,8 +33,8 @@ public class PushableObject : MonoBehaviour
     }
 
     /// <summary>
-    /// ¿ÜºÎ(ÇÃ·¹ÀÌ¾î)¿¡¼­ È£Ãâ.
-    /// dir ¹æÇâÀ¸·Î ÇÑ Å¸ÀÏ¸¸Å­ ¹Ğ ¼ö ÀÖÀ¸¸é ÀÌµ¿À» ½ÃÀÛÇÏ°í true ¹İÈ¯.
+    /// ì™¸ë¶€(í”Œë ˆì´ì–´)ì—ì„œ í˜¸ì¶œ.
+    /// dir ë°©í–¥ìœ¼ë¡œ í•œ íƒ€ì¼ë§Œí¼ ë°€ ìˆ˜ ìˆìœ¼ë©´ ì´ë™ì„ ì‹œì‘í•˜ê³  true ë°˜í™˜.
     /// </summary>
     public bool TryPush(Vector2 dir)
     {
@@ -43,13 +43,13 @@ public class PushableObject : MonoBehaviour
         Vector2 start = transform.position;
         Vector2 dest = start + dir;
 
-        // Àå¾Ö¹° Ã¼Å©: ´ÙÀ½ Ä­¿¡ º®¡¤´Ù¸¥ Pushable¡¤NoPass ·¹ÀÌ¾î°¡ ÀÖÀ¸¸é ¹ĞÁö ¾ÊÀ½
+        // ì¥ì• ë¬¼ ì²´í¬: ë‹¤ìŒ ì¹¸ì— ë²½Â·ë‹¤ë¥¸ PushableÂ·NoPass ë ˆì´ì–´ê°€ ìˆìœ¼ë©´ ë°€ì§€ ì•ŠìŒ
         RaycastHit2D hit = Physics2D.BoxCast(
             start, boxCollider.size, 0f, dir, 1f, obstacleLayer
         );
         if (hit.collider != null) return false;
 
-        // **¹Ğ±â ½ÃÀÛ ½ÃÁ¡¿¡ È¿°úÀ½ Àç»ı**
+        // **ë°€ê¸° ì‹œì‘ ì‹œì ì— íš¨ê³¼ìŒ ì¬ìƒ**
         if (pushSFX != null)
             audioSource.PlayOneShot(pushSFX);
 

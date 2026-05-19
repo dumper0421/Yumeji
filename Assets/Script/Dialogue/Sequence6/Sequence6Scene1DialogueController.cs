@@ -37,8 +37,8 @@ public class Sequence6Scene1DialogueController : DialogueController<S6S1State>
 
     protected override void ApplyWorldByState()
     {
-        // ÀúÀåµÈ »óÅÂ°¡ ·¹ÀÌ ÀÌµ¿ ÀÌÈÄ¶ó¸é,
-        // ¾À ÀçÁøÀÔ ½Ã ·¹ÀÌ¸¦ ÀÌµ¿ ¿Ï·á À§Ä¡¿¡ ¹èÄ¡
+        // ì €ì¥ëœ ìƒíƒœê°€ ë ˆì´ ì´ë™ ì´í›„ë¼ë©´,
+        // ì”¬ ì¬ì§„ì… ì‹œ ë ˆì´ë¥¼ ì´ë™ ì™„ë£Œ ìœ„ì¹˜ì— ë°°ì¹˜
         if (IsStateAtLeast(S6S1State.RayMoved))
         {
             if (rayNpc != null && rayMoveTarget != null)
@@ -47,7 +47,7 @@ public class Sequence6Scene1DialogueController : DialogueController<S6S1State>
             }
         }
 
-        // ÀúÀå º¹¿ø ½Ã Á¶ÀÛ Àá±İÀÌ ³²¾ÆÀÖÁö ¾Ê°Ô º¸Àå
+        // ì €ì¥ ë³µì› ì‹œ ì¡°ì‘ ì ê¸ˆì´ ë‚¨ì•„ìˆì§€ ì•Šê²Œ ë³´ì¥
         if (state == S6S1State.RayDialogueFinished)
         {
             LockPlayerControls(false);
@@ -89,14 +89,14 @@ public class Sequence6Scene1DialogueController : DialogueController<S6S1State>
     {
         if (dialogueManager == null) return;
 
-        // ÃÖÃÊ ÀÌº¥Æ® ÀüÀÌ¸é ±ä ÀÌº¥Æ® ´ëÈ­ ½ÃÀÛ
+        // ìµœì´ˆ ì´ë²¤íŠ¸ ì „ì´ë©´ ê¸´ ì´ë²¤íŠ¸ ëŒ€í™” ì‹œì‘
         if (state == S6S1State.None)
         {
             StartRayEventDialogue();
             return;
         }
 
-        // ¸ğµç ÀÌº¥Æ®°¡ ³¡³­ µÚ ·¹ÀÌ¿¡°Ô ¸» °É¸é ¹İº¹ ´ë»ç
+        // ëª¨ë“  ì´ë²¤íŠ¸ê°€ ëë‚œ ë’¤ ë ˆì´ì—ê²Œ ë§ ê±¸ë©´ ë°˜ë³µ ëŒ€ì‚¬
         if (state == S6S1State.RayDialogueFinished)
         {
             StartRayAfterDialogue();
@@ -135,7 +135,7 @@ public class Sequence6Scene1DialogueController : DialogueController<S6S1State>
         }
         else
         {
-            Debug.LogWarning("[Sequence6Scene1DialogueController] reiMoveController°¡ ¿¬°áµÇÁö ¾Ê¾Ò´Ù.");
+            Debug.LogWarning("[Sequence6Scene1DialogueController] reiMoveControllerê°€ ì—°ê²°ë˜ì§€ ì•Šì•˜ë‹¤.");
         }
 
         state = S6S1State.RayMoved;

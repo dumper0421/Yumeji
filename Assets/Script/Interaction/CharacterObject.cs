@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  ÇÃ·¹ÀÌ¾î°¡ ¸»°É ¶§ ÇÃ·¹ÀÌ¾î ¹æÇâÀ¸·Î È¸ÀüÇÏ´Â ¿ÀºêÁ§Æ®
+///  í”Œë ˆì´ì–´ê°€ ë§ê±¸ ë•Œ í”Œë ˆì´ì–´ ë°©í–¥ìœ¼ë¡œ íšŒì „í•˜ëŠ” ì˜¤ë¸Œì íŠ¸
 /// </summary>
 public class CharacterObject : DialogueObject
 {

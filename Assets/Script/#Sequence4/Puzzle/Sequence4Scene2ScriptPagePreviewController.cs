@@ -12,7 +12,7 @@ public class Sequence4Scene2ScriptPagePreviewController : MonoBehaviour
     public Sprite scriptPageSprite;
 
     [Header("Target")]
-    public string targetItemName = "°¢º»ÀÇ ÇÑ ÆäÀÌÁö";
+    public string targetItemName = "ê°ë³¸ì˜ í•œ í˜ì´ì§€";
 
     private bool isPreviewOpen = false;
 
@@ -26,7 +26,7 @@ public class Sequence4Scene2ScriptPagePreviewController : MonoBehaviour
     {
         if (inventoryManager == null) return;
 
-        // ÀÎº¥Åä¸®°¡ ´İÇô ÀÖÀ¸¸é ¹Ì¸®º¸±â °­Á¦ Á¾·á
+        // ì¸ë²¤í† ë¦¬ê°€ ë‹«í˜€ ìˆìœ¼ë©´ ë¯¸ë¦¬ë³´ê¸° ê°•ì œ ì¢…ë£Œ
         if (!IsInventoryOpen())
         {
             if (isPreviewOpen)
@@ -34,17 +34,17 @@ public class Sequence4Scene2ScriptPagePreviewController : MonoBehaviour
             return;
         }
 
-        // Space Å°¸¸ »ç¿ë
+        // Space í‚¤ë§Œ ì‚¬ìš©
         if (!Input.GetKeyDown(KeyCode.Space)) return;
 
-        // ÀÌ¹Ì ¿­·Á ÀÖÀ¸¸é ´İ±â
+        // ì´ë¯¸ ì—´ë ¤ ìˆìœ¼ë©´ ë‹«ê¸°
         if (isPreviewOpen)
         {
             ClosePreview();
             return;
         }
 
-        // °¢º»ÀÇ ÇÑ ÆäÀÌÁö ¼±ÅÃ ÁßÀÏ ¶§¸¸ ¿­±â
+        // ê°ë³¸ì˜ í•œ í˜ì´ì§€ ì„ íƒ ì¤‘ì¼ ë•Œë§Œ ì—´ê¸°
         if (IsSelectedTargetItem())
         {
             OpenPreview();

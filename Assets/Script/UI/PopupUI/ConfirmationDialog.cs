@@ -19,8 +19,8 @@ public class ConfirmationDialog : PopupUI
 
     private Button _selectbutton;
 
-    [SerializeField] Color32 selectedColor = new Color32(164,10,10,255);  // ╪╠ец ╩Себ ╩Ж
-    [SerializeField] Color32 normalColor = new Color32(47,47,47,255);  // ╨Я╪╠ец ╩Себ ╩Ж
+    [SerializeField] Color32 selectedColor = new Color32(164,10,10,255);  // Л└═М┐² Л┐│М┐° Л┐┴
+    [SerializeField] Color32 normalColor = new Color32(47,47,47,255);  // К╧└Л└═М┐² Л┐│М┐° Л┐┴
     [SerializeField] private Image _blackImage;
     
     private void Update()

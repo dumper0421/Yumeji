@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CrowBar : MoveObstacle
 {
-    [Header("½ÃÀÛ Æ®¸®°Å ¿µ¿ª")]
-    public Vector2 TriggerPosition; // ÇÃ·¹ÀÌ¾î°¡ µµ´ŞÇØ¾ß ÇÒ À§Ä¡
+    [Header("ì‹œì‘ íŠ¸ë¦¬ê±° ì˜ì—­")]
+    public Vector2 TriggerPosition; // í”Œë ˆì´ì–´ê°€ ë„ë‹¬í•´ì•¼ í•  ìœ„ì¹˜
     public GameObject Player;
 
     private SpriteRenderer _renderer;

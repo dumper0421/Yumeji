@@ -63,7 +63,7 @@ public class SaveLoadPopup : PopupUI
                         {
                             GameManager.Instance.LoadGameData(slot.SlotIndex);
                             UIManager.Instance.GameOverUI.gameObject.SetActive(false);
-                            // ÀÌº¥Æ® Áßº¹ È£Ãâ ¹æÁö¸¦ À§ÇØ µî·Ï ÇØÁ¦
+                            // ì´ë²¤íŠ¸ ì¤‘ë³µ í˜¸ì¶œ ë°©ì§€ë¥¼ ìœ„í•´ ë“±ë¡ í•´ì œ
                             SceneManager.sceneLoaded -= loadAction;
                         };
                         SceneManager.sceneLoaded += loadAction;

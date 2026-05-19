@@ -41,12 +41,12 @@ public class OpeningDialogueController : DialogueController<OpeningState>
         switch (dialogueId)
         {
             case "Effect0":
-                // °ÔÀÓ ½ÃÀÛ ÈÄ ºø¼Ò¸® BGM Àç»ı
+                // ê²Œì„ ì‹œì‘ í›„ ë¹—ì†Œë¦¬ BGM ì¬ìƒ
                 SoundManager.Instance.PlayBGM(RainBGM);
                 break;
 
             case "Effect1":
-                // ÄÆ1 ÆäÀÌµåÀÎ
+                // ì»·1 í˜ì´ë“œì¸
                 CutSceneImage.gameObject.SetActive(true);
                 CutSceneImage.sprite = CutSceneSprites[0];
                 CutsceneManager.Instance.FadeFromBlack();
@@ -54,18 +54,18 @@ public class OpeningDialogueController : DialogueController<OpeningState>
                 break;
 
             case "Effect2":
-                // ÄÆ2 ÀÌ¹ÌÁö ±³Ã¼
+                // ì»·2 ì´ë¯¸ì§€ êµì²´
                 CutSceneImage.sprite = CutSceneSprites[1];
                 break;
 
             case "Effect3":
-                // ¾ÏÀü + ¿ì´çÅÁÅÁ SFX
+                // ì•”ì „ + ìš°ë‹¹íƒ•íƒ• SFX
                 CutSceneImage.gameObject.SetActive(false);
                 SoundManager.Instance.PlaySFX(CrackSFX);
                 break;
 
             case "Effect4":
-                // ÄÆ3 ÆäÀÌµåÀÎ
+                // ì»·3 í˜ì´ë“œì¸
                 CutSceneImage.gameObject.SetActive(true);
                 CutSceneImage.sprite = CutSceneSprites[2];
                 CutsceneManager.Instance.FadeFromBlack();
@@ -73,20 +73,20 @@ public class OpeningDialogueController : DialogueController<OpeningState>
                 break;
 
             case "Effect5":
-                // ºø¼Ò¸®1 ²ô°í ±â±«ÇÑ BGM ¿Â
+                // ë¹—ì†Œë¦¬1 ë„ê³  ê¸°ê´´í•œ BGM ì˜¨
                 SoundManager.Instance.StopBGM();
                 SoundManager.Instance.PlayBGM(ScaredBGM);
                 break;
 
             case "Effect6":
-                // ÄÆ4 ÆäÀÌµåÀÎ
+                // ì»·4 í˜ì´ë“œì¸
                 CutSceneImage.sprite = CutSceneSprites[3];
                 CutsceneManager.Instance.FadeFromBlack();
                 StartCoroutine(StopDialogue(CutsceneManager.Instance.FadeDuration));
                 break;
 
             case "Effect7":
-                // ¾îµÎ¿î ÁøÈ«»ö ÆäÀÌµåÀÎ + Ä«¸Ş¶ó ±úÁö°í ¼Ó»èÀÌ´Â SFX
+                // ì–´ë‘ìš´ ì§„í™ìƒ‰ í˜ì´ë“œì¸ + ì¹´ë©”ë¼ ê¹¨ì§€ê³  ì†ì‚­ì´ëŠ” SFX
                 CutsceneManager.Instance.FadeFromBlack();
                 SoundManager.Instance.PlaySFX(CameraCrackSFX);
                 SoundManager.Instance.PlaySFX(WhisperSFX);
@@ -94,20 +94,20 @@ public class OpeningDialogueController : DialogueController<OpeningState>
                 break;
 
             case "Effect8":
-                // ±â±«ÇÑ BGM ²ô°í µÎ ¹øÂ° ºø¼Ò¸® BGM Àç»ı
+                // ê¸°ê´´í•œ BGM ë„ê³  ë‘ ë²ˆì§¸ ë¹—ì†Œë¦¬ BGM ì¬ìƒ
                 SoundManager.Instance.StopBGM();
                 SoundManager.Instance.PlayBGM(Rain2BGM);
                 break;
 
             case "Effect9":
-                // È¸»öºû È­¸é ÆäÀÌµåÀÎ + »ç°í ¼Ò¸® SFX
+                // íšŒìƒ‰ë¹› í™”ë©´ í˜ì´ë“œì¸ + ì‚¬ê³  ì†Œë¦¬ SFX
                 CutsceneManager.Instance.FadeFromBlack();
                 SoundManager.Instance.PlaySFX(AccidentSFX);
                 StartCoroutine(StopDialogue(CutsceneManager.Instance.FadeDuration));
                 break;
 
             case "Effect10":
-                // ÄÆ5 ÆäÀÌµåÀÎ + ¾Úºæ·±½º SFX
+                // ì»·5 í˜ì´ë“œì¸ + ì•°ë·¸ëŸ°ìŠ¤ SFX
                 CutSceneImage.gameObject.SetActive(true);
                 CutSceneImage.sprite = CutSceneSprites[4];
                 CutsceneManager.Instance.FadeFromBlack();
@@ -116,14 +116,14 @@ public class OpeningDialogueController : DialogueController<OpeningState>
                 break;
 
             case "Effect11":
-                // ¾ÏÀü + ¿ôÀ½¼Ò¸® SFX
+                // ì•”ì „ + ì›ƒìŒì†Œë¦¬ SFX
                 CutsceneManager.Instance.FadeToBlack();
                 SoundManager.Instance.PlaySFX(LaughterSFX);
                 StartCoroutine(StopDialogue(CutsceneManager.Instance.FadeDuration));
                 break;
 
             case "Effect12":
-                // °æÀû ¼Ò¸® SFX
+                // ê²½ì  ì†Œë¦¬ SFX
                 SoundManager.Instance.PlaySFX(HornSFX);
                 StartCoroutine(ChangeScene());
                 break;

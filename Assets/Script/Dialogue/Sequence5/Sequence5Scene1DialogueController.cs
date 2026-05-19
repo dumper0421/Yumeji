@@ -91,7 +91,7 @@ public class Sequence5Scene1DialogueController : DialogueController<S5S1State>
 
     private void OnDirectorStopped(PlayableDirector d)
     {
-        // ÀÌ¹Ì ¿Ï·á¸é Áßº¹ Ã³¸® ¹æÁö
+        // ì´ë¯¸ ì™„ë£Œë©´ ì¤‘ë³µ ì²˜ë¦¬ ë°©ì§€
         if (state == S5S1State.EVENTHAPPEND) return;
 
         MarkEventHappened();

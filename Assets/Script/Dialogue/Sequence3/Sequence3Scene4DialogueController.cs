@@ -25,7 +25,7 @@ public class Sequence3Scene4DialogueController : DialogueController<S3S4State>
         {
             if (layDialogueMover == null)
             {
-                Debug.LogWarning("[S3S4] layDialogueMover°¡ ºñ¾ú´Ù.");
+                Debug.LogWarning("[S3S4] layDialogueMoverê°€ ë¹„ì—ˆë‹¤.");
                 return;
             }
 

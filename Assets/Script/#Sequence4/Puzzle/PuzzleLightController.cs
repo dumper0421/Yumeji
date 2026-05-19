@@ -14,11 +14,11 @@ public class PuzzleLightController : MonoBehaviour
     public GameObject SpawnedLightRoot;
 
     [Header("Light Variants")]
-    [Tooltip("»ı¼ºµÈ LightRoot ¾Æ·¡¿¡ µé¾îÀÖ´Â »ö»ó ¿ÀºêÁ§Æ®µé ¼ø¼­´ë·Î ³Ö±â")]
+    [Tooltip("ìƒì„±ëœ LightRoot ì•„ë˜ì— ë“¤ì–´ìˆëŠ” ìƒ‰ìƒ ì˜¤ë¸Œì íŠ¸ë“¤ ìˆœì„œëŒ€ë¡œ ë„£ê¸°")]
     public GameObject[] LightVariants;
 
     [Header("Solve")]
-    [Tooltip("ÀÌ ÀÎµ¦½ºÀÏ ¶§ Á¤´äÀ¸·Î ÆÇÁ¤")]
+    [Tooltip("ì´ ì¸ë±ìŠ¤ì¼ ë•Œ ì •ë‹µìœ¼ë¡œ íŒì •")]
     public int SolvedIndex = 0;
 
     public bool IsSolved => IsActivated && CurrentIndex == SolvedIndex;
@@ -61,11 +61,11 @@ public class PuzzleLightController : MonoBehaviour
     {
         if (SpawnedLightRoot == null) return;
 
-        // ÀÌ¹Ì ÀÎ½ºÆåÅÍ¿¡¼­ Á÷Á¢ ³Ö¾î³ùÀ¸¸é ±×´ë·Î »ç¿ë
+        // ì´ë¯¸ ì¸ìŠ¤í™í„°ì—ì„œ ì§ì ‘ ë„£ì–´ë†¨ìœ¼ë©´ ê·¸ëŒ€ë¡œ ì‚¬ìš©
         if (LightVariants != null && LightVariants.Length > 0)
             return;
 
-        // ÀÚ½ÄµéÀ» ÀÚµ¿ ¼öÁı
+        // ìì‹ë“¤ì„ ìë™ ìˆ˜ì§‘
         int childCount = SpawnedLightRoot.transform.childCount;
         LightVariants = new GameObject[childCount];
 
