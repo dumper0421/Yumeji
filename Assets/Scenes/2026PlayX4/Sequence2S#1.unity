@@ -2466,7 +2466,7 @@ MonoBehaviour:
   IsClear: 0
   FadeImage: {fileID: 1798157587}
   DialogueManager: {fileID: 603143303}
-  EngineSFX: {fileID: 8300000, guid: b19d26d0ed290fb4e90dc8b1b0540eb1, type: 3}
+  EngineSFX: {fileID: 0}
   StartSFX: {fileID: 0}
   NextSceneName: Scenes/2026PlayX4/Sequence2S#2
   isScene2_1: 1
