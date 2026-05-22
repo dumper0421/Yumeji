@@ -120,8 +120,12 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
                 return;
         }
 
-        if (PopupUIManager.Instance.SaveLoadPopup.gameObject.activeSelf)
+        if (PopupUIManager.Instance != null &&
+      PopupUIManager.Instance.SaveLoadPopup != null &&
+    PopupUIManager.Instance.SaveLoadPopup.gameObject.activeSelf)
+        {
             return;
+        }
 
         if (!canMove)
             return;
