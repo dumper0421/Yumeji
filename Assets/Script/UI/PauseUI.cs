@@ -26,6 +26,9 @@ public class PauseUI : MonoBehaviour
     private GameObject _dialogueCanvas;
     private InteractionSystem _interactionSystem;
 
+    private bool _wasPlayerMoveEnabled;
+    private bool _wasInteractionEnabled;
+
     private void Awake()
     {
         if (_playerMove_Test_Lerp == null)
@@ -33,22 +36,29 @@ public class PauseUI : MonoBehaviour
             _playerMove_Test_Lerp = FindAnyObjectByType<PlayerMove_Test_Lerp>();
         }
 
-        if(_dialogueCanvas == null)
+        if (_dialogueCanvas == null)
             _dialogueCanvas = GameObject.Find("Dialogue Canvas").transform.GetChild(2).gameObject;
 
-        if(_interactionSystem == null)
+        if (_interactionSystem == null)
             _interactionSystem = _playerMove_Test_Lerp.gameObject.GetComponent<InteractionSystem>();
     }
 
     void Start()
     {
-        Options = transform.GetChild(0).transform.GetChild(0).GetChild(0).GetComponentsInChildren<TextMeshProUGUI>();
+        Options = transform
+            .GetChild(0)
+            .transform.GetChild(0)
+            .GetChild(0)
+            .GetComponentsInChildren<TextMeshProUGUI>();
 
-        Action denyAction = () => {
-           ConfirmationDialog.gameObject.SetActive(false); 
+        Action denyAction = () =>
+        {
+            ConfirmationDialog.gameObject.SetActive(false);
         };
 
-        Action confirmAction = () => {
+        Action confirmAction = () =>
+        {
+            Time.timeScale = 1f;
             SoundManager.Instance.StopAllSFX();
             SoundManager.Instance.StopBGM();
             SceneManager.LoadScene("TitleScene");
@@ -62,6 +72,9 @@ public class PauseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_dialogueCanvas == null || SaveLoadPopup == null)
+            return;
+
         if (_dialogueCanvas.activeSelf)
             return;
 
@@ -77,6 +90,8 @@ public class PauseUI : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                _wasPlayerMoveEnabled = _playerMove_Test_Lerp.enabled;
+                _wasInteractionEnabled = _interactionSystem.enabled;
                 BackGround.gameObject.SetActive(true);
                 SoundManager.Instance.PauseAllAudio();
                 _playerMove_Test_Lerp.enabled = false;
@@ -84,6 +99,16 @@ public class PauseUI : MonoBehaviour
                 _interactionSystem.enabled = false;
             }
 
+            return;
+        }
+
+        if (Inventory.activeSelf || Setting.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                InventoryManager.Instance.SelectBorder.SetActive(false);
+                Inventory.SetActive(false);
+            }
             return;
         }
 
@@ -105,10 +130,9 @@ public class PauseUI : MonoBehaviour
         {
             ClosePauseUI();
             Time.timeScale = 1f;
-            _interactionSystem.enabled = true;
-            _playerMove_Test_Lerp.enabled = true;
+            _playerMove_Test_Lerp.enabled = _wasPlayerMoveEnabled;
+            _interactionSystem.enabled = _wasInteractionEnabled;
             SoundManager.Instance.ResumeAllAudio();
-
         }
     }
 
@@ -120,10 +144,11 @@ public class PauseUI : MonoBehaviour
     }
 
     public void MovePage(int CurrentSelectIndex)
-    { 
+    {
         if (CurrentSelectIndex == 0)
         {
             Inventory.SetActive(true);
+            InventoryManager.Instance.RefreshSelectBorder();
         }
         if (CurrentSelectIndex == 1)
         {
@@ -147,10 +172,5 @@ public class PauseUI : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        
-    }
-    
-
+    private void OnEnable() { }
 }

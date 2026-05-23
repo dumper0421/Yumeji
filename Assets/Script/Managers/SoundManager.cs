@@ -88,7 +88,8 @@ public class SoundManager : Singleton<SoundManager>
     public void StopBGM()
     {
         if (_bgmSource != null)
-             _bgmSource.Stop();
+            _bgmSource.Stop();
+        _bgmWasPaused = false;
     }
 
     public void SetBGMSourceVolume(float volume01, float fadeTime = 0f)
@@ -117,12 +118,17 @@ public class SoundManager : Singleton<SoundManager>
         src.PlayOneShot(clip);
         _sfxSources.Enqueue(src);
     }
-    public void StopAllSFX() 
+    public void StopAllSFX()
     {
+        _sfxQueue.Clear();
+
+        if (_sequentialSFXSource != null)
+            _sequentialSFXSource.Stop();
+
         foreach (var src in _sfxSources)
         {
             if (src != null)
-                src.Stop(); 
+                src.Stop();
         }
     }
     #endregion

@@ -9,7 +9,7 @@ public class SceneChanger : MonoBehaviour
     {
         SoundManager.Instance.StopAllSFX();
         SoundManager.Instance.StopBGM();
-        SceneManager.LoadScene("Scenes/2026PlayX4/OpeningScene");
+        SceneManager.LoadScene("Scenes/2026PlayX4/OpeningScene2");
     }
 
     public void OnTitleButtonClicked()
@@ -17,7 +17,7 @@ public class SceneChanger : MonoBehaviour
         SoundManager.Instance.StopAllSFX();
         SoundManager.Instance.StopBGM();
         SceneManager.LoadScene("Scenes/2026PlayX4/TitleScene");
-    } 
+    }
 
     public void ChangeScene(string sceneName)
     {

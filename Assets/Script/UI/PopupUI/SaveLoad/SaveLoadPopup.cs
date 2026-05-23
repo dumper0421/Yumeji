@@ -140,7 +140,7 @@ public class SaveLoadPopup : PopupUI
 
         while (elapsed < fadeDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             float t = fadeDuration <= 0f ? 1f : (elapsed / fadeDuration);
             float alpha = Mathf.Lerp(0f, 1f, t);
             FadeImage.color = new Color(c.r, c.g, c.b, alpha);

@@ -130,6 +130,12 @@ public class Sequence3Scene4Controller : SceneController
             if (debugLog)
                 Debug.Log($"[S3S4] 다음 씬 이동: {nextSceneName}");
 
+            if (projectorSource != null)
+                projectorSource.Stop();
+
+            SoundManager.Instance.StopAllSFX();
+            SoundManager.Instance.StopBGM();
+
             SceneManager.LoadScene(nextSceneName);
         }
         else

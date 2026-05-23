@@ -13,6 +13,8 @@ public class ItemData : ScriptableObject
     /// </summary>
     public virtual void Use()
     {
-        InventoryManager.Instance.GetItemSlot(ItemName).DecrementCount();
+        var slot = InventoryManager.Instance.GetItemSlot(ItemName);
+        if (slot != null)
+            slot.DecrementCount();
     }
 }

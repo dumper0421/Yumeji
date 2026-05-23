@@ -957,6 +957,7 @@ MonoBehaviour:
   _haruAnimator: {fileID: 1109036417}
   _haruSpriteRenderer: {fileID: 1109036423}
   _haruFrontStand: {fileID: -2132262447, guid: d8d21b72efb1d6547afdefdc4d6656d2, type: 3}
+  _rei: {fileID: 1571519944}
 --- !u!114 &603143319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,9 +1484,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1463561255827206750, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1608962778}
+    - target: {fileID: 1463561255827206750, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSaveLoadPopup
+      objectReference: {fileID: 0}
     - target: {fileID: 3785081686529955086, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
       propertyPath: m_Name
       value: MainCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383538323370497763, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383538323370497763, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6686181077160608795, guid: 2d0d9d06bd185f2438c5b56b61afc951, type: 3}
+    - target: {fileID: 6383538323370497763, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTitleButtonClicked
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1894,6 +1915,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1571519944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6800364297524403515, guid: 1fa75836e84fa924e9cb23838d105bbe, type: 3}
+  m_PrefabInstance: {fileID: 1841831164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1608962777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1991,6 +2017,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
+--- !u!114 &1608962778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7578882521669291114, guid: d10777f62be371c4a8e6559b4ccd496a, type: 3}
+  m_PrefabInstance: {fileID: 1608962777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40d8dab15fd634459884ab3b2eda956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1621715278
 PrefabInstance:
   m_ObjectHideFlags: 0

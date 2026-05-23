@@ -20,6 +20,7 @@ public class UIManager : Singleton<UIManager>
 
     protected override void Init()
     {
+        IsDontDestroyOnLoad = false;
         _selectbutton = continueButton_;
     }
 

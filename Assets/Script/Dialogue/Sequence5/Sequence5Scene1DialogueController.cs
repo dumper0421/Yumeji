@@ -6,19 +6,35 @@ using UnityEngine.Playables;
 public enum S5S1State
 {
     START = 0,
-    EVENTHAPPEND = 1
+    EVENTHAPPEND = 1,
 }
+
 public class Sequence5Scene1DialogueController : DialogueController<S5S1State>
 {
-    [SerializeField] private PlayableDirector _director;
-    [SerializeField] private PlayerMove_Test_Lerp _playerMove;
+    [SerializeField]
+    private PlayableDirector _director;
 
-    [SerializeField] private SpriteRenderer reiSpriteRenderer;
-    [SerializeField] private Sprite _reiFrontStand;
+    [SerializeField]
+    private PlayerMove_Test_Lerp _playerMove;
 
-    [SerializeField] private Animator _haruAnimator;
-    [SerializeField] private SpriteRenderer _haruSpriteRenderer;
-    [SerializeField] private Sprite _haruFrontStand;
+    [SerializeField]
+    private SpriteRenderer reiSpriteRenderer;
+
+    [SerializeField]
+    private Sprite _reiFrontStand;
+
+    [SerializeField]
+    private Animator _haruAnimator;
+
+    [SerializeField]
+    private SpriteRenderer _haruSpriteRenderer;
+
+    [SerializeField]
+    private Sprite _haruFrontStand;
+
+    [SerializeField]
+    private GameObject _rei;
+
     private void OnEnable()
     {
         if (_director != null)
@@ -31,7 +47,6 @@ public class Sequence5Scene1DialogueController : DialogueController<S5S1State>
             _director.stopped -= OnDirectorStopped;
     }
 
-
     protected override void Awake()
     {
         puzzleId = "S5S1";
@@ -40,7 +55,8 @@ public class Sequence5Scene1DialogueController : DialogueController<S5S1State>
 
     protected override void ApplyWorldByState()
     {
-        if (_director == null) return;
+        if (_director == null)
+            return;
 
         if (state == S5S1State.EVENTHAPPEND)
         {
@@ -48,6 +64,7 @@ public class Sequence5Scene1DialogueController : DialogueController<S5S1State>
                 _director.Stop();
 
             _director.enabled = false;
+            _rei.SetActive(false);
         }
         else
         {
@@ -63,13 +80,12 @@ public class Sequence5Scene1DialogueController : DialogueController<S5S1State>
                 _haruAnimator.enabled = false;
                 _haruSpriteRenderer.sprite = _haruFrontStand;
                 break;
-
         }
     }
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
-       if (dialogueId == "Sequence5Scene1_Ray_WhatsHidden")
+        if (dialogueId == "Sequence5Scene1_Ray_WhatsHidden")
         {
             _playerMove.ReleaseCompanion();
             MarkEventHappened();
@@ -77,22 +93,17 @@ public class Sequence5Scene1DialogueController : DialogueController<S5S1State>
         }
     }
 
-    protected override void HandleOption(string text, string nextId)
-    {
-    }
+    protected override void HandleOption(string text, string nextId) { }
 
-    protected override void OnPuzzleComplete()
-    {
-    }
+    protected override void OnPuzzleComplete() { }
 
-    protected override void TryProgress()
-    {
-    }
+    protected override void TryProgress() { }
 
     private void OnDirectorStopped(PlayableDirector d)
     {
         // 이미 완료면 중복 처리 방지
-        if (state == S5S1State.EVENTHAPPEND) return;
+        if (state == S5S1State.EVENTHAPPEND)
+            return;
 
         MarkEventHappened();
     }

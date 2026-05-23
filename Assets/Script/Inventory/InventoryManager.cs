@@ -56,7 +56,7 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         LoadInventory(GameManager.Instance.CurrentSaveData.SlotIndex);
         IsDontDestroyOnLoad = false;
-        MoveSelectBorder(0);
+        SelectBorder.SetActive(false);
     }
 
     private void Update()
@@ -174,14 +174,29 @@ public class InventoryManager : Singleton<InventoryManager>
         slot.SetItem(data, 1);
 
         int slotIndex = _slots.IndexOf(slot);
-        MoveSelectBorderTo(slotIndex);
+        CurrentSelectIndex = slotIndex;
+
+        if (BackGround.activeSelf)
+            MoveSelectBorderTo(slotIndex);
 
         Debug.Log($"[AddItem] SO.name='{data.name}', ItemName='{data.ItemName}'");
     }
 
+    public void RefreshSelectBorder()
+    {
+        if (_slots.Count == 0 || _slots[CurrentSelectIndex].IsEmpty)
+        {
+            SelectBorder.SetActive(false);
+            return;
+        }
+        MoveSelectBorderTo(CurrentSelectIndex);
+    }
+
     public void MoveSelectBorder(int offset)
     {
-        CurrentSelectIndex = (CurrentSelectIndex + offset + _slots.Capacity) % _slots.Capacity;
+        int count = _slots.Count;
+        if (count == 0) return;
+        CurrentSelectIndex = (CurrentSelectIndex + offset + count) % count;
         if (_slots[CurrentSelectIndex].IsEmpty) return;
         DescriptionText.text = _slots[CurrentSelectIndex].GetItemData().Description;
         SelectBorder.transform.SetParent(_slots[CurrentSelectIndex].transform);
@@ -227,9 +242,17 @@ public class InventoryManager : Singleton<InventoryManager>
             }
         }
 
-        if (targetIndex == 0)
-            DescriptionText.text = string.Empty;
+        CurrentSelectIndex = Mathf.Clamp(CurrentSelectIndex, 0, Mathf.Max(0, targetIndex - 1));
 
+        if (targetIndex == 0)
+        {
+            DescriptionText.text = string.Empty;
+            SelectBorder.gameObject.SetActive(false);
+        }
+        else
+        {
+            MoveSelectBorderTo(CurrentSelectIndex);
+        }
     }
 
     public void MoveSelectBorderTo(int newIndex)
