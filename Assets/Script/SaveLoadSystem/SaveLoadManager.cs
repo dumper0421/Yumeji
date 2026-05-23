@@ -94,7 +94,9 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
 
         Debug.Log($"[SaveLoadManager] Saved slot {slotIndex} → {path}");
 
-        InventoryManager.Instance.SaveInventory(slotIndex);
+        var inventory = GameObject.FindObjectOfType<InventoryManager>();
+        if (inventory != null)
+            inventory.SaveInventory(slotIndex);
     }
 
     public PlayerSaveData LoadGame(int slotIndex)

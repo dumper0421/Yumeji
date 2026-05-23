@@ -37,10 +37,14 @@ public class PauseUI : MonoBehaviour
         }
 
         if (_dialogueCanvas == null)
-            _dialogueCanvas = GameObject.Find("Dialogue Canvas").transform.GetChild(2).gameObject;
+        {
+            var dialogueRoot = GameObject.Find("Dialogue Canvas");
+            if (dialogueRoot != null && dialogueRoot.transform.childCount > 2)
+                _dialogueCanvas = dialogueRoot.transform.GetChild(2).gameObject;
+        }
 
-        if (_interactionSystem == null)
-            _interactionSystem = _playerMove_Test_Lerp.gameObject.GetComponent<InteractionSystem>();
+        if (_interactionSystem == null && _playerMove_Test_Lerp != null)
+            _interactionSystem = _playerMove_Test_Lerp.GetComponent<InteractionSystem>();
     }
 
     void Start()
@@ -72,67 +76,68 @@ public class PauseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_dialogueCanvas == null || SaveLoadPopup == null)
+        if (SaveLoadPopup == null)
             return;
 
-        if (_dialogueCanvas.activeSelf)
+        // PauseUI가 열려있으면 다이얼로그 상태와 무관하게 먼저 처리
+        if (BackGround.gameObject.activeSelf)
+        {
+            if (SaveLoadPopup.activeSelf)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                    SaveLoadPopup.SetActive(false);
+                return;
+            }
+
+            if (Inventory.activeSelf || Setting.activeSelf)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    InventoryManager.Instance.SelectBorder.SetActive(false);
+                    Inventory.SetActive(false);
+                }
+                return;
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                MoveSelectBorder(-1);
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+                MoveSelectBorder(1);
+
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+                MovePage(CurrentSelectIndex);
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ClosePauseUI();
+                Time.timeScale = 1f;
+                _playerMove_Test_Lerp.enabled = _wasPlayerMoveEnabled;
+                _interactionSystem.enabled = _wasInteractionEnabled;
+                SoundManager.Instance.ResumeAllAudio();
+            }
+            return;
+        }
+
+        // PauseUI가 닫혀있을 때만 다이얼로그 체크
+        if (_dialogueCanvas != null && _dialogueCanvas.activeSelf)
             return;
 
         if (SaveLoadPopup.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
-                SaveLoadPopup.gameObject.SetActive(false);
-
+                SaveLoadPopup.SetActive(false);
             return;
-        }
-
-        if (!BackGround.gameObject.activeSelf && !SaveLoadPopup.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                _wasPlayerMoveEnabled = _playerMove_Test_Lerp.enabled;
-                _wasInteractionEnabled = _interactionSystem.enabled;
-                BackGround.gameObject.SetActive(true);
-                SoundManager.Instance.PauseAllAudio();
-                _playerMove_Test_Lerp.enabled = false;
-                Time.timeScale = 0f;
-                _interactionSystem.enabled = false;
-            }
-
-            return;
-        }
-
-        if (Inventory.activeSelf || Setting.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                InventoryManager.Instance.SelectBorder.SetActive(false);
-                Inventory.SetActive(false);
-            }
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            MoveSelectBorder(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            MoveSelectBorder(1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
-        {
-            MovePage(CurrentSelectIndex);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ClosePauseUI();
-            Time.timeScale = 1f;
-            _playerMove_Test_Lerp.enabled = _wasPlayerMoveEnabled;
-            _interactionSystem.enabled = _wasInteractionEnabled;
-            SoundManager.Instance.ResumeAllAudio();
+            _wasPlayerMoveEnabled = _playerMove_Test_Lerp.enabled;
+            _wasInteractionEnabled = _interactionSystem.enabled;
+            BackGround.SetActive(true);
+            SoundManager.Instance.PauseAllAudio();
+            _playerMove_Test_Lerp.enabled = false;
+            Time.timeScale = 0f;
+            _interactionSystem.enabled = false;
         }
     }
 

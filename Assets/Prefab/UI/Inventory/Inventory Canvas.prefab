@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193c8ce17e75f574ca4166235723c6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDontDestroyOnLoad: 1
+  IsDontDestroyOnLoad: 0
   ItemSlotPrefab: {fileID: 5141586941245766565, guid: 605fa41cd3247db4c85ade57599440f8, type: 3}
   BackGround: {fileID: 1543890816108379902}
   _slotSectionTransform: {fileID: 6609567404532145005}

@@ -20,6 +20,12 @@ public class Sequence4Scene2_2DialogueController : DialogueController<S4S2_2Stat
     protected override void Start()
     {
         base.Start();
+        StartCoroutine(AddStartItems());
+    }
+
+    private IEnumerator AddStartItems()
+    {
+        yield return null;
         InventoryManager.Instance.AddItem(ClapperBoardData);
         InventoryManager.Instance.AddItem(SscriptPageData);
     }

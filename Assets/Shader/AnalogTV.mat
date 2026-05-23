@@ -41,21 +41,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BrightnessFlicker: 0
-    - _BurstChance: 0
-    - _BurstIntensity: 0
-    - _DriftAmount: 0
+    - _BrightnessFlicker: 0.036
+    - _BurstChance: 0.072
+    - _BurstIntensity: 0.198
+    - _DriftAmount: 0.0018000001
     - _DriftFrequency: 80
     - _EnableExternalAlpha: 0
     - _Glossiness: 0.5
-    - _JitterAmount: 0
+    - _JitterAmount: 0.00315
     - _JitterBands: 180
     - _JitterSpeed: 24
     - _Metallic: 0
-    - _NoiseIntensity: 0
+    - _NoiseIntensity: 0.107999995
     - _NoiseScale: 320
     - _ScanlineDensity: 1.2
-    - _ScanlineIntensity: 0
+    - _ScanlineIntensity: 0.089999996
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

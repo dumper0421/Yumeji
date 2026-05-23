@@ -12,22 +12,24 @@ public class Sequence6Scene1Controller : SceneController
     protected override void Start()
     {
         base.Start();
-
-        AddFilmOnSceneStart();
+        StartCoroutine(AddFilmOnSceneStart());
     }
 
     protected override void OnStopIntervalReached()
     {
-        // 기존 SceneController 흐름에서 멈춤 시간이 끝났을 때 처리할 내용이 있으면 여기에 작성
     }
 
-    private void AddFilmOnSceneStart()
+    private IEnumerator AddFilmOnSceneStart()
     {
-        if (itemAdded) return;
-        if (film == null) return;
-        if (InventoryManager.Instance == null) return;
+        if (itemAdded) yield break;
+        if (film == null) yield break;
 
-        InventoryManager.Instance.AddItem(film);
+        yield return null;
+
+        var inv = InventoryManager.Instance;
+        if (inv == null) yield break;
+
+        inv.AddItem(film);
         itemAdded = true;
     }
 }
