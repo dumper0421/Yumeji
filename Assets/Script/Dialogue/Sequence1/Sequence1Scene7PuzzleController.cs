@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum S1S7State
 {
     None,
-    Clear
+    Clear,
 }
 
 public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
@@ -31,7 +31,6 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
     public AudioClip FireLPBgm;
     public AudioClip FireSFX;
 
-
     public Animator FirePlaceAnimator;
     public Animator PlayerAnimator;
 
@@ -44,24 +43,9 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
     public GameObject Bloom;
     public GameObject[] InteractionLight;
     Coroutine ShowBrokenHaruImageCoroutine;
+
     public void LateUpdate()
     {
-        if (CharredPhotograph.gameObject.activeSelf)
-        {
-            delayTimer += Time.deltaTime;
-            PlayerMove.enabled = false;
-            dialogueManager.IsStop = true;
-            if ((Input.GetKeyDown(KeyCode.Return)) && delayTimer >= 0.5f) 
-            {
-                CharredPhotograph.gameObject.SetActive(false);
-                dialogueManager.IsStop = false;
-                dialogueManager._waitingForInput = true;
-                PlayerMove.enabled = true;
-                PlayerAnimator.enabled = true;
-                delayTimer = 0;
-            }
-        }
-
         if (HaruMirror.gameObject.activeSelf)
         {
             delayTimer += Time.deltaTime;
@@ -70,11 +54,12 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             if ((Input.GetKeyDown(KeyCode.Return)) && delayTimer >= 0.5f)
             {
                 if (ShowBrokenHaruImageCoroutine == null)
-                ShowBrokenHaruImageCoroutine = StartCoroutine(ShowBrokenHaruImage());
+                    ShowBrokenHaruImageCoroutine = StartCoroutine(ShowBrokenHaruImage());
                 delayTimer = 0;
             }
         }
     }
+
     protected override void HandleDialogueEnd(string dialogueId)
     {
         PlayerAnimator.enabled = true;
@@ -109,7 +94,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 break;
             case "LPPlayerPlaying":
                 SoundManager.Instance.StopAllSFX();
-                if(state == S1S7State.Clear)
+                if (state == S1S7State.Clear)
                     SoundManager.Instance.PlaySFX(LPBgm);
                 else
                     SoundManager.Instance.PlaySFX(FireLPBgm);
@@ -118,9 +103,6 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
                 HaruMirror.gameObject.SetActive(true);
                 Mirror.StartDialogue = "Mirror_Break";
                 MirrorRenderer.sprite = BrokenMirror;
-                break;
-            case "Bookshelf1_Illust_Earn":
-                PlayerMove.enabled = true;
                 break;
         }
         TryProgress();
@@ -149,7 +131,7 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
 
     protected override void HandleOption(string text, string nextId)
     {
-        switch(nextId)
+        switch (nextId)
         {
             case "Fireplace_Lit":
                 MatchData.Use();
@@ -175,12 +157,9 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         state = S1S7State.Clear;
         Cutton.gameObject.SetActive(false);
         SceneChangeTrigger.SetActive(true);
-
     }
 
-    protected override void TryProgress()
-    {
-    }
+    protected override void TryProgress() { }
 
     IEnumerator ShowBrokenHaruImage()
     {
@@ -194,7 +173,5 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
         PlayerMove.enabled = true;
     }
 
-    protected override void ApplyWorldByState()
-    {
-    }
+    protected override void ApplyWorldByState() { }
 }

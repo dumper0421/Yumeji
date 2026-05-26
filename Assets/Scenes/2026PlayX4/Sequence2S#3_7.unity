@@ -911,6 +911,10 @@ PrefabInstance:
       propertyPath: buttonPrefab
       value: 
       objectReference: {fileID: 5464743892504612967, guid: 757d14d3e09bf9643b6440cc7946035d, type: 3}
+    - target: {fileID: 4940917532608049192, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
+      propertyPath: displayImage
+      value: 
+      objectReference: {fileID: 691851956}
     - target: {fileID: 6780722168633269861, guid: f8b549e9c0f38ac44890ce755146deaf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4031,7 +4035,7 @@ GameObject:
   - component: {fileID: 691851957}
   - component: {fileID: 691851956}
   m_Layer: 5
-  m_Name: CharredPhotograph
+  m_Name: DisplayImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -26,6 +26,7 @@ public class DialogueLine
     public string text;
     public bool showPortrait;
     public string nextId;
+    public string imageName; // Resources/DialogueImages/ 폴더 기준 이미지 이름
 }
 
 /// <summary>
@@ -91,6 +92,9 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     private Button buttonPrefab;
+
+    [SerializeField]
+    private Image displayImage; // 이미지 전용 라인에 표시할 전체 이미지
 
     [Header("Speakers")]
     [SerializeField]
@@ -158,12 +162,16 @@ public class DialogueManager : MonoBehaviour
     private Coroutine autoAdvanceCo;
     private bool isTyping = false;
     private string typingFullText = "";
+    private Image dialoguePanelImage;
 
     void Awake()
     {
         dialoguePanel.SetActive(false);
         leftPortraitImage.gameObject.SetActive(false);
         rightPortraitImage.gameObject.SetActive(false);
+        if (displayImage != null)
+            displayImage.gameObject.SetActive(false);
+        dialoguePanelImage = dialoguePanel.GetComponent<Image>();
 
         _portraitMap = new Dictionary<string, Sprite>();
         foreach (var info in speakerInfos)
@@ -288,10 +296,37 @@ public class DialogueManager : MonoBehaviour
         {
             currentLine = _lines.Dequeue();
 
+            bool isImageLine = !string.IsNullOrEmpty(currentLine.imageName);
+
+            // 이미지 전용 라인 처리
+            if (isImageLine && displayImage != null)
+            {
+                var sprite = Resources.Load<Sprite>("DialogueImages/" + currentLine.imageName);
+                if (sprite != null)
+                {
+                    displayImage.sprite = sprite;
+                    displayImage.gameObject.SetActive(true);
+                }
+                leftPortraitImage.gameObject.SetActive(false);
+                rightPortraitImage.gameObject.SetActive(false);
+
+                if (dialoguePanelImage != null)
+                    dialoguePanelImage.enabled = false;
+
+                dialogueText.text = "";
+
+                OnDialogueAction?.Invoke(_current.id);
+                StartTypingLine("");
+                return;
+            }
+
+            // 이미지 숨김
+            if (displayImage != null)
+                displayImage.gameObject.SetActive(false);
+
             // 패널 이미지 표시/숨김
-            var panelImg = dialoguePanel.GetComponent<Image>();
-            if (panelImg != null)
-                panelImg.enabled = (currentLine.text != null);
+            if (dialoguePanelImage != null)
+                dialoguePanelImage.enabled = currentLine.text != null;
 
             // 초상화 처리
             if (currentLine.showPortrait)
