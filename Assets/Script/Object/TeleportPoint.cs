@@ -13,13 +13,23 @@ public class TeleportPoint : MonoBehaviour
     public SceneController controller;
 
     [Header("Fade (Optional)")]
-    [SerializeField] private bool useFade = true;
-    [SerializeField] private CanvasGroup fadeGroup;  // 공용 페이드 UI를 드래그해도 되고, 비워두면 자동 탐색하게 만들 수도 있었다.
-    [SerializeField] private float fadeOutTime = 0.2f;
-    [SerializeField] private float holdBlackTime = 0.5f;
-    [SerializeField] private float fadeInTime = 0.3f;
+    [SerializeField]
+    private bool useFade = true;
+
+    [SerializeField]
+    private CanvasGroup fadeGroup; // 공용 페이드 UI를 드래그해도 되고, 비워두면 자동 탐색하게 만들 수도 있었다.
+
+    [SerializeField]
+    private float fadeOutTime = 0.2f;
+
+    [SerializeField]
+    private float holdBlackTime = 0.5f;
+
+    [SerializeField]
+    private float fadeInTime = 0.3f;
 
     public bool Isrunning;
+    public bool IsActive = true;
 
     private void Awake()
     {
@@ -30,6 +40,7 @@ public class TeleportPoint : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!IsActive) return;
         if (Isrunning) return;
         if (!collision.CompareTag("Player")) return;
 
@@ -65,7 +76,8 @@ public class TeleportPoint : MonoBehaviour
 
         yield return FadeTo(0f, fadeInTime);
 
-        if (mover != null) mover.enabled = true;
+        if (mover != null)
+            mover.enabled = true;
 
         Isrunning = false;
     }

@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            UIManager.Instance.OpenGameOverUI();
+            UIManager.Instance?.OpenGameOverUI();
         }
     }
 }

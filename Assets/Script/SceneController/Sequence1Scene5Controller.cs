@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Sequence1Scene5Controller : SceneController
 {
-    [SerializeField] Sequence1Scene5DialogueController _dialogueController;
+    [SerializeField]
+    Sequence1Scene5DialogueController _dialogueController;
+
     protected override void OnStopIntervalReached()
     {
-        playerAnimator.enabled = true;  
+        playerAnimator.enabled = true;
         playerMoveTestLerp.enabled = true;
     }
+
     void Start()
     {
         base.Start();
@@ -21,8 +24,5 @@ public class Sequence1Scene5Controller : SceneController
         }
     }
 
-    void Update()
-    {
-        
-    }
+    void Update() { }
 }

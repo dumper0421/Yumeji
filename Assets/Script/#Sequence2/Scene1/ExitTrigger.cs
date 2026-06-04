@@ -15,22 +15,22 @@ public class ExitTrigger : MonoBehaviour
     public AudioClip StartSFX;
 
     public string NextSceneName;
+    public string DialogueID;
 
     public bool isScene2_1 = false;
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && IsClear)
+        if (collision.CompareTag("Player") && IsClear)
             StartCoroutine(FadeOutChangeScene(0.5f));
-
         else if (collision.CompareTag("Player"))
-            DialogueManager.StartDialogue("Worng_Exit");
+            DialogueManager.StartDialogue(DialogueID);
     }
 
     public IEnumerator FadeOutChangeScene(float fadeDuration)
     {
-        if (FadeImage == null) yield break;
+        if (FadeImage == null)
+            yield break;
         FadeImage.gameObject.SetActive(true);
         float elapsed = 0f;
         Color c = FadeImage.color;
@@ -55,6 +55,5 @@ public class ExitTrigger : MonoBehaviour
 
         if (!isScene2_1)
             SceneManager.LoadScene(NextSceneName);
-
     }
 }

@@ -32,11 +32,14 @@ public abstract class DialogueController<TState> : MonoBehaviour where TState : 
         dialogueManager.OnOptionSelected += OptionSelected;
         dialogueManager.OnDialogueComplete += DialogueCompleted;
         dialogueManager.OnDialogueAction += DialogueRunning;
+
+        // Awake 시점에 복원: 모든 Awake가 끝난 뒤 Start가 시작되므로
+        // 다른 컨트롤러의 Start에서 state를 참조해도 항상 올바른 값을 반환한다.
+        RestorePuzzleState();
     }
 
     protected virtual void Start()
     {
-        RestorePuzzleState();
         ApplyWorldByState();
     }
 

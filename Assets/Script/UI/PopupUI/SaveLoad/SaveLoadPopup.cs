@@ -58,12 +58,17 @@ public class SaveLoadPopup : PopupUI
                 {
                     slotButton.onClick.AddListener(() =>
                     {
+                        // intStates/boolStates/인벤토리를 씬 로드 전에 미리 채운다.
+                        // 이렇게 해야 새 씬의 Start() → RestorePuzzleState() 가
+                        // 올바른 값을 읽을 수 있다.
+                        GameManager.Instance.PreloadGameData(slot.SlotIndex);
+
                         UnityAction<Scene, LoadSceneMode> loadAction = null;
                         loadAction = (scene, mode) =>
                         {
-                            GameManager.Instance.LoadGameData(slot.SlotIndex);
-                            UIManager.Instance.GameOverUI.gameObject.SetActive(false);
-                            // 이벤트 중복 호출 방지를 위해 등록 해제
+                            // 씬이 로드된 뒤 플레이어 위치만 복원
+                            GameManager.Instance.RestorePlayerPosition();
+                            UIManager.Instance?.GameOverUI?.gameObject.SetActive(false);
                             SceneManager.sceneLoaded -= loadAction;
                         };
                         SceneManager.sceneLoaded += loadAction;

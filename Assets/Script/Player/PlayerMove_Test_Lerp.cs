@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMove_Test_Lerp : MonoBehaviour
 {
+    public static event System.Action<Vector2> OnTileArrived;
     private BoxCollider2D boxCollider;
     public LayerMask NoPass;
 
@@ -107,6 +108,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         }
 
         transform.position = targetPos;
+        OnTileArrived?.Invoke(targetPos);
 
         if (actionController == null || !actionController.IsPushing)
             canMove = true;

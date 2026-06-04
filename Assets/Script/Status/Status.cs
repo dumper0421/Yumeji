@@ -45,7 +45,7 @@ public class Status : MonoBehaviour
         currentHealth_ = Mathf.Clamp(currentHealth_ - amount, 0, MaxHealth);
 
         if (currentHealth_ == 0)
-            UIManager.Instance.OpenGameOverUI();
+            UIManager.Instance?.OpenGameOverUI();
     }
 
     public void Heal(float amount)

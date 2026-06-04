@@ -13,8 +13,8 @@ public class ItemData : ScriptableObject
     /// </summary>
     public virtual void Use()
     {
-        var slot = InventoryManager.Instance.GetItemSlot(ItemName);
-        if (slot != null)
-            slot.DecrementCount();
+        // GameManager 데이터에서 제거 후 UI 갱신
+        GameManager.Instance?.RemoveInventoryItem(ItemName);
+        InventoryManager.Instance?.RefreshAllSlots();
     }
 }

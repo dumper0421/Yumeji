@@ -82,21 +82,15 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         }
 
         Vector3 pos = playerObj.transform.position;
-
         PlayerSaveData data = GameManager.Instance.SaveGameData(slotIndex, pos);
 
         string json = JsonUtility.ToJson(data, true);
-        string path = Path.Combine(
-            Application.persistentDataPath,
-            string.Format(SaveFileNameFormat, slotIndex)
-        );
+        string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));
         File.WriteAllText(path, json);
-
         Debug.Log($"[SaveLoadManager] Saved slot {slotIndex} → {path}");
 
-        var inventory = GameObject.FindObjectOfType<InventoryManager>();
-        if (inventory != null)
-            inventory.SaveInventory(slotIndex);
+        // 인벤토리는 GameManager 메모리 데이터를 기준으로 저장
+        SaveInventoryItems(slotIndex, GameManager.Instance.GetInventoryItems());
     }
 
     public PlayerSaveData LoadGame(int slotIndex)
@@ -132,14 +126,30 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
             return;
         }
 
-        string path = Path.Combine(
-            Application.persistentDataPath,
-            string.Format(SaveFileNameFormat, slotIndex)
-        );
+        string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));
         if (File.Exists(path))
         {
             File.Delete(path);
             Debug.Log($"[SaveLoadManager] Deleted save slot {slotIndex}");
         }
+    }
+
+    private const string InventoryFileNameFormat = "inventorySlot{0}.json";
+
+    public void SaveInventoryItems(int slotIndex, System.Collections.Generic.List<ItemDataSerializable> items)
+    {
+        var data = new InventoryData { Items = items ?? new System.Collections.Generic.List<ItemDataSerializable>() };
+        string json = JsonUtility.ToJson(data, true);
+        string path = Path.Combine(Application.persistentDataPath, string.Format(InventoryFileNameFormat, slotIndex));
+        File.WriteAllText(path, json);
+        Debug.Log($"[SaveLoadManager] Inventory saved slot {slotIndex} → {path}");
+    }
+
+    public System.Collections.Generic.List<ItemDataSerializable> LoadInventoryItems(int slotIndex)
+    {
+        string path = Path.Combine(Application.persistentDataPath, string.Format(InventoryFileNameFormat, slotIndex));
+        if (!File.Exists(path)) return null;
+        var data = JsonUtility.FromJson<InventoryData>(File.ReadAllText(path));
+        return data?.Items;
     }
 }

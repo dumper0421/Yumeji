@@ -7,6 +7,7 @@ using UnityEngine;
 #if UNITY_EDITOR
 using static UnityEditor.Progress;
 #endif
+
 [Serializable]
 public class InventoryData
 {
@@ -42,117 +43,78 @@ public class InventoryManager : Singleton<InventoryManager>
     public TextMeshProUGUI DescriptionText;
     public GameObject SelectBorder;
 
-
-    private const string inventoryFileNameFormat = "inventorySlot{0}.json";
+    // DontDestroyOnLoad 전에 false로 설정해 씬 전환 시 함께 파괴되도록 합니다.
+    protected override void Awake()
+    {
+        IsDontDestroyOnLoad = false;
+        base.Awake();
+    }
 
     protected override void Init()
     {
         foreach (var slot in GetComponentsInChildren<ItemSlot>())
             _slots.Add(slot);
-
     }
 
     public void Start()
     {
-        LoadInventory(GameManager.Instance.CurrentSaveData.SlotIndex);
         IsDontDestroyOnLoad = false;
         SelectBorder.SetActive(false);
+        RefreshAllSlots();
     }
 
-    private void Update()
+    // GameManager의 인벤토리 데이터를 기반으로 UI 슬롯을 전부 갱신합니다.
+    public void RefreshAllSlots()
     {
-        if (!BackGround.gameObject.activeSelf) return;
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            MoveSelectBorder(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            MoveSelectBorder(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
-        {
-            if (_slots[CurrentSelectIndex].IsEmpty) return;
-        }
-    }
-
-    public void SaveInventory(int slotIndex)
-    {
-        var data = new InventoryData();
-        foreach (var slot in _slots)
-        {
-            if (!slot.IsEmpty)
-            {
-                var item = slot.GetItemData();
-                data.Items.Add(new ItemDataSerializable(
-                    item.ItemId,
-                    item.ItemName,
-                    item.Description,
-                    slot.Count,
-                    item.IsConsumable
-                ));
-            }
-        }
-
-        string json = JsonUtility.ToJson(data, true);
-        string path = Path.Combine(
-            Application.persistentDataPath,
-            string.Format(inventoryFileNameFormat, slotIndex)
-        );
-        File.WriteAllText(path, json);
-        Debug.Log($"[InventoryManager] Saved to {path}");
-    }
-
-    public void LoadInventory(int slotIndex)
-    {
-        // 슬롯이 하나도 없으면(아직 UI가 초기화되지 않았으면) 로드 무시
-        if (_slots == null || _slots.Count == 0)
-        {
-            Debug.LogWarning("[InventoryManager] 슬롯이 초기화되지 않아 로드 생략");
-            return;
-        }
-
-        string path = Path.Combine(
-            Application.persistentDataPath,
-            string.Format(inventoryFileNameFormat, slotIndex)
-        );
-        if (!File.Exists(path))
-        {
-            Debug.LogWarning($"[InventoryManager] File not found: {path}");
-            return;
-        }
-
-        string json = File.ReadAllText(path);
-        var data = JsonUtility.FromJson<InventoryData>(json);
+        if (_slots == null || _slots.Count == 0) return;
 
         foreach (var slot in _slots)
             slot.ClearSlot();
 
-        foreach (var it in data.Items)
+        var items = GameManager.Instance?.GetInventoryItems();
+        if (items == null) return;
+
+        foreach (var it in items)
         {
             var slot = _slots.Find(s => s.IsEmpty);
             if (slot == null)
             {
+                if (ItemSlotPrefab == null || _slotSectionTransform == null) break;
                 var obj = Instantiate(ItemSlotPrefab, _slotSectionTransform);
                 slot = obj.GetComponent<ItemSlot>();
                 _slots.Add(slot);
             }
 
-            var newItem = new ItemData
-            {
-                ItemId = it.ItemId,
-                ItemName = it.ItemName,
-                Description = it.Description
-            };
+            var newItem = ScriptableObject.CreateInstance<ItemData>();
+            newItem.ItemId = it.ItemId;
+            newItem.ItemName = it.ItemName;
+            newItem.Description = it.Description;
+            newItem.IsConsumable = it.IsConsumable;
             slot.SetItem(newItem, it.Count);
         }
-
-        Debug.Log($"[InventoryManager] Loaded from {path}");
     }
 
+    public void Update()
+    {
+        if (BackGround == null || !BackGround.gameObject.activeSelf) return;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            MoveSelectBorder(1);
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            MoveSelectBorder(-1);
+        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_slots.Count > 0 && !_slots[CurrentSelectIndex].IsEmpty) { }
+        }
+    }
+
+    // 아이템 추가: GameManager 데이터 갱신 후 UI 반영
     public void AddItem(ItemData data)
     {
-        // 1) 이미 있는 아이템이면 수량만 증가
+        GameManager.Instance?.AddInventoryItem(
+            new ItemDataSerializable(data.ItemId, data.ItemName, data.Description, 1, data.IsConsumable)
+        );
+
+        if (_slots == null || _slots.Count == 0 || BackGround == null) return;
 
         var existing = _slots.Find(s => !s.IsEmpty && s.GetItemData().ItemName == data.ItemName);
         if (existing != null)
@@ -161,7 +123,6 @@ public class InventoryManager : Singleton<InventoryManager>
             return;
         }
 
-        // 2) 빈 슬롯 찾기 (없으면 새로 생성)
         var slot = _slots.Find(s => s.IsEmpty);
         if (slot == null)
         {
@@ -170,9 +131,7 @@ public class InventoryManager : Singleton<InventoryManager>
             _slots.Add(slot);
         }
 
-        // 3) 항상 count=1로 세팅
         slot.SetItem(data, 1);
-
         int slotIndex = _slots.IndexOf(slot);
         CurrentSelectIndex = slotIndex;
 
@@ -182,11 +141,24 @@ public class InventoryManager : Singleton<InventoryManager>
         Debug.Log($"[AddItem] SO.name='{data.name}', ItemName='{data.ItemName}'");
     }
 
+    // 아이템 제거: GameManager 데이터 갱신 후 UI 반영
+    public void RemoveItem(string itemName)
+    {
+        GameManager.Instance?.RemoveInventoryItem(itemName);
+        RefreshAllSlots();
+    }
+
+    // HasItem은 GameManager의 인메모리 데이터를 기준으로 확인 (씬 전환 직후에도 정확)
+    public bool HasItem(string itemName)
+    {
+        return GameManager.Instance?.HasInventoryItem(itemName) ?? false;
+    }
+
     public void RefreshSelectBorder()
     {
-        if (_slots.Count == 0 || _slots[CurrentSelectIndex].IsEmpty)
+        if (_slots == null || _slots.Count == 0 || _slots[CurrentSelectIndex].IsEmpty)
         {
-            SelectBorder.SetActive(false);
+            if (SelectBorder != null) SelectBorder.SetActive(false);
             return;
         }
         MoveSelectBorderTo(CurrentSelectIndex);
@@ -194,39 +166,42 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void MoveSelectBorder(int offset)
     {
+        if (_slots == null || _slots.Count == 0) return;
         int count = _slots.Count;
-        if (count == 0) return;
         CurrentSelectIndex = (CurrentSelectIndex + offset + count) % count;
         if (_slots[CurrentSelectIndex].IsEmpty) return;
-        DescriptionText.text = _slots[CurrentSelectIndex].GetItemData().Description;
-        SelectBorder.transform.SetParent(_slots[CurrentSelectIndex].transform);
-        SelectBorder.gameObject.SetActive(true);
-        SelectBorder.gameObject.transform.localPosition = Vector3.zero;
+        if (DescriptionText != null)
+            DescriptionText.text = _slots[CurrentSelectIndex].GetItemData().Description;
+        if (SelectBorder != null)
+        {
+            SelectBorder.transform.SetParent(_slots[CurrentSelectIndex].transform);
+            SelectBorder.gameObject.SetActive(true);
+            SelectBorder.gameObject.transform.localPosition = Vector3.zero;
+        }
     }
 
     public void UseSelectedItem()
     {
+        if (_slots == null || _slots.Count == 0) return;
         var slot = _slots[CurrentSelectIndex];
         if (slot.IsEmpty) return;
-
         var data = slot.GetItemData();
-        data.Use();  // UnityEvent 로 연결된 로직 실행
+        data.Use();
     }
 
-    public bool HasItem(string itemName)
-    {
-        return _slots.Exists(s => !s.IsEmpty && s.GetItemData().ItemName == itemName);
-    }
+    public bool HasItem(ItemData itemData) => HasItem(itemData.ItemName);
 
     public ItemSlot GetItemSlot(string itemName)
     {
-        return _slots.Find(s => s.GetItemData().ItemName == itemName);
+        if (_slots == null) return null;
+        return _slots.Find(s => !s.IsEmpty && s.GetItemData().ItemName == itemName);
     }
 
     public void CompactInventory()
     {
-        int targetIndex = 0;
+        if (_slots == null) return;
 
+        int targetIndex = 0;
         for (int i = 0; i < _slots.Count; i++)
         {
             if (!_slots[i].IsEmpty)
@@ -246,8 +221,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
         if (targetIndex == 0)
         {
-            DescriptionText.text = string.Empty;
-            SelectBorder.gameObject.SetActive(false);
+            if (DescriptionText != null) DescriptionText.text = string.Empty;
+            if (SelectBorder != null) SelectBorder.gameObject.SetActive(false);
         }
         else
         {
@@ -257,19 +232,19 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void MoveSelectBorderTo(int newIndex)
     {
-        // 유효 범위 체크
-        if (newIndex < 0 || newIndex >= _slots.Count) return;
+        if (_slots == null || newIndex < 0 || newIndex >= _slots.Count) return;
         if (_slots[newIndex].IsEmpty) return;
 
         CurrentSelectIndex = newIndex;
 
-        // 설명 갱신
-        DescriptionText.text = _slots[newIndex].GetItemData().Description;
+        if (DescriptionText != null)
+            DescriptionText.text = _slots[newIndex].GetItemData().Description;
 
-        // 커서 위치 옮기기
-        SelectBorder.transform.SetParent(_slots[newIndex].transform, false);
-        SelectBorder.transform.localPosition = Vector3.zero;
-        SelectBorder.SetActive(true);
+        if (SelectBorder != null)
+        {
+            SelectBorder.transform.SetParent(_slots[newIndex].transform, false);
+            SelectBorder.transform.localPosition = Vector3.zero;
+            SelectBorder.SetActive(true);
+        }
     }
-
 }

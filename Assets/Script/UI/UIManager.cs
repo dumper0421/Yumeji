@@ -18,9 +18,15 @@ public class UIManager : Singleton<UIManager>
 
     private Button _selectbutton;
 
-    protected override void Init()
+    // DontDestroyOnLoad 전에 false로 설정해야 Awake에서 적용됩니다.
+    protected override void Awake()
     {
         IsDontDestroyOnLoad = false;
+        base.Awake();
+    }
+
+    protected override void Init()
+    {
         _selectbutton = continueButton_;
     }
 

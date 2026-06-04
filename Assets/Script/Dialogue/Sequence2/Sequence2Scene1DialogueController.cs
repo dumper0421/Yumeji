@@ -6,36 +6,64 @@ using UnityEngine.SceneManagement;
 
 public enum S2S1State
 {
-    None
+    None,
 }
 
 public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
 {
-    [SerializeField] private PlayerMove_Test_Lerp _playerMove;
-    [SerializeField] private GameObject _badCustomer;
-    [SerializeField] private FilmStageBox _filmStageBox;
+    [SerializeField]
+    private PlayerMove_Test_Lerp _playerMove;
 
-    [SerializeField] private Sprite _badCustomerBackSprite;
+    [SerializeField]
+    private GameObject _badCustomer;
 
-    [SerializeField] private GameObject _Ken;
-    [SerializeField] private Sprite _KenBackSprite;
+    [SerializeField]
+    private FilmStageBox _filmStageBox;
 
-    [SerializeField] private ItemData _yellowPhotoEnvelopeItemData;
+    [SerializeField]
+    private Sprite _badCustomerBackSprite;
 
-    [SerializeField] private ItemData _SlideFilmItemData;
+    [SerializeField]
+    private GameObject _Ken;
 
-    [SerializeField] private InteractionSystem _interactionSystem;
+    [SerializeField]
+    private Sprite _KenBackSprite;
 
-    [SerializeField] private PlayableDirector _director;
-    [SerializeField] private PlayableDirector _director2;
-    [SerializeField] private PlayableDirector _director3;
+    [SerializeField]
+    private ItemData _yellowPhotoEnvelopeItemData;
 
+    [SerializeField]
+    private ItemData _SlideFilmItemData;
 
-    [SerializeField] private List<GameObject> _interactionLights;
+    [SerializeField]
+    private InteractionSystem _interactionSystem;
 
-    [SerializeField] private ChangeLightTrigger _changeLightTrigger;
+    [SerializeField]
+    private PlayableDirector _director;
 
-    [SerializeField]private string _nextSceneName;
+    [SerializeField]
+    private PlayableDirector _director2;
+
+    [SerializeField]
+    private PlayableDirector _director3;
+
+    [SerializeField]
+    private List<GameObject> _interactionLights;
+
+    [SerializeField]
+    private ChangeLightTrigger _changeLightTrigger;
+
+    [SerializeField]
+    private GameObject _workRoomWall;
+
+    [SerializeField]
+    private TeleportPoint _teleportPoint;
+
+    [SerializeField]
+    private DialoguePoint _dialoguePoint;
+
+    [SerializeField]
+    private string _nextSceneName;
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
@@ -45,6 +73,9 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
                 InventoryManager.Instance.AddItem(_yellowPhotoEnvelopeItemData);
                 _interactionSystem.InteractDistance = 3f;
                 _interactionLights[0].SetActive(false);
+                _workRoomWall.SetActive(true);
+                _dialoguePoint.gameObject.SetActive(true);
+                _teleportPoint.IsActive = false;
                 break;
             case "Guest_Dialogue17":
                 _badCustomer.GetComponent<Animator>().enabled = true;
@@ -68,6 +99,9 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
                 _Ken.GetComponent<Animator>().enabled = true;
                 Utility.PlayDirector(_director3);
                 _changeLightTrigger.CanLeave = true;
+                _dialoguePoint.gameObject.SetActive(false);
+                _teleportPoint.IsActive = true;
+                _workRoomWall.SetActive(false);
                 break;
             case "Haru_monologue3":
                 SceneManager.LoadScene(_nextSceneName);
@@ -75,23 +109,14 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
         }
         TryProgress();
     }
-    protected override void DialogueRunning(string dialogueId)
-    {
-    
-    }
-    protected override void HandleOption(string text, string nextId)
-    {
 
-    }
+    protected override void DialogueRunning(string dialogueId) { }
 
-    protected override void OnPuzzleComplete()
-    {
+    protected override void HandleOption(string text, string nextId) { }
 
-    }
+    protected override void OnPuzzleComplete() { }
 
-    protected override void TryProgress()
-    {
-    }
+    protected override void TryProgress() { }
 
     public void OnPlayerStoped()
     {
@@ -114,8 +139,5 @@ public class Sequence2Scene1DialogueController : DialogueController<S2S1State>
         }
     }
 
-    protected override void ApplyWorldByState()
-    {
-    }
+    protected override void ApplyWorldByState() { }
 }
-

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,13 +11,14 @@ public class GameManager : Singleton<GameManager>
 
     private PlayerSaveData saveData_;
     private float totalPlaySeconds_;
+    private List<ItemDataSerializable> inventoryItems_ = new List<ItemDataSerializable>();
 
     private Dictionary<string, bool> boolStates_ = new Dictionary<string, bool>();
     private Dictionary<string, int> intStates_ = new Dictionary<string, int>();
 
-    private void Awake()
+    protected override void Awake()
     {
-        Init();
+        base.Awake();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -45,6 +47,22 @@ public class GameManager : Singleton<GameManager>
 
         boolStates_.Clear();
         intStates_.Clear();
+        inventoryItems_ = new List<ItemDataSerializable>();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    protected override void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        base.OnDestroy();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        var found = GameObject.Find("Haru_Player");
+        if (found != null)
+            Player = found;
     }
 
     public bool GetFlag(string key, bool defaultValue = false) =>
@@ -73,7 +91,9 @@ public class GameManager : Singleton<GameManager>
         return saveData_;
     }
 
-    public void LoadGameData(int slotIndex)
+    // 씬 로드 전에 호출 — intStates/boolStates/인벤토리를 메모리에 올린다.
+    // RestorePuzzleState() 보다 반드시 먼저 실행돼야 한다.
+    public void PreloadGameData(int slotIndex)
     {
         PlayerSaveData loaded = SaveLoadManager.Instance.LoadGame(slotIndex);
         if (loaded == null)
@@ -84,12 +104,55 @@ public class GameManager : Singleton<GameManager>
 
         ApplyLoadedSaveData(loaded);
 
+        var invItems = SaveLoadManager.Instance.LoadInventoryItems(slotIndex);
+        inventoryItems_ = invItems ?? new List<ItemDataSerializable>();
+
+        Debug.Log($"[GameManager] PreloadGameData slot {slotIndex}: states loaded");
+    }
+
+    // 씬 로드 후에 호출 — 플레이어 위치와 카메라를 복원한다.
+    public void RestorePlayerPosition()
+    {
+        if (saveData_ == null)
+            return;
+
+        GameObject playerObj = Player != null ? Player : GameObject.Find("Haru_Player");
+        if (playerObj == null)
+            return;
+
+        Vector3 before = playerObj.transform.position;
+        Vector3 target = saveData_.PlayerPosition;
+
+        var mover = playerObj.GetComponent<PlayerMove_Test_Lerp>();
+        if (mover != null)
+            mover.Teleport(target);
+        else
+            playerObj.transform.position = target;
+
+        // Cinemachine에 워프를 알려 카메라가 즉시 이동하게 한다.
+        // 알리지 않으면 댐핑 때문에 카메라가 천천히 따라온다.
+        Vector3 delta = target - before;
+        var brain = GameObject.FindFirstObjectByType<CinemachineBrain>();
+        if (brain != null)
+        {
+            var vcam = brain.ActiveVirtualCamera as CinemachineVirtualCameraBase;
+            if (vcam != null)
+                vcam.OnTargetObjectWarped(playerObj.transform, delta);
+        }
+
+        Debug.Log($"[GameManager] RestorePlayerPosition: {before} → {target}");
+    }
+
+    public void LoadGameData(int slotIndex)
+    {
+        PreloadGameData(slotIndex);
+
         GameObject playerObj = Player != null ? Player : GameObject.Find("Haru_Player");
         if (playerObj != null)
             playerObj.transform.position = saveData_.PlayerPosition;
 
         Debug.Log(
-            $"[GameManager] Loaded slot {slotIndex}: pos restored, playTime={saveData_.PlayTime}"
+            $"[GameManager] Loaded slot {slotIndex}: pos restored, playTime={saveData_?.PlayTime}"
         );
     }
 
@@ -260,4 +323,40 @@ public class GameManager : Singleton<GameManager>
     {
         return saveData_.CompanionName != "";
     }
+
+    // ─── 인벤토리 데이터 (씬 전환 시에도 유지) ────────────────────────────
+    public bool HasInventoryItem(string itemName) =>
+        inventoryItems_.Exists(i => i.ItemName == itemName);
+
+    public void AddInventoryItem(ItemDataSerializable item)
+    {
+        var existing = inventoryItems_.Find(i => i.ItemName == item.ItemName);
+        if (existing != null)
+        {
+            existing.Count += item.Count;
+            return;
+        }
+        inventoryItems_.Add(item);
+    }
+
+    public void RemoveInventoryItem(string itemName)
+    {
+        var item = inventoryItems_.Find(i => i.ItemName == itemName);
+        if (item == null)
+            return;
+        if (item.Count > 1)
+        {
+            item.Count--;
+            return;
+        }
+        inventoryItems_.Remove(item);
+    }
+
+    public ItemDataSerializable GetInventoryItem(string itemName) =>
+        inventoryItems_.Find(i => i.ItemName == itemName);
+
+    public List<ItemDataSerializable> GetInventoryItems() => inventoryItems_;
+
+    public void SetInventoryItems(List<ItemDataSerializable> items) =>
+        inventoryItems_ = items ?? new List<ItemDataSerializable>();
 }

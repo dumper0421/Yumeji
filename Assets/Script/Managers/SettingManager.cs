@@ -16,9 +16,15 @@ public class SettingManager : Singleton<SettingManager>
     private Color normal = Color.white;
     private Color highlighted = Color.yellow;
 
+    // DontDestroyOnLoad 전에 false로 설정해야 Awake에서 적용됩니다.
+    protected override void Awake()
+    {
+        IsDontDestroyOnLoad = false;
+        base.Awake();
+    }
+
     protected override void Init()
     {
-      //  DontDestroyOnLoad(gameObject);
         sliders = new[] { MasterSlider, BgmSlider, SfxSlider };
 
         // 저장된 설정 로드 및 오디오 매니저에 적용
@@ -40,7 +46,6 @@ public class SettingManager : Singleton<SettingManager>
     public void Start()
     {
         LoadSettings();
-        IsDontDestroyOnLoad = false;
     }
 
     private void LoadSettings()

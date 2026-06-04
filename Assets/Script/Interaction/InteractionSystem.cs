@@ -31,8 +31,8 @@ public class InteractionSystem : MonoBehaviour
             return;
         }
 
-        // ★ 이동 불가 상태(c
-        if (move != null && !move.canMove)
+        // ★ 이동 불가 상태 또는 컴포넌트 비활성(대화 중 등) 차단
+        if (move != null && (!move.canMove || !move.enabled))
             return;
 
         if (Input.GetKeyDown(KeyCode.Space))
