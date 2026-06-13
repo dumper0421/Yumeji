@@ -76,6 +76,13 @@
     "lines": [
       { "text": "무(無)" }
     ]
+  },
+  {
+    "id": "button_door_opened",
+    "speaker": "",
+    "lines": [
+      { "text": "문이 열리는 소리가 들렸다." }
+    ]
   }
 
 ]
