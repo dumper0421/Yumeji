@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1208182332}
-  nextSceneName: Sequence2S#1
+  nextSceneName: Sequence1S#1
 --- !u!328 &1208182332
 VideoPlayer:
   m_ObjectHideFlags: 0

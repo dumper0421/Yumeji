@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/2026PlayX4/OpeningScene.unity
     guid: ced794f2c5d6bbb44936fd4266db95d7
   - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence1S#1.unity
+    guid: 7144acdd357474f4a9c8ba98f5fdc88f
+  - enabled: 1
     path: Assets/Scenes/2026PlayX4/Sequence2S#1.unity
     guid: bc4f6c14ad0973b45bee189dcd9dce9c
   - enabled: 1
