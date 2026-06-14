@@ -228,6 +228,8 @@ MonoBehaviour:
   activatorObject: {fileID: 394123183}
   objectToRemove: {fileID: 1570688278}
   pressSfx: {fileID: 8300000, guid: a628622b2a3528c4d89af169bc83930d, type: 3}
+  dialogueManager: {fileID: 603143303}
+  doorOpenedDialogueId: button_door_opened
   pushableObject: {fileID: 394123192}
   disableDelay: 0.5
   scene9Controller: {fileID: 177367110}

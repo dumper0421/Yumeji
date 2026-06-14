@@ -7,11 +7,21 @@
         "text": "마네킹이 들고 있는 슬레이트가 부러져 달랑거린다."
       },
       {
-        "text": "깨진 슬레이트 조각을 얻었다."
+        "text": "깨진 슬레이트 조각을 얻었다.",
+        "nextId": "director_mannequin1_2"
       }
     ]
   },
-
+  {
+    "id": "director_mannequin1_2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "이 정도면 충분해. 레이에게 돌아가야겠어.",
+        "showPortrait": true
+      }
+    ]
+  },
   {
     "id": "director_mannequin2",
     "speaker": "하루",
