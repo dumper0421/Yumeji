@@ -1,0 +1,142 @@
+[
+  {
+    "id": "dialogue_1",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "얼른 가자. 다들 기다려.",
+        "showPortrait": true,
+        "nextId": "dialogue_2"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…레이? 너… 괜찮은 거야? 방금 분명 피를…",
+        "showPortrait": true,
+        "nextId": "dialogue_3"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_3",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "무슨 소릴 하는 거야. 초대장은 잘 챙겼지?",
+        "showPortrait": true,
+        "nextId": "dialogue_4"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_4",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "초대장? 잠깐만, 이 대사… 아까 했던 말이잖아.",
+        "showPortrait": true,
+        "nextId": "dialogue_5"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_5",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "우리 방금 영사실에 있었어. 그 남자가 널 쐈다고.",
+        "showPortrait": true,
+        "nextId": "dialogue_6"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_6",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "갑자기 왜 이래?",
+        "showPortrait": true,
+        "nextId": "dialogue_7"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_7",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "아무것도 기억 못하는 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_8"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_8",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "연회라면 이제 지겹지만, 오늘 밤은 왠지 기대가 되네.",
+        "showPortrait": true,
+        "nextId": "dialogue_9"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_9",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "자, 들어가자. 너무 늦는 건 예의가 아니니까.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_10",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "잠깐, 레이…!",
+        "showPortrait": true,
+        "nextId": "dialogue_11"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_11",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…",
+        "showPortrait": true,
+        "nextId": "dialogue_12"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_12",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "따라가야겠지…",
+        "showPortrait": true,
+        "nextId": "narration_2"
+      }
+    ]
+  },
+  {
+    "id": "narration_2",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "하루도 결국 레이를 따라 들어간다."
+      }
+    ]
+  }
+]
