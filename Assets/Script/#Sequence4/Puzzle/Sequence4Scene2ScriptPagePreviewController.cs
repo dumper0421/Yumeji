@@ -15,6 +15,7 @@ public class Sequence4Scene2ScriptPagePreviewController : MonoBehaviour
     public string targetItemName = "각본의 한 페이지";
 
     private bool isPreviewOpen = false;
+    private bool wasInventoryOpen = false;
 
     private void Start()
     {
@@ -26,13 +27,22 @@ public class Sequence4Scene2ScriptPagePreviewController : MonoBehaviour
     {
         if (inventoryManager == null) return;
 
+        bool isOpenNow = IsInventoryOpen();
+
         // 인벤토리가 닫혀 있으면 미리보기 강제 종료
-        if (!IsInventoryOpen())
+        if (!isOpenNow)
         {
             if (isPreviewOpen)
                 ClosePreview();
+            wasInventoryOpen = false;
             return;
         }
+
+        // 인벤토리를 여는 데 쓴 키 입력(Enter/Space)이 같은 프레임에 그대로
+        // 남아있어 미리보기까지 열어버리는 것을 방지: 방금 열린 프레임은 무시.
+        bool justOpened = !wasInventoryOpen;
+        wasInventoryOpen = true;
+        if (justOpened) return;
 
         // Space 키만 사용
         if (!Input.GetKeyDown(KeyCode.Space)) return;

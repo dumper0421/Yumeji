@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public enum S4S1State
 {
-
+    None,
+    OpeningSeen,
+    HotelierDone
 }
 
 public class Sequence4Scene1DialogueController : DialogueController<S4S1State>
@@ -30,6 +32,30 @@ public class Sequence4Scene1DialogueController : DialogueController<S4S1State>
 
     protected override void ApplyWorldByState()
     {
+        if (state >= S4S1State.OpeningSeen)
+        {
+            if (FadeImage != null)
+            {
+                Color c = FadeImage.color;
+                FadeImage.color = new Color(c.r, c.g, c.b, 0f);
+            }
+
+            _playerMove.SetCompanion(_reiCompanionSystem, "레이");
+
+            var savedData = GameManager.Instance.CurrentSaveData;
+            _reiCompanionSystem.transform.position =
+                (savedData != null) ? savedData.CompanionPosition : _playerMove.transform.position;
+
+            _haruAnimator.enabled = true;
+        }
+
+        if (state >= S4S1State.HotelierDone)
+        {
+            _partyDialoguePoint.gameObject.SetActive(false);
+            _sceneChangeTrigger.SetActive(true);
+            _hotelier.StartDialogue = "Already_Hotelier";
+            _wall.SetActive(false);
+        }
     }
 
     protected override void DialogueRunning(string dialogueId)
@@ -41,21 +67,36 @@ public class Sequence4Scene1DialogueController : DialogueController<S4S1State>
         switch (dialogueId)
         {
             case "HotelEntrance_Haru_TryRemember":
-                InventoryManager.Instance.AddItem(_invitationData);
-                StartCoroutine(FadeOut(2f));
+                if (state < S4S1State.OpeningSeen)
+                {
+                    InventoryManager.Instance.AddItem(_invitationData);
+                    StartCoroutine(FadeOut(2f));
+                }
                 break;
             case "HotelEntrance_CheckInvitePrompt":
-                _playerMove.SetCompanion(_reiCompanionSystem, "레이");
-               // _reiAnimator.enabled = true;
-                _haruAnimator.enabled = true;
+                if (state < S4S1State.OpeningSeen)
+                {
+                    _playerMove.SetCompanion(_reiCompanionSystem, "레이");
+                   // _reiAnimator.enabled = true;
+                    _haruAnimator.enabled = true;
+
+                    state = S4S1State.OpeningSeen;
+                    PersistPuzzleState();
+                }
                 break;
             case "HotelEntrance_Hotelier":
-                _invitationData.Use();
-                _partyDialoguePoint.gameObject.SetActive(false);
-                _sceneChangeTrigger.SetActive(true);
-                _hotelier.StartDialogue = "Already_Hotelier";
+                if (state < S4S1State.HotelierDone)
+                {
+                    _invitationData.Use();
+                    _partyDialoguePoint.gameObject.SetActive(false);
+                    _sceneChangeTrigger.SetActive(true);
+                    _hotelier.StartDialogue = "Already_Hotelier";
 
-                _wall.SetActive(false);
+                    _wall.SetActive(false);
+
+                    state = S4S1State.HotelierDone;
+                    PersistPuzzleState();
+                }
                 break;
 
         }

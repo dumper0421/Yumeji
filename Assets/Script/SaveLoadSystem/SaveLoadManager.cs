@@ -23,6 +23,7 @@ public class PlayerSaveData
     public int SlotIndex;
     public int SequenceNum;
     public Vector3 PlayerPosition;
+    public Vector3 CompanionPosition;
     public string PlayTime;
     public string CurrentSceneName;
     public string CharacterName;
@@ -41,12 +42,14 @@ public class PlayerSaveData
         string currentSceneName,
         string characterName,
         string companionName,
-        string stateName
+        string stateName,
+        Vector3 companionPosition = default
     )
     {
         SlotIndex = slotIndex;
         SequenceNum = sequenceNum;
         PlayerPosition = playerPosition;
+        CompanionPosition = companionPosition;
         PlayTime = string.IsNullOrEmpty(playTime) ? "00:00:00" : playTime;
         CurrentSceneName = currentSceneName;
         CharacterName = characterName;
@@ -82,7 +85,13 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         }
 
         Vector3 pos = playerObj.transform.position;
-        PlayerSaveData data = GameManager.Instance.SaveGameData(slotIndex, pos);
+
+        var mover = playerObj.GetComponent<PlayerMove_Test_Lerp>();
+        Vector3 companionPos = (mover != null && mover.Companion != null)
+            ? mover.Companion.transform.position
+            : Vector3.zero;
+
+        PlayerSaveData data = GameManager.Instance.SaveGameData(slotIndex, pos, companionPos);
 
         string json = JsonUtility.ToJson(data, true);
         string path = Path.Combine(Application.persistentDataPath, string.Format(SaveFileNameFormat, slotIndex));

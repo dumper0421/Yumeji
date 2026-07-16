@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,7 +55,7 @@ public class SaveSlot : MonoBehaviour
             
             if (data.CompanionName != null && data.CompanionName.Length > 0)
             {
-                string[] companaionNames = data.CompanionName.Split(',');
+                string[] companaionNames = data.CompanionName.Split(',').Distinct().ToArray();
                 // 동료가 2명일 떄
                 if (companaionNames.Length == 2)
                 {

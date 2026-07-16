@@ -6525,6 +6525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4649047526479361323, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec7f6c0befcd7554abdf11359afb5eea, type: 3}
     - target: {fileID: 6383538323370497763, guid: a64691517dca5644ba3a0a4c2b8a3667, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

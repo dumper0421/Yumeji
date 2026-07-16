@@ -75,12 +75,13 @@ public class GameManager : Singleton<GameManager>
 
     public void SetInt(string key, int value) => intStates_[key] = value;
 
-    public PlayerSaveData SaveGameData(int slotIndex, Vector3 currentPlayerPosition)
+    public PlayerSaveData SaveGameData(int slotIndex, Vector3 currentPlayerPosition, Vector3 currentCompanionPosition)
     {
         Scene currentScene = SceneManager.GetActiveScene();
 
         saveData_.SlotIndex = slotIndex;
         saveData_.PlayerPosition = currentPlayerPosition;
+        saveData_.CompanionPosition = currentCompanionPosition;
         saveData_.PlayTime = FormatHHMMSS(totalPlaySeconds_);
         saveData_.CurrentSceneName = currentScene.name;
         saveData_.SequenceNum = ExtractSequenceNum(currentScene.name);
@@ -277,9 +278,16 @@ public class GameManager : Singleton<GameManager>
             return;
 
         if (string.IsNullOrEmpty(saveData_.CompanionName))
+        {
             saveData_.CompanionName = companionName;
-        else
-            saveData_.CompanionName += ("," + companionName);
+            return;
+        }
+
+        string[] existingNames = saveData_.CompanionName.Split(',');
+        if (System.Array.IndexOf(existingNames, companionName) >= 0)
+            return;
+
+        saveData_.CompanionName += ("," + companionName);
     }
 
     public void InitCompanion()
