@@ -41,6 +41,10 @@ public class WaltzMannequinSet : MonoBehaviour, IFlashable
     [Tooltip("체크하면 시작 대사를 기다리지 않고 바로 움직입니다 (테스트용, 최종 빌드에서는 해제)")]
     [SerializeField] private bool _startWithoutDialogue = false;
 
+    [Tooltip("체크하면 위의 속도·시간 값 대신 저장된 설정 파일(S7S2GimmickSettings)의 값을 사용합니다.\n" +
+             "이 마네킹만 다른 속도로 움직이게 하려면 체크를 해제하세요")]
+    [SerializeField] private bool _useSharedSettings = true;
+
     [Header("연결")]
     [Tooltip("대화 중에는 이동/충돌 판정을 일시 정지")]
     [SerializeField] private DialogueManager _dialogueManager;
@@ -68,6 +72,24 @@ public class WaltzMannequinSet : MonoBehaviour, IFlashable
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
             _playerCollider = player.GetComponent<Collider2D>();
+
+        ApplySettings();
+    }
+
+    /// <summary>
+    /// 저장된 수치 설정(S7S2GimmickSettings.asset)이 있으면 그 값을 사용한다.
+    /// 설정 파일이 없으면 인스펙터에 입력된 값을 그대로 쓴다.
+    /// </summary>
+    private void ApplySettings()
+    {
+        if (!_useSharedSettings) return;
+
+        var settings = S7S2GimmickSettings.Get();
+        if (settings == null) return;
+
+        _moveSpeed = settings.waltzMoveSpeed;
+        _stillDuration = settings.waltzStillDuration;
+        _shakeDuration = settings.waltzShakeDuration;
     }
 
     private void Start()

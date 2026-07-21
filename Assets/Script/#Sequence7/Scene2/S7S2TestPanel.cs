@@ -7,10 +7,11 @@ using UnityEngine;
 ///
 /// - 마네킹 이동 속도 / 정지 시간을 실시간으로 조절
 /// - 마네킹 개수(활성화된 세트 수)를 실시간으로 조절
-/// - 무적 모드, 전력 즉시 복구 등 테스트 단축 기능
+/// - 무적 모드, 불 켜기, 전력 즉시 복구 등 테스트 단축 기능
 ///
-/// ※ 여기서 바꾼 값은 게임을 끄면 사라집니다.
-///   마음에 드는 값을 찾았다면 화면에 표시된 숫자를 인스펙터에 적어두세요.
+/// 조절한 값은 패널 맨 위의 '지금 값 저장하기' 버튼으로
+/// Assets/Resources/S7S2GimmickSettings.asset 에 기록됩니다.
+/// 에셋 파일이라 플레이 모드를 빠져나가도 값이 유지됩니다.
 /// </summary>
 public class S7S2TestPanel : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class S7S2TestPanel : MonoBehaviour
     private GUIStyle _labelStyle;
     private string _lastMessage = "";
     private bool _lightsOn = false;
+    private bool _dirty = false;
+    private string _saveMessage = "";
 
     private void Start()
     {
@@ -249,6 +252,7 @@ public class S7S2TestPanel : MonoBehaviour
     private void SetWaltzSpeed(float value)
     {
         _waltzSpeed = Mathf.Clamp(value, 0.2f, 8f);
+        _dirty = true;
         foreach (var set in _waltzSets)
         {
             if (set != null) set.MoveSpeed = _waltzSpeed;
@@ -267,6 +271,9 @@ public class S7S2TestPanel : MonoBehaviour
 
         GUILayout.BeginArea(new Rect(10, 10, 380, Screen.height - 20), GUI.skin.box);
         _scroll = GUILayout.BeginScrollView(_scroll);
+
+        DrawSaveSection();
+        GUILayout.Space(8);
 
         GUILayout.Label("■ [7-2] 테스트 패널", _headerStyle);
         GUILayout.Label($"닫기: {_toggleKey} 키 (닫으면 마우스 다시 잠김)", _labelStyle);
@@ -294,6 +301,116 @@ public class S7S2TestPanel : MonoBehaviour
         GUILayout.EndArea();
     }
 
+    // ---------- 수치 저장 ----------
+    private void DrawSaveSection()
+    {
+        var settings = S7S2GimmickSettings.Get();
+
+        if (settings == null)
+        {
+            GUILayout.Label("설정 파일 없음 — 바꾼 값이 저장되지 않습니다", _headerStyle);
+            GUILayout.Label(
+                "Assets/Resources/S7S2GimmickSettings.asset 이 있는지 확인하세요.", _labelStyle);
+            return;
+        }
+
+        GUILayout.Label("■ 수치 저장", _headerStyle);
+        GUILayout.Label(
+            _dirty
+                ? "● 바뀐 값이 있습니다. 저장하지 않으면 사라집니다."
+                : "저장된 값과 같습니다.",
+            _labelStyle);
+
+        GUILayout.BeginHorizontal();
+
+        if (GUILayout.Button("지금 값 저장하기", GUILayout.Height(28)))
+            SaveSettings();
+
+        if (GUILayout.Button("기획서 기준값으로", GUILayout.Height(28)))
+        {
+            settings.ResetToSpec();
+            PullFromSettings(settings);
+            PushToComponents();
+            _dirty = true;
+            _saveMessage = "기획서 기준값으로 되돌렸습니다. 저장하려면 '지금 값 저장하기'를 누르세요.";
+        }
+
+        GUILayout.EndHorizontal();
+
+        if (!string.IsNullOrEmpty(_saveMessage))
+            GUILayout.Label(_saveMessage, _labelStyle);
+    }
+
+    /// <summary>
+    /// 현재 값을 설정 에셋에 기록한다.
+    /// 에셋은 씬이 아니라 파일이므로, 플레이 모드를 빠져나가도 값이 남는다.
+    /// </summary>
+    private void SaveSettings()
+    {
+        var settings = S7S2GimmickSettings.Get();
+        if (settings == null)
+        {
+            _saveMessage = "설정 파일을 찾지 못해 저장하지 못했습니다.";
+            return;
+        }
+
+        settings.waltzMoveSpeed = _waltzSpeed;
+        settings.waltzStillDuration = _stillDuration;
+        settings.waltzShakeDuration = _shakeDuration;
+        settings.mazeMoveOutDuration = _moveOutDuration;
+        settings.mazeHoldDuration = _holdDuration;
+        settings.mazeReturnDuration = _returnDuration;
+
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(settings);
+        UnityEditor.AssetDatabase.SaveAssets();
+        _dirty = false;
+        _saveMessage = "저장 완료. 게임을 껐다 켜도 이 값이 유지됩니다.";
+        Debug.Log(
+            $"[7-2] 수치 저장됨 — 왈츠 속도 {_waltzSpeed:0.00}, " +
+            $"멈춤 {_stillDuration:0.0}초, 흔들림 {_shakeDuration:0.0}초 / " +
+            $"미로 {_moveOutDuration:0.00}·{_holdDuration:0.0}·{_returnDuration:0.00}초");
+#else
+        _saveMessage = "빌드된 게임에서는 저장할 수 없습니다. 유니티 에디터에서 조절해주세요.";
+#endif
+    }
+
+    private void PullFromSettings(S7S2GimmickSettings settings)
+    {
+        _waltzSpeed = settings.waltzMoveSpeed;
+        _stillDuration = settings.waltzStillDuration;
+        _shakeDuration = settings.waltzShakeDuration;
+        _moveOutDuration = settings.mazeMoveOutDuration;
+        _holdDuration = settings.mazeHoldDuration;
+        _returnDuration = settings.mazeReturnDuration;
+    }
+
+    /// <summary>슬라이더 값을 씬의 모든 마네킹에 적용한다.</summary>
+    private void PushToComponents()
+    {
+        if (_waltzSets != null)
+        {
+            foreach (var set in _waltzSets)
+            {
+                if (set == null) continue;
+                set.MoveSpeed = _waltzSpeed;
+                set.StillDuration = _stillDuration;
+                set.ShakeDuration = _shakeDuration;
+            }
+        }
+
+        if (_triggers != null)
+        {
+            foreach (var t in _triggers)
+            {
+                if (t == null) continue;
+                t.MoveOutDuration = _moveOutDuration;
+                t.HoldDuration = _holdDuration;
+                t.ReturnDuration = _returnDuration;
+            }
+        }
+    }
+
     // ---------- 기믹 1) 왈츠 ----------
     private void DrawWaltzSection()
     {
@@ -311,6 +428,7 @@ public class S7S2TestPanel : MonoBehaviour
         if (!Mathf.Approximately(newSpeed, _waltzSpeed))
         {
             _waltzSpeed = newSpeed;
+            _dirty = true;
             foreach (var set in _waltzSets)
             {
                 if (set != null) set.MoveSpeed = _waltzSpeed;
@@ -323,6 +441,7 @@ public class S7S2TestPanel : MonoBehaviour
         if (!Mathf.Approximately(newStill, _stillDuration))
         {
             _stillDuration = newStill;
+            _dirty = true;
             foreach (var set in _waltzSets)
             {
                 if (set != null) set.StillDuration = _stillDuration;
@@ -335,6 +454,7 @@ public class S7S2TestPanel : MonoBehaviour
         if (!Mathf.Approximately(newShake, _shakeDuration))
         {
             _shakeDuration = newShake;
+            _dirty = true;
             foreach (var set in _waltzSets)
             {
                 if (set != null) set.ShakeDuration = _shakeDuration;
@@ -396,6 +516,7 @@ public class S7S2TestPanel : MonoBehaviour
         if (!Mathf.Approximately(newOut, _moveOutDuration))
         {
             _moveOutDuration = newOut;
+            _dirty = true;
             foreach (var t in _triggers)
             {
                 if (t != null) t.MoveOutDuration = _moveOutDuration;
@@ -407,6 +528,7 @@ public class S7S2TestPanel : MonoBehaviour
         if (!Mathf.Approximately(newHold, _holdDuration))
         {
             _holdDuration = newHold;
+            _dirty = true;
             foreach (var t in _triggers)
             {
                 if (t != null) t.HoldDuration = _holdDuration;
@@ -418,6 +540,7 @@ public class S7S2TestPanel : MonoBehaviour
         if (!Mathf.Approximately(newReturn, _returnDuration))
         {
             _returnDuration = newReturn;
+            _dirty = true;
             foreach (var t in _triggers)
             {
                 if (t != null) t.ReturnDuration = _returnDuration;

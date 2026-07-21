@@ -43,6 +43,10 @@ public class TriggeredMannequin : MonoBehaviour
     [Range(0.05f, 3f)]
     [SerializeField] private float _returnDuration = 0.4f;
 
+    [Tooltip("체크하면 위의 시간 값 대신 저장된 설정 파일(S7S2GimmickSettings)의 값을 사용합니다.\n" +
+             "이 트리거만 다르게 동작시키려면 체크를 해제하세요")]
+    [SerializeField] private bool _useSharedSettings = true;
+
     [Header("SFX")]
     [Tooltip("마네킹이 이동할 때 효과음 (7-2_SFX_mannequin_move)")]
     [SerializeField] private AudioClip _moveSfx;
@@ -79,6 +83,24 @@ public class TriggeredMannequin : MonoBehaviour
         }
 
         _homeSaved = true;
+
+        ApplySettings();
+    }
+
+    /// <summary>
+    /// 저장된 수치 설정(S7S2GimmickSettings.asset)이 있으면 그 값을 사용한다.
+    /// 설정 파일이 없으면 인스펙터에 입력된 값을 그대로 쓴다.
+    /// </summary>
+    private void ApplySettings()
+    {
+        if (!_useSharedSettings) return;
+
+        var settings = S7S2GimmickSettings.Get();
+        if (settings == null) return;
+
+        _moveOutDuration = settings.mazeMoveOutDuration;
+        _holdDuration = settings.mazeHoldDuration;
+        _returnDuration = settings.mazeReturnDuration;
     }
 
     private void OnDisable()
