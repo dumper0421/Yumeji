@@ -167,6 +167,41 @@ public class Sequence7Scene2DialogueController : DialogueController<S7S2State>
         _blackoutImage.color = new Color(c.r, c.g, c.b, to);
     }
 
+    // ---------- 테스트 전용 조명 제어 ----------
+    /// <summary>
+    /// 테스트 전용: 게임 진행 상태를 바꾸지 않고 조명만 켜고 끈다.
+    /// 마네킹은 그대로 남으므로 밝은 상태에서 동선을 확인할 수 있다.
+    /// </summary>
+    public void TestSetLights(bool lightsOn)
+    {
+        if (_darkLightObjects != null)
+        {
+            foreach (var obj in _darkLightObjects)
+            {
+                if (obj != null)
+                    obj.SetActive(!lightsOn);
+            }
+        }
+
+        if (_litLightObjects != null)
+        {
+            foreach (var obj in _litLightObjects)
+            {
+                if (obj != null)
+                    obj.SetActive(lightsOn);
+            }
+        }
+    }
+
+    /// <summary>테스트 전용: 조명을 실제 진행 상태에 맞게 되돌린다.</summary>
+    public void TestRestoreLights()
+    {
+        ApplyLightsAndMannequins();
+    }
+
+    /// <summary>테스트 패널 표시용: 지금 전력이 복구된 상태인가.</summary>
+    public bool IsPowerRestored => state >= S7S2State.PowerRestored;
+
     private void ApplyLightsAndMannequins()
     {
         bool powerOn = state >= S7S2State.PowerRestored;

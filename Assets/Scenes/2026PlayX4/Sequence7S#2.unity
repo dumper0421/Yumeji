@@ -4170,6 +4170,10 @@ PrefabInstance:
       value: WaltzSet_Path9
       objectReference: {fileID: 0}
     - target: {fileID: 4327560539962497227, guid: cf99499a23d74ed4fa4cc2839e4d776a, type: 3}
+      propertyPath: _moveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327560539962497227, guid: cf99499a23d74ed4fa4cc2839e4d776a, type: 3}
       propertyPath: _dialogueManager
       value: 
       objectReference: {fileID: 603143303}
@@ -24886,6 +24890,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 413670985898361213, guid: 05ac033dac31db446900ab735691dbe9, type: 3}
   m_PrefabInstance: {fileID: 1606617284}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1973223281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973223283}
+  - component: {fileID: 1973223282}
+  m_Layer: 0
+  m_Name: S7S2TestPannel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1973223282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973223281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d702b2a199f04aae9addee199a689255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toggleKey: 282
+  _openOnStart: 0
+  _dialogueController: {fileID: 1813038806}
+  _cutterData: {fileID: 11400000, guid: f692f4b124634551ab36c6f0c6cd1fea, type: 2}
+--- !u!4 &1973223283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973223281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976315505 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3099402240792951564, guid: 47256aab16388d04d9b36df7eb6a02ca, type: 3}
@@ -26409,3 +26461,4 @@ SceneRoots:
   - {fileID: 69382609}
   - {fileID: 112831058}
   - {fileID: 437585800}
+  - {fileID: 1973223283}

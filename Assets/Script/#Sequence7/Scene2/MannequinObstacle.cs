@@ -27,6 +27,7 @@ public class MannequinObstacle : MonoBehaviour
     private void Update()
     {
         if (_collider == null || _playerCollider == null) return;
+        if (S7S2Test.Invincible) return;
         if (_dialogueManager != null && _dialogueManager.isRunning) return;
 
         if (_collider.bounds.Intersects(_playerCollider.bounds))

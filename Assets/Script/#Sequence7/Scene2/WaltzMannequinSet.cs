@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// 기믹 1) 마네킹 왈츠 — 마네킹 한 쌍(세트)의 이동/정지/충돌 처리.
-/// - 웨이포인트를 따라 일정한 동선으로 순환 이동
+/// - 웨이포인트를 따라 일정한 동선으로 순환 이동 (포인트마다 대기 시간 지정 가능)
 /// - 카메라 촬영(IFlashable) 시 즉시 정지: 2초 정지 → 1초 좌우 흔들림(예고 SFX) → 이동 재개
 /// - 정지 상태에서 재촬영은 무시, 충돌 판정은 유지
 /// - 플레이어와 콜라이더 접촉 시 즉시 게임오버
@@ -11,16 +11,24 @@ using UnityEngine;
 /// </summary>
 public class WaltzMannequinSet : MonoBehaviour, IFlashable
 {
-    [Header("Movement")]
-    [Tooltip("이동 동선 웨이포인트(p1, p2, ... 순서). 마지막에서 처음으로 순환")]
+    [Header("동선 (Scene 뷰에 노란 선으로 표시됩니다)")]
+    [Tooltip("이동할 포인트들을 순서대로 넣으세요. 마지막 포인트에서 첫 포인트로 돌아갑니다")]
     [SerializeField] private Transform[] _waypoints;
+
+    [Tooltip("이동 속도 (숫자가 클수록 빠름). 기본 2")]
+    [Range(0.2f, 10f)]
     [SerializeField] private float _moveSpeed = 2f;
 
-    [Header("Freeze (촬영)")]
-    [Tooltip("흔들림 전까지 완전히 정지하는 시간")]
+    [Tooltip("체크하면 마지막 포인트에서 왔던 길을 되돌아옵니다 (왕복)")]
+    [SerializeField] private bool _pingPong = false;
+
+    [Header("촬영으로 멈추기")]
+    [Tooltip("완전히 멈춰 있는 시간(초). 기획서 기준 2초")]
+    [Range(0f, 10f)]
     [SerializeField] private float _stillDuration = 2f;
 
-    [Tooltip("이동 재개 전 좌우로 흔들리는 시간")]
+    [Tooltip("다시 움직이기 전 흔들리는 시간(초). 기획서 기준 1초")]
+    [Range(0f, 5f)]
     [SerializeField] private float _shakeDuration = 1f;
 
     [SerializeField] private float _shakeAmplitude = 0.06f;
@@ -29,16 +37,29 @@ public class WaltzMannequinSet : MonoBehaviour, IFlashable
     [Tooltip("정지 해제 전 흔들림과 함께 재생 (7-2_SFX_Mannequin_move_notice)")]
     [SerializeField] private AudioClip _moveNoticeSfx;
 
-    [Header("Dependencies")]
+    [Header("테스트")]
+    [Tooltip("체크하면 시작 대사를 기다리지 않고 바로 움직입니다 (테스트용, 최종 빌드에서는 해제)")]
+    [SerializeField] private bool _startWithoutDialogue = false;
+
+    [Header("연결")]
     [Tooltip("대화 중에는 이동/충돌 판정을 일시 정지")]
     [SerializeField] private DialogueManager _dialogueManager;
 
     private bool _active = false;
     private bool _frozen = false;
+    private bool _waiting = false;
     private int _waypointIndex = 0;
+    private int _direction = 1;
 
     private Collider2D _collider;
     private Collider2D _playerCollider;
+
+    // ---------- 테스트 패널에서 실시간으로 바꾸는 값 ----------
+    public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
+    public float StillDuration { get => _stillDuration; set => _stillDuration = value; }
+    public float ShakeDuration { get => _shakeDuration; set => _shakeDuration = value; }
+    public bool IsFrozen => _frozen;
+    public bool IsActive => _active;
 
     private void Awake()
     {
@@ -49,14 +70,54 @@ public class WaltzMannequinSet : MonoBehaviour, IFlashable
             _playerCollider = player.GetComponent<Collider2D>();
     }
 
+    private void Start()
+    {
+        if (_startWithoutDialogue)
+            Activate();
+    }
+
+    private void OnDisable()
+    {
+        // 코루틴이 중간에 끊기면 정지/대기 상태가 남아 다시 켰을 때 안 움직이므로 초기화
+        StopAllCoroutines();
+        _frozen = false;
+        _waiting = false;
+    }
+
     /// <summary>씬 시작 대사 종료 직후 호출되어 왈츠를 시작한다.</summary>
     public void Activate()
     {
         _active = true;
     }
 
-    private bool IsPaused =>
-        !_active || _frozen || (_dialogueManager != null && _dialogueManager.isRunning);
+    private bool DialogueBlocking =>
+        !S7S2Test.IgnoreDialoguePause
+        && _dialogueManager != null
+        && _dialogueManager.isRunning;
+
+    private bool IsPaused => !_active || _frozen || _waiting || DialogueBlocking;
+
+    /// <summary>테스트 패널용: 지금 안 움직이는 이유를 한 줄로 알려준다.</summary>
+    public string GetBlockReason()
+    {
+        if (!gameObject.activeSelf) return "꺼져 있음";
+        if (_waypoints == null || _waypoints.Length == 0) return "동선 포인트 없음!";
+
+        int emptyCount = 0;
+        foreach (var wp in _waypoints)
+        {
+            if (wp == null) emptyCount++;
+        }
+        if (emptyCount > 0) return $"포인트 {emptyCount}칸 비어있음!";
+
+        if (!_active) return "시작 안 됨";
+        if (DialogueBlocking) return "대사 재생 중";
+        if (_frozen) return "촬영으로 정지";
+        if (_waiting) return "포인트에서 대기";
+        return "이동 중";
+    }
+
+    public int WaypointCount => _waypoints != null ? _waypoints.Length : 0;
 
     private void Update()
     {
@@ -76,13 +137,48 @@ public class WaltzMannequinSet : MonoBehaviour, IFlashable
         );
 
         if (Vector2.Distance(transform.position, target.position) < 0.01f)
+            OnArrived(target);
+    }
+
+    private void OnArrived(Transform point)
+    {
+        // 포인트에 WaltzPoint가 붙어 있고 대기 시간이 있으면 그만큼 멈춘다
+        var waltzPoint = point.GetComponent<WaltzPoint>();
+        if (waltzPoint != null && waltzPoint.waitSeconds > 0f)
+            StartCoroutine(WaitAtPoint(waltzPoint.waitSeconds));
+
+        AdvanceIndex();
+    }
+
+    private IEnumerator WaitAtPoint(float seconds)
+    {
+        _waiting = true;
+        yield return new WaitForSeconds(seconds);
+        _waiting = false;
+    }
+
+    private void AdvanceIndex()
+    {
+        if (_waypoints.Length <= 1) return;
+
+        if (_pingPong)
+        {
+            if (_waypointIndex + _direction >= _waypoints.Length || _waypointIndex + _direction < 0)
+                _direction = -_direction;
+
+            _waypointIndex += _direction;
+        }
+        else
+        {
             _waypointIndex = (_waypointIndex + 1) % _waypoints.Length;
+        }
     }
 
     // ---------- 충돌 (정지 상태여도 판정 유지) ----------
     private void CheckPlayerOverlap()
     {
         if (!_active) return;
+        if (S7S2Test.Invincible) return;
         if (_dialogueManager != null && _dialogueManager.isRunning) return;
         if (_collider == null || _playerCollider == null) return;
 
@@ -134,9 +230,57 @@ public class WaltzMannequinSet : MonoBehaviour, IFlashable
     private void HandleHit(Collider2D collision)
     {
         if (!_active) return;
+        if (S7S2Test.Invincible) return;
         if (_dialogueManager != null && _dialogueManager.isRunning) return;
         if (!collision.CompareTag("Player")) return;
 
         UIManager.Instance?.OpenGameOverUI();
+    }
+
+    // ---------- Scene 뷰 동선 표시 ----------
+    private void OnDrawGizmos()
+    {
+        if (_waypoints == null || _waypoints.Length == 0) return;
+
+        Gizmos.color = _frozen ? Color.cyan : new Color(1f, 0.92f, 0.2f);
+
+        for (int i = 0; i < _waypoints.Length; i++)
+        {
+            Transform current = _waypoints[i];
+            if (current == null) continue;
+
+            Gizmos.DrawSphere(current.position, 0.12f);
+
+            // 다음 포인트로 선 긋기 (왕복이면 마지막→처음 선은 생략)
+            int nextIndex = (i + 1) % _waypoints.Length;
+            if (_pingPong && nextIndex == 0) continue;
+
+            Transform next = _waypoints[nextIndex];
+            if (next != null)
+                Gizmos.DrawLine(current.position, next.position);
+        }
+
+        // 현재 위치에서 목표 포인트까지 표시
+        if (Application.isPlaying && _waypointIndex < _waypoints.Length)
+        {
+            Transform target = _waypoints[_waypointIndex];
+            if (target != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawLine(transform.position, target.position);
+            }
+        }
+
+#if UNITY_EDITOR
+        UnityEditor.Handles.color = Color.white;
+        for (int i = 0; i < _waypoints.Length; i++)
+        {
+            if (_waypoints[i] == null) continue;
+            UnityEditor.Handles.Label(
+                _waypoints[i].position + Vector3.up * 0.25f,
+                $"p{i + 1}"
+            );
+        }
+#endif
     }
 }
