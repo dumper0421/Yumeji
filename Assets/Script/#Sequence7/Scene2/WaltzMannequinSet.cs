@@ -149,7 +149,7 @@ public class WaltzMannequinSet : MonoBehaviour, IFlashable
         if (IsPaused) return;
         if (_waypoints == null || _waypoints.Length == 0) return;
 
-        Transform target = _waypoints[_waypointIndex];
+        Transform target = FindNextValidWaypoint();
         if (target == null) return;
 
         transform.position = Vector2.MoveTowards(
@@ -160,6 +160,25 @@ public class WaltzMannequinSet : MonoBehaviour, IFlashable
 
         if (Vector2.Distance(transform.position, target.position) < 0.01f)
             OnArrived(target);
+    }
+
+    /// <summary>
+    /// 현재 목표 포인트를 반환한다. 포인트가 삭제되어 비어 있으면
+    /// 그 자리를 건너뛰고 다음 포인트로 넘어간다. (멈춰버리지 않도록)
+    /// 전부 비어 있으면 null.
+    /// </summary>
+    private Transform FindNextValidWaypoint()
+    {
+        for (int attempt = 0; attempt < _waypoints.Length; attempt++)
+        {
+            Transform candidate = _waypoints[_waypointIndex];
+            if (candidate != null)
+                return candidate;
+
+            AdvanceIndex();
+        }
+
+        return null;
     }
 
     private void OnArrived(Transform point)
