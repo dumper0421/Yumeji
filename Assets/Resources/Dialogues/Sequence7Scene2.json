@@ -1,0 +1,276 @@
+[
+  {
+    "id": "dialogue_1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "... 레이? 방금 전까지 옆에 있었는데.",
+        "showPortrait": true,
+        "nextId": "dialogue_2"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "여기 아까 그 1층 로비잖아… 불은 왜 다 꺼져있는 거지?",
+        "showPortrait": true,
+        "nextId": "dialogue_3"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_3",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "너무 어두워서 한 치 앞도 안 보여... 일단 불을 켤 방법을 찾아야겠어.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "Statue_BeforePower",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "석상을 자세히 살펴보니, 눈 부분이 버튼으로 되어있다.",
+        "showPortrait": false,
+        "nextId": "Statue_BeforePower_Haru"
+      }
+    ]
+  },
+  {
+    "id": "Statue_BeforePower_Haru",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "버튼을 눌러볼까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      { "text": "누른다.", "nextId": "Statue_BeforePower_Pressed" },
+      { "text": "누르지 않는다.", "nextId": "End" }
+    ]
+  },
+  {
+    "id": "Statue_BeforePower_Pressed",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "아무래도 전기로 작동하는 장치인 것 같다. 전력을 먼저 복구해야겠어.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "Statue_AfterPower",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "전기가 복구되었더니 석상의 눈이 빛나고 있다. 버튼을 눌러볼까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      { "text": "누른다.", "nextId": "Statue_AfterPower_Pressed" },
+      { "text": "누르지 않는다.", "nextId": "End" }
+    ]
+  },
+  {
+    "id": "Statue_AfterPower_Pressed",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "석상의 양쪽 눈을 눌렀다.",
+        "showPortrait": false,
+        "nextId": "Statue_Opened"
+      }
+    ]
+  },
+  {
+    "id": "Statue_Opened",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "석상의 입이 벌어지더니 안에서 무언가가 나왔다.",
+        "showPortrait": false
+      },
+      {
+        "text": "'비상용 절단기'를 얻었다.",
+        "showPortrait": false
+      }
+    ]
+  },
+
+  {
+    "id": "Statue_AfterCutter",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "전원이 완전히 나가서 멈춰있다.",
+        "showPortrait": false,
+        "nextId": "Statue_AfterCutter_Haru"
+      }
+    ]
+  },
+  {
+    "id": "Statue_AfterCutter_Haru",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "어딘가 모르게 불쾌하네…",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "Rope_NoCutter",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "이 위로 올라가려면 계단을 막고 있는 로프를 없애야 할 것 같아.",
+        "showPortrait": true
+      },
+      {
+        "text": "아무래도 로프를 제거할 수 있는 무언가를 찾아야겠어.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "Rope_HasCutter",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "절단기로 로프를 자를까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      { "text": "자른다.", "nextId": "Rope_Cut" },
+      { "text": "자르지 않는다.", "nextId": "End" }
+    ]
+  },
+  {
+    "id": "Rope_Cut",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "비상용 절단기를 사용해서 로프를 잘랐다.",
+        "showPortrait": false,
+        "nextId": "Rope_Cut_Haru"
+      }
+    ]
+  },
+  {
+    "id": "Rope_Cut_Haru",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "이제 지나갈 수 있겠어.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "Sign_Lobby",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "안내판에 '촬영 금지 - 촬영 시, 마네킹이 훼손됨'이라고 적혀있다.",
+        "showPortrait": false,
+        "nextId": "Sign_Lobby_Haru"
+      }
+    ]
+  },
+  {
+    "id": "Sign_Lobby_Haru",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "'카메라로 마네킹이 훼손된다'라… 기억해두는 편이 좋겠어.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "Sign_Banquet",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "안내판에 '사진 촬영 가능'이라고 적혀있다.",
+        "showPortrait": false,
+        "nextId": "Sign_Banquet_Haru"
+      }
+    ]
+  },
+  {
+    "id": "Sign_Banquet_Haru",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "이 방에서는 카메라로 마네킹을 멈출 수 없을 것 같네.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "Breaker",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "화분 뒤로 차단기 레버가 보인다. 레버를 올려볼까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      { "text": "올린다.", "nextId": "Breaker_Raised" },
+      { "text": "올리지 않는다.", "nextId": "End" }
+    ]
+  },
+  {
+    "id": "Breaker_Raised",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "레버를 올렸다.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "Breaker_Already",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "차단기 레버는 이미 올라가 있다.",
+        "showPortrait": false
+      }
+    ]
+  },
+
+  {
+    "id": "LockedDoor",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "어라, 문이 잠겨있네.",
+        "showPortrait": true
+      },
+      {
+        "text": "아무래도 여기로는 못 들어가겠어.",
+        "showPortrait": true
+      }
+    ]
+  }
+]
