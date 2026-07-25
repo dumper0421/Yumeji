@@ -1,0 +1,277 @@
+[
+  {
+    "id": "S6S2_Intro_Ray1",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "끝난 거야?",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru1"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "응. 이렇게 끝이야.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Ray2"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Ray2",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "마지막에 그 두 사람. 불꽃놀이는 결국 같이 못 본 거네.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru2"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "어쩔 수 없었지. 얼른 떠나야 됐거든.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Ray3"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Ray3",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그래서 사진은 건네줬을까?",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru3"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru3",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "글쎄… 그 이후의 이야기까진 생각 안해봤어.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Ray4"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Ray4",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그렇구나. 그래도 영화가 생각보다 훨씬 좋은데? 정말 네가 찍은 거야?",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru4"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru4",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "맞아. 이 영화로 많이 주목도 받고 했어.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Ray5"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Ray5",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그래서 영화 내용은 어느정도 네 이야기가 들어간거야?",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru5"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru5",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "분명히 내가 썼는데… 막상 스크린으로 보니까 잘 모르겠네.",
+        "showPortrait": true
+      },
+      {
+        "text": "내가 저걸 쓴 건지, 아니면 영화가 내 기억을 담은 건지… 헷갈려.",
+        "showPortrait": true
+      },
+      {
+        "text": "여기 온 이후로 내 기억이 마구 뒤엉킨 기분이야.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Ray6"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Ray6",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그게 무슨 말이야?",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru6"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru6",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "아니야, 쓸데 없는 소리였어.",
+        "showPortrait": true
+      },
+      {
+        "text": "아무튼 이제 내 말을 좀 믿겠어?",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Ray7"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Ray7",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "그래, 너가 감독이란 건 확실히 알았어.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru7"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru7",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "지금은 아니긴 해…",
+        "showPortrait": true
+      },
+      {
+        "text": "아무튼 내가 찍은 필름이 왜 여기에 있는 건지, 그것부터 이상해.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Ray8"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Ray8",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "근데 기억이 엉켜있는 것 같다니, 그게 도대체 무슨 말이야?",
+        "showPortrait": true
+      },
+      {
+        "text": "네가 쓴 각본으로 찍은 영화 아니야?",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru8"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru8",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "우선 나가서 이야기하자.",
+        "showPortrait": true
+      },
+      {
+        "text": "너무 답답해 여기. 계속 있을 순 없어.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Ray9"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Ray9",
+    "speaker": "레이",
+    "lines": [
+      {
+        "text": "알겠어. 확실히 공기가 좀 답답하네.",
+        "showPortrait": true,
+        "nextId": "S6S2_Intro_Haru9"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_Intro_Haru9",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "저 위쪽에 출구가 원래 있었던가? 가보자.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "S6S2_KaiApproach",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "저기요. 혹시 여기 관계자분이신가요?",
+        "showPortrait": true
+      },
+      {
+        "text": "뒤에 그 문, 밖으로 나가는 출구 맞나요?",
+        "showPortrait": true
+      },
+      {
+        "text": "저희가 길을 잃어서 그러는데…",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "S6S2_AfterShot_Kai1",
+    "speaker": "케이",
+    "lines": [
+      {
+        "text": "동선이 틀렸잖아.",
+        "showPortrait": true,
+        "nextId": "S6S2_AfterShot_Haru1"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_AfterShot_Haru1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "어…?",
+        "showPortrait": true,
+        "nextId": "S6S2_AfterShot_Kai2"
+      }
+    ]
+  },
+  {
+    "id": "S6S2_AfterShot_Kai2",
+    "speaker": "케이",
+    "lines": [
+      {
+        "text": "지금은 퇴장할 타이밍이라고.",
+        "showPortrait": true
+      },
+      {
+        "text": "다시 한번 해봐.",
+        "showPortrait": true
+      }
+    ]
+  }
+]

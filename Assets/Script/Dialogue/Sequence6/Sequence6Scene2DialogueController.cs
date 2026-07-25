@@ -1,14 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum S6S2State
 {
-    None
+    None,
+    IntroComplete
 }
-public class Sequence6Scene2DialogueController : DialogueController<S6S2State>
-{
 
+public class Sequence6Scene2DialogueController
+    : DialogueController<S6S2State>
+{
+    [SerializeField]
+    private Sequence6Scene2Controller sceneController;
+
+    public void OnStartedDialogue(string dialogueID)
+    {
+        dialogueManager.StartDialogue(dialogueID);
+    }
 
     protected override void ApplyWorldByState()
     {
@@ -16,6 +23,12 @@ public class Sequence6Scene2DialogueController : DialogueController<S6S2State>
 
     protected override void HandleDialogueEnd(string dialogueId)
     {
+        Debug.Log($"대화 종료 ID: {dialogueId}");
+
+        if (dialogueId == "S6S2_Intro_Haru9")
+        {
+            sceneController.FinishIntroSequence();
+        }
     }
 
     protected override void HandleOption(string text, string nextId)
