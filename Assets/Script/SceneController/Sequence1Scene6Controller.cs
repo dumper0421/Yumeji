@@ -26,7 +26,7 @@ public class Sequence1Scene6Controller : SceneController
     private void Start()
     {
         base.Start();
-        playerAnimator.SetFloat("DirY", 1);
+        playerMoveTestLerp.SetFacing(Vector2.up);
         playerMoveTestLerp.enabled = false;
         playerAnimator.enabled = false;
         StartCoroutine(StopPlayer());

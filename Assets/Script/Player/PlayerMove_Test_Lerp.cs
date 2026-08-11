@@ -16,6 +16,13 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     [HideInInspector] public bool canMove = true;
     public Animator animator;
 
+    [Header("Start Facing")]
+    [Tooltip("시작할 때 바라볼 방향. (0,-1)=아래, (0,1)=위, (-1,0)=왼쪽, (1,0)=오른쪽. 가장 가까운 4방향으로 맞춰짐.")]
+    [SerializeField] private Vector2 startFacing = new Vector2(0f, -1f);
+
+    /// <summary>현재 바라보는 4방향. 상호작용 방향 등에서 참조.</summary>
+    public Vector2 Facing { get; private set; } = Vector2.down;
+
     [Header("Flash Settings")]
     [SerializeField] private Vector2Int flashTiles = new Vector2Int(3, 4);
     [SerializeField] private Vector2 tileSize = new Vector2(1f, 1f);
@@ -53,18 +60,46 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     private PlayerActionController actionController;
 
-    void Start()
+    // 다른 스크립트의 Start()에서 Facing을 참조할 수 있도록 Awake에서 초기화한다
+    void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         actionController = GetComponent<PlayerActionController>();
+
+        SetFacing(startFacing);
+    }
+
+    /// <summary>
+    /// 바라보는 방향을 4방향 중 하나로 스냅해서 적용한다.
+    /// 애니메이터의 DirX/DirY와 vector를 함께 갱신.
+    /// </summary>
+    public void SetFacing(Vector2 dir)
+    {
+        if (dir == Vector2.zero)
+            dir = Vector2.down;
+
+        // 가장 가까운 4방향으로 스냅 (애니메이터가 4방향 기준이라 대각선은 허용하지 않음)
+        dir = Mathf.Abs(dir.x) >= Mathf.Abs(dir.y)
+            ? new Vector2(Mathf.Sign(dir.x), 0f)
+            : new Vector2(0f, Mathf.Sign(dir.y));
+
+        Facing = dir;
+        vector = new Vector3(dir.x, dir.y, 0f);
+
+        if (animator != null)
+        {
+            animator.SetFloat("DirX", dir.x);
+            animator.SetFloat("DirY", dir.y);
+        }
     }
 
     IEnumerator MoveCoroutine()
     {
         animator.SetFloat("DirX", vector.x);
         animator.SetFloat("DirY", vector.y);
+        Facing = new Vector2(vector.x, vector.y);
 
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed_ : speed_;
 

@@ -76,7 +76,7 @@ public class Sequence7Scene1DialogueController : DialogueController<S7S1State>
                 _sceneChangeTrigger.SetActive(true);
 
             _playerMove.enabled = true;
-            _playerAnimator.SetFloat("DirY", 1f);
+            _playerMove.SetFacing(Vector2.up);
             _playerAnimator.enabled = true;
         }
     }

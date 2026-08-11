@@ -18,7 +18,7 @@ public class Sequence1Scene5Controller : SceneController
         base.Start();
         if (_dialogueController.state == S1S5State.None)
         {
-            playerAnimator.SetFloat("DirY", 1);
+            playerMoveTestLerp.SetFacing(Vector2.up);
             playerAnimator.enabled = false;
             StartCoroutine(StopPlayer());
         }

@@ -19,9 +19,8 @@ public class Sequence1Scene1Controller : SceneController
 
         playerMoveTestLerp.enabled = false;
 
-        // 하루의 뒷모습(TV를 바라보는 방향)으로 고정
-        playerAnimator.SetFloat("DirX", 0f);
-        playerAnimator.SetFloat("DirY", 1f);
+        // 하루의 뒷모습(TV를 바라보는 방향)으로 고정.
+        // 방향 자체는 Player > PlayerMove_Test_Lerp > Start Facing 에서 설정한다.
         playerAnimator.Update(0f);
         playerAnimator.enabled = false;
 

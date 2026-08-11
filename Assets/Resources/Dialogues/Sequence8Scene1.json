@@ -1,0 +1,1140 @@
+[
+  {
+    "id": "dialogue_1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "……레이?",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_2",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "오랜만이야, 하루.",
+        "showPortrait": true,
+        "nextId": "dialogue_3"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_3",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…그 목소리.",
+        "showPortrait": true,
+        "nextId": "dialogue_4"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_4",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "많이 늦었네.",
+        "showPortrait": true,
+        "nextId": "dialogue_5"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_5",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "너…….",
+        "showPortrait": true
+      },
+      {
+        "text": "루나야?",
+        "showPortrait": true,
+        "nextId": "dialogue_6"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_6",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "응.",
+        "showPortrait": true,
+        "nextId": "dialogue_7"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_7",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "아니야.",
+        "showPortrait": true
+      },
+      {
+        "text": "아까까지 레이가 나랑 같이 있었어.",
+        "showPortrait": true,
+        "nextId": "dialogue_8"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_8",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "알아.",
+        "showPortrait": true,
+        "nextId": "dialogue_9"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_9",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그럼 레이는 어디 있어?",
+        "showPortrait": true
+      },
+      {
+        "text": "너희 둘이 어떻게 같이 있을 수 있는 건데?",
+        "showPortrait": true,
+        "nextId": "dialogue_10"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_10",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "레이는 호텔 밖으로 나올 수 없어.",
+        "showPortrait": true
+      },
+      {
+        "text": "네가 창문을 넘어오는 순간, 그 애가 이어오던 장면도 끝났어.",
+        "showPortrait": true,
+        "nextId": "dialogue_11"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_11",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그 애가 대체 누군데?",
+        "showPortrait": true,
+        "nextId": "dialogue_12"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_12",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "내가 연기했던 사람.",
+        "showPortrait": true
+      },
+      {
+        "text": "필름이 기억하고 있는 나.",
+        "showPortrait": true,
+        "nextId": "dialogue_13"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_13",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그럼 넌?",
+        "showPortrait": true,
+        "nextId": "dialogue_14"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_14",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "필름이 잊어버린 쪽이 아닐까?",
+        "showPortrait": true,
+        "nextId": "dialogue_15"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_15",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "무슨 말인지 모르겠어…",
+        "showPortrait": true
+      },
+      {
+        "text": "레이는 너랑 똑같은 얼굴을 하고 있었어.",
+        "showPortrait": true
+      },
+      {
+        "text": "내 이름도 알고 있었고, 내가 찍은 영화도 봤어.",
+        "showPortrait": true
+      },
+      {
+        "text": "그런데 자기가 누군지는 아무것도 몰랐다고.",
+        "showPortrait": true,
+        "nextId": "dialogue_16"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_16",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "레이는 내 얼굴과 목소리를 가지고 있어.",
+        "showPortrait": true
+      },
+      {
+        "text": "내가 그 배역에 남겨둔 감정도 가지고 있고.",
+        "showPortrait": true
+      },
+      {
+        "text": "하지만 카메라 앞에 서기 전의 나는 기억하지 못해.",
+        "showPortrait": true,
+        "nextId": "dialogue_17"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_17",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그럼 어느 쪽이 진짜야?",
+        "showPortrait": true,
+        "nextId": "dialogue_18"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_18",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "글쎄… 살아 있던 나는 이미 없어.",
+        "showPortrait": true
+      },
+      {
+        "text": "그러니까 어느 한쪽을 진짜라고 부르지는 마.",
+        "showPortrait": true
+      },
+      {
+        "text": "레이도, 나도….",
+        "showPortrait": true
+      },
+      {
+        "text": "살아 있던 사람이 남기고 간 일부일 뿐이야.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_19",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "여기는 어디야?",
+        "showPortrait": true
+      },
+      {
+        "text": "호텔 밖이면, 필름에서도 나온 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_20"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_20",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "아니.",
+        "showPortrait": true
+      },
+      {
+        "text": "이 정원은 지어지기만 하고 끝내 촬영되지 않았어.",
+        "showPortrait": true
+      },
+      {
+        "text": "각본에도 완성되지 않은 채 남아 있었고.",
+        "showPortrait": true,
+        "nextId": "dialogue_21"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_21",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "촬영되지도 않은 곳이 어떻게 존재해?",
+        "showPortrait": true,
+        "nextId": "dialogue_22"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_22",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "존재하는 게 아니야.",
+        "showPortrait": true
+      },
+      {
+        "text": "남아 있는 거지.",
+        "showPortrait": true,
+        "nextId": "dialogue_23"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_23",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "말장난하지 마.",
+        "showPortrait": true,
+        "nextId": "dialogue_24"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_24",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "문을 열 때마다 전혀 다른 장소가 나왔지?",
+        "showPortrait": true
+      },
+      {
+        "text": "죽은 레이가 다시 돌아왔고, 했던 대사도 처음부터 반복됐어.",
+        "showPortrait": true,
+        "nextId": "dialogue_25"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_25",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…….",
+        "showPortrait": true,
+        "nextId": "dialogue_26"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_26",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "현실의 공간은 그런 식으로 이어지지 않아.",
+        "showPortrait": true
+      },
+      {
+        "text": "여긴 기억이 영화처럼 편집된 곳이야.",
+        "showPortrait": true
+      },
+      {
+        "text": "이어질 수 없는 장면은 다른 기억에 붙고,",
+        "showPortrait": true
+      },
+      {
+        "text": "끝나지 못한 순간은 처음부터 다시 시작해.",
+        "showPortrait": true,
+        "nextId": "dialogue_27"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_27",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "영화 <유메지>는 불탔잖아.",
+        "showPortrait": true
+      },
+      {
+        "text": "영화제에서 한 번 상영된 뒤에 전부 없어졌어.",
+        "showPortrait": true,
+        "nextId": "dialogue_28"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_28",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "응.",
+        "showPortrait": true
+      },
+      {
+        "text": "필름도, 그 안에 있던 마지막 길도 모두 불탔어.",
+        "showPortrait": true,
+        "nextId": "dialogue_29"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_29",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그런데 여긴 왜 남아 있는 건데?",
+        "showPortrait": true,
+        "nextId": "dialogue_30"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_30",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "내가 놓지 못했던 것 같아.",
+        "showPortrait": true
+      },
+      {
+        "text": "죽고 나서도 이 영화가 끝나는 걸 받아들이지 못했어.",
+        "showPortrait": true
+      },
+      {
+        "text": "케이를 미워했고, 그가 만든 영화를 미워했고….",
+        "showPortrait": true
+      },
+      {
+        "text": "아무 일도 없었다는 듯 앞으로 흘러가는 시간도 미워했어.",
+        "showPortrait": true
+      },
+      {
+        "text": "돌아갈 수 없는 순간을 붙잡으려 했고,",
+        "showPortrait": true
+      },
+      {
+        "text": "그 마음이 타버린 장면들을 다시 이어 붙였어.",
+        "showPortrait": true,
+        "nextId": "dialogue_31"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_31",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그러면 이 세계는 네가 만든 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_32"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_32",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "내가 시작했지.",
+        "showPortrait": true
+      },
+      {
+        "text": "하지만 지금은 나도 끝낼 수 없어.",
+        "showPortrait": true,
+        "nextId": "dialogue_33"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_33",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "케이 때문이야?",
+        "showPortrait": true,
+        "nextId": "dialogue_34"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_34",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "케이는 현실에서도 <유메지>의 감독이자 배우였어.",
+        "showPortrait": true
+      },
+      {
+        "text": "이곳에서는 그 둘의 구분이 완전히 사라졌고.",
+        "showPortrait": true
+      },
+      {
+        "text": "그는 각본을 법으로 만들고, 자신을 다시 한 번 이 세계의 감독으로 만들었어.",
+        "showPortrait": true,
+        "nextId": "dialogue_35"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_35",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그래서 레이를 계속 죽였던 거야?",
+        "showPortrait": true
+      },
+      {
+        "text": "영화의 각본처럼?",
+        "showPortrait": true,
+        "nextId": "dialogue_36"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_36",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "장면이 반복될 때마다 레이는 같은 고통을 처음 겪는 것처럼 다시 겪었어.",
+        "showPortrait": true,
+        "nextId": "dialogue_37"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_37",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "넌 그걸 보고만 있었어?",
+        "showPortrait": true
+      },
+      {
+        "text": "네가 케이를 호텔에 가뒀다고 했잖아.",
+        "showPortrait": true
+      },
+      {
+        "text": "그런데 그 안에서 마음대로 하는 건 전부 케이였어.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_38",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그를 없앨 수는 없었어.",
+        "showPortrait": true
+      },
+      {
+        "text": "그래서 그가 만든 규칙으로 그를 묶었어.",
+        "showPortrait": true,
+        "nextId": "dialogue_39"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_39",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "무슨 규칙?",
+        "showPortrait": true,
+        "nextId": "dialogue_40"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_40",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "촬영된 인물은 촬영된 장면 밖으로 나갈 수 없어.",
+        "showPortrait": true
+      },
+      {
+        "text": "호텔 안의 모든 길을 서로 이어서, 어느 문을 열어도 다시 호텔로 돌아오게 했어.",
+        "showPortrait": true
+      },
+      {
+        "text": "케이는 그 안에서 무엇이든 바꿀 수 있었지만,",
+        "showPortrait": true
+      },
+      {
+        "text": "이 정원으로는 나올 수 없었어.",
+        "showPortrait": true,
+        "nextId": "dialogue_41"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_41",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그런데 나는 나왔어.",
+        "showPortrait": true,
+        "nextId": "dialogue_42"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_42",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "넌 이 영화의 등장인물이 아니니까.",
+        "showPortrait": true
+      },
+      {
+        "text": "너한테는 정해진 대사도, 퇴장할 장면도 없어.",
+        "showPortrait": true
+      },
+      {
+        "text": "네가 창문을 깨고 나온 순간,",
+        "showPortrait": true
+      },
+      {
+        "text": "이 세계에 처음으로 각본에 없는 출구가 생겼어.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_43",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그러면 케이도 그 틈으로 나올 수 있다는 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_44"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_44",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "곧 따라올 거야.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_45",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그때는 네가 케이와 함께 사라졌다고 들었어.",
+        "showPortrait": true,
+        "nextId": "dialogue_46"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_46",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그렇게 알려졌다고 하더라고.",
+        "showPortrait": true,
+        "nextId": "dialogue_47"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_47",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그럼 너는 죽은 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_48"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_48",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "응.",
+        "showPortrait": true,
+        "nextId": "dialogue_49"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_49",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그날은 기억해?",
+        "showPortrait": true,
+        "nextId": "dialogue_50"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_50",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "잘은 나지 않아.",
+        "showPortrait": true
+      },
+      {
+        "text": "끝만 조금.",
+        "showPortrait": true,
+        "nextId": "dialogue_51"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_51",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그래…",
+        "showPortrait": true
+      },
+      {
+        "text": "나는 네가 죽었단 걸 정말 몰랐던 걸까…?",
+        "showPortrait": true,
+        "nextId": "dialogue_52"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_52",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "어쩌면 알고 있었을지도 몰라.",
+        "showPortrait": true,
+        "nextId": "dialogue_53"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_53",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그래서 그걸 알고 나를 부른거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_54"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_54",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "이젠 끝내고 싶거든.",
+        "showPortrait": true
+      },
+      {
+        "text": "이곳은 내가 만든 감옥이야.",
+        "showPortrait": true
+      },
+      {
+        "text": "케이를 가두었고, 레이를 가두었고….",
+        "showPortrait": true
+      },
+      {
+        "text": "결국 너까지 끌어들였어.",
+        "showPortrait": true
+      },
+      {
+        "text": "지금의 네 모습을 보면서,",
+        "showPortrait": true
+      },
+      {
+        "text": "네 상처를 이용하면 이 세계를 끝낼 수 있을 거라고 생각했어.",
+        "showPortrait": true,
+        "nextId": "dialogue_55"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_55",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "처음부터 알고 부른 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_56"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_56",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "응.",
+        "showPortrait": true
+      },
+      {
+        "text": "미안해.",
+        "showPortrait": true,
+        "nextId": "dialogue_57"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_57",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…",
+        "showPortrait": true,
+        "nextId": "dialogue_58"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_58",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "하지만 너만이 이 세계에 균열을 만들 수 있어.",
+        "showPortrait": true
+      },
+      {
+        "text": "영화 안에 있는 사람은 영화의 끝을 바꿀 수 없으니까.",
+        "showPortrait": true,
+        "nextId": "dialogue_59"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_59",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…",
+        "showPortrait": true,
+        "nextId": "dialogue_60"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_60",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "우선 케이를 호텔 밖으로 끌어내야 했어.",
+        "showPortrait": true,
+        "nextId": "dialogue_61"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_61",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "케이가 밖으로 나오면, 그 다음은?",
+        "showPortrait": true,
+        "nextId": "dialogue_62"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_62",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "내가 아는 건 거기까지야.",
+        "showPortrait": true
+      },
+      {
+        "text": "케이가 감독으로 남아 있는 한, 이 세계는 몇 번이고 처음으로 돌아가.",
+        "showPortrait": true
+      },
+      {
+        "text": "그러니 그를 호텔과 분리해야 해.",
+        "showPortrait": true,
+        "nextId": "dialogue_63"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_63",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "케이를 없애면 이 세계도 사라지는 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_64"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_64",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "아마도.",
+        "showPortrait": true
+      },
+      {
+        "text": "적어도 되감을 사람은 없어지겠지.",
+        "showPortrait": true,
+        "nextId": "dialogue_65"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_65",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그래서, 이제 어떻게 해야 돼?",
+        "showPortrait": true,
+        "nextId": "dialogue_66"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_66",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그는 네 기억 안으로 들어가려 할 거야.",
+        "showPortrait": true
+      },
+      {
+        "text": "이 영화에 없는 새로운 장면을 네 안에서 찾으려고 하겠지.",
+        "showPortrait": true
+      },
+      {
+        "text": "그가 어디로 가든 놓치지 말고 따라가.",
+        "showPortrait": true
+      },
+      {
+        "text": "다시 호텔로 돌아오지 못하도록 시간을 벌어줘.",
+        "showPortrait": true,
+        "nextId": "dialogue_67"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_67",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그동안 넌?",
+        "showPortrait": true,
+        "nextId": "dialogue_68"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_68",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "이쪽에서 돌아갈 길을 닫아둘게.",
+        "showPortrait": true
+      },
+      {
+        "text": "그가 따라붙기 전에 가야 해.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_69",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "",
+        "imageName": "SEQ8_Letter",
+        "nextId": "dialogue_70"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_70",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그리고 이것도 받아줘.",
+        "showPortrait": true,
+        "nextId": "dialogue_71"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_71",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "내 이름….",
+        "showPortrait": true,
+        "nextId": "dialogue_72"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_72",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "마지막 촬영 전에 썼어.",
+        "showPortrait": true
+      },
+      {
+        "text": "끝내 보내지는 못했지만.",
+        "showPortrait": true,
+        "nextId": "dialogue_73"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_73",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "왜?",
+        "showPortrait": true,
+        "nextId": "dialogue_74"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_74",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "보내고 나면 정말 마지막이 될 것 같았어.",
+        "showPortrait": true,
+        "nextId": "dialogue_75"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_75",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "지금 읽어도 돼?",
+        "showPortrait": true,
+        "nextId": "dialogue_76"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_76",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "나중에. 내가 없을 때 읽어.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_77",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "잠깐만.",
+        "showPortrait": true
+      },
+      {
+        "text": "또 사라지려는 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_78"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_78",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그가 오기 전에 가야 해.",
+        "showPortrait": true,
+        "nextId": "dialogue_79"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_79",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "다시 볼 수 있을까?",
+        "showPortrait": true,
+        "nextId": "dialogue_80"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_80",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "이번에는 약속하지 않을게.",
+        "showPortrait": true,
+        "nextId": "dialogue_81"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_81",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "루나.",
+        "showPortrait": true,
+        "nextId": "dialogue_82"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_82",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "이번에는 날 따라오지 마.",
+        "showPortrait": true
+      },
+      {
+        "text": "케이가 길을 열면, 그를 따라가.",
+        "showPortrait": true
+      },
+      {
+        "text": "편지는 꼭 받아줘.",
+        "showPortrait": true
+      }
+    ]
+  }
+]

@@ -5,19 +5,43 @@ public class InteractionSystem : MonoBehaviour
     public float InteractDistance = 1.0f;
     public LayerMask InteractableLayer;
 
+    [Tooltip("비워두면 씬에서 자동으로 찾음. 대화 중 상호작용 차단에 사용된다.")]
+    [SerializeField] private DialogueManager dialogueManager;
+
     private Vector2 lastDirection = Vector2.down;
     private PlayerActionController actionController;
     private PlayerMove_Test_Lerp move;
+
+    // 대화가 Space를 쓰고 있는 동안에는 상호작용 금지.
+    // ConsumedInputThisFrame이 없으면, 마지막 줄을 넘긴 Space가 같은 프레임에
+    // (EndDialogue가 move를 다시 켠 뒤) 상호작용을 재발동해 대사가 무한 반복된다.
+    private bool IsDialogueUsingInput =>
+        dialogueManager != null
+        && (dialogueManager.isRunning || dialogueManager.ConsumedInputThisFrame);
 
     private void Awake()
     {
         actionController = GetComponent<PlayerActionController>();
         move = GetComponent<PlayerMove_Test_Lerp>();
+
+        if (dialogueManager == null)
+            dialogueManager = FindObjectOfType<DialogueManager>();
+    }
+
+    private void Start()
+    {
+        // 아직 입력이 없었을 때의 상호작용 방향을 시작 방향과 맞춘다
+        // (PlayerMove_Test_Lerp.Awake에서 Facing이 이미 정해져 있음)
+        if (move != null)
+            lastDirection = move.Facing;
     }
 
     private void Update()
     {
         UpdateFacingDirection();
+
+        if (IsDialogueUsingInput)
+            return;
 
         // ★ 밀기 중이면 상호작용 완전 차단
         if (actionController != null && actionController.IsPushing)

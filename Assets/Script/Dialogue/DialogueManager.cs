@@ -133,6 +133,14 @@ public class DialogueManager : MonoBehaviour
     public bool _waitingForInput = false;
     public bool isRunning = false;
 
+    /// <summary>
+    /// 대화가 진행/종료 키 입력을 소비한 마지막 프레임.
+    /// 대화를 끝낸 그 Space가 같은 프레임에 상호작용까지 발동시키는 것을 막는 용도.
+    /// </summary>
+    public bool ConsumedInputThisFrame => _lastInputFrame == Time.frameCount;
+
+    private int _lastInputFrame = -1;
+
     [Header("Next Prompt")]
     [SerializeField]
     private RectTransform nextPrompt;
@@ -208,7 +216,10 @@ public class DialogueManager : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.UpArrow))
                 ChangeSelection(-1);
             else if (Input.GetKeyDown(advanceKey) || Input.GetKeyDown(enterKey))
+            {
+                _lastInputFrame = Time.frameCount;
                 optionButtons[selectedOption].onClick.Invoke();
+            }
 
             return;
         }
@@ -225,6 +236,8 @@ public class DialogueManager : MonoBehaviour
         {
             if (Input.GetKeyDown(advanceKey) || Input.GetKeyDown(enterKey))
             {
+                _lastInputFrame = Time.frameCount;
+
                 if (isTyping)
                 {
                     CompleteTyping();

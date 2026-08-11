@@ -18,10 +18,19 @@ public class AstarEnemy : Enemy
 
     public bool isMove = false;
 
+    [Header("대화 중 정지")]
+    [Tooltip("비워두면 씬에서 자동으로 찾음. 대화 중에는 추격/잡힘 판정을 멈춘다.")]
+    [SerializeField] private DialogueManager dialogueManager;
+
+    private bool _pausedByDialogue;
+
     private Vector2Int _lastTargetGrid;
     private bool _hasLastTargetGrid;
 
     private Animator animator;
+
+    // 대화 중에는 플레이어 조작이 막히므로(DialogueManager.StartDialogue) 적도 멈춰야 한다
+    private bool IsDialoguePlaying => dialogueManager != null && dialogueManager.isRunning;
 
     private static readonly int HashIsWalk = Animator.StringToHash("isWalk");
     private static readonly int HashDirX   = Animator.StringToHash("DirX");
@@ -32,6 +41,9 @@ public class AstarEnemy : Enemy
         originalMoveSpeed = moveSpeed;
         pathFinder = GetComponent<EnemyPathfinder>();
         animator = GetComponent<Animator>();
+
+        if (dialogueManager == null)
+            dialogueManager = FindObjectOfType<DialogueManager>();
 
         if (Target != null && pathFinder != null)
         {
@@ -46,9 +58,30 @@ public class AstarEnemy : Enemy
         if (Target == null || pathFinder == null)
             return;
 
+        // 대화가 진행 중이면 이동도 잡힘 판정도 하지 않는다.
+        // (대화 중에는 플레이어가 조작 불가라 피할 방법이 없음)
+        if (IsDialoguePlaying)
+        {
+            if (!_pausedByDialogue)
+            {
+                _pausedByDialogue = true;
+                CancelMovement();
+            }
+
+            FaceTarget();
+            return;
+        }
+
+        if (_pausedByDialogue)
+        {
+            _pausedByDialogue = false;
+            waitTimer = waitInterval; // 대화가 끝나면 곧바로 추격 재개
+        }
+
         float distanceToTarget = Vector2.Distance(transform.position, Target.transform.position);
 
-        if (distanceToTarget < attackAllowedDistance)
+        // isMove가 false면 연출상 멈춰 있는 상태이므로 잡힘 판정도 하지 않는다
+        if (isMove && distanceToTarget < attackAllowedDistance)
         {
             isStop = true;
             if (!hasReachedTarget)
@@ -76,21 +109,7 @@ public class AstarEnemy : Enemy
 
         if (isStop || !isMove)
         {
-            if (animator != null)
-            {
-                Vector2 dirToTarget = (Target.transform.position - transform.position).normalized;
-                bool isHorizontal = Mathf.Abs(dirToTarget.x) >= Mathf.Abs(dirToTarget.y);
-                if (isHorizontal)
-                {
-                    animator.SetFloat(HashDirX, dirToTarget.x > 0 ? 1f : -1f);
-                    animator.SetFloat(HashDirY, 0f);
-                }
-                else
-                {
-                    animator.SetFloat(HashDirX, 0f);
-                    animator.SetFloat(HashDirY, dirToTarget.y > 0 ? 1f : -1f);
-                }
-            }
+            FaceTarget();
             return;
         }
 
@@ -102,6 +121,26 @@ public class AstarEnemy : Enemy
         {
             pathFinder.targetPos = currentTargetGrid;
             moveCoroutine = StartCoroutine(Move(currentTargetGrid));
+        }
+    }
+
+    // 멈춰 있을 때 플레이어 쪽을 바라보게만 한다
+    private void FaceTarget()
+    {
+        if (animator == null || Target == null)
+            return;
+
+        Vector2 dirToTarget = (Target.transform.position - transform.position).normalized;
+        bool isHorizontal = Mathf.Abs(dirToTarget.x) >= Mathf.Abs(dirToTarget.y);
+        if (isHorizontal)
+        {
+            animator.SetFloat(HashDirX, dirToTarget.x > 0 ? 1f : -1f);
+            animator.SetFloat(HashDirY, 0f);
+        }
+        else
+        {
+            animator.SetFloat(HashDirX, 0f);
+            animator.SetFloat(HashDirY, dirToTarget.y > 0 ? 1f : -1f);
         }
     }
 
