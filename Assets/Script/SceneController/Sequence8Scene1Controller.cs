@@ -19,6 +19,11 @@ public class Sequence8Scene1Controller : SceneController
     [SerializeField]
     private CinemachineVirtualCamera _playerCamera;
 
+    [Header("0. 암전에서 시작")]
+    [Tooltip("CutsceneManager는 씬 시작 시 화면을 검게 덮는다. 석상을 비추며 밝아지는 시간.")]
+    [SerializeField]
+    private float _introFadeInDuration = 1.5f;
+
     [Header("1. 중앙 석상 & 루나 보여주기")]
     [Tooltip("석상과 루나가 한 화면에 잡히는 지점. 보통 석상(C)과 루나(L) 사이에 빈 오브젝트를 두고 연결한다.")]
     [SerializeField]
@@ -70,6 +75,11 @@ public class Sequence8Scene1Controller : SceneController
 
         // 연출 카메라를 석상 위치에 세팅하고, 평상시 화면 크기를 받아둔다
         float gameplayOrthoSize = SetUpIntroCamera();
+
+        // CutsceneManager는 자기 Start()에서 화면을 검게 덮는다.
+        // 컴포넌트 간 Start 순서가 보장되지 않으므로 한 프레임 넘긴 뒤에 걷어낸다.
+        yield return null;
+        CutsceneManager.Instance.FadeFromBlack(null, _introFadeInDuration);
 
         // 1. 중앙 석상과 루나를 보여준다
         if (_statueHoldDuration > 0f)

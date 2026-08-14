@@ -163,9 +163,22 @@ public class Sequence8Scene1DialogueController : DialogueController<S8S1State>
     private ColorAdjustments _colorAdjustments;
 
     [Header("연출 - 사운드")]
-    [Tooltip("낮은 영사기 작동음. 5번부터 씬이 끝날 때까지 루프한다.")]
+    [Tooltip("낮은 영사기 작동음. 5번(석상 앞 이동)부터 씬이 끝날 때까지 SoundManager의 루프 채널로 깔린다.")]
     [SerializeField]
-    private AudioSource _projectorLoop;
+    private AudioClip _projectorLoopClip;
+
+    [Range(0f, 1f)]
+    [Tooltip("영사기음 볼륨. 대사를 덮지 않게 낮게 깐다.")]
+    [SerializeField]
+    private float _projectorVolume = 0.35f;
+
+    [Tooltip("영사기음이 서서히 올라오는 시간. 0이면 바로 최대 볼륨.")]
+    [SerializeField]
+    private float _projectorFadeInDuration = 1.5f;
+
+    [Tooltip("11번 페이드 아웃과 함께 영사기음이 잦아드는 시간")]
+    [SerializeField]
+    private float _projectorFadeOutDuration = 1.5f;
 
     [Header("연출 - 타이밍")]
     [Tooltip("8번: 색조를 한 단계 더 낮추기 전 휴지")]
@@ -334,11 +347,7 @@ public class Sequence8Scene1DialogueController : DialogueController<S8S1State>
     // ---------- 5번 ----------
     private IEnumerator Co_MoveToStatue()
     {
-        if (_projectorLoop != null && !_projectorLoop.isPlaying)
-        {
-            _projectorLoop.loop = true;
-            _projectorLoop.Play();
-        }
+        StartProjectorLoop();
 
         StartCoroutine(Co_FadeLight(_lightStage1));
 
@@ -419,6 +428,8 @@ public class Sequence8Scene1DialogueController : DialogueController<S8S1State>
                 _haruMoveSpeed
             );
 
+            SetWalking(_playerMove.animator, _haruAnimParams, false, _haruMoveSpeed);
+
             // 실제로 움직인 방향을 그대로 바라본다.
             // (인스펙터 값과 최종 시선이 어긋나지 않도록 이동 결과에서 뽑는다)
             Vector2 moved = _playerMove.transform.position - from;
@@ -439,8 +450,8 @@ public class Sequence8Scene1DialogueController : DialogueController<S8S1State>
 
         yield return new WaitForSeconds(0.5f);
 
-        if (_projectorLoop != null)
-            _projectorLoop.Stop();
+        // 화면이 어두워지는 동안 같이 잦아들게 둔다. 여기서 끊으면 소리만 뚝 끊긴다.
+        StopProjectorLoop();
 
         CutsceneManager.Instance.FadeToBlack(
             () =>
@@ -450,6 +461,31 @@ public class Sequence8Scene1DialogueController : DialogueController<S8S1State>
             },
             _fadeOutDuration
         );
+    }
+
+    // ---------- 사운드 ----------
+    private void StartProjectorLoop()
+    {
+        if (_projectorLoopClip == null)
+        {
+            Debug.LogWarning("[S8S1] 영사기 작동음 클립이 비어 있어 소리 없이 진행한다.", this);
+            return;
+        }
+
+        if (SoundManager.Instance == null)
+            return;
+
+        SoundManager.Instance.PlayLoopSFX(
+            _projectorLoopClip,
+            _projectorVolume,
+            _projectorFadeInDuration
+        );
+    }
+
+    private void StopProjectorLoop()
+    {
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.StopLoopSFX(_projectorFadeOutDuration);
     }
 
     // ---------- 이동 ----------
@@ -514,6 +550,9 @@ public class Sequence8Scene1DialogueController : DialogueController<S8S1State>
 
             yield return Co_GridMove(mover, animator, anim, wp.position, speed);
         }
+
+        // 도착. 마지막 웨이포인트까지 온 뒤에야 걷기를 끈다.
+        SetWalking(animator, anim, false, speed);
     }
 
     /// <summary>
@@ -574,7 +613,8 @@ public class Sequence8Scene1DialogueController : DialogueController<S8S1State>
         if ((finalPos - mover.position).sqrMagnitude > 0.000001f)
             yield return Co_SingleStep(mover, finalPos, stepSeconds);
 
-        SetWalking(animator, anim, false, speed);
+        // 걷기를 여기서 끄면 ㄱ자로 꺾일 때마다 한 프레임씩 서 있는 게 보인다.
+        // 경로가 전부 끝나는 지점(Co_MovePath / 호출부)에서 한 번만 끈다.
     }
 
     private IEnumerator Co_SingleStep(Transform mover, Vector3 to, float duration)

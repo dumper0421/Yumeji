@@ -13,6 +13,7 @@ public class SoundManager : Singleton<SoundManager>
     private AudioMixer _audioMixer;
     private AudioSource _bgmSource;
     private AudioSource _sequentialSFXSource;
+    private AudioSource _loopSFXSource;
     private const int _sfxSourceCount = 4;
     private readonly Queue<AudioSource> _sfxSources = new Queue<AudioSource>();
     private readonly Queue<AudioClip> _sfxQueue = new Queue<AudioClip>();
@@ -58,6 +59,12 @@ public class SoundManager : Singleton<SoundManager>
         // Sequential SFX Source
         _sequentialSFXSource = CreateAudioSource("SequentialSFX");
         _sequentialSFXSource.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("SFX")[0];
+
+        // Loop SFX Source (영사기 작동음처럼 계속 깔리는 지속음)
+        _loopSFXSource = CreateAudioSource("LoopSFX");
+        _loopSFXSource.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("SFX")[0];
+        _loopSFXSource.loop = true;
+        _loopSFXSource.playOnAwake = false;
 
         // Simultaneous SFX Sources
         for (int i = 0; i < _sfxSourceCount; i++)
@@ -125,11 +132,76 @@ public class SoundManager : Singleton<SoundManager>
         if (_sequentialSFXSource != null)
             _sequentialSFXSource.Stop();
 
+        StopLoopSFX();
+
         foreach (var src in _sfxSources)
         {
             if (src != null)
                 src.Stop();
         }
+    }
+    #endregion
+
+    #region Loop SFX (지속 환경음)
+    private Coroutine _loopSFXFadeCo;
+
+    public bool IsLoopSFXPlaying => _loopSFXSource != null && _loopSFXSource.isPlaying;
+
+    /// <summary>
+    /// 영사기 작동음처럼 씬 내내 깔리는 지속음을 재생한다.
+    /// PlaySFX는 PlayOneShot이라 루프도 개별 정지도 안 되고,
+    /// PlayBGM은 BGM 채널 단일 소스라 배경음악을 밀어내기 때문에 전용 소스를 쓴다.
+    /// 이미 같은 클립이 돌고 있으면 처음부터 다시 틀지 않고 볼륨만 맞춘다.
+    /// </summary>
+    public void PlayLoopSFX(AudioClip clip, float volume = 1f, float fadeInTime = 0f)
+    {
+        if (clip == null || _loopSFXSource == null) return;
+
+        if (_loopSFXFadeCo != null)
+        {
+            StopCoroutine(_loopSFXFadeCo);
+            _loopSFXFadeCo = null;
+        }
+
+        if (_loopSFXSource.clip == clip && _loopSFXSource.isPlaying)
+        {
+            _loopSFXSource.volume = volume;
+            return;
+        }
+
+        _loopSFXSource.clip = clip;
+        _loopSFXSource.loop = true;
+        _loopSFXSource.volume = fadeInTime > 0f ? 0f : volume;
+        _loopSFXSource.Play();
+
+        if (fadeInTime > 0f)
+            _loopSFXFadeCo = StartCoroutine(
+                FadeSourceVolume(_loopSFXSource, volume, fadeInTime, () => _loopSFXFadeCo = null));
+    }
+
+    public void StopLoopSFX(float fadeOutTime = 0f)
+    {
+        if (_loopSFXSource == null) return;
+
+        if (_loopSFXFadeCo != null)
+        {
+            StopCoroutine(_loopSFXFadeCo);
+            _loopSFXFadeCo = null;
+        }
+
+        if (fadeOutTime <= 0f || !_loopSFXSource.isPlaying)
+        {
+            _loopSFXSource.Stop();
+            _loopSFXSource.clip = null;
+            return;
+        }
+
+        _loopSFXFadeCo = StartCoroutine(FadeSourceVolume(_loopSFXSource, 0f, fadeOutTime, () =>
+        {
+            _loopSFXSource.Stop();
+            _loopSFXSource.clip = null;
+            _loopSFXFadeCo = null;
+        }));
     }
     #endregion
 
@@ -181,6 +253,7 @@ public class SoundManager : Singleton<SoundManager>
     private readonly List<AudioSource> _pausedSfxSources = new List<AudioSource>();
     private bool _bgmWasPaused = false;
     private bool _sequentialWasPaused = false;
+    private bool _loopWasPaused = false;
 
     public void PauseAllAudio()
     {
@@ -198,6 +271,14 @@ public class SoundManager : Singleton<SoundManager>
         {
             _sequentialSFXSource.Pause();
             _sequentialWasPaused = true;
+        }
+
+        // Loop SFX
+        _loopWasPaused = false;
+        if (_loopSFXSource != null && _loopSFXSource.isPlaying)
+        {
+            _loopSFXSource.Pause();
+            _loopWasPaused = true;
         }
 
         // Simultaneous SFX (풀에 있는 소스들 중 재생중인 것들만 Pause)
@@ -223,6 +304,10 @@ public class SoundManager : Singleton<SoundManager>
         if (_sequentialWasPaused && _sequentialSFXSource != null)
             _sequentialSFXSource.UnPause();
 
+        // Loop SFX
+        if (_loopWasPaused && _loopSFXSource != null)
+            _loopSFXSource.UnPause();
+
         // Simultaneous SFX
         for (int i = 0; i < _pausedSfxSources.Count; i++)
         {
@@ -234,6 +319,7 @@ public class SoundManager : Singleton<SoundManager>
 
         _bgmWasPaused = false;
         _sequentialWasPaused = false;
+        _loopWasPaused = false;
     }
 
     #endregion
