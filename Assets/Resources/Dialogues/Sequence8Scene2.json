@@ -1,0 +1,180 @@
+[
+  {
+    "id": "dialogue_1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "이제 읽어도 되겠지.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_2",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "하루.",
+        "showPortrait": false
+      },
+      {
+        "text": "이 편지를 몇 번이나 찢었다가 다시 썼는지 모르겠어.",
+        "showPortrait": false
+      },
+      {
+        "text": "사람들은 어제는 이미 지나갔다고 말하면서",
+        "showPortrait": false
+      },
+      {
+        "text": "아무렇지 않게 다음 날로 걸어가더라.",
+        "showPortrait": false
+      },
+      {
+        "text": "그런데 나는 그게 되지 않았어.",
+        "showPortrait": false
+      },
+      {
+        "text": "지나간 것이 사라지는 걸 견디지 못했고,",
+        "showPortrait": false
+      },
+      {
+        "text": "변하는 모든 것을 배신이라고 생각했어.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "dialogue_3",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "너는 앞으로 나아가려고 했고,",
+        "showPortrait": false
+      },
+      {
+        "text": "나는 우리가 영화를 처음 찍었던 여름에 남으려고 했어.",
+        "showPortrait": false
+      },
+      {
+        "text": "너를 미워했던 게 아니야.",
+        "showPortrait": false
+      },
+      {
+        "text": "네가 나를 두고 간 것도 아니고.",
+        "showPortrait": false
+      },
+      {
+        "text": "내가 따라가지 않았던 거야.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "dialogue_4",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "카메라 안의 나는 언제나 같은 얼굴로 살아 있었지만,",
+        "showPortrait": false
+      },
+      {
+        "text": "프레임 밖의 나는 어디에도 머물 곳을 찾지 못했어.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "dialogue_5",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그러니 마지막에 남은 내 얼굴을 나라고 기억하지는 말아줘.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "dialogue_6",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "……케이.",
+        "showPortrait": true,
+        "nextId": "dialogue_7"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_7",
+    "speaker": "케이",
+    "lines": [
+      {
+        "text": "장면이 너무 길어졌군.",
+        "showPortrait": true,
+        "nextId": "dialogue_8"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_8",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "루나한테 무슨 짓을 한 거야?",
+        "showPortrait": true,
+        "nextId": "dialogue_9"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_9",
+    "speaker": "케이",
+    "lines": [
+      {
+        "text": "배우는 이제 퇴장했어.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_10",
+    "speaker": "케이",
+    "lines": [
+      {
+        "text": "이제 다음 장면으로 가지.",
+        "showPortrait": true,
+        "nextId": "dialogue_11"
+      }
+    ]
+  },
+  {
+    "id": "dialogue_11",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "기다려!",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "dialogue_12",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그가 어디로 가든 놓치지 말고 따라가.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "dialogue_13",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "따라가보자.",
+        "showPortrait": true
+      }
+    ]
+  }
+]
