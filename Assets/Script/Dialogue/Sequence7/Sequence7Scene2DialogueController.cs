@@ -40,6 +40,10 @@ public class Sequence7Scene2DialogueController : DialogueController<S7S2State>
     [Tooltip("전력 복구 시 사라지는 마네킹 전체(메인 로비 + 연회장)")]
     [SerializeField] private GameObject[] _mannequins;
 
+    [Header("Triggers")]
+    [Tooltip("트리거 블럭")]
+    [SerializeField] private GameObject _triggerParent;
+
     [Header("기믹 1) 마네킹 왈츠")]
     [Tooltip("씬 시작 대사 종료 즉시 활성화되는 왈츠 마네킹 세트")]
     [SerializeField] private WaltzMannequinSet[] _waltzSets;
@@ -142,7 +146,7 @@ public class Sequence7Scene2DialogueController : DialogueController<S7S2State>
 
         ApplyLightsAndMannequins();
         ApplyInteractables();
-
+        
         yield return new WaitForSeconds(_blackoutHoldDuration);
 
         yield return FadeBlackout(1f, 0f, _blackoutFadeDuration);
@@ -269,6 +273,11 @@ public class Sequence7Scene2DialogueController : DialogueController<S7S2State>
         {
             _breaker.StartDialogue =
                 state >= S7S2State.PowerRestored ? "Breaker_Already" : "Breaker";
+        }
+
+        if (_triggerParent != null)
+        {
+            _triggerParent.SetActive(false);
         }
     }
 

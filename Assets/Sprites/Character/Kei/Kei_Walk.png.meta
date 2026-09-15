@@ -1,0 +1,919 @@
+fileFormatVersion: 2
+guid: 21df5d8e2998cd84989e5ba6d643b2e7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kei_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1032
+        width: 104
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9236fc53543d3084ab44ef8f948572f8
+      internalID: -863292309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1032
+        width: 104
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b1528e28c388540a7a1733b9a23b56
+      internalID: 1389896442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1032
+        width: 104
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f24bd879fb542a42af783f0ee2151b1
+      internalID: 2060578598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1032
+        width: 104
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3667c56ed5d834a88c04831a8b69dc
+      internalID: -41340568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 1032
+        width: 104
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea50a0a35a0ac3429afd322ecddefac
+      internalID: 265536533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1032
+        width: 104
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7e491758924da4c90a1050355e875a
+      internalID: -563442896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 1032
+        width: 104
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ede92f19a094e54a9436640df6cf44f
+      internalID: 74295245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 1032
+        width: 104
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2d2d8dfe518e844ca1a85e662878a0e
+      internalID: -400588677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 1032
+        width: 104
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e0f26e328f2fc458fe51a14d488379
+      internalID: -636901419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 712
+        width: 112
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a7f45cc7269b84198803d5de14277b
+      internalID: -1376994292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 712
+        width: 112
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb4b923f0f3e2614a8b030feff936fb2
+      internalID: -1354203151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_11
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 712
+        width: 112
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 155e649d4deffdc499492c21ffeff18d
+      internalID: 1809347907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_12
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 712
+        width: 112
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bfb569bb29148348a5d7b119ec78f56
+      internalID: -936941158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_13
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 712
+        width: 112
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f1c65d5de37f0143b8d36a156ce7c04
+      internalID: -312228446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_14
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 712
+        width: 112
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c55f3cd4b386dc488e835704c3053f7
+      internalID: -925157343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_15
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 712
+        width: 112
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54420b9833e6e104caba0e27434e3740
+      internalID: 544728026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_16
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 712
+        width: 112
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a32e2931ea6324b89b48690bda2049
+      internalID: -1836116201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_17
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 712
+        width: 112
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e391e06ca13a62145b2e991e2ab8cf5b
+      internalID: -483764153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_18
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 392
+        width: 104
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af2c55a8a500864d88e3ee9364c382a
+      internalID: 564506549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_19
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 392
+        width: 104
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2065d4c25386ea84180c6aa17cc5d739
+      internalID: 1378724925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_20
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 392
+        width: 104
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502001a831c9d7c4cb09ca97bc41b6a6
+      internalID: 1680116949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_21
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 392
+        width: 104
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0929c29173c484293a62e516c808a8
+      internalID: -1489955417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_22
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 392
+        width: 104
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21ed74e5a32ee94583fb0e047ca33bd
+      internalID: 343429556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_23
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 392
+        width: 104
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81ef9819be910d46a323b96015b9c4e
+      internalID: -1428383211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_24
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 392
+        width: 104
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec90381494308234f8fd3a66ce386706
+      internalID: -1984153632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_25
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 392
+        width: 104
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea7ada39cccc9b4da3eae58d114dca9
+      internalID: -1883780027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_26
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 392
+        width: 104
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e94645418490ff42be525cf3ea0cdbe
+      internalID: 1027408816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 72
+        width: 112
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76565867a96e15e498226fe69ff6dd16
+      internalID: 227232429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_28
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 72
+        width: 112
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0016f6b88080e34f8f4be1695a5c384
+      internalID: 1276487244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_29
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 72
+        width: 112
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a89758f401c3d4aa30574ad873b3c9
+      internalID: -1522886517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_30
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 72
+        width: 112
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd7ac264198dd44b8a5a07a8a64fc87
+      internalID: 462558657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_31
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 72
+        width: 112
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34a0684177fad44b9cb0468d7e86855
+      internalID: 1233115312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_32
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 72
+        width: 112
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb831e71d868424f9934d9463156288
+      internalID: 1998682682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_33
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 72
+        width: 112
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa850ee0aa1c8f84f849d64086adabe8
+      internalID: 1824664730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_34
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 72
+        width: 112
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f543607f0ae7b541aaaa4561dbb8ba2
+      internalID: -1979282115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kei_Walk_35
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 72
+        width: 112
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46b9d7dfb8fde04eb5667a5c371d6d7
+      internalID: -1773894646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Kei_Walk_0: -863292309
+      Kei_Walk_1: 1389896442
+      Kei_Walk_10: -1354203151
+      Kei_Walk_11: 1809347907
+      Kei_Walk_12: -936941158
+      Kei_Walk_13: -312228446
+      Kei_Walk_14: -925157343
+      Kei_Walk_15: 544728026
+      Kei_Walk_16: -1836116201
+      Kei_Walk_17: -483764153
+      Kei_Walk_18: 564506549
+      Kei_Walk_19: 1378724925
+      Kei_Walk_2: 2060578598
+      Kei_Walk_20: 1680116949
+      Kei_Walk_21: -1489955417
+      Kei_Walk_22: 343429556
+      Kei_Walk_23: -1428383211
+      Kei_Walk_24: -1984153632
+      Kei_Walk_25: -1883780027
+      Kei_Walk_26: 1027408816
+      Kei_Walk_27: 227232429
+      Kei_Walk_28: 1276487244
+      Kei_Walk_29: -1522886517
+      Kei_Walk_3: -41340568
+      Kei_Walk_30: 462558657
+      Kei_Walk_31: 1233115312
+      Kei_Walk_32: 1998682682
+      Kei_Walk_33: 1824664730
+      Kei_Walk_34: -1979282115
+      Kei_Walk_35: -1773894646
+      Kei_Walk_4: 265536533
+      Kei_Walk_5: -563442896
+      Kei_Walk_6: 74295245
+      Kei_Walk_7: -400588677
+      Kei_Walk_8: -636901419
+      Kei_Walk_9: -1376994292
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

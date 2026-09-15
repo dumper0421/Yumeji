@@ -313,11 +313,14 @@ MonoBehaviour:
   - {fileID: 2497849145889871716}
   - {fileID: 1019105516430892486}
   _moveSpeed: 2
+  _pingPong: 0
   _stillDuration: 2
   _shakeDuration: 1
   _shakeAmplitude: 0.06
   _shakeFrequency: 10
   _moveNoticeSfx: {fileID: 8300000, guid: 4b25ecedd260a1849a036e9b0d3bf5f0, type: 3}
+  _startWithoutDialogue: 0
+  _useSharedSettings: 1
   _dialogueManager: {fileID: 0}
 --- !u!61 &7638954285831483024
 BoxCollider2D:
@@ -351,7 +354,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.046599388, y: 0.64773464}
+  m_Offset: {x: -0.046599865, y: 0.20954514}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -362,7 +365,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9319916, y: 1.4939556}
+  m_Size: {x: 1.4027967, y: 0.6175766}
   m_EdgeRadius: 0
 --- !u!114 &9116359461516701626
 MonoBehaviour:

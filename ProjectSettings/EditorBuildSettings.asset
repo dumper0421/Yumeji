@@ -113,4 +113,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2026PlayX4/Sequence8S#2.unity
     guid: af465e20fcf7dab4692cfa995895fe71
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/SummerWind.unity
+    guid: 62a65beb8e5fcf9498c009287fa71c29
   m_configObjects: {}

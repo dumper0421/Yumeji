@@ -1,0 +1,669 @@
+[
+  {
+    "id": "s1_1",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "방금 나 찍었어?",
+        "showPortrait": true,
+        "nextId": "s1_2"
+      }
+    ]
+  },
+  {
+    "id": "s1_2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "바다를 찍은 거야.",
+        "showPortrait": true,
+        "nextId": "s1_3"
+      }
+    ]
+  },
+  {
+    "id": "s1_3",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "나도 있었는데.",
+        "showPortrait": true,
+        "nextId": "s1_4"
+      }
+    ]
+  },
+  {
+    "id": "s1_4",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…지울까?",
+        "showPortrait": true,
+        "nextId": "s1_5"
+      }
+    ]
+  },
+  {
+    "id": "s1_5",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "필름인데 어떻게 지워.",
+        "showPortrait": true,
+        "nextId": "s1_6"
+      }
+    ]
+  },
+  {
+    "id": "s1_6",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "잘 찍혔으면 됐어.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "s2_1",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "또 만났네.",
+        "showPortrait": true,
+        "nextId": "s2_2"
+      }
+    ]
+  },
+  {
+    "id": "s2_2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그러게.",
+        "showPortrait": true,
+        "nextId": "s2_3"
+      }
+    ]
+  },
+  {
+    "id": "s2_3",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "너도 여행 온 거야?",
+        "showPortrait": true,
+        "nextId": "s2_4"
+      }
+    ]
+  },
+  {
+    "id": "s2_4",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "응. 친척 집에 머물고 있어.",
+        "showPortrait": true,
+        "nextId": "s2_5"
+      }
+    ]
+  },
+  {
+    "id": "s2_5",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그럼 여행이 아닌 것 같은데.",
+        "showPortrait": true,
+        "nextId": "s2_6"
+      }
+    ]
+  },
+  {
+    "id": "s2_6",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "내 집은 아니니까 여행이지.",
+        "showPortrait": true,
+        "nextId": "s2_7"
+      }
+    ]
+  },
+  {
+    "id": "s2_7",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "너는?",
+        "showPortrait": true,
+        "nextId": "s2_8"
+      }
+    ]
+  },
+  {
+    "id": "s2_8",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그냥 왔어.",
+        "showPortrait": true,
+        "nextId": "s2_9"
+      }
+    ]
+  },
+  {
+    "id": "s2_9",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "혼자?",
+        "showPortrait": true,
+        "nextId": "s2_10"
+      }
+    ]
+  },
+  {
+    "id": "s2_10",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "응. 이상해?",
+        "showPortrait": true,
+        "nextId": "s2_11"
+      }
+    ]
+  },
+  {
+    "id": "s2_11",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "조금.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "s2_12",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "저 섬에는 아무도 안 산대.",
+        "showPortrait": true,
+        "nextId": "s2_13"
+      }
+    ]
+  },
+  {
+    "id": "s2_13",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그런데?",
+        "showPortrait": true,
+        "nextId": "s2_14"
+      }
+    ]
+  },
+  {
+    "id": "s2_14",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "가끔 밤에 불빛이 보인다는 이야기가 있어.",
+        "showPortrait": true,
+        "nextId": "s2_15"
+      }
+    ]
+  },
+  {
+    "id": "s2_15",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "사람이 없는데 누가 켜?",
+        "showPortrait": true,
+        "nextId": "s2_16"
+      }
+    ]
+  },
+  {
+    "id": "s2_16",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "바다에서 돌아오지 못한 사람들.",
+        "showPortrait": true,
+        "nextId": "s2_17"
+      }
+    ]
+  },
+  {
+    "id": "s2_17",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "길을 찾으려고?",
+        "showPortrait": true,
+        "nextId": "s2_18"
+      }
+    ]
+  },
+  {
+    "id": "s2_18",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "응. 그런데 불빛이 바다 쪽만 비추고 있어서 계속 돌아오지 못한대.",
+        "showPortrait": true,
+        "nextId": "s2_19"
+      }
+    ]
+  },
+  {
+    "id": "s2_19",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그 이야기 믿어?",
+        "showPortrait": true,
+        "nextId": "s2_20"
+      }
+    ]
+  },
+  {
+    "id": "s2_20",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "사진에 찍히면.",
+        "showPortrait": true,
+        "nextId": "s2_21"
+      }
+    ]
+  },
+  {
+    "id": "s2_21",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "안 찍히면?",
+        "showPortrait": true,
+        "nextId": "s2_22"
+      }
+    ]
+  },
+  {
+    "id": "s2_22",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "없는 거겠지.",
+        "showPortrait": true,
+        "nextId": "s2_23"
+      }
+    ]
+  },
+  {
+    "id": "s2_23",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "없다는 걸 사진으로 어떻게 알아?",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "s3_1",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "또 만났네.",
+        "showPortrait": true,
+        "nextId": "s3_2"
+      }
+    ]
+  },
+  {
+    "id": "s3_2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그러게.",
+        "showPortrait": true,
+        "nextId": "s3_3"
+      }
+    ]
+  },
+  {
+    "id": "s3_3",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "오늘은 섬이 안 보이네.",
+        "showPortrait": true,
+        "nextId": "s3_4"
+      }
+    ]
+  },
+  {
+    "id": "s3_4",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "비 때문에.",
+        "showPortrait": true,
+        "nextId": "s3_5"
+      }
+    ]
+  },
+  {
+    "id": "s3_5",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "안 보인다고 없어진 건 아닌데.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "s3_6",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "이런 날도 찍어?",
+        "showPortrait": true,
+        "nextId": "s3_7"
+      }
+    ]
+  },
+  {
+    "id": "s3_7",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "응.",
+        "showPortrait": true,
+        "nextId": "s3_8"
+      }
+    ]
+  },
+  {
+    "id": "s3_8",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "사진 잘 나올 것 같아?",
+        "showPortrait": true,
+        "nextId": "s3_9"
+      }
+    ]
+  },
+  {
+    "id": "s3_9",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "글쎄… 내가 찍은 건 남겠지.",
+        "showPortrait": true,
+        "nextId": "s3_10"
+      }
+    ]
+  },
+  {
+    "id": "s3_10",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그럼 찍지 않은 건 없었던 일이 되나?",
+        "showPortrait": true,
+        "nextId": "s3_11"
+      }
+    ]
+  },
+  {
+    "id": "s3_11",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "그게 무슨 말이야?",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "s3_12",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "내일 불꽃놀이 한대.",
+        "showPortrait": true,
+        "nextId": "s3_13"
+      }
+    ]
+  },
+  {
+    "id": "s3_13",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "비가 이렇게 오면 안 할 것 같은데.",
+        "showPortrait": true,
+        "nextId": "s3_14"
+      }
+    ]
+  },
+  {
+    "id": "s3_14",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "만약 그친다면 같이 보자.",
+        "showPortrait": true,
+        "nextId": "s3_15"
+      }
+    ]
+  },
+  {
+    "id": "s3_15",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "같이?",
+        "showPortrait": true,
+        "nextId": "s3_16"
+      }
+    ]
+  },
+  {
+    "id": "s3_16",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "어제 갔던 저기서 보면 잘 보일 것 같아.",
+        "showPortrait": true,
+        "nextId": "s3_17"
+      }
+    ]
+  },
+  {
+    "id": "s3_17",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "내일 날이 맑아지면, 해 질 때 저기서 만나.",
+        "showPortrait": true,
+        "nextId": "s3_18"
+      }
+    ]
+  },
+  {
+    "id": "s3_18",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "응.",
+        "showPortrait": true,
+        "nextId": "s3_19"
+      }
+    ]
+  },
+  {
+    "id": "s3_19",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "사진만 찍지 말고 같이 봐야 돼.",
+        "showPortrait": true
+      }
+    ]
+  },
+
+  {
+    "id": "s4_1",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "왜 거기 있어?",
+        "showPortrait": true,
+        "nextId": "s4_2"
+      }
+    ]
+  },
+  {
+    "id": "s4_2",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "오늘 돌아가야 해.",
+        "showPortrait": true,
+        "nextId": "s4_3"
+      }
+    ]
+  },
+  {
+    "id": "s4_3",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "지금?",
+        "showPortrait": true
+      },
+      {
+        "text": "불꽃놀이 곧 시작해.",
+        "showPortrait": true,
+        "nextId": "s4_4"
+      }
+    ]
+  },
+  {
+    "id": "s4_4",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "알아.",
+        "showPortrait": true
+      },
+      {
+        "text": "사진은?",
+        "showPortrait": true,
+        "nextId": "s4_5"
+      }
+    ]
+  },
+  {
+    "id": "s4_5",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "필름이라… 아직 보진 못해.",
+        "showPortrait": true,
+        "nextId": "s4_6"
+      }
+    ]
+  },
+  {
+    "id": "s4_6",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그럼 못 보고 가겠네.",
+        "showPortrait": true,
+        "nextId": "s4_7"
+      }
+    ]
+  },
+  {
+    "id": "s4_7",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "현상해서 줄게.",
+        "showPortrait": true,
+        "nextId": "s4_8"
+      }
+    ]
+  },
+  {
+    "id": "s4_8",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "어떻게?",
+        "showPortrait": true,
+        "nextId": "s4_9"
+      }
+    ]
+  },
+  {
+    "id": "s4_9",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "나중에 만나면.",
+        "showPortrait": true,
+        "nextId": "s4_10"
+      }
+    ]
+  },
+  {
+    "id": "s4_10",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "여기서?",
+        "showPortrait": true,
+        "nextId": "s4_11"
+      }
+    ]
+  },
+  {
+    "id": "s4_11",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "응.",
+        "showPortrait": true,
+        "nextId": "s4_12"
+      }
+    ]
+  },
+  {
+    "id": "s4_12",
+    "speaker": "루나",
+    "lines": [
+      {
+        "text": "그때는 불꽃놀이도 같이 보자.",
+        "showPortrait": true
+      }
+    ]
+  }
+]

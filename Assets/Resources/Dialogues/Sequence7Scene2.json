@@ -219,6 +219,16 @@
     "lines": [
       {
         "text": "이 방에서는 카메라로 마네킹을 멈출 수 없을 것 같네.",
+        "showPortrait": true,"nextId":"Sign_Banquet_Haru2"
+      }
+    ]
+  },
+  {
+    "id": "Sign_Banquet_Haru2",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "마네킹에 부딪히지 않게 더 조심해야겠어.",
         "showPortrait": true
       }
     ]
