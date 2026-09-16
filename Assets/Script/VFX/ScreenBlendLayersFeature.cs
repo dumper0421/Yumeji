@@ -30,6 +30,14 @@ public class ScreenBlendLayersFeature : ScriptableRendererFeature
         set => Shader.SetGlobalFloat(WeightId, Mathf.Clamp01(value));
     }
 
+    /// <summary>
+    /// 장면마다 다른 머티리얼을 쓰고 싶을 때 코드에서 갈아 끼운다.
+    /// null이면 에셋에 꽂아둔 기본 머티리얼을 쓴다.
+    /// </summary>
+    public static Material MaterialOverride { get; set; }
+
+    private Material Current => MaterialOverride != null ? MaterialOverride : _material;
+
     public override void Create()
     {
         _pass = new BlendPass();
@@ -37,7 +45,7 @@ public class ScreenBlendLayersFeature : ScriptableRendererFeature
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        if (_material == null || Weight <= 0f)
+        if (Current == null || Weight <= 0f)
             return;
 
         CameraType cameraType = renderingData.cameraData.cameraType;
@@ -51,10 +59,10 @@ public class ScreenBlendLayersFeature : ScriptableRendererFeature
 
     public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData)
     {
-        if (_material == null || Weight <= 0f)
+        if (Current == null || Weight <= 0f)
             return;
 
-        _pass.Setup(renderer.cameraColorTargetHandle, _material);
+        _pass.Setup(renderer.cameraColorTargetHandle, Current);
     }
 
     protected override void Dispose(bool disposing)

@@ -1,7 +1,6 @@
 using System.Collections;
 using Cinemachine;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -138,15 +137,13 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
     [SerializeField]
     private float _moodFadeDuration = 0f;
 
-    [Tooltip(
-        "비(M2) 상태에서 켜는 Color Adjustments 프로파일. Summer_Breeze_Rainy를 넣는다. "
-            + "곱하기·색상 닷지는 Renderer2D의 ScreenBlendLayers 머티리얼(SummerWind_RainyBlend)에서 조절한다."
-    )]
+    [Tooltip("비(M2)에 쓰는 곱하기·색상 닷지 머티리얼. SummerWind_RainyBlend를 넣는다.")]
     [SerializeField]
-    private VolumeProfile _rainVolumeProfile;
+    private Material _rainBlendMaterial;
 
-    // 프로파일로 런타임에 만드는 글로벌 볼륨. 비 보정 세기(0~1)를 곱하기·닷지와 같이 움직인다.
-    private Volume _rainVolume;
+    [Tooltip("저녁(M3)에 쓰는 곱하기·색상 닷지 머티리얼. SummerWind_EveningBlend를 넣는다.")]
+    [SerializeField]
+    private Material _eveningBlendMaterial;
 
     [Tooltip("S#4의 불꽃 애니메이션. 처음에는 꺼져 있어야 한다.")]
     [SerializeField]
@@ -438,8 +435,9 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         if (_active == this)
         {
             _active = null;
-            // 전역 셰이더 값이라 씬을 떠나도 남는다. 다른 씬에 비 보정이 따라가지 않게 끈다.
+            // 전역 셰이더 값이라 씬을 떠나도 남는다. 다른 씬에 화면 보정이 따라가지 않게 끈다.
             ScreenBlendLayersFeature.Weight = 0f;
+            ScreenBlendLayersFeature.MaterialOverride = null;
         }
 
         // 꺼진 중복 인스턴스는 base.Awake를 타지 않아 구독한 적이 없다
@@ -523,7 +521,7 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
 
         SetMapWeather(false);
 
-        SetRainGrade(0f);
+        SetScreenBlend(0f);
 
         BindCameraRig();
 
@@ -835,9 +833,14 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
 
         SetMapWeather(mood.rain);
 
-        // 비 보정(Color Adjustments + 곱하기 + 색상 닷지)은 비 상태에서만 켠다
-        float gradeFrom = ScreenBlendLayersFeature.Weight;
-        float gradeTo = mood.rain ? 1f : 0f;
+        // 비(M2)와 저녁(M3)은 각자의 곱하기·색상 닷지 머티리얼을 쓴다
+        Material blendMaterial = GetBlendMaterial(mood);
+        float blendFrom = ScreenBlendLayersFeature.Weight;
+        float blendTo = blendMaterial != null ? 1f : 0f;
+
+        // 꺼지는 중에는 쓰던 머티리얼 그대로 페이드 아웃하고, 다 꺼진 다음에 놓는다
+        if (blendMaterial != null)
+            ScreenBlendLayersFeature.MaterialOverride = blendMaterial;
 
         Color target = new Color(mood.tint.r, mood.tint.g, mood.tint.b, mood.strength);
         Color from = _moodOverlay != null ? _moodOverlay.color : target;
@@ -850,7 +853,7 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
             if (_moodOverlay != null)
                 _moodOverlay.color = Color.Lerp(from, target, t);
 
-            SetRainGrade(Mathf.Lerp(gradeFrom, gradeTo, t));
+            SetScreenBlend(Mathf.Lerp(blendFrom, blendTo, t));
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -858,7 +861,24 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         if (_moodOverlay != null)
             _moodOverlay.color = target;
 
-        SetRainGrade(gradeTo);
+        SetScreenBlend(blendTo);
+
+        if (blendMaterial == null)
+            ScreenBlendLayersFeature.MaterialOverride = null;
+    }
+
+    /// <summary>
+    /// 이 무드에서 쓸 곱하기·색상 닷지 머티리얼. null이면 효과를 끈다.
+    /// </summary>
+    private Material GetBlendMaterial(MapMood mood)
+    {
+        if (mood.rain)
+            return _rainBlendMaterial;
+
+        if (mood == _moodEvening)
+            return _eveningBlendMaterial;
+
+        return null;
     }
 
     /// <summary>
@@ -874,21 +894,11 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
     }
 
     /// <summary>
-    /// 비 보정 세기. 0이면 꺼짐, 1이면 프로파일·머티리얼에 설정한 그대로.
+    /// 비(M2)의 곱하기 + 색상 닷지 세기. 0이면 꺼짐, 1이면 머티리얼에 설정한 그대로.
     /// </summary>
-    private void SetRainGrade(float weight)
+    private void SetScreenBlend(float weight)
     {
         ScreenBlendLayersFeature.Weight = weight;
-
-        if (_rainVolume == null && _rainVolumeProfile != null)
-        {
-            _rainVolume = gameObject.AddComponent<Volume>();
-            _rainVolume.isGlobal = true;
-            _rainVolume.sharedProfile = _rainVolumeProfile;
-        }
-
-        if (_rainVolume != null)
-            _rainVolume.weight = weight;
     }
 
     /// <summary>

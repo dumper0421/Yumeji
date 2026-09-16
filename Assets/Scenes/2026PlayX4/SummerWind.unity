@@ -968,7 +968,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497817422}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -3956,7 +3956,8 @@ MonoBehaviour:
     strength: 0.55
     rain: 0
   _moodFadeDuration: 0
-  _rainVolumeProfile: {fileID: 11400000, guid: 498f726376ccacb4b992022f0476f699, type: 2}
+  _rainBlendMaterial: {fileID: 2100000, guid: ee921e9233ef47b1a6f2238856b6435b, type: 2}
+  _eveningBlendMaterial: {fileID: 2100000, guid: d7baee8ff7b04766b8dc1c5e593cca48, type: 2}
   _fireworks: {fileID: 563189648}
   _travelBag: {fileID: 0}
   _vcam: {fileID: 557029255}

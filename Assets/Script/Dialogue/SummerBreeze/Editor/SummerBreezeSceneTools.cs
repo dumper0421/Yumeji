@@ -30,8 +30,9 @@ public static class SummerBreezeSceneTools
     private const string LunaPrefabPath = "Assets/Prefab/Character/Luna.prefab";
     private const string RainPrefabPath = "Assets/Epic Toon FX/Prefabs 2D/Weather/Rain2D.prefab";
 
-    private const string RainVolumeProfilePath =
-        "Assets/Scenes/2026PlayX4/SummerWind/Summer_Breeze_Rainy.asset";
+    private const string RainBlendMaterialPath = "Assets/Shader/SummerWind_RainyBlend.mat";
+
+    private const string EveningBlendMaterialPath = "Assets/Shader/SummerWind_EveningBlend.mat";
 
     private const string FireworkPrefabA =
         "Assets/Epic Toon FX/Prefabs/Environment/Firework/FireworkBlueCluster.prefab";
@@ -226,9 +227,16 @@ public static class SummerBreezeSceneTools
         SetObj(so, "_rain", rain, "비 효과", report);
         SetObj(
             so,
-            "_rainVolumeProfile",
-            LoadAsset<UnityEngine.Rendering.VolumeProfile>(RainVolumeProfilePath),
-            "비 보정 프로파일",
+            "_rainBlendMaterial",
+            LoadAsset<Material>(RainBlendMaterialPath),
+            "비 화면 합성 머티리얼",
+            report
+        );
+        SetObj(
+            so,
+            "_eveningBlendMaterial",
+            LoadAsset<Material>(EveningBlendMaterialPath),
+            "저녁 화면 합성 머티리얼",
             report
         );        SetObj(so, "_fireworks", fireworks, "불꽃", report);
 
