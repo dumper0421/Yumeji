@@ -97,6 +97,14 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
     [SerializeField]
     private GameObject _rain;
 
+    [Tooltip("맑은 날 배경(Clear_Map). 비가 아닌 상태(맑음·저녁·밤)에서 켠다.")]
+    [SerializeField]
+    private GameObject _clearMap;
+
+    [Tooltip("비 오는 날 배경(Rainy_Map). 비 상태에서만 켠다.")]
+    [SerializeField]
+    private GameObject _rainyMap;
+
     [Tooltip("M1 맑음. S#1, S#2")]
     [SerializeField]
     private MapMood _moodClear = new MapMood { tint = new Color(1f, 0.98f, 0.9f), strength = 0f };
@@ -358,6 +366,18 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
     [SerializeField]
     private float _s2CameraFollowDuration = 1.5f;
 
+    [Tooltip("S#2 4번: 섬과 소녀를 함께 찍을 때 카메라 크기(Orthographic Size). 클수록 넓게 보인다. 기본 구도는 5. 0이면 줌하지 않는다.")]
+    [SerializeField]
+    private float _s2ShotOrthoSize = 7f;
+
+    [Tooltip("S#2 4번: 줌아웃하면서 옮겨갈 구도. 비워두면 제자리에서 넓어진다. 섬이 화면 위로 잘리면 섬 쪽으로 올린 위치를 넣는다.")]
+    [SerializeField]
+    private Transform _camS2Shot;
+
+    [Tooltip("S#2 4번: 줌아웃에 걸리는 시간")]
+    [SerializeField]
+    private float _s2ShotZoomDuration = 1f;
+
     [Tooltip("촬영 모션을 재생하고 기다리는 시간. 하루의 Shoot 애니메이션 길이가 약 0.83초다.")]
     [SerializeField]
     private float _shootHoldDuration = 0.9f;
@@ -501,6 +521,8 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         if (_rain != null)
             _rain.SetActive(false);
 
+        SetMapWeather(false);
+
         SetRainGrade(0f);
 
         BindCameraRig();
@@ -621,11 +643,21 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         FaceLuna(Vector2.up);
         yield return new WaitForSeconds(_beatPause);
 
+        // 섬까지 함께 담기도록 카메라를 넓힌다. 다음 장면에 영향이 없게 페이드 아웃 뒤 원래 크기로 되돌린다.
+        float baseOrthoSize = GetOrthoSize();
+        Coroutine shotZoom = StartCoroutine(Co_ZoomCamera(_s2ShotOrthoSize, _s2ShotZoomDuration));
+
+        if (_camS2Shot != null)
+            yield return Co_PanCamera(_camS2End, _camS2Shot, _s2ShotZoomDuration);
+
+        yield return shotZoom;
+
         FaceHaru(Vector2.up);
         Shoot();
         yield return new WaitForSeconds(_shootHoldDuration);
 
         yield return Co_FadeOut(_fadeOutDuration);
+        SetOrthoSize(baseOrthoSize);
     }
 
     // ---------------------------------------------------------------- S#3
@@ -790,7 +822,7 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
     // ================================================================ 맵 / 카메라
 
     /// <summary>
-    /// 맵은 한 벌이고 색 오버레이와 비 파티클만 바꾼다.
+    /// 색 오버레이, 비 파티클, 배경(Clear_Map / Rainy_Map)을 바꾼다.
     /// 장면 전환은 전부 검은 화면 아래에서 일어나므로 기본값은 즉시 적용이다.
     /// </summary>
     private IEnumerator Co_SetMood(MapMood mood)
@@ -800,6 +832,8 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
 
         if (_rain != null)
             _rain.SetActive(mood.rain);
+
+        SetMapWeather(mood.rain);
 
         // 비 보정(Color Adjustments + 곱하기 + 색상 닷지)은 비 상태에서만 켠다
         float gradeFrom = ScreenBlendLayersFeature.Weight;
@@ -825,6 +859,18 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
             _moodOverlay.color = target;
 
         SetRainGrade(gradeTo);
+    }
+
+    /// <summary>
+    /// 비 상태면 Rainy_Map, 아니면 Clear_Map을 켠다. 둘 중 하나만 보이게 한다.
+    /// </summary>
+    private void SetMapWeather(bool rainy)
+    {
+        if (_clearMap != null)
+            _clearMap.SetActive(!rainy);
+
+        if (_rainyMap != null)
+            _rainyMap.SetActive(rainy);
     }
 
     /// <summary>
@@ -902,6 +948,39 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         }
 
         _cameraRig.position = b;
+    }
+
+    private float GetOrthoSize()
+    {
+        return _vcam != null ? _vcam.m_Lens.OrthographicSize : 0f;
+    }
+
+    private void SetOrthoSize(float size)
+    {
+        if (_vcam == null || size <= 0f)
+            return;
+
+        _vcam.m_Lens.OrthographicSize = size;
+    }
+
+    /// <summary>카메라 크기(Orthographic Size)를 부드럽게 바꾼다. 클수록 넓게 보인다.</summary>
+    private IEnumerator Co_ZoomCamera(float to, float duration)
+    {
+        if (_vcam == null || to <= 0f)
+            yield break;
+
+        float from = _vcam.m_Lens.OrthographicSize;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float t = Mathf.SmoothStep(0f, 1f, elapsed / duration);
+            SetOrthoSize(Mathf.Lerp(from, to, t));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        SetOrthoSize(to);
     }
 
     // ================================================================ 페이드
