@@ -149,6 +149,9 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
     [SerializeField]
     private GameObject _fireworks;
 
+    // 불꽃이 끝나기를 지켜보는 코루틴. 다 터지면 바로 화면에서 치운다.
+    private Coroutine _fireworksCo;
+
     [Tooltip("S#4의 여행 가방. 루나가 버스를 타고 떠날 때 함께 꺼진다.")]
     [SerializeField]
     private GameObject _travelBag;
@@ -286,17 +289,37 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
     [SerializeField]
     private Transform _s4HaruSeat;
 
-    [Tooltip("소년이 바라볼 옆 빈자리. 방향 계산에만 쓴다.")]
-    [SerializeField]
-    private Transform _s4EmptySeat;
-
     [Tooltip("3번: 소년이 도로를 향한 채 멈추는 시간")]
     [SerializeField]
     private float _s4HoldAfterBus = 3f;
 
-    [Tooltip("5번: 빈자리를 바라보는 시간")]
+    [Tooltip(
+        "4번: 앉아 있는 모습으로 쓸 사진. 다리가 안 보이는 그림을 방파제 끝에 배치하고 처음에는 꺼둔다. "
+            + "비워두면 사진 없이 앉기 애니메이션 그대로 간다."
+    )]
+    [SerializeField]
+    private GameObject _s4SitImage;
+
+    [Tooltip("5번: 앉은 채로 바다를 보는 시간")]
+    [SerializeField]
+    private float _s4SitHold = 2.5f;
+
+    [Tooltip("5번: 일어나는 동작에 주는 시간")]
+    [SerializeField]
+    private float _s4StandUpDuration = 0.6f;
+
+    [Tooltip("5번: 일어나서 옆 빈자리를 바라보는 시간")]
     [SerializeField]
     private float _s4LookAtEmptySeatHold = 1.5f;
+
+    [Tooltip("6번: 불꽃이 끝나고 다음 씬으로 넘어가기 전 여운")]
+    [SerializeField]
+    private float _s4HoldAfterFireworks = 2f;
+
+    [Header("테스트")]
+    [Tooltip("켜면 플레이 중에 1~4 키로 S#1~S#4를 바로 띄운다. 에디터와 개발 빌드에서만 동작한다.")]
+    [SerializeField]
+    private bool _debugSceneJump = true;
 
     // ---------------------------------------------------------------- 사운드
 
@@ -427,6 +450,11 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         }
 
         _active = this;
+
+        // 씬에 켜진 채로 저장돼 있으면 컷씬이 시작되기 전에 한 번 다 터져서
+        // 마지막 프레임이 화면에 남는다. 제일 먼저 꺼둔다.
+        HideFireworks();
+
         base.Awake();
     }
 
@@ -456,6 +484,53 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         }
 
         return path;
+    }
+
+    /// <summary>
+    /// 테스트용 장면 건너뛰기. 1~4 키로 S#1~S#4를 바로 띄운다.
+    /// 누른 장면부터 끝까지 그대로 이어서 재생한다.
+    /// </summary>
+    private void Update()
+    {
+        if (!_debugSceneJump || !(Application.isEditor || Debug.isDebugBuild))
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+            JumpTo(SummerBreezeState.S1);
+        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+            JumpTo(SummerBreezeState.S2);
+        else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+            JumpTo(SummerBreezeState.S3);
+        else if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
+            JumpTo(SummerBreezeState.S4);
+    }
+
+    /// <summary>
+    /// 돌고 있던 연출과 대사를 끊고, 무대를 치운 뒤 해당 장면부터 다시 재생한다.
+    /// </summary>
+    private void JumpTo(SummerBreezeState from)
+    {
+        Debug.Log($"[SummerBreeze] 테스트: {from}부터 다시 재생한다.", this);
+
+        // 마스터 코루틴과 페이드/카메라 코루틴을 한 번에 끊는다
+        StopAllCoroutines();
+
+        if (dialogueManager != null && dialogueManager.isRunning)
+            dialogueManager.SkipToEnd();
+
+        StopFireworksSound();
+        HideLuna();
+        ShowSitImage(false);
+
+        HideFireworks();
+
+        if (_rain != null)
+            _rain.SetActive(false);
+
+        if (_travelBag != null)
+            _travelBag.SetActive(false);
+
+        StartCoroutine(Co_PlayFilm(from));
     }
 
     /// <summary>
@@ -492,17 +567,20 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
 
     // ================================================================ 마스터 플로우
 
-    private IEnumerator Co_PlayFilm()
+    private IEnumerator Co_PlayFilm(SummerBreezeState from = SummerBreezeState.S1)
     {
         _cutsceneRunning = true;
 
+        // 흰 화면으로 여는 건 [6-1]에서 이어받는 S#1뿐이다. 테스트로 중간부터 틀 때는 검은 화면에서 연다.
+        Color curtain = _openFromWhite && from == SummerBreezeState.S1 ? Color.white : Color.black;
+
         LockPlayer(true);
-        SetFadeCurtain(_openFromWhite ? Color.white : Color.black);
+        SetFadeCurtain(curtain);
 
         // CutsceneManager.Start()가 FadeImage를 다시 불투명하게 만들기 때문에
         // 다른 Start가 전부 돌고 난 다음 프레임부터 연출을 시작한다.
         yield return null;
-        SetFadeCurtain(_openFromWhite ? Color.white : Color.black);
+        SetFadeCurtain(curtain);
 
         if (_disableDuringCutscene != null)
         {
@@ -513,21 +591,27 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
             }
         }
 
-        if (_fireworks != null)
-            _fireworks.SetActive(false);
+        HideFireworks();
 
         if (_rain != null)
             _rain.SetActive(false);
 
         SetMapWeather(false);
+        ShowSitImage(false);
 
         SetScreenBlend(0f);
 
         BindCameraRig();
 
-        yield return Co_Scene1();
-        yield return Co_Scene2();
-        yield return Co_Scene3();
+        if (from <= SummerBreezeState.S1)
+            yield return Co_Scene1();
+
+        if (from <= SummerBreezeState.S2)
+            yield return Co_Scene2();
+
+        if (from <= SummerBreezeState.S3)
+            yield return Co_Scene3();
+
         yield return Co_Scene4();
 
         state = SummerBreezeState.Finished;
@@ -760,24 +844,34 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         yield return new WaitForSeconds(_beatPause);
         yield return Co_FadeOut(_fadeOutDuration);
 
-        // 4번. 페이드 인 되면 소년은 혼자 방파제 끝에 앉아 있다.
+        // 4번. 페이드 인 되면 소년은 혼자 방파제 끝에 바다를 보고 앉아 있다.
+        //      앉은 모습은 애니메이션 대신 다리가 안 보이는 사진 한 장으로 보여준다.
         MoveCameraTo(_camS4Pier);
         PlaceHaru(_s4HaruSeat, Vector2.up);
         SitHaru();
+        FaceHaruSeated(Vector2.up);
+        ShowSitImage(true);
 
         // 밤은 별도 맵을 만들지 않고 저녁 위에 더 어두운 색과 불꽃을 얹어서 표현한다.
         yield return Co_SetMood(_moodNight);
 
-        if (_fireworks != null)
-            _fireworks.SetActive(true);
-
         yield return new WaitForSeconds(_blackHoldDuration);
         yield return Co_FadeIn(_fadeInDuration);
 
-        // 5번. 바다를 바라보던 하루가 옆 빈자리를 바라본 뒤 다시 바다를 바라보며 사진을 찍는다.
-        yield return new WaitForSeconds(_s4LookAtEmptySeatHold);
+        // 불꽃은 화면이 열린 다음에 터뜨린다.
+        // 검은 화면에서 켜면 페이드가 끝나기 전에 다 지나가서 마지막 프레임만 보인다.
+        PlayFireworks();
 
-        FaceHaruTowards(_s4EmptySeat);
+        // 5번. 앉아서 바다를 보던 하루가 일어나 옆자리를 본 뒤, 다시 바다를 보며 사진을 찍는다.
+        yield return new WaitForSeconds(_s4SitHold);
+
+        // 일어나는 동안에는 사진을 내리고 하루를 다시 보여준다
+        ShowSitImage(false);
+        StandHaruUp();
+        yield return new WaitForSeconds(_s4StandUpDuration);
+
+        // 빈자리는 하루의 오른쪽이다
+        FaceHaru(Vector2.right);
         yield return new WaitForSeconds(_s4LookAtEmptySeatHold);
 
         FaceHaru(Vector2.up);
@@ -787,8 +881,80 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         Shoot();
         yield return new WaitForSeconds(_beatPause);
 
+        // 불꽃 애니메이션이 끝나면 화면에서 치우고, 소리도 함께 줄인다.
+        yield return Co_WaitForFireworks();
+
+        HideFireworks();
+
         StopFireworksSound();
+
+        // 불꽃이 사라진 뒤 여운을 두고 넘어간다.
+        yield return new WaitForSeconds(_s4HoldAfterFireworks);
         yield return Co_FadeOut(_fadeOutDuration);
+    }
+
+    /// <summary>
+    /// 불꽃 애니메이션(또는 파티클)이 끝날 때까지 기다린다.
+    /// 클립의 Loop Time이 다시 켜지면 영영 끝나지 않으므로 안전장치로 최대 대기 시간을 둔다.
+    /// </summary>
+    private IEnumerator Co_WaitForFireworks()
+    {
+        if (_fireworks == null)
+            yield break;
+
+        Animator[] animators = _fireworks.GetComponentsInChildren<Animator>(true);
+        ParticleSystem[] systems = _fireworks.GetComponentsInChildren<ParticleSystem>(true);
+
+        if (animators.Length == 0 && systems.Length == 0)
+            yield break;
+
+        // 켜진 직후에는 아직 재생이 시작되지 않아서 한 프레임 기다렸다가 확인한다
+        yield return null;
+
+        float elapsed = 0f;
+
+        while (IsFireworksPlaying(animators, systems))
+        {
+            elapsed += Time.deltaTime;
+
+            if (elapsed >= FireworksMaxWait)
+            {
+                Debug.LogWarning(
+                    $"[SummerBreeze] 불꽃이 {FireworksMaxWait}초 동안 끝나지 않아 그냥 넘어간다. "
+                        + "클립의 Loop Time이 켜져 있는지 확인할 것.",
+                    this
+                );
+                yield break;
+            }
+
+            yield return null;
+        }
+    }
+
+    // 불꽃이 반복 재생으로 바뀌어도 컷씬이 멈춰 있지 않도록 두는 안전장치
+    private const float FireworksMaxWait = 30f;
+
+    private static bool IsFireworksPlaying(Animator[] animators, ParticleSystem[] systems)
+    {
+        foreach (Animator animator in animators)
+        {
+            if (animator == null || !animator.gameObject.activeInHierarchy)
+                continue;
+
+            AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+
+            // 반복 클립은 normalizedTime이 1을 넘지 않으므로 여기서 계속 재생 중으로 잡힌다
+            if (info.loop || info.normalizedTime < 1f)
+                return true;
+        }
+
+        foreach (ParticleSystem ps in systems)
+        {
+            if (ps != null && ps.IsAlive(true))
+                return true;
+        }
+
+        return false;
     }
 
     // ================================================================ 대사
@@ -875,7 +1041,8 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         if (mood.rain)
             return _rainBlendMaterial;
 
-        if (mood == _moodEvening)
+        // 밤은 저녁 위에 불꽃만 얹은 상태라 같은 머티리얼을 쓴다
+        if (mood == _moodEvening || mood == _moodNight)
             return _eveningBlendMaterial;
 
         return null;
@@ -1184,6 +1351,19 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
         TileActorMover.SetFacing(_lunaAnimator, _lunaAnim, dir);
     }
 
+    /// <summary>
+    /// 앉아 있는 동안 하루가 바라볼 방향.
+    ///
+    /// 앉기 스프라이트(Sit_v2)는 네 방향 그림이 서로 반대로 들어가 있다.
+    /// 위를 보면 앞모습이, 아래를 보면 뒷모습(Haru_Sit_Down)이 나온다. 좌우도 마찬가지다.
+    /// 애니메이터의 Sit 블렌드 트리를 고치면 다른 씬의 앉기 연출까지 같이 바뀌므로,
+    /// 앉아 있는 이 구간에서만 방향을 뒤집어 넣어서 원하는 그림이 나오게 한다.
+    /// </summary>
+    private void FaceHaruSeated(Vector2 dir)
+    {
+        FaceHaru(-dir);
+    }
+
     private void FaceHaruTowards(Transform target)
     {
         if (_haru == null || target == null)
@@ -1220,6 +1400,124 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
 
         _haru.animator.ResetTrigger("SitDownEnd");
         _haru.animator.SetTrigger("SitDown");
+    }
+
+    /// <summary>
+    /// 불꽃을 화면에서 치운다.
+    ///
+    /// 오브젝트를 끄는 것과 별개로 스프라이트도 같이 꺼둔다.
+    /// 애니메이션이 끝나면 마지막 프레임이 스프라이트에 그대로 남아 있어서,
+    /// 다른 코드가 오브젝트를 다시 켜면 그 그림이 튀어나온다.
+    /// </summary>
+    private void HideFireworks()
+    {
+        if (_fireworks == null)
+            return;
+
+        if (_fireworksCo != null)
+        {
+            StopCoroutine(_fireworksCo);
+            _fireworksCo = null;
+        }
+
+        SetFireworksVisible(false);
+        _fireworks.SetActive(false);
+    }
+
+    private void SetFireworksVisible(bool visible)
+    {
+        if (_fireworks == null)
+            return;
+
+        foreach (SpriteRenderer sr in _fireworks.GetComponentsInChildren<SpriteRenderer>(true))
+            sr.enabled = visible;
+    }
+
+    /// <summary>
+    /// 불꽃을 처음 프레임부터 다시 터뜨린다.
+    ///
+    /// 그냥 SetActive만 하면 애니메이터가 껐을 때의 시간에서 이어서 재생하기 때문에,
+    /// 컷씬 앞부분에서 한 번 꺼둔 불꽃은 중간부터 나오거나 마지막 프레임만 보인다.
+    /// </summary>
+    private void PlayFireworks()
+    {
+        if (_fireworks == null)
+            return;
+
+        _fireworks.SetActive(true);
+        SetFireworksVisible(true);
+
+        foreach (Animator animator in _fireworks.GetComponentsInChildren<Animator>(true))
+        {
+            if (animator == null)
+                continue;
+
+            // 껐던 시점의 프레임에서 이어지지 않도록 처음으로 되돌린다
+            animator.Rebind();
+            animator.Update(0f);
+        }
+
+        foreach (ParticleSystem ps in _fireworks.GetComponentsInChildren<ParticleSystem>(true))
+        {
+            if (ps == null)
+                continue;
+
+            ps.Clear(true);
+            ps.Play(true);
+        }
+
+        // 다 터지는 순간 바로 치운다. 연출이 진행되는 동안 마지막 프레임이 남아 있으면 안 된다.
+        if (_fireworksCo != null)
+            StopCoroutine(_fireworksCo);
+
+        _fireworksCo = StartCoroutine(Co_HideFireworksWhenDone());
+    }
+
+    private IEnumerator Co_HideFireworksWhenDone()
+    {
+        yield return Co_WaitForFireworks();
+
+        HideFireworks();
+        _fireworksCo = null;
+    }
+
+    /// <summary>앉아 있다가 일어나는 동작. 앉기에서 서기로 돌아가는 애니메이터 전이를 탄다.</summary>
+    private void StandHaruUp()
+    {
+        if (_haru == null || _haru.animator == null)
+            return;
+
+        _haru.animator.ResetTrigger("SitDown");
+        _haru.animator.SetTrigger("SitDownEnd");
+
+        // 앉은 동안에는 방향을 뒤집어 넣었으므로(FaceHaruSeated) 서면서 원래대로 되돌린다
+        FaceHaru(Vector2.up);
+    }
+
+    /// <summary>
+    /// 앉은 모습을 사진으로 대신 보여준다.
+    ///
+    /// 앉기 애니메이션은 다리가 드러나서, 앉아 있는 동안에는 다리가 안 보이는 사진 한 장을 켜고
+    /// 하루의 스프라이트만 숨긴다. 오브젝트 자체는 끄지 않는다. 꺼버리면 애니메이터 상태와
+    /// 돌고 있는 코루틴까지 같이 끊긴다.
+    /// 사진을 넣지 않았으면 아무것도 하지 않고 앉기 애니메이션 그대로 간다.
+    /// </summary>
+    private void ShowSitImage(bool show)
+    {
+        if (_s4SitImage == null)
+            return;
+
+        _s4SitImage.SetActive(show);
+        SetHaruVisible(!show);
+    }
+
+    private void SetHaruVisible(bool visible)
+    {
+        if (_haru == null)
+            return;
+
+        foreach (SpriteRenderer sr in _haru.GetComponentsInChildren<SpriteRenderer>(true))
+            sr.enabled = visible;
     }
 
     // ================================================================ 입력 잠금

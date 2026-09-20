@@ -116,7 +116,6 @@ public static class SummerBreezeSceneTools
         new Tile("S4_Haru_Enter", StopCol - 4f, StopRow),
         new Tile("S4_Haru_Stop", StopCol - 1f, StopRow),
         new Tile("S4_Haru_Seat", PierCol, PierEndRow),
-        new Tile("S4_EmptySeat", PierCol + 1f, PierEndRow),
     };
 
     // 맵 경계와 화면 반폭. 메뉴를 실행할 때마다 씬에서 다시 잰다.
@@ -274,7 +273,6 @@ public static class SummerBreezeSceneTools
         SetObj(so, "_s4HaruStop", wpMap["S4_Haru_Stop"], null, report);
         SetObj(so, "_s4LunaStand", wpMap["S4_Luna_Stand"], null, report);
         SetObj(so, "_s4HaruSeat", wpMap["S4_Haru_Seat"], null, report);
-        SetObj(so, "_s4EmptySeat", wpMap["S4_EmptySeat"], null, report);
 
         SetObj(so, "_bgmBeach", LoadAsset<AudioClip>(BgmBeachPath), "BGM 해변", report);
         SetObj(so, "_bgmRainBeach", LoadAsset<AudioClip>(BgmRainPath), "BGM 비+해변", report);
@@ -729,10 +727,12 @@ public static class SummerBreezeSceneTools
             AddFirework(group.transform, FireworkPrefabB, new Vector3(TileWidth * 4f, TileHeight * 2f, 0f));
 
             report.Add("불꽃 생성 (반복 재생은 파티클의 Looping을 켤 것)");
+
+            // 마지막 방파제 구도 안, 바다 위쪽에서 터지도록.
+            // 이미 있는 불꽃은 직접 잡아둔 자리가 있을 수 있어서 건드리지 않는다.
+            group.transform.position = TileToWorld(PierCol - 3f, PierEndRow - 3f);
         }
 
-        // 마지막 방파제 구도 안, 바다 위쪽에서 터지도록
-        group.transform.position = TileToWorld(PierCol - 3f, PierEndRow - 3f);
         group.SetActive(false);
 
         return group;
