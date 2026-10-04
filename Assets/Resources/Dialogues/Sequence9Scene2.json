@@ -1,0 +1,78 @@
+[
+  {
+    "id": "intro",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "내 사진관이…",
+        "showPortrait": true
+      },
+      {
+        "text": "…돌아온 건 아니야.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "phone_call",
+    "speaker": "???",
+    "lines": [
+      {
+        "text": "…하루.",
+        "showPortrait": false
+      },
+      {
+        "text": "402호로 와.",
+        "showPortrait": false
+      }
+    ]
+  },
+  {
+    "id": "wardrobe_closed",
+    "lines": [
+      {
+        "text": "옷장 문이 열리지 않는다."
+      }
+    ]
+  },
+  {
+    "id": "cinema_lobby",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…아무도 없는데.",
+        "showPortrait": true
+      },
+      {
+        "text": "내가 또 늦은 것 같아.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "corridor_enter",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "402호였나…?",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "pistol_get",
+    "lines": [
+      {
+        "text": "권총을 집어 들었다."
+      }
+    ]
+  },
+  {
+    "id": "door_locked",
+    "lines": [
+      {
+        "text": "문이 열리지 않는다."
+      }
+    ]
+  }
+]
