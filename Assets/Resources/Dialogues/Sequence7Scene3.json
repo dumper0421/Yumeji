@@ -1,6 +1,123 @@
 [
   {
-    "id": "tv_on",
+    "id": "desk_beforeSolved",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "서랍장이 잠겨서 열리지 않는다."
+      },
+      {
+        "text": "서랍장의 각 칸에는 네모난 조각을 끼울 수 있는 홈이 있다."
+      },
+      {
+        "text": "홈을 자세히 들여다볼까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      {
+        "text": "들여다본다",
+        "nextId": "End"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "desk_afterSolved",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "서랍장이 텅 비어있다."
+      }
+    ]
+  },
+
+  {
+    "id": "emergencyDoor_noKey",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "문이 잠겨있다."
+      },
+      {
+        "text": "아무래도 열쇠를 찾아야 할 것 같아.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "emergencyDoor_hasKey",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "열쇠로 문을 열까?",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      {
+        "text": "열쇠를 사용한다",
+        "nextId": "emergencyDoor_useKey"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
+      }
+    ]
+  },
+  {
+    "id": "emergencyDoor_useKey",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "문이 열렸다."
+      }
+    ]
+  },
+  {
+    "id": "room204_dress",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "레이가 입은 원피스와 동일한 원피스가 아무렇게나 널브러져 있다."
+      },
+      {
+        "text": "원피스 밑으로 찢어진 종이 조각이 보인다."
+      },
+      {
+        "text": "이건… <유메지>의 배역표잖아.",
+        "showPortrait": true
+      },
+      {
+        "text": "그런데 ‘레이’ 배역에 루나가 아닌 다른 사람의 이름이 있어.",
+        "showPortrait": true
+      },
+      {
+        "text": "처음엔 다른 배우가 ‘레이’였던 건가…? 그런데 왜… 루나로 바뀐 거지?",
+        "showPortrait": true
+      },
+      {
+        "text": "침대 밑에서 무언가가 발에 걸렸다."
+      },
+      {
+        "text": "이게 뭐지?",
+        "showPortrait": true
+      },
+      {
+        "text": "‘콜시트 조각 — 캐스팅’을 얻었다."
+      },
+      {
+        "text": "일단 챙겨두자.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "room204_tv_on",
+    "speaker": "하루",
     "lines": [
       {
         "text": "TV에서 뉴스가 반복적으로 흘러나온다."
@@ -12,22 +129,21 @@
         "text": "“여자 주인공 자리에, 이미 캐스팅 된 국민 배우를 제치고 신인 여배우가 발탁되었으며···”"
       },
       {
-        "text": "“··· 일각에서는 이번 논란이 영화계의 뒷사정을 적나라하게 드러냈다고 표현했습니다.”"
+        "text": "“···일각에서는 이번 논란이 영화계의 뒷사정을 적나라하게 드러냈다고 표현했습니다.”"
       },
       {
-        "speaker": "하루",
-        "text": "… 논란의 중심이 된 신인 배우가 루나였지.",
+        "text": "…논란의 중심이 된 신인 배우가 루나였지.",
         "showPortrait": true
       },
       {
-        "speaker": "하루",
         "text": "루나가 정말 그런 일을 저지른 걸까? 배역을 위해서?",
         "showPortrait": true
       }
     ]
   },
   {
-    "id": "tv_off",
+    "id": "room204_tv_off",
+    "speaker": "하루",
     "lines": [
       {
         "text": "더 이상 작동하지 않는다."
