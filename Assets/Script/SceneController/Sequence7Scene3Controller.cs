@@ -1,15 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sequence7Scene3Controller : SceneController
 {
     [Header("Puzzle State")]
+    [SerializeField] private bool room201Completed = false;
     [SerializeField] private bool room204Completed = false;
     [SerializeField] private bool room205Completed = false;
 
+    public bool Room201Completed => room201Completed;
     public bool Room204Completed => room204Completed;
     public bool Room205Completed => room205Completed;
+
+
+    public void SetRoom201Completed()
+    {
+        if (room201Completed)
+            return;
+
+        room201Completed = true;
+
+        Debug.Log("[Sequence7-3] 201È£ ÆÛÁñ ¿Ï·á");
+    }
 
 
     public void SetRoom204Completed()

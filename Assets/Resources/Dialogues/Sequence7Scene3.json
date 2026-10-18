@@ -241,5 +241,78 @@
         "text": "더 이상 작동하지 않는다."
       }
     ]
+  },
+  {
+    "id": "room201_phone_before_shot",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "어디서 전화가 이렇게…",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "room201_phone_after_shot",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "헉!",
+        "showPortrait": true
+      },
+      {
+        "text": "수화기를 얼굴에 가져다 대려는 찰나, 수화기에서 총알이 발사되었다."
+      },
+      {
+        "text": "동시에 TV에서 박수 소리가 쏟아져 나왔다."
+      },
+      {
+        "text": "하마터면 위험할 뻔했어.",
+        "showPortrait": true
+      },
+      {
+        "text": "… 이런 상황에 박수라니, 소름 끼치네.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "room201_tv_on",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "아무것도 없는 상영관이다."
+      },
+      {
+        "text": "아무 소리도 들리지 않는 적막뿐이다."
+      }
+    ]
+  },
+  {
+    "id": "room201_tv_off",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "더 이상 작동하지 않는다."
+      },
+      {
+        "text": "아까 그건 뭐였을까?",
+        "showPortrait": true
+      },
+      {
+        "text": "내가 죽을 뻔하니까 박수와 환호가 들렸어.",
+        "showPortrait": true
+      },
+      {
+        "text": "죽음이 뭐가 그리 재미있는 걸까.",
+        "showPortrait": true
+      },
+      {
+        "text": "TV 아래에 무언가가 떨어져 있다."
+      },
+      {
+        "text": "‘콜시트 조각 — 단 한번의 상영’을 얻었다."
+      }
+    ]
   }
 ]

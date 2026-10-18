@@ -6,16 +6,13 @@ public class Room204DressEvent : DialogueObject
     [Header("Item")]
     public ItemData ScriptPage;
 
-    [Header("Scene Controller")]
-    public Sequence7Scene3Controller SceneController;
 
-    [Header("Room 204")]
-    public Collider2D ExitBlockCollider;
-    public GameObject Room204HallLight;
-    public GameObject TornCast;
+    [Header("Completion")]
+    public RoomCompletionGate CompletionGate;
+
 
     [Header("TV")]
-    public Room204TVEvent TVEvent;
+    public RoomTVEvent TVEvent;
 
 
     public override void TryInspect()
@@ -26,49 +23,66 @@ public class Room204DressEvent : DialogueObject
         base.TryInspect();
     }
 
+
     protected override void OnInspect()
     {
         if (DialogueManager.isRunning)
             return;
+
 
         DialogueManager.StartDialogue(StartDialogue);
 
         StartCoroutine(WaitForDialogueEnd());
     }
 
+
     private IEnumerator WaitForDialogueEnd()
     {
-        yield return new WaitUntil(() => DialogueManager.isRunning);
-        yield return new WaitUntil(() => !DialogueManager.isRunning);
+        yield return new WaitUntil(
+            () => DialogueManager.isRunning
+        );
+
+        yield return new WaitUntil(
+            () => !DialogueManager.isRunning
+        );
+
 
         CompleteDressEvent();
     }
 
+
     private void CompleteDressEvent()
     {
-        if (SceneController.Room204Completed)
+        // 이미 메인 이벤트가 완료됐다면 중복 방지
+        if (CompletionGate != null &&
+            CompletionGate.MainEventCompleted)
+        {
             return;
+        }
 
-        // 콜시트 조각 - 캐스팅 획득
-        InventoryManager.Instance.AddItem(ScriptPage);
-        // 콜시트 이미지 제거
-        Destroy(TornCast);
 
-        // 204호 퍼즐 완료
-        SceneController.SetRoom204Completed();
+        // 콜시트 획득
+        if (ScriptPage != null)
+        {
+            InventoryManager.Instance.AddItem(ScriptPage);
+        }
 
-        // 출구 콜라이더 해제
-        if (ExitBlockCollider != null)
-            ExitBlockCollider.enabled = false;
 
-        // 원맵 204호 문 앞 빛 제거
-        if (Room204HallLight != null)
-            Room204HallLight.SetActive(false);
+        // 드레스 이벤트 완료
+        if (CompletionGate != null)
+        {
+            CompletionGate.MarkMainEventCompleted();
+        }
 
-        // TV 조건 다시 검사
-        if (TVEvent != null)
-            TVEvent.CheckTVOffCondition();
 
         Debug.Log("[Room204] 드레스 이벤트 완료");
+
+
+        // TV를 먼저 조사했을 수도 있으므로
+        // TV OFF 조건 재검사
+        if (TVEvent != null)
+        {
+            TVEvent.CheckTVOffCondition();
+        }
     }
 }
