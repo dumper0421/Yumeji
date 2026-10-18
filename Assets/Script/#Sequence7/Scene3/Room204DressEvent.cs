@@ -12,6 +12,7 @@ public class Room204DressEvent : DialogueObject
     [Header("Room 204")]
     public Collider2D ExitBlockCollider;
     public GameObject Room204HallLight;
+    public GameObject TornCast;
 
     [Header("TV")]
     public Room204TVEvent TVEvent;
@@ -50,6 +51,8 @@ public class Room204DressEvent : DialogueObject
 
         // 콜시트 조각 - 캐스팅 획득
         InventoryManager.Instance.AddItem(ScriptPage);
+        // 콜시트 이미지 제거
+        Destroy(TornCast);
 
         // 204호 퍼즐 완료
         SceneController.SetRoom204Completed();

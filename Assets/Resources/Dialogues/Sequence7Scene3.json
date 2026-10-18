@@ -149,5 +149,97 @@
         "text": "더 이상 작동하지 않는다."
       }
     ]
+  },
+  {
+    "id": "room205_luna_before",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "이건 분명… 루나?",
+        "showPortrait": true
+      },
+      {
+        "text": "루나! 내 목소리 들려? 왜 그런 모습이 된 거야?",
+        "showPortrait": true
+      },
+      {
+        "text": "아무런 대답도 돌아오지 않는다."
+      },
+      {
+        "text": "대체 루나에게 무슨 일이 있었던 거지?",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "room205_luna_after",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "흔적도 없이 사라졌다."
+      },
+      {
+        "text": "저 카메라들 때문인가?",
+        "showPortrait": true
+      },
+      {
+        "text": "루나는 의지할 곳도 없이 혼자…",
+        "showPortrait": true
+      },
+      {
+        "text": "루나가 서 있던 자리에 무언가가 떨어져 있다."
+      },
+      {
+        "text": "‘콜시트 조각 — 마지막 촬영의 기억’을 얻었다."
+      },
+      {
+        "text": "루나…",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "room205_tv_on",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "…! TV에 내가 비치고 있어.",
+        "showPortrait": true
+      },
+      {
+        "text": "뭐라고 중얼거리는 거지?",
+        "showPortrait": true
+      },
+      {
+        "text": "···다고 했···"
+      },
+      {
+        "text": "믿··· 잖···"
+      },
+      {
+        "text": "···는다··· 했잖···"
+      },
+      {
+        "text": "….",
+        "showPortrait": true
+      },
+      {
+        "text": "믿는다고 했어, 내가.",
+        "showPortrait": true
+      },
+      {
+        "text": "… 말만 했었지.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "room205_tv_off",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "더 이상 작동하지 않는다."
+      }
+    ]
   }
 ]
