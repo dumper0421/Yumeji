@@ -6444,6 +6444,16 @@ MonoBehaviour:
   state: 0
   room201PhoneEvent: {fileID: 844963349}
   shotToReactionDelay: 2
+  managerDeskDrawer: {fileID: 1533703749}
+  deskAfterSolvedDialogueId: desk_afterSolved
+  callSheetPuzzleController: {fileID: 1389905510}
+  emergencyDoorEvent: {fileID: 647572754}
+  thirdFloorEmergencyKey: {fileID: 11400000, guid: 2106532596677a84babf2a5eb8dd6064, type: 2}
+  emergencyDoorAudioSource: {fileID: 1109036421}
+  doorOpenSFX: {fileID: 8300000, guid: f053ba07e3caa7049a1d283b232ac3ca, type: 3}
+  onEmergencyDoorOpened:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &603220112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7310820455520739453, guid: ee99eb725a5ef114a90f44d07b121677, type: 3}
@@ -7175,9 +7185,9 @@ GameObject:
   - component: {fileID: 647572750}
   - component: {fileID: 647572751}
   - component: {fileID: 647572753}
-  - component: {fileID: 647572752}
+  - component: {fileID: 647572754}
   m_Layer: 6
-  m_Name: OBJ_emergencyDoor_v1
+  m_Name: '***emergencyDoor_v1'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7250,22 +7260,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &647572752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647572749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsDisposable: 0
-  hasBeenInspected: 0
-  StartDialogue: emergencyDoor_noKey
-  DialogueManager: {fileID: 603143303}
 --- !u!61 &647572753
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7311,6 +7305,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.6580582}
   m_EdgeRadius: 0
+--- !u!114 &647572754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647572749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd8b1b7f543103468e6997cc43fc71d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDisposable: 0
+  hasBeenInspected: 0
+  StartDialogue: emergencyDoor_noKey
+  DialogueManager: {fileID: 603143303}
+  thirdFloorEmergencyKey: {fileID: 11400000, guid: 2106532596677a84babf2a5eb8dd6064, type: 2}
+  noKeyDialogueId: emergencyDoor_noKey
+  hasKeyDialogueId: emergencyDoor_hasKey
 --- !u!1 &651073229
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,6 +8509,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &752447956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752447957}
+  m_Layer: 0
+  m_Name: =====TEST=====
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &752447957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752447956}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 94.12, y: -12.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &754108033
 GameObject:
   m_ObjectHideFlags: 0
@@ -11222,6 +11266,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 119071427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &992579173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992579175}
+  - component: {fileID: 992579174}
+  m_Layer: 0
+  m_Name: CallSheetPuzzleTestItems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &992579174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992579173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791077cb938c20947820437860938292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castingItem: {fileID: 11400000, guid: 00af9315341c37747bdecda944e05c51, type: 2}
+  lastShootingItem: {fileID: 11400000, guid: d15c11476393e11489565079852b1713, type: 2}
+  singleScreeningItem: {fileID: 11400000, guid: 9af0767f194a1ac44b41fe328bba2d2a, type: 2}
+  giveItemsOnStart: 1
+--- !u!4 &992579175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992579173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 94.12, y: -12.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &994586826
 GameObject:
   m_ObjectHideFlags: 0
@@ -12963,15 +13055,15 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8662976946478595821, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
   m_PrefabInstance: {fileID: 412112121}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1109036424 stripped
+--- !u!114 &1109036425 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8073127927272997991, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7868654815363359061, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
   m_PrefabInstance: {fileID: 412112121}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109036389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30cb230d342ae3345a054981162f2d9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b81281da67fb6247a2c4f09f8048161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1109604485
@@ -15172,13 +15264,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleCanvas: {fileID: 111259723}
   choicePanel: {fileID: 1804157969}
+  slotPieceImages:
+  - {fileID: 56175505}
+  - {fileID: 1388441803}
+  - {fileID: 1469352323}
   slotArrow: {fileID: 1139610091}
   slotArrowPoints:
   - {fileID: 1007528071}
   - {fileID: 1107884810}
   - {fileID: 633742700}
-  playerMove: {fileID: 1109036413}
-  interactionSystem: {fileID: 1109036424}
+  castingSprite: {fileID: 21300000, guid: f7aabe7772a39ba42b5ca105e4ed1b86, type: 3}
+  lastShootingSprite: {fileID: 21300000, guid: 06fdb184a45764f4ba7d8ed54b869b84, type: 3}
+  singleScreeningSprite: {fileID: 21300000, guid: 30046ba4c309b8f43b983992e9cddeec, type: 3}
+  titleText: {fileID: 801345769}
+  choiceTexts:
+  - {fileID: 1265212487}
+  - {fileID: 1358190593}
+  - {fileID: 1185961939}
+  choiceArrow: {fileID: 1939012501}
+  choiceArrowPoints:
+  - {fileID: 1979572068}
+  - {fileID: 201546291}
+  - {fileID: 1287595267}
+  castingItem: {fileID: 11400000, guid: 00af9315341c37747bdecda944e05c51, type: 2}
+  lastShootingItem: {fileID: 11400000, guid: d15c11476393e11489565079852b1713, type: 2}
+  singleScreeningItem: {fileID: 11400000, guid: 9af0767f194a1ac44b41fe328bba2d2a, type: 2}
+  thirdFloorEmergencyKey: {fileID: 11400000, guid: 2106532596677a84babf2a5eb8dd6064, type: 2}
+  dialogueManager: {fileID: 603143303}
+  correctDialogueId: callsheet_puzzle_correct
+  wrongDialogueId: callsheet_puzzle_wrong
+  resultAudioSource: {fileID: 1109036421}
+  insertSFX: {fileID: 8300000, guid: 5b32bb1fce150c84c9af72c3871a5c05, type: 3}
+  correctSFX: {fileID: 8300000, guid: 1a9fdf3d3e6389045ad6a0eed87c4ac8, type: 3}
+  wrongSFX: {fileID: 8300000, guid: 06b5fd06fefef224facaa8c5206bcfbd, type: 3}
+  playerMoveTestLerp: {fileID: 1109036413}
+  playerAction: {fileID: 1109036425}
   pauseUI: {fileID: 1189166218}
 --- !u!1 &1391765972
 GameObject:
@@ -16866,7 +16986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDisposable: 0
   hasBeenInspected: 0
-  StartDialogue: w
+  StartDialogue: callsheet_drawer
   DialogueManager: {fileID: 603143303}
 --- !u!61 &1533703750
 BoxCollider2D:
@@ -19023,7 +19143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1804157970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22529,5 +22649,7 @@ SceneRoots:
   - {fileID: 572205712}
   - {fileID: 1044797191}
   - {fileID: 321432680}
-  - {fileID: 1829497563}
+  - {fileID: 752447957}
   - {fileID: 393377777}
+  - {fileID: 1829497563}
+  - {fileID: 992579175}

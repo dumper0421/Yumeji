@@ -34,7 +34,6 @@
       }
     ]
   },
-
   {
     "id": "emergencyDoor_noKey",
     "speaker": "하루",
@@ -312,6 +311,52 @@
       },
       {
         "text": "‘콜시트 조각 — 단 한번의 상영’을 얻었다."
+      }
+    ]
+  },
+  {
+    "id": "callsheet_puzzle_correct",
+    "speaker": "",
+    "lines": [
+      {
+        "text": "모든 콜시트 조각을 끼웠더니 서랍 맨 밑 칸이 열렸다."
+      },
+      {
+        "text": "‘3층 비상문 열쇠’를 얻었다."
+      }
+    ]
+  },
+  {
+    "id": "callsheet_puzzle_wrong",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "아무래도 이 순서가 아닌 것 같아.",
+        "showPortrait": true
+      },
+      {
+        "text": "각각의 콜시트 조각이 의미하는 사건이 일어난 순서를 잘 생각해보자.",
+        "showPortrait": true
+      }
+    ]
+  },
+  {
+    "id": "callsheet_drawer",
+    "speaker": "하루",
+    "lines": [
+      {
+        "text": "서랍 안쪽에 콜시트 조각을 끼울 수 있을 것 같은 홈이 있다.",
+        "showPortrait": true
+      }
+    ],
+    "options": [
+      {
+        "text": "들여다본다",
+        "nextId": "End"
+      },
+      {
+        "text": "그만둔다",
+        "nextId": "End"
       }
     ]
   }
