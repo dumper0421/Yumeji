@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -121,7 +121,763 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1014
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d8cbb78af8e3645870daa02da25544
+      internalID: 1860783344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1014
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 782110c594eff8e4d8a098c9fbecbc93
+      internalID: -1317440764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1014
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db0839045f5f5245806e7753f8c846f
+      internalID: 953972555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_3
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1014
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d06af4e68349e246af59ef5ac4e3729
+      internalID: -1112597419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_4
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 1014
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2ae615df4ae8543b68af273ee40889
+      internalID: 2022364561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_5
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1014
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a017567be81ba841b8075946c7b3c15
+      internalID: 2056091563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_6
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1014
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba36b041fc88a745a3a348e6f0104f7
+      internalID: 1207423742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_7
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1014
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5af1e8aa8c29b714785cca93b59fad9f
+      internalID: 1511634097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_8
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 1014
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e2a6d292c27114ebf678b367cf5a95
+      internalID: -883732836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_9
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 708
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aabd5b3758a9e794e9e640e0d141aa76
+      internalID: 232670524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_10
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 708
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67473a4996082da4dbecf1beb4408954
+      internalID: 524105429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_11
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 708
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb45692301e12fc4b905c5d00a936dd7
+      internalID: 1762916984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_12
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 708
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6e68222dd436f4cb7f73245051d840
+      internalID: -883544092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_13
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 708
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7491f76c659c126478b9b9a161f2c7d2
+      internalID: -38710272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_14
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 708
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5f76ced9b055b45b090e37d6a3fd63
+      internalID: -1593938198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_15
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 708
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: accbb2b6e6451a743a952104b8e79101
+      internalID: 163147800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_16
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 708
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5854a6b3c7de51a46be9e6d724d5eb46
+      internalID: 151604129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_17
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 708
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e89b49452623e34ab7338d4a4065165
+      internalID: -545957765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 400
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3af1c6416356474e9ac627180c61ff4
+      internalID: 1757025245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_19
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 400
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ac153447a98e647a51defae36fdfbd
+      internalID: 433079716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_20
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 400
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a781ed366b7be4280ecbc85f4c47f9
+      internalID: -657638590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_21
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 400
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2fa5f3f490a6974eb19c5df16504430
+      internalID: -1110847188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_22
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 400
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb1cfb84ce4b734f90d1b5926a1cc30
+      internalID: 1416626482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_23
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 400
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da76f57694c6004dba76804d2a97ae5
+      internalID: -1792597831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_24
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 400
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47cd1252b2e7ac44185fc8b659d448a7
+      internalID: -1895504625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_25
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 400
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c62a5fe3d00c6d468ea8c0a9b7c714e
+      internalID: 1168598020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_26
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 400
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e556db6d3e335f4bbc7a5ae522903b3
+      internalID: 1934309881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_27
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 94
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63b7e0aec49b3646a741b6c7d09d9b9
+      internalID: 1228266117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_28
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 94
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e62ee4cc3f0b72449d55684b79279e6
+      internalID: 1371684509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_29
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 94
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f151b60a5ad9995449c04dd9a42340c8
+      internalID: -1604617240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_30
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 94
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cfe8407d4006d546b7f64d3f29f7b9e
+      internalID: -1522103091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_31
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 94
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c564f2563718d4d825d7dcb085d1c7
+      internalID: -408036785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_32
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 94
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c0562580844c64b9178855696cb815
+      internalID: -101397585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_33
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 94
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dedf3f255af6a34ea9e73c47d96fe6e
+      internalID: 407428332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_34
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 94
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998b1ef215a193346b5fc6d63d427845
+      internalID: 629689305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_DarkHaru_v1_35
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 94
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c62c9d07994a2b4dbd6842f85cfe8bd
+      internalID: 423968643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +888,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ANI_DarkHaru_v1_0: 1860783344
+      ANI_DarkHaru_v1_1: -1317440764
+      ANI_DarkHaru_v1_10: 524105429
+      ANI_DarkHaru_v1_11: 1762916984
+      ANI_DarkHaru_v1_12: -883544092
+      ANI_DarkHaru_v1_13: -38710272
+      ANI_DarkHaru_v1_14: -1593938198
+      ANI_DarkHaru_v1_15: 163147800
+      ANI_DarkHaru_v1_16: 151604129
+      ANI_DarkHaru_v1_17: -545957765
+      ANI_DarkHaru_v1_18: 1757025245
+      ANI_DarkHaru_v1_19: 433079716
+      ANI_DarkHaru_v1_2: 953972555
+      ANI_DarkHaru_v1_20: -657638590
+      ANI_DarkHaru_v1_21: -1110847188
+      ANI_DarkHaru_v1_22: 1416626482
+      ANI_DarkHaru_v1_23: -1792597831
+      ANI_DarkHaru_v1_24: -1895504625
+      ANI_DarkHaru_v1_25: 1168598020
+      ANI_DarkHaru_v1_26: 1934309881
+      ANI_DarkHaru_v1_27: 1228266117
+      ANI_DarkHaru_v1_28: 1371684509
+      ANI_DarkHaru_v1_29: -1604617240
+      ANI_DarkHaru_v1_3: -1112597419
+      ANI_DarkHaru_v1_30: -1522103091
+      ANI_DarkHaru_v1_31: -408036785
+      ANI_DarkHaru_v1_32: -101397585
+      ANI_DarkHaru_v1_33: 407428332
+      ANI_DarkHaru_v1_34: 629689305
+      ANI_DarkHaru_v1_35: 423968643
+      ANI_DarkHaru_v1_4: 2022364561
+      ANI_DarkHaru_v1_5: 2056091563
+      ANI_DarkHaru_v1_6: 1207423742
+      ANI_DarkHaru_v1_7: 1511634097
+      ANI_DarkHaru_v1_8: -883732836
+      ANI_DarkHaru_v1_9: 232670524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
