@@ -40,6 +40,7 @@ public class EnemyPathfinder : MonoBehaviour
     [Header("Obstacle Check")]
     [SerializeField] private Vector2 overlapBoxSize = new Vector2(0.9f, 0.9f);
     [SerializeField] private string obstacleLayerName = "Obstacle";
+    [SerializeField] private bool checkObstaclesBetweenCells;
 
     [HideInInspector] public List<Node> FinalNodeList = new List<Node>();
 
@@ -162,6 +163,14 @@ public class EnemyPathfinder : MonoBehaviour
                 Node nb = nodes[nx - bottomLeft.x, ny - bottomLeft.y];
                 if (nb.isWall || closed.Contains(nb))
                     continue;
+
+                if (checkObstaclesBetweenCells)
+                {
+                    Vector2 from = GridToWorld(new Vector2Int(cur.x, cur.y));
+                    Vector2 delta = GridToWorld(new Vector2Int(nx, ny)) - from;
+                    if (Physics2D.BoxCast(from, overlapBoxSize, 0f, delta.normalized, delta.magnitude, obstacleMask))
+                        continue;
+                }
 
                 if (allowDiagonal && dontCrossCorner && Mathf.Abs(d.x) == 1 && Mathf.Abs(d.y) == 1)
                 {

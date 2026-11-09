@@ -42,6 +42,29 @@ public class S7S4EndingSequence : MonoBehaviour
     [SerializeField] private bool fadeInOnStart = true;
 
     private bool _played = false;
+    private float _chaseStartY;
+
+    private void OnEnable()
+    {
+        if (player != null)
+            _chaseStartY = player.transform.position.y + 3f;
+
+        PlayerMove_Test_Lerp.OnTileArrived += StartChaseAtThirdTile;
+    }
+
+    private void OnDisable()
+    {
+        PlayerMove_Test_Lerp.OnTileArrived -= StartChaseAtThirdTile;
+    }
+
+    private void StartChaseAtThirdTile(Vector2 position)
+    {
+        if (_played || caretaker == null || position.y < _chaseStartY - 0.01f)
+            return;
+
+        PlayerMove_Test_Lerp.OnTileArrived -= StartChaseAtThirdTile;
+        caretaker.gameObject.SetActive(true);
+    }
 
     private IEnumerator Start()
     {
