@@ -1,0 +1,115 @@
+[
+  {
+    "id": "a_1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "예전에는 촬영이 끝나도 바로 안 갔었잖아.", "showPortrait": true, "nextId": "a_2" }
+    ]
+  },
+  {
+    "id": "a_2",
+    "speaker": "루나",
+    "lines": [
+      { "text": "맞아.", "showPortrait": true, "nextId": "a_3" }
+    ]
+  },
+  {
+    "id": "a_3",
+    "speaker": "하루",
+    "lines": [
+      { "text": "할 얘기도 별로 없었는데 말이.", "showPortrait": true, "nextId": "a_4" }
+    ]
+  },
+  {
+    "id": "a_4",
+    "speaker": "루나",
+    "lines": [
+      { "text": "그래도 계속 얘기했잖아.", "showPortrait": true, "nextId": "a_5" }
+    ]
+  },
+  {
+    "id": "a_5",
+    "speaker": "하루",
+    "lines": [
+      { "text": "……무슨 얘기를 했더라?", "showPortrait": true, "nextId": "a_6" }
+    ]
+  },
+  {
+    "id": "a_6",
+    "speaker": "루나",
+    "lines": [
+      { "text": "이젠 나도 잘 기억이 안 나.", "showPortrait": true, "nextId": "a_7" }
+    ]
+  },
+  {
+    "id": "a_7",
+    "speaker": "하루",
+    "lines": [
+      { "text": "왜 배우가 되고 싶었어?", "showPortrait": true, "nextId": "a_8" }
+    ]
+  },
+  {
+    "id": "a_8",
+    "speaker": "루나",
+    "lines": [
+      { "text": "…", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "b_1",
+    "speaker": "루나",
+    "lines": [
+      { "text": "처음에는…… 잠깐이라도 다른 사람이 되고 싶었어.", "showPortrait": true },
+      { "text": "내가 겪은 일 말고, 그 사람이 겪은 일을 생각하고.", "showPortrait": true, "nextId": "b_2" }
+    ]
+  },
+  {
+    "id": "b_2",
+    "speaker": "루나",
+    "lines": [
+      { "text": "그 사람처럼 말하고, 웃고.", "showPortrait": true },
+      { "text": "촬영하는 동안에는 그렇게 있을 수 있었으니까.", "showPortrait": true },
+      { "text": "그런데 네 영화를 찍을 때는……", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "c_1",
+    "speaker": "루나",
+    "lines": [
+      { "text": "그냥 바닷가를 거닐던 장면이었잖아.", "showPortrait": true },
+      { "text": "처음엔 어떻게 걸어야 하는지까지도 신경 쓰였는데…", "showPortrait": true },
+      { "text": "어느 순간부터 아무 신경도 안 쓰였어.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "d_1",
+    "speaker": "루나",
+    "lines": [
+      { "text": "그날은 마치… 저 바다가 전부 내 것만 같았어.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "il_1",
+    "speaker": "루나",
+    "lines": [
+      { "text": "어디까지 봐도, 다.", "showPortrait": false },
+      { "text": "전혀 다른 세상에 와 있는 것 같았어.", "showPortrait": false },
+      { "text": "나도 내가 알던 사람이 아니고.", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "il_2",
+    "speaker": "루나",
+    "lines": [
+      { "text": "바람이 불고, 파도가 오고.", "showPortrait": false },
+      { "text": "그냥 계속 보고만 있어도 될 것 같았어.", "showPortrait": false }
+    ]
+  },
+  {
+    "id": "il_3",
+    "speaker": "루나",
+    "lines": [
+      { "text": "그날은…… 꿈길을 걷는 것 같았어.", "showPortrait": false }
+    ]
+  }
+]

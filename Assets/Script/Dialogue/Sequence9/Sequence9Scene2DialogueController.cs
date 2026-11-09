@@ -165,6 +165,10 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
     [SerializeField]
     private Image _illustrationImage;
 
+    [Tooltip("일러스트 뒤에 까는 검은 판. 화면과 비율이 다른 일러스트의 남는 부분으로 맵이 비치지 않게 한다.")]
+    [SerializeField]
+    private GameObject _illustrationBackdrop;
+
     [Tooltip("일러스트가 비어 있을 때 쓰는 임시 라벨")]
     [SerializeField]
     private TMP_Text _illustrationPlaceholder;
@@ -227,6 +231,10 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
     [Tooltip("월드 스페이스 캔버스 위의 스크린 화면")]
     [SerializeField]
     private RawImage _screenImage;
+
+    [Tooltip("영상이 재생되지 않을 때 스크린 이미지 색. 투명이면 맵에 그려진 스크린이 보인다.")]
+    [SerializeField]
+    private Color _screenIdleColor = Color.clear;
 
     [SerializeField]
     private TMP_Text _screenPlaceholder;
@@ -435,7 +443,7 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
             case S9S2State.CinemaLobby:
             case S9S2State.Screen:
                 state = S9S2State.CinemaLobby;
-                PlaceHaru(_cinemaLobbySpawn, Vector2.down, _cinemaLobbyCam);
+                PlaceHaru(_cinemaLobbySpawn, Vector2.up, _cinemaLobbyCam);
                 StartCoroutine(Co_RestoreFadeIn());
                 break;
 
@@ -651,7 +659,7 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
 
                 state = S9S2State.CinemaLobby;
                 PersistPuzzleState();
-                StartCoroutine(Co_MoveRoom(_cinemaLobbySpawn, Vector2.down, _cinemaLobbyCam, null, "cinema_lobby"));
+                StartCoroutine(Co_MoveRoom(_cinemaLobbySpawn, Vector2.up, _cinemaLobbyCam, null, "cinema_lobby"));
                 break;
 
             // 5-4 → 5-5: 오른쪽 위 문 → 스크린 공간
@@ -1082,7 +1090,13 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
         SwitchCamera(_screenCloseupCam);
         yield return new WaitForSeconds(_screenBlendSeconds);
 
+        // 스크린이 화면을 채우는 동안 하루의 머리가 아래 끝에 걸리지 않게 숨긴다
+        SetHaruVisible(false);
+
         yield return Co_PlayScreen();
+
+        SetHaruVisible(true);
+        SetScreenIdle();
 
         // 카메라 원상복구 후 스크린 하단에 검은 문
         SwitchCamera(_screenRoomCam);
@@ -1178,6 +1192,25 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
         }
 
         ShowScreenPlaceholder(false);
+    }
+
+    private void SetScreenIdle()
+    {
+        if (_screenImage == null)
+            return;
+
+        _screenImage.texture = null;
+        _screenImage.color = _screenIdleColor;
+    }
+
+    private void SetHaruVisible(bool visible)
+    {
+        if (_playerMove == null)
+            return;
+
+        var sr = _playerMove.GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.enabled = visible;
     }
 
     private void ShowScreenPlaceholder(bool show)
@@ -1383,6 +1416,9 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
 
         _illustrationImage.gameObject.SetActive(true);
 
+        if (_illustrationBackdrop != null)
+            _illustrationBackdrop.SetActive(true);
+
         if (sprite != null)
         {
             _illustrationImage.sprite = sprite;
@@ -1406,6 +1442,9 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
     {
         if (_illustrationImage != null)
             _illustrationImage.gameObject.SetActive(false);
+
+        if (_illustrationBackdrop != null)
+            _illustrationBackdrop.SetActive(false);
 
         if (_illustrationPlaceholder != null)
             _illustrationPlaceholder.gameObject.SetActive(false);
