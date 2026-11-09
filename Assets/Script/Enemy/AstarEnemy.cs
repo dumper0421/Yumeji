@@ -11,6 +11,7 @@ public class AstarEnemy : Enemy
     [SerializeField] private float attackAllowedDistance = 1f;
     [SerializeField] private float fastDistance = 20f;
     [SerializeField] private float farMoveSpeed = 1.25f;
+    [SerializeField] private bool finishStepBeforeRepath;
 
     private float originalMoveSpeed = 1f;
 
@@ -102,7 +103,8 @@ public class AstarEnemy : Enemy
             _hasLastTargetGrid = true;
 
             pathFinder.targetPos = currentTargetGrid;
-            CancelMovement();
+            if (!finishStepBeforeRepath)
+                CancelMovement();
 
             waitTimer = waitInterval;
         }
