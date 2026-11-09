@@ -14,8 +14,8 @@ using UnityEngine.Video;
 /// [9-2] 상영 중 씬을 한 번에 만들어 주는 메뉴 도구.
 /// 유니티 상단 메뉴 → Tools → 유메지 [9-2 상영 중] 에서 사용한다.
 ///
-/// 시퀀스 9 전용 맵 리소스가 아직 없어서, 기획서가 "변형해서 쓴다"고 한 원본 공간을
-/// 각 씬에서 그대로 복사해 온다. (맵 리소스가 나오면 해당 Room_ 그룹의 배경만 교체하면 된다)
+/// 기획서가 "변형해서 쓴다"고 한 원본 공간을 각 씬에서 그대로 복사해 온 뒤,
+/// S9S2ArtApply가 시퀀스 9 전용 아트와 레이아웃을 그 위에 입힌다.
 ///   사진관 로비/암실 ← Sequence2S#1 (Guest Area / Work Room)
 ///   하루의 집        ← Sequence2S#4 (BG_haruRoom_v2)
 ///   반복되는 복도    ← Sequence2S#4 (BG_haruApartmentLobby_v1, 현관문 4개)
@@ -572,6 +572,9 @@ public static class S9S2SceneTools
 
         // 8-2의 정원 색조를 이어받지 않도록 전역 조명을 기본값으로
         ResetGlobalLight(ctx);
+
+        // 원본 맵을 복사한 위에 9-2 전용 아트와 배치를 입힌다
+        S9S2ArtApply.ApplyAfterBuild(ctx.Scene);
 
         AddToBuildSettings(ctx);
 

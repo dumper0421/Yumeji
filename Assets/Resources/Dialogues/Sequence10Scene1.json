@@ -1,0 +1,153 @@
+[
+  {
+    "id": "c1_1",
+    "speaker": "루나",
+    "lines": [
+      { "text": "……이제 정말 끝이네.", "showPortrait": true },
+      { "text": "저 필름이 다 타면, 유메지도 완전히 없어질 거야.", "showPortrait": true, "nextId": "c1_2" }
+    ]
+  },
+  {
+    "id": "c1_2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "너도 같이?", "showPortrait": true, "nextId": "c1_3" }
+    ]
+  },
+  {
+    "id": "c1_3",
+    "speaker": "루나",
+    "lines": [
+      { "text": "응.", "showPortrait": true, "nextId": "c1_4" }
+    ]
+  },
+  {
+    "id": "c1_4",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…….", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "c2_1",
+    "speaker": "루나",
+    "lines": [
+      { "text": "이제 가, 하루.", "showPortrait": true },
+      { "text": "아직 나갈 수 있어.", "showPortrait": true },
+      { "text": "여기까지 와줘서 고마워.", "showPortrait": true, "nextId": "c2_2" }
+    ]
+  },
+  {
+    "id": "c2_2",
+    "speaker": "하루",
+    "lines": [
+      { "text": "……아직 남아 있잖아.", "showPortrait": true, "nextId": "c2_3" }
+    ]
+  },
+  {
+    "id": "c2_3",
+    "speaker": "루나",
+    "lines": [
+      { "text": "뭐가?", "showPortrait": true, "nextId": "c2_4" }
+    ]
+  },
+  {
+    "id": "c2_4",
+    "speaker": "하루",
+    "lines": [
+      { "text": "필름.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "c3_1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "마지막으로 한 번 정도는 더 돌릴 수 있지 않을까?", "showPortrait": true },
+      { "text": "다시 보고 싶었던 게 아직 남아 있어.", "showPortrait": true, "nextId": "c3_2" }
+    ]
+  },
+  {
+    "id": "c3_2",
+    "speaker": "루나",
+    "lines": [
+      { "text": "안 돼.", "showPortrait": true },
+      { "text": "지금 다시 들어가면 너도 같이 휩쓸려.", "showPortrait": true, "nextId": "c3_3" }
+    ]
+  },
+  {
+    "id": "c3_3",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…", "showPortrait": true, "nextId": "c3_4" }
+    ]
+  },
+  {
+    "id": "c3_4",
+    "speaker": "루나",
+    "lines": [
+      { "text": "다시 돌아오지 못할 거야.", "showPortrait": true }
+    ],
+    "options": [
+      { "text": "루나와 함께 남는다.", "nextId": "stay_1", "hasIntermediateAction": true },
+      { "text": "현실로 돌아간다.", "nextId": "leave_1", "hasIntermediateAction": true }
+    ]
+  },
+  {
+    "id": "stay_1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "알아.", "showPortrait": true },
+      { "text": "그래도 한 번만 더…… 너랑 같이 보고 싶은 게 있어.", "showPortrait": true, "nextId": "stay_2" }
+    ]
+  },
+  {
+    "id": "stay_2",
+    "speaker": "루나",
+    "lines": [
+      { "text": "…", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "stay_3",
+    "speaker": "루나",
+    "lines": [
+      { "text": "……알겠어.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "leave_1",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…갈게 그럼.", "showPortrait": true, "nextId": "leave_2" }
+    ]
+  },
+  {
+    "id": "leave_2",
+    "speaker": "루나",
+    "lines": [
+      { "text": "…응.", "showPortrait": true }
+    ]
+  },
+  {
+    "id": "leave_3",
+    "speaker": "루나",
+    "lines": [
+      { "text": "잘 가, 하루.", "showPortrait": true },
+      { "text": "이번에는 이해할 수 있을 것 같아.", "showPortrait": true, "nextId": "leave_4" }
+    ]
+  },
+  {
+    "id": "leave_4",
+    "speaker": "하루",
+    "lines": [
+      { "text": "…나도, 이제는.", "showPortrait": true, "nextId": "leave_5" }
+    ]
+  },
+  {
+    "id": "leave_5",
+    "speaker": "루나",
+    "lines": [
+      { "text": "잘 가.", "showPortrait": true }
+    ]
+  }
+]
