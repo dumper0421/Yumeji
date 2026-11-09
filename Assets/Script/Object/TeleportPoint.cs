@@ -57,6 +57,7 @@ public class TeleportPoint : MonoBehaviour
         var mover = playerCol.GetComponent<PlayerMove_Test_Lerp>();
         if (mover != null)
         {
+            mover.StopMovement();
             // PlayerMove_Test_Lerp의 canMove는 private라 직접 접근 불가였다. :contentReference[oaicite:2]{index=2}
             // 가장 확실한 입력 차단은 컴포넌트 비활성화였다.
             mover.enabled = false;

@@ -67,6 +67,12 @@ public class InteractionSystem : MonoBehaviour
 
     private void UpdateFacingDirection()
     {
+        if (move != null)
+        {
+            lastDirection = move.Facing;
+            return;
+        }
+
         float dirX = Input.GetAxisRaw("Horizontal");
         float dirY = Input.GetAxisRaw("Vertical");
 

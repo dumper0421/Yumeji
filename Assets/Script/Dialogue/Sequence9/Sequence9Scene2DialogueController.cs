@@ -338,6 +338,8 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
     protected override void Awake()
     {
         base.Awake();
+        if (_playerMove != null)
+            _playerMove.OnBlockedStep = TryWalkIntoDoor;
 
         foreach (
             CinemachineVirtualCamera cam in new[]
@@ -360,6 +362,9 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
 
     protected override void OnDestroy()
     {
+        if (_playerMove != null)
+            _playerMove.OnBlockedStep = null;
+
         base.OnDestroy();
 
         if (_screenTexture != null)
@@ -420,12 +425,12 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
         switch (state)
         {
             case S9S2State.None:
-                PlaceHaru(_photoLobbySpawn, Vector2.down, _photoLobbyCam);
+                PlaceHaru(_photoLobbySpawn, Vector2.up, _photoLobbyCam);
                 StartCoroutine(Co_Intro());
                 break;
 
             case S9S2State.PhotoStudio:
-                PlaceHaru(_photoLobbySpawn, Vector2.down, _photoLobbyCam);
+                PlaceHaru(_photoLobbySpawn, Vector2.up, _photoLobbyCam);
                 StartCoroutine(Co_RestoreFadeIn());
                 break;
 
@@ -544,19 +549,8 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
 
     private void Update()
     {
-        if (!_enterDoorByWalking)
-            return;
-
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        if (input == Vector2.zero)
-        {
+        if (Input.GetAxisRaw("Horizontal") == 0f && Input.GetAxisRaw("Vertical") == 0f)
             _walkInArmed = true;
-            return;
-        }
-
-        if (_walkInArmed)
-            TryWalkIntoDoor(TileActorMover.SnapTo4Dir(input));
     }
 
     /// <summary>
@@ -564,26 +558,19 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
     /// InteractionSystem과 같은 레이캐스트(거리 1)로 바로 앞의 문을 찾는다.
     /// 잠긴 문은 무시한다. (Space로 조사하면 잠김 대사가 나온다)
     /// </summary>
-    public bool TryWalkIntoDoor(Vector2 dir)
+    private bool TryWalkIntoDoor(RaycastHit2D hit)
     {
-        if (_busy || _playerMove == null || !_playerMove.enabled || !_playerMove.canMove)
+        if (!_enterDoorByWalking || !_walkInArmed || !isActiveAndEnabled || _busy)
             return false;
 
         if (dialogueManager != null && dialogueManager.isRunning)
             return false;
 
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(_playerMove.transform.position, dir, 1f, _playerMove.NoPass))
-        {
-            S9S2Door door = hit.collider != null ? hit.collider.GetComponent<S9S2Door>() : null;
+        if (hit.distance <= 0f || !hit.collider.TryGetComponent(out S9S2Door door) || !CanWalkInto(door))
+            return false;
 
-            if (door != null && CanWalkInto(door))
-            {
-                OnDoorInspected(door);
-                return true;
-            }
-        }
-
-        return false;
+        EnterDoor(door);
+        return true;
     }
 
     private bool CanWalkInto(S9S2Door door)
@@ -608,12 +595,22 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
         }
     }
 
-    /// <summary>S9S2Door(Space 조사) 또는 문 쪽으로 걷기에서 호출</summary>
+    /// <summary>Space로 조사할 때 실제로 바라보는 방향의 첫 장애물이 문인지 확인한다.</summary>
     public void OnDoorInspected(S9S2Door door)
     {
-        if (_busy || door == null)
+        if (_busy || door == null || _playerMove == null)
             return;
 
+        RaycastHit2D hit = Physics2D.Raycast(
+            _playerMove.transform.position, _playerMove.Facing, 1f, _playerMove.NoPass);
+        if (hit.distance <= 0f || hit.collider.GetComponent<S9S2Door>() != door)
+            return;
+
+        EnterDoor(door);
+    }
+
+    private void EnterDoor(S9S2Door door)
+    {
         _walkInArmed = false;
 
         switch (door.Kind)

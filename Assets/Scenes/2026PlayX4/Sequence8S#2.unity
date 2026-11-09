@@ -2702,7 +2702,7 @@ MonoBehaviour:
   _projectorVolume: 0.35
   _recordStartSfx: {fileID: 8300000, guid: 2df97113709d5dc46a8c294c455a2b6d, type: 3}
   _gunshotSfx: {fileID: 8300000, guid: 65ff341ecc051114190b3a9592f9bef4, type: 3}
-  _tinnitusSfx: {fileID: 0}
+  _tinnitusSfx: {fileID: 8300000, guid: a2c216f64fb24e329c51ca966dc7a461, type: 3}
   _tinnitusVolume: 0.5
   _redCurtainBgm: {fileID: 8300000, guid: 5692fad9a3ac3b54c93ef1fc3fa1243d, type: 3}
   _keiCamera: {fileID: 1106015880}

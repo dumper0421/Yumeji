@@ -48,6 +48,7 @@ public class FadeTeleportTrigger : MonoBehaviour
         // 1) 플레이어 입력 차단(스크립트 비활성화) - PlayerMove 수정 없이 가능한 가장 확실한 방법
         if (mover != null)
         {
+            mover.StopMovement();
             mover.canMove = false;               // 혹시 남아있을 이동 코루틴 대비
             mover.animator.SetBool("Walking", false);
             mover.animator.SetBool("Pushing", false);
