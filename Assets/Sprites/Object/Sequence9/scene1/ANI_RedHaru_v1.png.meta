@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -121,7 +121,763 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1014
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a2de05013476b42831f9b662967f2c
+      internalID: -734843489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1014
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 634d5769bc1a59c41997e6a85eaa3ed1
+      internalID: -298977403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1014
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b71367efc84e3c446931f7ed6c5eb4ef
+      internalID: -1814716213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_3
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1014
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73ab45d67fc73c43a90b60eed46ac73
+      internalID: -1343089634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_4
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 1014
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adea889951b913241806b6b389f48841
+      internalID: -581200118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_5
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1014
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22116ea33cb961a49b6ad027d536512e
+      internalID: 773515569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_6
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1014
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aae73d294d45454c894264143368016
+      internalID: 1851523084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_7
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1014
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf12c7baadd5944b9a3d77a2c9496d5
+      internalID: -1809222102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_8
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 1014
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b47a7cbb3c68a43a0c810d38a3fbdb
+      internalID: -1386232646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_9
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 708
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c57a7c722c0f4b4ab7c0e42315e7735
+      internalID: -1650270002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_10
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 708
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a900abdb7648f498150ed33f7d8806
+      internalID: -1517861802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_11
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 708
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f07963cb9206443b54bb4abcc734c9
+      internalID: 440727186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_12
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 708
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1460b946e908be8448580e6a92e45952
+      internalID: 1366973502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_13
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 708
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35630917be206b84c9995ba3490423c8
+      internalID: -2055425564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_14
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 708
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf5c6abbb26e71409021080646c5e97
+      internalID: -1246559148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_15
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 708
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0b47fcff39668428e144f745ccd418
+      internalID: -315494687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_16
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 708
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537c90731d845664faaa6ec171190ebc
+      internalID: -1987555820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_17
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 708
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a61ebe0ede7cfb42993feb7c8c66583
+      internalID: -1803286846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 400
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb2e3a9ba0f2d04fb660a9593687d76
+      internalID: 1596006594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_19
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 400
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00bd8c49d05ed884695a6e45d03a9bb9
+      internalID: 2124647486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_20
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 400
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7b9b1910b148b45a004dc10521075a
+      internalID: -1691461701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_21
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 400
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e70f3ef2bc753c44bbcddb61a836c7a
+      internalID: -1733704806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_22
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 400
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ef19d63cd40a4428f5395e5720cf49
+      internalID: -1205049497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_23
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 400
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ac2a201cc17ce449228142b0688539
+      internalID: -1923422471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_24
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 400
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45723ca90db04bd4998f21a9abc50aa4
+      internalID: 718264131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_25
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 400
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b78a38698ac8e44788d2316bd5d924d
+      internalID: 637388295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_26
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 400
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf83bdd89a28a4244bc7c7c711ce1265
+      internalID: 1528866944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_27
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 94
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b59f2d4b942884488d1544ce2e2e68d
+      internalID: -457100758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_28
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 94
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3ca8b34bcafb54fbf439a9ca7c399a
+      internalID: 1966398789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_29
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 94
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6a00a09ddf87b42883763b682a04b3
+      internalID: 1141072860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_30
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 94
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 516d9eb4f94c7e443910ecc60fb5bd8d
+      internalID: -1982604143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_31
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 94
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30f9f89a1318074d9ab3f017bc0b806
+      internalID: -1345451323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_32
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 94
+        width: 128
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a807798086897964abd28c0b94783857
+      internalID: 756461233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_33
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 94
+        width: 128
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 936ccf7f844eec646838f82b82c825fd
+      internalID: 1956031147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_34
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 94
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1043b102ac1cd0428375fe82ce442dd
+      internalID: -9787461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANI_RedHaru_v1_35
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 94
+        width: 128
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd34cc4835d85a46a47104365bfce7d
+      internalID: -305547874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +888,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ANI_RedHaru_v1_0: -734843489
+      ANI_RedHaru_v1_1: -298977403
+      ANI_RedHaru_v1_10: -1517861802
+      ANI_RedHaru_v1_11: 440727186
+      ANI_RedHaru_v1_12: 1366973502
+      ANI_RedHaru_v1_13: -2055425564
+      ANI_RedHaru_v1_14: -1246559148
+      ANI_RedHaru_v1_15: -315494687
+      ANI_RedHaru_v1_16: -1987555820
+      ANI_RedHaru_v1_17: -1803286846
+      ANI_RedHaru_v1_18: 1596006594
+      ANI_RedHaru_v1_19: 2124647486
+      ANI_RedHaru_v1_2: -1814716213
+      ANI_RedHaru_v1_20: -1691461701
+      ANI_RedHaru_v1_21: -1733704806
+      ANI_RedHaru_v1_22: -1205049497
+      ANI_RedHaru_v1_23: -1923422471
+      ANI_RedHaru_v1_24: 718264131
+      ANI_RedHaru_v1_25: 637388295
+      ANI_RedHaru_v1_26: 1528866944
+      ANI_RedHaru_v1_27: -457100758
+      ANI_RedHaru_v1_28: 1966398789
+      ANI_RedHaru_v1_29: 1141072860
+      ANI_RedHaru_v1_3: -1343089634
+      ANI_RedHaru_v1_30: -1982604143
+      ANI_RedHaru_v1_31: -1345451323
+      ANI_RedHaru_v1_32: 756461233
+      ANI_RedHaru_v1_33: 1956031147
+      ANI_RedHaru_v1_34: -9787461
+      ANI_RedHaru_v1_35: -305547874
+      ANI_RedHaru_v1_4: -581200118
+      ANI_RedHaru_v1_5: 773515569
+      ANI_RedHaru_v1_6: 1851523084
+      ANI_RedHaru_v1_7: -1809222102
+      ANI_RedHaru_v1_8: -1386232646
+      ANI_RedHaru_v1_9: -1650270002
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
