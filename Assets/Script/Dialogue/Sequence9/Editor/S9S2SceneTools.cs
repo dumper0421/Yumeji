@@ -1064,6 +1064,11 @@ public static class S9S2SceneTools
 
         var box = go.AddComponent<BoxCollider2D>();
         box.size = size;
+        if (kind == S9S2Interactable.InteractKind.Pistol)
+        {
+            box.size = new Vector2(0.6f, 0.5f);
+            box.offset = new Vector2(0f, 0.5f);
+        }
 
         var it = go.AddComponent<S9S2Interactable>();
         it.Kind = kind;
@@ -1105,6 +1110,11 @@ public static class S9S2SceneTools
         sparkle.name = "Sparkle";
         sparkle.transform.SetParent(it.transform, false);
         sparkle.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+        if (it.Kind == S9S2Interactable.InteractKind.Pistol)
+        {
+            sparkle.transform.localScale = Vector3.one * 0.25f;
+            sparkle.GetComponent<SpriteRenderer>().sortingLayerName = "Effect";
+        }
         sparkle.SetActive(false);
         SetRef(it, "_sparkle", sparkle);
     }
@@ -1124,7 +1134,10 @@ public static class S9S2SceneTools
 
         var box = table.AddComponent<BoxCollider2D>();
         if (desk != null)
-            box.size = new Vector2(desk.bounds.size.x, desk.bounds.size.y);
+        {
+            box.size = new Vector2(desk.bounds.size.x, 2f);
+            box.offset = new Vector2(0f, 1.5f);
+        }
     }
 
     private static GameObject MakeScreen(

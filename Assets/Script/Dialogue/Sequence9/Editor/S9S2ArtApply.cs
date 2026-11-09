@@ -286,7 +286,13 @@ public static class S9S2ArtApply
 
         // 긴 탁자와 흰 스크린은 레이아웃 자리로
         Do(room, "Objects/obj_table_v1", t => SetPos(t, 1.75f, -6f));
-        Do(room, "Objects/obj_softbox_v1", t => SetPos(t, 8.5f, -6.5f));
+        Do(room, "Objects/obj_softbox_v1", t =>
+        {
+            SetPos(t, 8.5f, -6.5f);
+            var collider = t.GetComponent<BoxCollider2D>();
+            if (collider != null)
+                collider.offset = Vector2.zero;
+        });
 
         // 오른쪽 벽의 2x2 탁자 + 전화기. 탁자 리소스가 진행 중이라 임시 스프라이트를 쓴다.
         Transform table = EnsureSpriteObject(room, "Objects/OBJ_table2x2_TEMP", TempTable, "Player", 1);

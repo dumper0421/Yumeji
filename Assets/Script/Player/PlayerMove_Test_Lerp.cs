@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove_Test_Lerp : MonoBehaviour
 {
     public static event System.Action<Vector2> OnTileArrived;
+    public System.Func<RaycastHit2D, bool> OnBlockedStep;
     private BoxCollider2D boxCollider;
     public LayerMask NoPass;
 
@@ -121,6 +122,9 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
         if (hit.collider != null)
         {
+            if (OnBlockedStep?.Invoke(hit) == true)
+                yield break;
+
             if (actionController == null || !actionController.IsPushing)
                 canMove = true;
 
@@ -222,17 +226,22 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     public void Teleport(Vector3 pos)
     {
-        StopAllCoroutines();
-
+        StopMovement();
         transform.position = pos;
+        canMove = true;
+    }
+
+    public void StopMovement()
+    {
+        StopAllCoroutines();
+        _moveLock = MoveAxis.None;
+        canMove = false;
 
         if (animator != null)
         {
             animator.SetBool("Walking", false);
             animator.SetBool("Pushing", false);
         }
-
-        canMove = true;
     }
 
     public void EndTakeShoot()
