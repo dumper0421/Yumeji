@@ -221,7 +221,7 @@
     ]
   },
   {
-    "id": "S6S2_KaiApproach",
+    "id": "S6S2_KeiApproach",
     "speaker": "하루",
     "lines": [
       {
@@ -239,7 +239,7 @@
     ]
   },
   {
-    "id": "S6S2_AfterShot_Kai1",
+    "id": "S6S2_AfterShot_Kei1",
     "speaker": "케이",
     "lines": [
       {
@@ -256,12 +256,12 @@
       {
         "text": "어…?",
         "showPortrait": true,
-        "nextId": "S6S2_AfterShot_Kai2"
+        "nextId": "S6S2_AfterShot_Kei2"
       }
     ]
   },
   {
-    "id": "S6S2_AfterShot_Kai2",
+    "id": "S6S2_AfterShot_Kei2",
     "speaker": "케이",
     "lines": [
       {
