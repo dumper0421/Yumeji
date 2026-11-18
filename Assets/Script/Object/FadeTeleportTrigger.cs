@@ -1,5 +1,7 @@
+
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Cinemachine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -21,6 +23,10 @@ public class FadeTeleportTrigger : MonoBehaviour
 
     [Header("Audio (Optional)")]
     [SerializeField] private AudioClip enterSfx;
+
+    // 추가: 텔레포트 완료 후 씬 전용 이벤트를 실행한다.
+    [Header("Teleport Events")]
+    [SerializeField] private UnityEvent onTeleportFinished;
 
     private bool _running = false;
 
@@ -96,6 +102,9 @@ public class FadeTeleportTrigger : MonoBehaviour
             mover.enabled = true;
 
         _running = false;
+
+        // 9) 추가: 텔레포트가 완전히 끝난 후 이벤트 실행
+        onTeleportFinished?.Invoke();
     }
 
     private IEnumerator FadeTo(float targetAlpha, float duration)

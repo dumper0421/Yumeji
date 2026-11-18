@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,6 +51,10 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
 
     [SerializeField] private float shootCooldown = 2f;
     private float nextShootTime = 0f;
+
+    // 위치 교환 중에는 촬영 애니메이션 종료로 이동이 풀리지 않도록 한다.
+    private bool isSwapLocked = false;
+    public bool IsSwapLocked => isSwapLocked;
 
     [SerializeField] private AudioClip photoSFX;
     private AudioSource audioSource;
@@ -168,7 +173,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             return;
         }
 
-        if (!canMove)
+        if (isSwapLocked || !canMove)
             return;
 
         Vector2 rawInput = new Vector2(
@@ -228,7 +233,9 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
     {
         StopMovement();
         transform.position = pos;
-        canMove = true;
+
+        if (!isSwapLocked)
+            canMove = true;
     }
 
     public void StopMovement()
@@ -244,9 +251,60 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         }
     }
 
+    /// <summary>위치 교환이 시작되면 이동을 잠근다.</summary>
+    public bool TryBeginPositionSwap()
+    {
+        if (isSwapLocked)
+            return false;
+
+        isSwapLocked = true;
+        StopMovement();
+        return true;
+    }
+
+    /// <summary>위치 교환의 0.5초 점멸이 끝나면 플레이어 이동을 복구한다.</summary>
+    public void EndPositionSwap()
+    {
+        if (!isSwapLocked)
+            return;
+
+        isSwapLocked = false;
+        canMove = true;
+    }
+
     public void EndTakeShoot()
     {
-        canMove = true;
+        if (!isSwapLocked)
+            canMove = true;
+    }
+
+    /// <summary>
+    /// 촬영 판정 범위의 크기와 중심을 계산한다.
+    /// 기본 설정: 상하 3x4칸, 좌우 4x3칸.
+    /// </summary>
+    private void GetFlashArea(Vector2 dir, out Vector2 boxCenter, out Vector2 boxSize)
+    {
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+        {
+            // 좌우 촬영은 가로와 세로 크기를 바꾸어 판정한다.
+            boxSize = new Vector2(
+                flashTiles.y * tileSize.x,
+                flashTiles.x * tileSize.y
+            );
+            boxCenter = (Vector2)transform.position
+                      + Vector2.right * (Mathf.Sign(dir.x) * boxSize.x / 2f);
+        }
+        else
+        {
+            // 상하 촬영은 기존 3x4 범위를 사용한다.
+            boxSize = new Vector2(
+                flashTiles.x * tileSize.x,
+                flashTiles.y * tileSize.y
+            );
+            float signY = dir.y < 0f ? -1f : 1f;
+            boxCenter = (Vector2)transform.position
+                      + Vector2.up * (signY * boxSize.y / 2f);
+        }
     }
 
     public void HandleFlash()
@@ -259,12 +317,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
         if (dir == Vector2.zero)
             dir = Vector2.down;
 
-        Vector2 boxSize = new Vector2(
-            flashTiles.x * tileSize.x,
-            flashTiles.y * tileSize.y
-        );
-
-        Vector2 boxCenter = (Vector2)transform.position + dir * (boxSize.y / 2f);
+        GetFlashArea(dir, out Vector2 boxCenter, out Vector2 boxSize);
 
         Vector3 spawnPos = new Vector3(
             boxCenter.x,
@@ -278,7 +331,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
             spawnPos.x += flashVFXUpOffset.x;
             spawnPos.y += flashVFXUpOffset.y;
         }
-        // 아래쪽 촬영일 때 위치 보정
+        // 아래쪽 촬영 시 위치 보정
         else if (dir.y < 0f)
         {
             spawnPos.x += flashVFXDownOffset.x;
@@ -342,12 +395,7 @@ public class PlayerMove_Test_Lerp : MonoBehaviour
                 dir = Vector2.down;
         }
 
-        Vector2 boxSize = new Vector2(
-            flashTiles.x * tileSize.x,
-            flashTiles.y * tileSize.y
-        );
-
-        Vector2 boxCenter = (Vector2)transform.position + dir * (boxSize.y / 2f);
+        GetFlashArea(dir, out Vector2 boxCenter, out Vector2 boxSize);
 
         Gizmos.color = new Color(1f, 1f, 0f, 0.5f);
         Gizmos.DrawCube(boxCenter, boxSize);
