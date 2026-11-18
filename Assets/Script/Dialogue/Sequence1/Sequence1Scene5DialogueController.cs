@@ -1,9 +1,9 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
-
 
 public enum S1S5State
 {
@@ -20,11 +20,16 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
     public DialogueObject TrainDoorObject;
     public GameObject InteractionLight;
     public GameObject teleport;
-    
+
+    // 추가: 세이브 구역 출구
+    [Header("Exit Wall")]
+    [SerializeField] private SaveRoomExitObject exitWall;
+
     protected override void Awake()
     {
-         base.Awake();
+        base.Awake();
     }
+
     private void OnEnable()
     {
         if (_director != null)
@@ -36,6 +41,7 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
         if (_director != null)
             _director.stopped -= OnDirectorStopped;
     }
+
     protected override void HandleDialogueEnd(string dialogueId)
     {
         switch (dialogueId)
@@ -43,13 +49,13 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
             case "StationChair_Ticket":
                 InventoryManager.Instance.AddItem(TornTrianTicketData);
                 InteractionLight.SetActive(false);
+
                 StationChairObject.StartDialogue = "StationChair";
                 StationChairObject.hasBeenInspected = false;
 
                 TrainDoorObject.StartDialogue = "TrainDoor_WithTicket";
                 TrainDoorObject.hasBeenInspected = false;
                 break;
-
 
             case "TrainDoor_WithTicket":
                 TornTrianTicketData.Use();
@@ -60,27 +66,38 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
                 break;
         }
 
-      
         TryProgress();
     }
+
     protected override void DialogueRunning(string dialogueId)
     {
-    
     }
+
+    // 추가: 출구 선택지 처리
     protected override void HandleOption(string text, string nextId)
     {
+        if (text == "이동" && nextId == "SaveRoom_Exit_Move")
+        {
+            if (exitWall != null)
+            {
+                exitWall.MoveToNextScene();
+            }
+            else
+            {
+                Debug.LogWarning("ExitWall이 연결되지 않았습니다.");
+            }
+        }
 
+        // 뒤로가기는 nextId가 "End"이므로
+        // DialogueManager에서 기존 방식대로 대화 종료
     }
 
     protected override void OnPuzzleComplete()
     {
-
     }
 
     protected override void TryProgress()
     {
-
-
     }
 
     protected override void ApplyWorldByState()
@@ -91,7 +108,6 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
         {
             if (_director.state == PlayState.Playing)
                 _director.Stop();
-
 
             _director.time = _director.duration;
             _director.Evaluate();
@@ -110,11 +126,10 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
         MarkEventHappened();
     }
 
-
     private void OnDirectorStopped(PlayableDirector d)
     {
-        // 이미 완료면 중복 처리 방지
-        if (state == S1S5State.EVENTHAPPEND) return;
+        if (state == S1S5State.EVENTHAPPEND)
+            return;
 
         MarkEventHappened();
     }
@@ -127,4 +142,3 @@ public class Sequence1Scene5DialogueController : DialogueController<S1S5State>
         ApplyWorldByState();
     }
 }
-
