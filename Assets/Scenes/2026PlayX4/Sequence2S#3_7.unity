@@ -5477,7 +5477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3068842104241221678, guid: 02d3df6cd779b4d47a112d23e2206cf8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3068842104241221678, guid: 02d3df6cd779b4d47a112d23e2206cf8, type: 3}
       propertyPath: m_SortingLayerID
@@ -8504,7 +8504,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -31.180035, y: 2.5931778}
+  m_Offset: {x: -31.180035, y: 6.796}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8515,7 +8515,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.738258, y: 4.02417}
+  m_Size: {x: 15.738258, y: 12.43}
   m_EdgeRadius: 0
 --- !u!1 &1605706703
 GameObject:
@@ -9122,7 +9122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3068842104241221678, guid: 02d3df6cd779b4d47a112d23e2206cf8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3068842104241221678, guid: 02d3df6cd779b4d47a112d23e2206cf8, type: 3}
       propertyPath: m_SortingLayerID
@@ -11321,7 +11321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3068842104241221678, guid: 02d3df6cd779b4d47a112d23e2206cf8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3068842104241221678, guid: 02d3df6cd779b4d47a112d23e2206cf8, type: 3}
       propertyPath: m_SortingLayerID
@@ -11448,7 +11448,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -31.10569, y: 2.5793762}
+  m_Offset: {x: -31.10569, y: 6.705}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11459,7 +11459,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.589569, y: 4.360779}
+  m_Size: {x: 15.589569, y: 12.61}
   m_EdgeRadius: 0
 --- !u!1001 &2115063988
 PrefabInstance:

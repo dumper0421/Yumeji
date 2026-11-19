@@ -139,8 +139,9 @@ public class Sequence1Scene7PuzzleController : DialogueController<S1S7State>
             case "Fireplace_Phtograph":
                 CharredPhotographData.Use();
                 OnPuzzleComplete();
+                // 사진을 태운 뒤에는 벽난로를 다시 조사할 수 없다 ("불을 갈구하는 벽난로" 대사 재출력 방지)
                 FirePlace.IsDisposable = true;
-                FirePlace.hasBeenInspected = false;
+                FirePlace.hasBeenInspected = true;
                 break;
         }
     }

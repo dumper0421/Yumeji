@@ -117,7 +117,12 @@ public class EmergencyDoorPuzzleController : DialogueController<EmergencyDoorSta
                 break;
 
             case "Bus_After":
+                // 버스 연출(유리 깨짐 SFX + 문 열림 대사)은 한 번만. 이후 버스는 더 이상 상호작용되지 않는다.
+                if (state == EmergencyDoorState.BusInteracted || state == EmergencyDoorState.DoorOpened)
+                    break;
                 state = EmergencyDoorState.BusInteracted;
+                _bus.IsDisposable = true;
+                _bus.hasBeenInspected = true;
                 StartCoroutine(PlayBusSequence());
                 break;
 

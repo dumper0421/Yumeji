@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6359c853365d49d4780c068ef112c9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDisposable: 0
+  IsDisposable: 1
   hasBeenInspected: 0
   StartDialogue: Bookshelf1_Slot2
   DialogueManager: {fileID: 0}
