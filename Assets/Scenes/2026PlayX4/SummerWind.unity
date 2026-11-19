@@ -4173,7 +4173,7 @@ MonoBehaviour:
   _shootHoldDuration: 0.9
   _beatPause: 0.4
   _openFromWhite: 1
-  _nextSceneName: 
+  _nextSceneName: Sequence6S#2
   _disableDuringCutscene: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

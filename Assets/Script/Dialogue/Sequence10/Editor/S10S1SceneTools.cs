@@ -490,9 +490,11 @@ public static class S10S1SceneTools
 
     private const string KeiStandDownClipPath = "Assets/Animation/Character/Kei/Kei_Stand_Down.anim";
 
+    private const string KeiDeadSpritePath = "Assets/Sprites/Character/Kei/Kei_Dead_v1.png";
+
     /// <summary>
-    /// 쓰러진 케이. 전용 리소스가 오기 전까지는 기획 배치도와 같이 아래를 보고 선 모습으로 둔다
-    /// (배치도도 임시 리소스로 그렸다). 필름은 가슴 앞에 든 것처럼 겹쳐 놓는다.
+    /// 죽어 있는 케이 (Kei_Dead_v1). 파일이 없으면 아래를 보고 선 모습으로 대신한다.
+    /// 필름은 가슴 앞에 든 것처럼 겹쳐 놓는다.
     /// </summary>
     private static void PlaceKei(Ctx ctx, Transform kei)
     {
@@ -508,7 +510,7 @@ public static class S10S1SceneTools
         if (sr != null)
         {
             sr.color = Color.white;
-            Sprite down = FirstSprite(KeiStandDownClipPath);
+            Sprite down = AssetDatabase.LoadAssetAtPath<Sprite>(KeiDeadSpritePath) ?? FirstSprite(KeiStandDownClipPath);
             if (down != null)
                 sr.sprite = down;
             else

@@ -18,6 +18,17 @@ public class MainMenuController : MonoBehaviour
     private int CurrentSelectIndex = 0;
     private void Awake()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        // Web build: the browser cannot be closed by the game, so hide the Quit button
+        foreach (Button b in GetComponentsInChildren<Button>())
+        {
+            for (int i = 0; i < b.onClick.GetPersistentEventCount(); i++)
+            {
+                if (b.onClick.GetPersistentMethodName(i) == nameof(GameQuit))
+                    b.gameObject.SetActive(false);
+            }
+        }
+#endif
         buttons_ = GetComponentsInChildren<Button>();
         Time.timeScale = 1f;
         Screen.SetResolution(1344, 960, true);

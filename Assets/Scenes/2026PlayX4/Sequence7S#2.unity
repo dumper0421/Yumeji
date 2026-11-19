@@ -16245,6 +16245,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.3118223
       objectReference: {fileID: 0}
+    - target: {fileID: 3912880102021664023, guid: 472413e002ebd3140b5411b148592a55, type: 3}
+      propertyPath: sceneName_
+      value: Sequence7S#3
+      objectReference: {fileID: 0}
     - target: {fileID: 4149472690439861314, guid: 472413e002ebd3140b5411b148592a55, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.306571

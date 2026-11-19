@@ -124,8 +124,9 @@ public class S7S4EndingSequence : MonoBehaviour
             SoundManager.Instance.StopAllSFX();
         }
 
+        // 전시용 체험판에서는 시퀀스 8 대신 안내 화면으로 간다 (정식 빌드에서는 그대로)
         if (!string.IsNullOrEmpty(nextSceneName))
-            SceneManager.LoadScene(nextSceneName);
+            SceneManager.LoadScene(ExhibitionBuild.Redirect(nextSceneName));
         else
             Debug.LogError("[S7S4EndingSequence] nextSceneName 이 비어있다. 시퀀스8 정원 씬 이름을 지정하라.");
     }
