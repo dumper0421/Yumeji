@@ -115,7 +115,10 @@ public class TriggeredMannequin : MonoBehaviour
             foreach (var move in _moves)
             {
                 if (move != null && move.mannequin != null)
+                {
                     move.mannequin.position = move.homePosition;
+                    UpdateSortingOrder(move.mannequin);
+                }
             }
         }
     }
@@ -189,6 +192,7 @@ public class TriggeredMannequin : MonoBehaviour
                 var move = _moves[i];
                 if (move == null || move.mannequin == null) continue;
                 move.mannequin.position = Vector3.Lerp(fromPos[i], toPos[i], t);
+                UpdateSortingOrder(move.mannequin);
             }
             yield return null;
         }
@@ -198,7 +202,19 @@ public class TriggeredMannequin : MonoBehaviour
             var move = _moves[i];
             if (move == null || move.mannequin == null) continue;
             move.mannequin.position = toPos[i];
+            UpdateSortingOrder(move.mannequin);
         }
+    }
+
+    /// <summary>
+    /// 마네킹의 LayerSetting은 시작할 때 한 번만 정렬 순서를 정하므로, 이동한 위치 기준으로 다시 맞춘다.
+    /// (하루와 같은 규칙: 아래쪽에 있을수록 앞에 그린다)
+    /// </summary>
+    private static void UpdateSortingOrder(Transform mannequin)
+    {
+        var sr = mannequin.GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.sortingOrder = Mathf.RoundToInt(mannequin.position.y) * -1;
     }
 
     private void PlayMoveSfx()

@@ -25505,7 +25505,7 @@ MonoBehaviour:
   _finalZoomOrthoSize: 3
   _finalZoomDuration: 8
   _soot: {fileID: 1449630815}
-  _screenClip: {fileID: 0}
+  _screenClip: {fileID: 32900000, guid: a30a5ba3e5ff48e7bbd3d68c968e4f0a, type: 3}
   _screenVideoPlayer: {fileID: 611199642}
   _screenImage: {fileID: 1145409062}
   _screenIdleColor: {r: 0, g: 0, b: 0, a: 0}

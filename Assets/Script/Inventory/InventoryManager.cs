@@ -156,10 +156,22 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void RefreshSelectBorder()
     {
-        if (_slots == null || _slots.Count == 0 || _slots[CurrentSelectIndex].IsEmpty)
+        if (_slots == null || _slots.Count == 0)
         {
             if (SelectBorder != null) SelectBorder.SetActive(false);
             return;
+        }
+
+        // 선택 번호가 범위를 벗어났거나 빈 칸이면(아이템을 쓴 뒤 등) 첫 번째 아이템으로 맞춘다
+        if (CurrentSelectIndex < 0 || CurrentSelectIndex >= _slots.Count || _slots[CurrentSelectIndex].IsEmpty)
+        {
+            int first = _slots.FindIndex(s => !s.IsEmpty);
+            if (first < 0)
+            {
+                if (SelectBorder != null) SelectBorder.SetActive(false);
+                return;
+            }
+            CurrentSelectIndex = first;
         }
         MoveSelectBorderTo(CurrentSelectIndex);
     }
@@ -168,8 +180,19 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         if (_slots == null || _slots.Count == 0) return;
         int count = _slots.Count;
-        CurrentSelectIndex = (CurrentSelectIndex + offset + count) % count;
-        if (_slots[CurrentSelectIndex].IsEmpty) return;
+
+        // 빈 칸은 건너뛴다. 예전에는 빈 칸에 걸리면 테두리는 그대로인데 선택 번호만 빈 칸으로 넘어가서,
+        // 화면에 보이는 아이템과 실제 선택이 어긋났다 (예: 4-2 대본에 테두리가 있어도 Space 미리보기가 안 열림).
+        int next = CurrentSelectIndex;
+        bool found = false;
+        for (int step = 0; step < count; step++)
+        {
+            next = (next + offset + count) % count;
+            if (!_slots[next].IsEmpty) { found = true; break; }
+        }
+        if (!found) return;
+
+        CurrentSelectIndex = next;
         if (DescriptionText != null)
             DescriptionText.text = _slots[CurrentSelectIndex].GetItemData().Description;
         if (SelectBorder != null)
