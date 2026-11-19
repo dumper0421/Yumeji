@@ -28,6 +28,7 @@ public static class ExhibitionWebGLBuild
     private const string DemoEndScenePath = SceneDir + ExhibitionBuild.EndSceneName + ".unity";
     private const string FontPath = "Assets/Font/TextMeshPro/KoPubWorld Batang Medium.asset";
     private const string OutDir = "../YumejiBuilds/WebGL_Exhibition"; // 저장소 밖 (C:/YumejiBuilds)
+    private const string WindowsOutDir = "../YumejiBuilds/Windows_Exhibition";
 
     /// <summary>체험판에 들어가는 씬. 씬 전환은 모두 이름으로 하므로 순서는 타이틀이 0번이기만 하면 된다.</summary>
     private static readonly string[] Scenes =
@@ -106,6 +107,23 @@ public static class ExhibitionWebGLBuild
     {
         Prepare();
         bool ok = Build();
+        EditorApplication.Exit(ok ? 0 : 1);
+    }
+
+    [MenuItem("Tools/유메지 [전시]/Windows 체험판 빌드", false, 3)]
+    public static void BuildWindowsMenu()
+    {
+        if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            return;
+
+        Prepare();
+        BuildWindows();
+    }
+
+    public static void BuildWindowsFromCommandLine()
+    {
+        Prepare();
+        bool ok = BuildWindows();
         EditorApplication.Exit(ok ? 0 : 1);
     }
 
@@ -414,6 +432,37 @@ public static class ExhibitionWebGLBuild
 
         BuildSummary s = report.summary;
         Debug.Log($"{Tag} 결과 {s.result}, 크기 {s.totalSize / (1024f * 1024f):0.0} MB, 시간 {s.totalTime}, 경고 {s.totalWarnings}, 에러 {s.totalErrors} → {Path.GetFullPath(OutDir)}");
+
+        return s.result == BuildResult.Succeeded;
+    }
+
+    /// <summary>
+    /// 전시장 PC용 Windows 체험판. 웹빌드와 같은 씬 목록 + YUMEJI_EXHIBITION (시퀀스 8부터 안내 화면).
+    /// PC는 VideoClip을 그대로 재생하므로 웹 영상 데이터를 넣지 않고, 종료 버튼도 그대로 남는다 (웹에서만 숨김).
+    /// </summary>
+    private static bool BuildWindows()
+    {
+        string[] paths = Scenes.Select(n => SceneDir + n + ".unity").ToArray();
+        string[] missing = paths.Where(p => !File.Exists(p)).ToArray();
+        if (missing.Length > 0)
+        {
+            Debug.LogError($"{Tag} 없는 씬:\n - " + string.Join("\n - ", missing));
+            return false;
+        }
+
+        var options = new BuildPlayerOptions
+        {
+            scenes = paths,
+            locationPathName = WindowsOutDir + "/Yumeji.exe",
+            target = BuildTarget.StandaloneWindows64,
+            targetGroup = BuildTargetGroup.Standalone,
+            options = BuildOptions.None,
+            extraScriptingDefines = new[] { "YUMEJI_EXHIBITION" },
+        };
+
+        BuildReport report = BuildPipeline.BuildPlayer(options);
+        BuildSummary s = report.summary;
+        Debug.Log($"{Tag} Windows 결과 {s.result}, 크기 {s.totalSize / (1024f * 1024f):0.0} MB, 시간 {s.totalTime}, 경고 {s.totalWarnings}, 에러 {s.totalErrors} → {Path.GetFullPath(WindowsOutDir)}");
 
         return s.result == BuildResult.Succeeded;
     }
