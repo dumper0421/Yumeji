@@ -30,6 +30,39 @@ public class UIManager : Singleton<UIManager>
         _selectbutton = continueButton_;
     }
 
+    private void Start()
+    {
+        // MainCanvas 프리팹의 게임오버 버튼은 씬마다 대상을 연결해야 하는데, 연결이 빠진 씬(7-2 등)에서는
+        // Enter를 눌러도 아무 일도 일어나지 않았다. 연결이 없으면 여기서 기본 동작을 붙인다.
+        if (!HasValidPersistentCall(continueButton_))
+            continueButton_?.onClick.AddListener(() => PopupUIManager.Instance?.SetSaveLoadPopup(false));
+
+        if (!HasValidPersistentCall(TitleButton_))
+            TitleButton_?.onClick.AddListener(GoToTitle);
+    }
+
+    private static bool HasValidPersistentCall(Button button)
+    {
+        if (button == null)
+            return true;
+
+        for (int i = 0; i < button.onClick.GetPersistentEventCount(); i++)
+        {
+            if (button.onClick.GetPersistentTarget(i) != null
+                && !string.IsNullOrEmpty(button.onClick.GetPersistentMethodName(i)))
+                return true;
+        }
+        return false;
+    }
+
+    private static void GoToTitle()
+    {
+        Time.timeScale = 1f;
+        SoundManager.Instance?.StopAllSFX();
+        SoundManager.Instance?.StopBGM();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/2026PlayX4/TitleScene");
+    }
+
 
     public void OpenGameOverUI()
     {
