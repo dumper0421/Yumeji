@@ -1410,6 +1410,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1109036417}
     - target: {fileID: 1203095132731695098, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
+      propertyPath: startFacing.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203095132731695098, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
       propertyPath: flashableLayer.m_Bits
       value: 5120
       objectReference: {fileID: 0}
@@ -1421,6 +1425,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.8472463
       objectReference: {fileID: 0}
+    - target: {fileID: 4931879301690119523, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2132262447, guid: d8d21b72efb1d6547afdefdc4d6656d2, type: 3}
     - target: {fileID: 4931879301690119523, guid: 8360a82c03923aa468a5955fd658e515, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -5119,6 +5127,10 @@ PrefabInstance:
     - target: {fileID: 1816609829382761999, guid: c4cde090878423a49981f01d86810b6b, type: 3}
       propertyPath: m_Name
       value: HaruDark
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231108420673905369, guid: c4cde090878423a49981f01d86810b6b, type: 3}
+      propertyPath: m_Offset.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
