@@ -17,7 +17,7 @@ public class DoppelgangerPositionSwap : MonoBehaviour, IFlashable
     [Header("Position Swap Timing")]
     [SerializeField, Min(0f)] private float blinkDuration = 0.5f;
     [SerializeField, Min(0.02f)] private float blinkInterval = 0.08f;
-    [SerializeField, Min(0f)] private float resumeDelay = 0.2f;
+    [SerializeField, Min(0f)] private float resumeDelay = 0.8f;
 
     [Header("External Movement Lock")]
     [Tooltip("컷신/가구 속박 등으로 도플갱어가 이동할 수 없으면 체크")]
