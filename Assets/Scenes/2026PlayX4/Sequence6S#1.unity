@@ -22267,7 +22267,7 @@ MonoBehaviour:
   playerMoveTestLerp: {fileID: 1109036413}
   playerAction: {fileID: 412112122}
   requiredFilmItem: {fileID: 11400000, guid: 1b0fc66ee852d814888a9bed511d4169, type: 2}
-  cutsceneSceneName: EndingScene
+  cutsceneSceneName: SummerWind
   whiteFadeCanvasGroup: {fileID: 17677676}
   whiteOutDuration: 4
 --- !u!61 &1380887252

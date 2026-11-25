@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 1208182333}
   - component: {fileID: 1208182332}
   - component: {fileID: 1208182331}
+  - component: {fileID: 1208182334}
   m_Layer: 0
   m_Name: 'VideoPlayerObject '
   m_TagString: Untagged
@@ -291,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1208182332}
   nextSceneName: Sequence1S#1
+  startTimeout: 10
 --- !u!328 &1208182332
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -342,6 +344,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1208182334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208182330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a9864f2da1d1b46be1bec02af6cef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _videoBytes: {fileID: 0}
+  _mimeType: video/mp4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

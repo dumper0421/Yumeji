@@ -5,6 +5,8 @@ using Cinemachine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -28,6 +30,7 @@ public static class S9S2ArtApply
     private const string Scene92 = "Assets/Scenes/2026PlayX4/Sequence9S#2.unity";
     private const string Scene81 = "Assets/Scenes/2026PlayX4/Sequence8S#1.unity";
     private const string Scene82 = "Assets/Scenes/2026PlayX4/Sequence8S#2.unity";
+    private const string Scene101 = "Assets/Scenes/2026PlayX4/Sequence10S#1.unity";
     private const string Scene102 = "Assets/Scenes/2026PlayX4/Sequence10S#2.unity";
 
     private const string LobbyBg = Bg + "BG_photoStudioLobby_S9_v1.png";
@@ -55,6 +58,19 @@ public static class S9S2ArtApply
     private const string TicketBox = Obj9 + "OBJ_ticketBoxNoInterior_v1.png";
     private const string LongChairV = Obj9 + "OBJ_longChairVertical_v1.png";
     private const string Soot = Obj9 + "OBJ_blackSoot_v1.png";
+    private const string WardrobeStrip = Obj9 + "OBJ_wardrobeOpening_S9_v1.png";
+    private const string Pistol = Obj9 + "OBJ_pistol_S9_v1.png";
+    private const string BedSquished = Obj9 + "OBJ_haruBedSquished_v1.png";
+    private const string DrawerLong = Obj9 + "OBJ_haruDrawerLong_v1.png";
+    private const string DeskSmall = Obj9 + "OBJ_haruDeskSmall_v1.png";
+    private const string ScreenDoorStrip = Obj9 + "ANI_screenBlackDoor_S9_v1.png";
+    private const string TvOffStrip = Obj9 + "ANI_televisionOff_S9_v1.png";
+    private const string KeiDead = "Assets/Sprites/Character/Kei/Kei_Dead_v1.png";
+    private const string PhotoStudioVolumeProfile = "Assets/Scenes/Choiwoohyck/Volume/Global Volume Profile.asset";
+    private const string DarkroomDoor = Obj9 + "OBJ_darkroomDoor_S9_v1.png";
+    private const string PistolTable = Obj9 + "OBJ_pistolTable_S9_v1.png";
+    private const string DoorGlowSprite = "Assets/Sprites/VFX/VFX_doorGlow_S9.png";
+    private const string DoorSpillSprite = "Assets/Sprites/VFX/VFX_doorSpill_S9.png";
     private const string Stool = "Assets/Sprites/Object/chair.png"; // 사진관 스툴. OBJ_stool_v1과 같은 그림이다
     private const string Doppelganger = Obj9 + "ANI_haruDoppelganger_strip_v1.png";
     private const string TempTable = Obj9 + "OBJ_table2x2_TEMP.png";
@@ -102,6 +118,10 @@ public static class S9S2ArtApply
         ApplySequence8Extras(s);
         EditorSceneManager.SaveScene(s);
 
+        s = EditorSceneManager.OpenScene(Scene101, OpenSceneMode.Single);
+        ApplyDeadKei(s);
+        EditorSceneManager.SaveScene(s);
+
         s = EditorSceneManager.OpenScene(Scene102, OpenSceneMode.Single);
         ApplySquatPoses(s);
         EditorSceneManager.SaveScene(s);
@@ -135,6 +155,7 @@ public static class S9S2ArtApply
         ApplyCinema(scene);
         ApplyScreenSpace(scene);
         ApplyCorridor(scene);
+        ApplyTvOff(scene);
 
         EditorSceneManager.MarkSceneDirty(scene);
     }
@@ -148,9 +169,19 @@ public static class S9S2ArtApply
         foreach (string path in new[]
                  {
                      LobbyBg, DarkroomBg, HouseBg, Statue, StatueRubble, Curtain, Counter, DeadTank, PosterA,
-                     PosterB, PosterC, PosterEmpty, HangingPhotos, TicketBox, LongChairV, Soot, TempTable,
+                     PosterB, PosterC, PosterEmpty, HangingPhotos, TicketBox, LongChairV, Soot, TempTable, KeiDead, DarkroomDoor, PistolTable, Pistol, BedSquished, DrawerLong, DeskSmall,
                  })
             ImportAsSprite(path, DefaultPpu);
+
+        ImportWardrobeStrip();
+
+        // 빛 효과는 부드럽게 번져야 해서 도트 필터를 쓰지 않는다
+        ImportAsSprite(DoorGlowSprite, 64f, 2048, null, FilterMode.Bilinear);
+        ImportAsSprite(DoorSpillSprite, 64f, 2048, null, FilterMode.Bilinear);
+
+        // 스크린 검은 문: 4x3칸(512x384) 8프레임, 32px 간격. TV OFF: 256x256 4프레임, 32px 간격
+        ImportStrip(ScreenDoorStrip, 512, 384, 544, 8, "ANI_screenBlackDoor_S9_v1");
+        ImportStrip(TvOffStrip, 256, 256, 288, 4, "ANI_televisionOff_S9_v1");
 
         // 일러스트는 도트가 아니라 다른 일러스트처럼 부드럽게 표시한다
         ImportAsSprite(PhotoCollage, 100f, 2048, null, FilterMode.Bilinear);
@@ -169,6 +200,90 @@ public static class S9S2ArtApply
         ImportAsSprite(HaruSquat, DefaultPpu, 2048, new Vector2(0.5f, 128f / 220f));
         ImportAsSprite(LunaSquat, DefaultPpu, 2048, new Vector2(0.5f, 0f));
     }
+
+    /// <summary>
+    /// 옷장 열림 5프레임 (264x512, 32px 간격). 윗변이 맞춰져 있고 문이 열리며 아래로 길어지므로 피봇은 위쪽 가운데.
+    /// </summary>
+    private static void ImportWardrobeStrip()
+    {
+        var imp = AssetImporter.GetAtPath(WardrobeStrip) as TextureImporter;
+        if (imp == null)
+        {
+            Missing.Add("이미지 없음: " + WardrobeStrip);
+            return;
+        }
+
+        if (imp.spriteImportMode == SpriteImportMode.Multiple && imp.spritesheet.Length == 5 && Mathf.Approximately(imp.spritePixelsPerUnit, DefaultPpu))
+            return;
+
+        imp.textureType = TextureImporterType.Sprite;
+        imp.spriteImportMode = SpriteImportMode.Multiple;
+        imp.spritePixelsPerUnit = DefaultPpu;
+        imp.filterMode = FilterMode.Point;
+        imp.textureCompression = TextureImporterCompression.Uncompressed;
+        imp.mipmapEnabled = false;
+        imp.alphaIsTransparency = true;
+
+        var frames = new SpriteMetaData[5];
+        for (int i = 0; i < frames.Length; i++)
+        {
+            frames[i] = new SpriteMetaData
+            {
+                name = $"OBJ_wardrobeOpening_S9_v1_{i}",
+                rect = new Rect(i * 296, 0, 264, 512),
+                alignment = (int)SpriteAlignment.TopCenter,
+                pivot = new Vector2(0.5f, 1f),
+            };
+        }
+
+        imp.spritesheet = frames;
+        imp.SaveAndReimport();
+    }
+
+    /// <summary>가로로 늘어선 같은 크기 프레임을 왼쪽부터 자른다. 피봇은 가운데.</summary>
+    private static void ImportStrip(string path, int w, int h, int step, int count, string prefix)
+    {
+        var imp = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (imp == null)
+        {
+            Missing.Add("이미지 없음: " + path);
+            return;
+        }
+
+        if (imp.spriteImportMode == SpriteImportMode.Multiple && imp.spritesheet.Length == count
+            && Mathf.Approximately(imp.spritePixelsPerUnit, DefaultPpu) && imp.maxTextureSize >= 8192)
+            return;
+
+        imp.textureType = TextureImporterType.Sprite;
+        imp.spriteImportMode = SpriteImportMode.Multiple;
+        imp.spritePixelsPerUnit = DefaultPpu;
+        imp.filterMode = FilterMode.Point;
+        imp.textureCompression = TextureImporterCompression.Uncompressed;
+        imp.mipmapEnabled = false;
+        imp.alphaIsTransparency = true;
+        imp.maxTextureSize = 8192; // 4320px 스트립이 줄어들면 프레임 자리가 어긋난다
+
+        var frames = new SpriteMetaData[count];
+        for (int i = 0; i < count; i++)
+        {
+            frames[i] = new SpriteMetaData
+            {
+                name = $"{prefix}_{i}",
+                rect = new Rect(i * step, 0, w, h),
+                alignment = (int)SpriteAlignment.Center,
+                pivot = new Vector2(0.5f, 0.5f),
+            };
+        }
+
+        imp.spritesheet = frames;
+        imp.SaveAndReimport();
+    }
+
+    private static Sprite[] LoadFrames(string path) =>
+        AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().OrderBy(s => s.name).ToArray();
+
+    private static Sprite[] LoadWardrobeFrames() =>
+        AssetDatabase.LoadAllAssetsAtPath(WardrobeStrip).OfType<Sprite>().OrderBy(s => s.name).ToArray();
 
     private static void ImportAsSprite(string path, float ppu, int maxSize = 2048, Vector2? pivot = null, FilterMode filter = FilterMode.Point)
     {
@@ -358,12 +473,121 @@ public static class S9S2ArtApply
             SetBox(t.gameObject, new Vector2(1.25f, 21f), new Vector2(4.76f, 22f));
         });
 
-        // 선반 문: 레이아웃처럼 선반 위로 빛나는 문틈을 보이게 한다 ('암실 선반 문' 리소스가 오면 교체)
-        DoScene(scene, "=====Map=====/Room_PhotoStudio/Work Room/Objects/obj_filmstoragebox /OpenVisual", t =>
+        ApplyDarkroomDoor(scene);
+        ApplyDarkroomVolume(scene);
+    }
+
+    /// <summary>
+    /// 원본 2-1과 같은 암실 후처리 (노출 -0.5, 비네트, 블룸 등). 2-1에서도 전역이 아니라 암실을 덮는 로컬 볼륨이라
+    /// 카메라가 암실 안에 있을 때만 어두워진다. 9-2 사진관은 2-1과 좌표가 같아 같은 자리, 같은 크기로 둔다.
+    /// </summary>
+    private static void ApplyDarkroomVolume(Scene scene)
+    {
+        Transform room = Room(scene, "=====Map=====/Room_PhotoStudio");
+        var profile = AssetDatabase.LoadAssetAtPath<VolumeProfile>(PhotoStudioVolumeProfile);
+        if (room == null || profile == null)
         {
-            SetPos(t, 9f, 22.5f);
-            SetOpenVisual(t, new Vector2(1.7f, 2.9f), new Color(1f, 0.97f, 0.92f, 1f), "Player", -21);
-        });
+            if (profile == null)
+                Missing.Add("볼륨 프로필: " + PhotoStudioVolumeProfile);
+            return;
+        }
+
+        Transform t = EnsurePath(room, "Darkroom Volume (2-1)");
+        t.position = new Vector3(0f, 20.85f, 0f);
+        t.localScale = Vector3.one;
+
+        var box = GetOrAdd<BoxCollider>(t);
+        box.isTrigger = true;
+        // 원본과 같은 값. z = -10 이라 카메라(z -10) 위치로 판정된다. 범위는 암실 x -3.1~10.1, y 15.7~26
+        box.center = new Vector3(3.480266f, 0.051130295f, -10f);
+        box.size = new Vector3(13.1445055f, 10.273735f, 1f);
+
+        var volume = GetOrAdd<Volume>(t);
+        volume.isGlobal = false;
+        volume.priority = 0f;
+        volume.blendDistance = 0f;
+        volume.weight = 1f;
+        volume.sharedProfile = profile;
+    }
+
+    /// <summary>
+    /// 암실 선반 자리의 문 (2x3칸, 선반 두 칸과 같은 자리). 선반 그림은 끄고 S9S2Door는 그대로 쓴다.
+    /// 붉은 암실 안에서 문 너머의 흰빛이 새어 나오도록 후광 / 바닥 번짐 / 2D 조명을 얹고 천천히 일렁이게 한다.
+    /// </summary>
+    private static void ApplyDarkroomDoor(Scene scene)
+    {
+        Transform shelf = FindScene(scene, "=====Map=====/Room_PhotoStudio/Work Room/Objects/obj_filmstoragebox ");
+        if (shelf == null)
+        {
+            Missing.Add("obj_filmstoragebox");
+            return;
+        }
+
+        // 선반 그림만 끈다 (조사 가능 표시인 반짝임은 자식이라 남는다)
+        foreach (Transform child in shelf)
+        {
+            if (child.name.StartsWith("obj_filmstoragebox"))
+            {
+                var csr = child.GetComponent<SpriteRenderer>();
+                if (csr != null)
+                    csr.enabled = false;
+            }
+        }
+
+        Transform oldGlow = shelf.Find("OpenVisual");
+        if (oldGlow != null)
+            oldGlow.gameObject.SetActive(false);
+
+        var door = shelf.GetComponent<S9S2Door>();
+        if (door != null)
+        {
+            var dso = new SerializedObject(door);
+            dso.FindProperty("_openVisual").objectReferenceValue = null;
+            dso.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        Color warm = new Color(1f, 0.9f, 0.86f, 1f);
+
+        Transform art = EnsureSpriteObject(shelf, "DoorArt", DarkroomDoor, "Object", 10);
+        if (art == null)
+            return;
+        art.position = new Vector3(9f, 22.5f, 0f);
+        SetWorldScale(art, 0.5f, 0.5f);
+
+        Transform halo = EnsureSpriteObject(art, "Halo", DoorGlowSprite, "Object", 11);
+        if (halo != null)
+        {
+            // 3.2 x 4.75칸: 문 테두리 밖으로 번지되 오른쪽 벽(x 10.16) 너머로는 거의 넘지 않게 왼쪽으로 살짝 당긴다
+            halo.position = new Vector3(8.9f, 22.55f, 0f);
+            SetWorldScale(halo, 0.8f, 0.95f);
+            halo.GetComponent<SpriteRenderer>().color = new Color(warm.r, warm.g, warm.b, 0.55f);
+        }
+
+        Transform spill = EnsureSpriteObject(art, "FloorSpill", DoorSpillSprite, "Object", 9);
+        if (spill != null)
+        {
+            spill.position = new Vector3(9f, 20.2f, 0f);
+            SetWorldScale(spill, 0.6f, 0.6f); // 2.4 x 1.2칸, 문 아래 바닥으로 넓어진다
+            spill.GetComponent<SpriteRenderer>().color = new Color(warm.r, warm.g, warm.b, 0.5f);
+        }
+
+        Transform lightT = EnsurePath(art, "Light");
+        lightT.position = new Vector3(9f, 21.8f, 0f);
+        var light = GetOrAdd<Light2D>(lightT);
+        light.lightType = Light2D.LightType.Point;
+        light.color = warm;
+        light.intensity = 0.9f;
+        light.pointLightInnerRadius = 0.5f;
+        light.pointLightOuterRadius = 3.2f;
+
+        var glow = GetOrAdd<DoorGlow>(art);
+        var gso = new SerializedObject(glow);
+        SerializedProperty glows = gso.FindProperty("_glows");
+        glows.arraySize = 2;
+        glows.GetArrayElementAtIndex(0).objectReferenceValue = halo != null ? halo.GetComponent<SpriteRenderer>() : null;
+        glows.GetArrayElementAtIndex(1).objectReferenceValue = spill != null ? spill.GetComponent<SpriteRenderer>() : null;
+        gso.FindProperty("_light").objectReferenceValue = light;
+        gso.ApplyModifiedPropertiesWithoutUndo();
     }
 
     // ================================================================ 하루의 집 (이미지 7, 13)
@@ -411,43 +635,70 @@ public static class S9S2ArtApply
             SetBox(t.gameObject, new Vector2(299f, 1.5f), new Vector2(301f, 3f));
         });
 
-        // 찌부된 침대 (리소스 없음): 옛 침대를 세로로 돌려 납작하게. 회전이 있어 콜라이더는 따로 둔다
+        // 찌부된 침대 (1x3칸). 콜라이더는 따로 둔다
         Do(room, B + "OBJ_haruBed_v1", t =>
         {
-            t.rotation = Quaternion.Euler(0f, 0f, -90f);
+            SetSprite(t, BedSquished);
+            t.rotation = Quaternion.identity;
             SetPos(t, 297.5f, -0.4f);
-            SetWorldScale(t, 0.536f, 0.216f);
+            SetWorldScale(t, 0.5f, 0.5f);
 
             foreach (Collider2D c in t.GetComponents<Collider2D>())
                 c.enabled = false;
         });
         WorldWall(room, "Wall_S9/Bed", new Vector2(297f, -1.25f), new Vector2(298f, 2.5f));
 
-        // 길어진 서랍 (리소스 없음): 옛 서랍을 세로로 늘린다
+        // 길어진 서랍 (1x2.5칸)
         Do(room, B + "OBJ_haruDrawer_v1", t =>
         {
-            SetPos(t, 301.4f, 0.875f);
-            SetWorldScale(t, 0.303f, 0.9f);
-            SetBox(t.gameObject, new Vector2(301f, -0.25f), new Vector2(301.8f, 3f));
+            SetSprite(t, DrawerLong);
+            SetPos(t, 301.4f, 1f);
+            SetWorldScale(t, 0.5f, 0.5f);
+            SetBox(t.gameObject, new Vector2(300.9f, -0.25f), new Vector2(301.9f, 3f));
         });
 
-        // 열리는 옷장 (리소스 없음): 옛 옷장을 벽에 맞춘다. S9S2Door가 그대로 붙어 있다
+        // 열리는 옷장: 5프레임, 피봇이 위쪽 가운데라 윗변(y 3.75)을 고정하고 프레임을 넘긴다.
+        // 닫힌 프레임의 아랫변은 y 0.69. S9S2Door가 그대로 붙어 있다
+        Sprite[] wardrobeFrames = LoadWardrobeFrames();
         Do(room, B + "OBJ_haruWardrobe_v1", t =>
         {
-            SetPos(t, 302.87f, 2.25f);
+            if (wardrobeFrames.Length == 5)
+                t.GetComponent<SpriteRenderer>().sprite = wardrobeFrames[0];
+            else
+                Missing.Add("옷장 프레임 5장");
+
+            SetPos(t, 302.87f, 3.75f);
+            SetWorldScale(t, 0.5f, 0.5f);
             SetBox(t.gameObject, new Vector2(301.8f, 1.4f), new Vector2(304f, 4f));
-        });
-        Do(room, B + "OBJ_haruWardrobe_v1/OpenVisual", t =>
-        {
-            SetPos(t, 302.87f, 2.4f);
-            SetOpenVisual(t, new Vector2(1.6f, 2.6f), new Color(1f, 0.97f, 0.92f, 1f), "Object", 5);
+
+            // 열린 프레임에 빛이 그려져 있어 임시 흰 판은 쓰지 않는다
+            Transform glow = t.Find("OpenVisual");
+            if (glow != null)
+                glow.gameObject.SetActive(false);
+
+            var door = new SerializedObject(t.GetComponent<S9S2Door>());
+            door.FindProperty("_openVisual").objectReferenceValue = null;
+            door.ApplyModifiedPropertiesWithoutUndo();
+
+            var c = UnityEngine.Object.FindObjectOfType<Sequence9Scene2DialogueController>(true);
+            if (c == null)
+                return;
+
+            var so = new SerializedObject(c);
+            so.FindProperty("_wardrobeRenderer").objectReferenceValue = t.GetComponent<SpriteRenderer>();
+            SerializedProperty arr = so.FindProperty("_wardrobeOpenFrames");
+            arr.arraySize = wardrobeFrames.Length;
+            for (int i = 0; i < wardrobeFrames.Length; i++)
+                arr.GetArrayElementAtIndex(i).objectReferenceValue = wardrobeFrames[i];
+            so.ApplyModifiedPropertiesWithoutUndo();
         });
 
-        // 작아진 책상 (리소스 없음): 옛 책상을 절반으로. 전화기가 책상 위를 모두 덮어 상호작용 대상이 된다
+        // 작아진 책상 (1x1.5칸). 전화기가 책상 위를 모두 덮어 상호작용 대상이 된다
         Do(room, B + "OBJ_haruDesk_v1", t =>
         {
-            SetPos(t, 300.5f, -1.25f);
-            SetWorldScale(t, 0.25f, 0.25f);
+            SetSprite(t, DeskSmall);
+            SetPos(t, 300.5f, -1.1f);
+            SetWorldScale(t, 0.5f, 0.5f);
 
             foreach (Collider2D c in t.GetComponents<Collider2D>())
                 c.enabled = false;
@@ -576,6 +827,50 @@ public static class S9S2ArtApply
         DoScene(scene, "=====S9S2=====/Points/CinemaLobbySpawn", t => t.position = new Vector3(599.5f, 45.25f, 0f));
     }
 
+    // ================================================================ 텔레비전 공간 / 10-1
+
+    private static void ApplyTvOff(Scene scene)
+    {
+        var c = UnityEngine.Object.FindObjectOfType<Sequence9Scene2DialogueController>(true);
+        Sprite[] frames = LoadFrames(TvOffStrip);
+
+        if (c == null || frames.Length != 4)
+        {
+            Missing.Add("TV OFF 프레임 4장 또는 9-2 컨트롤러");
+            return;
+        }
+
+        var so = new SerializedObject(c);
+        SerializedProperty arr = so.FindProperty("_tvOffFrames");
+        arr.arraySize = frames.Length;
+        for (int i = 0; i < frames.Length; i++)
+            arr.GetArrayElementAtIndex(i).objectReferenceValue = frames[i];
+        so.ApplyModifiedPropertiesWithoutUndo();
+    }
+
+    /// <summary>10-1 영사실의 죽어 있는 케이. 서 있는 자리와 피봇(가운데)은 그대로 두고 그림만 바꾼다</summary>
+    private static void ApplyDeadKei(Scene scene)
+    {
+        var c = UnityEngine.Object.FindObjectOfType<Sequence10Scene1DialogueController>(true);
+        Sprite dead = LoadSprite(KeiDead);
+        Transform kei = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true)).FirstOrDefault(t => t.name == "Kei");
+
+        if (c == null || kei == null || dead == null)
+        {
+            Missing.Add("10-1 컨트롤러 / 케이 / 죽은 케이 스프라이트");
+            return;
+        }
+
+        var sr = kei.GetComponentInChildren<SpriteRenderer>(true);
+        var anim = kei.GetComponentInChildren<Animator>(true);
+        if (anim != null)
+            anim.enabled = false;
+        if (sr != null)
+            sr.sprite = dead;
+
+        EditorSceneManager.MarkSceneDirty(scene);
+    }
+
     // ================================================================ 스크린 공간
 
     /// <summary>
@@ -663,11 +958,11 @@ public static class S9S2ArtApply
         DoScene(scene, "=====S9S2=====/Points/ScreenRoomSpawn", t => t.position = new Vector3(602f, 85.375f, 0f));
         DoScene(scene, "=====S9S2=====/Points/ScreenStandPoint", t => t.position = new Vector3(602f, 87.375f, 0f));
 
-        // ③ 검은 문: 기획 이미지 5-5의 위치 (스크린 하단 오른쪽, 2.65 x 3칸)
+        // ③ 검은 문: 기획 이미지 5-5의 위치 (스크린 하단 오른쪽, 4 x 3칸 = x 608~612)
         DoScene(scene, "=====S9S2=====/Doors/Door_Screen", t =>
         {
             SetPos(t, 610f, 89.375f);
-            SetBox(t.gameObject, new Vector2(608.75f, 88.875f), new Vector2(611.25f, 89.875f));
+            SetBox(t.gameObject, new Vector2(608.05f, 88.875f), new Vector2(611.95f, 89.875f));
 
             Transform visual = t.Find("DoorVisual");
             if (visual == null)
@@ -676,8 +971,33 @@ public static class S9S2ArtApply
                 return;
             }
 
+            // 4x3칸 프레임 애니메이션: 처음 8프레임을 재생한 뒤 뒤 4프레임을 반복한다
+            Sprite[] doorFrames = LoadFrames(ScreenDoorStrip);
+            var vsr = visual.GetComponent<SpriteRenderer>();
+            if (vsr != null && doorFrames.Length == 8)
+            {
+                vsr.drawMode = SpriteDrawMode.Simple;
+                vsr.color = Color.white;
+                vsr.sprite = doorFrames[0];
+                vsr.sortingLayerName = "Default";
+                vsr.sortingOrder = 3;
+
+                var loop = GetOrAdd<SpriteFrameLoop>(visual);
+                var lso = new SerializedObject(loop);
+                SerializedProperty arr = lso.FindProperty("_frames");
+                arr.arraySize = doorFrames.Length;
+                for (int i = 0; i < doorFrames.Length; i++)
+                    arr.GetArrayElementAtIndex(i).objectReferenceValue = doorFrames[i];
+                lso.FindProperty("_loopFrom").intValue = 4;
+                lso.ApplyModifiedPropertiesWithoutUndo();
+            }
+            else
+            {
+                Missing.Add("스크린 문 프레임 8장");
+            }
+
             SetPos(visual, 610f, 89.625f);
-            SetOpenVisual(visual, new Vector2(2.65f, 3f), Color.black, "Default", 3);
+            SetWorldScale(visual, 0.5f, 0.5f);
 
             Transform label = visual.Find("Label");
             if (label != null)
@@ -763,9 +1083,11 @@ public static class S9S2ArtApply
         DoScene(scene, "=====S9S2=====/Points/CorridorSpawn", t => t.position = new Vector3(902.5f, -22f, 0f));
         DoScene(scene, "=====S9S2=====/Points/CorridorFinalPoint", t => t.position = new Vector3(902.5f, -21f, 0f));
 
+        // 권총 탁자는 2x2칸이라 복도 가운데 두 칸(x 902~904)에 맞춘다
         DoScene(scene, "=====S9S2=====/Pistol", t =>
         {
-            SetPos(t, 902.5f, -20f);
+            SetPos(t, 903f, -20f);
+            SetBox(t.gameObject, new Vector2(902.05f, -20.45f), new Vector2(903.95f, -19.5f));
 
             // 탁자는 권총이 나타나는 회차의 복도에만 있다. 레이아웃 ③ 외의 복도에는 탁자가 없다
             Transform table = FindScene(scene, "=====S9S2=====/PistolTable") ?? t.Find("PistolTable");
@@ -776,8 +1098,27 @@ public static class S9S2ArtApply
             }
 
             table.SetParent(t, true);
-            table.position = new Vector3(902.5f, -20f, table.position.z);
+            table.position = new Vector3(903f, -20f, table.position.z);
+            SetSprite(table, PistolTable);
+            SetWorldScale(table, 0.5f, 0.5f);
+            SetBox(table.gameObject, new Vector2(902f, -20.4f), new Vector2(904f, -19.4f));
         });
+
+        // 권총: 탁자 위. 임시 사각형과 라벨을 걷어낸다
+        DoScene(scene, "=====S9S2=====/Pistol/PistolVisual", t =>
+        {
+            var sr = t.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.drawMode = SpriteDrawMode.Simple;
+                sr.color = Color.white;
+            }
+
+            SetSprite(t, Pistol);
+            SetPos(t, 903f, -19.65f);
+            SetWorldScale(t, 0.5f, 0.5f);
+        });
+        DoScene(scene, "=====S9S2=====/Pistol/Label", t => t.gameObject.SetActive(false));
 
         DoScene(scene, "=====S9S2=====/Soot", t =>
         {
@@ -941,6 +1282,13 @@ public static class S9S2ArtApply
     }
 
     // ================================================================ 공통
+
+    /// <summary>Unity 컴포넌트는 ?? 로 비었는지 판별되지 않아 명시적으로 확인한다.</summary>
+    private static T GetOrAdd<T>(Transform t) where T : Component
+    {
+        T c = t.GetComponent<T>();
+        return c != null ? c : t.gameObject.AddComponent<T>();
+    }
 
     private static Transform Room(Scene scene, string path)
     {

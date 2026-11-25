@@ -132,6 +132,17 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
     [SerializeField]
     private S9S2Door _wardrobeDoor;
 
+    [Tooltip("옷장 그림. 열릴 때 아래 프레임을 차례로 바꾼다.")]
+    [SerializeField]
+    private SpriteRenderer _wardrobeRenderer;
+
+    [Tooltip("닫힘 → 완전히 열림 순서의 옷장 프레임")]
+    [SerializeField]
+    private Sprite[] _wardrobeOpenFrames;
+
+    [SerializeField]
+    private float _wardrobeFrameSeconds = 0.12f;
+
     [SerializeField]
     private S9S2Door _screenDoor;
 
@@ -261,6 +272,10 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
 
     [SerializeField]
     private float _tvOffDuration = 0.6f;
+
+    [Tooltip("TV OFF 프레임 (노이즈 → 어두워짐 → 빛 한 점 → 꺼짐). 비어 있으면 코드로 흉내낸다.")]
+    [SerializeField]
+    private Sprite[] _tvOffFrames;
 
     [Tooltip("하루의 뒷모습을 보여주는 시간")]
     [SerializeField]
@@ -411,11 +426,20 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
         if (_photoWall != null)
             _photoWall.SetSparkle(!_photoWallSeen);
 
-        if (_wardrobeDoor != null)
-            _wardrobeDoor.SetOpen(state >= S9S2State.HouseCallDone);
+        SetWardrobeOpen(state >= S9S2State.HouseCallDone, false);
 
         if (_screenDoor != null)
+        {
             _screenDoor.SetPresent(state >= S9S2State.ScreenDone);
+
+            // 이미 문이 생긴 뒤로 복원하면 생기는 장면 없이 반복 구간부터 보여준다
+            if (state >= S9S2State.ScreenDone)
+            {
+                var doorFrames = _screenDoor.GetComponentInChildren<SpriteFrameLoop>(true);
+                if (doorFrames != null)
+                    doorFrames.JumpToLoop();
+            }
+        }
 
         ApplyCorridorWorld();
 
@@ -513,8 +537,7 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
             case "phone_call":
                 state = S9S2State.HouseCallDone;
                 PersistPuzzleState();
-                if (_wardrobeDoor != null)
-                    _wardrobeDoor.SetOpen(true);
+                SetWardrobeOpen(true, true);
                 if (_telephone != null)
                     _telephone.SetSparkle(false);
                 break;
@@ -1191,6 +1214,34 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
         ShowScreenPlaceholder(false);
     }
 
+    /// <summary>옷장을 연다. animate면 프레임을 차례로 넘기고, 아니면 마지막(또는 첫) 프레임으로 바로 둔다.</summary>
+    private void SetWardrobeOpen(bool open, bool animate)
+    {
+        if (_wardrobeDoor != null)
+            _wardrobeDoor.SetOpen(open);
+
+        if (_wardrobeRenderer == null || _wardrobeOpenFrames == null || _wardrobeOpenFrames.Length == 0)
+            return;
+
+        if (open && animate && _wardrobeOpenFrames.Length > 1)
+        {
+            StartCoroutine(Co_OpenWardrobe());
+            return;
+        }
+
+        _wardrobeRenderer.sprite = open ? _wardrobeOpenFrames[_wardrobeOpenFrames.Length - 1] : _wardrobeOpenFrames[0];
+    }
+
+    private IEnumerator Co_OpenWardrobe()
+    {
+        foreach (Sprite frame in _wardrobeOpenFrames)
+        {
+            if (frame != null)
+                _wardrobeRenderer.sprite = frame;
+            yield return new WaitForSeconds(_wardrobeFrameSeconds);
+        }
+    }
+
     private void SetScreenIdle()
     {
         if (_screenImage == null)
@@ -1276,6 +1327,24 @@ public class Sequence9Scene2DialogueController : DialogueController<S9S2State>
         {
             tvAnimator.SetTrigger(_tvOffTrigger);
             yield return new WaitForSeconds(_tvOffDuration);
+            yield break;
+        }
+
+        var tvRenderer = _tvTransform.GetComponent<SpriteRenderer>();
+        if (_tvOffFrames != null && _tvOffFrames.Length > 0 && tvRenderer != null)
+        {
+            if (tvAnimator != null)
+                tvAnimator.enabled = false;
+
+            float step = _tvOffDuration / _tvOffFrames.Length;
+            foreach (Sprite frame in _tvOffFrames)
+            {
+                if (frame != null)
+                    tvRenderer.sprite = frame;
+                yield return new WaitForSeconds(step);
+            }
+
+            // 마지막 프레임(꺼진 화면)에서 멈춘다
             yield break;
         }
 

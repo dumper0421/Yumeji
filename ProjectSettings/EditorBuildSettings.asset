@@ -125,4 +125,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2026PlayX4/SummerWind.unity
     guid: 62a65beb8e5fcf9498c009287fa71c29
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence6S#2.unity
+    guid: 480c43ff182b8004b87a1d64251f5047
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/Sequence7S#3.unity
+    guid: f1e4c88d64a5f6e40957cc3199d89899
+  - enabled: 1
+    path: Assets/Scenes/2026PlayX4/DemoEndScene.unity
+    guid: 6d9e95ad66e8ed349981f49a433fecd7
   m_configObjects: {}

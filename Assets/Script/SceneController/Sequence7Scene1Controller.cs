@@ -41,7 +41,7 @@ public class Sequence7Scene1Controller : SceneController
         if (_openingVoiceClip != null)
         {
             SoundManager.Instance.PlaySFX(_openingVoiceClip);
-            yield return new WaitForSeconds(_openingVoiceClip.length);
+            yield return AudioClipWait.ForLength(_openingVoiceClip);
         }
 
         // 2) 페이드 아웃

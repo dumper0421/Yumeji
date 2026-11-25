@@ -1250,7 +1250,7 @@ public class SummerBreezeCutsceneController : DialogueController<SummerBreezeSta
 
     private static float GetClipLength(AudioClip clip, float fallback)
     {
-        return clip != null ? clip.length : fallback;
+        return AudioClipWait.LengthOr(clip, fallback);
     }
 
     // ================================================================ 인물 제어

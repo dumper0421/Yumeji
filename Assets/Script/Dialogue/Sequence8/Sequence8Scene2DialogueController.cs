@@ -669,18 +669,25 @@ public class Sequence8Scene2DialogueController : DialogueController<S8S2State>
         SetImageAlpha(_backIllustration, 0f);
         _backIllustration.gameObject.SetActive(true);
 
-        float fromFront = _frontIllustration != null ? _frontIllustration.color.a : 0f;
+        // 새 일러스트를 기존 일러스트 위에 올려 페이드 인한다.
+        // 두 장을 동시에 반투명으로 교차시키면 중간에 뒤의 맵이 비쳐 보인다.
+        bool frontVisible = _frontIllustration != null
+            && _frontIllustration.gameObject.activeSelf
+            && _frontIllustration.color.a > 0f;
+
+        if (frontVisible && _backIllustration.transform.parent == _frontIllustration.transform.parent)
+        {
+            int frontIndex = _frontIllustration.transform.GetSiblingIndex();
+            if (_backIllustration.transform.GetSiblingIndex() < frontIndex)
+                _backIllustration.transform.SetSiblingIndex(frontIndex);
+        }
+
         float elapsed = 0f;
 
         while (elapsed < _illustrationFadeDuration)
         {
             elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / _illustrationFadeDuration);
-
-            SetImageAlpha(_backIllustration, t);
-            if (_frontIllustration != null)
-                SetImageAlpha(_frontIllustration, Mathf.Lerp(fromFront, 0f, t));
-
+            SetImageAlpha(_backIllustration, Mathf.Clamp01(elapsed / _illustrationFadeDuration));
             yield return null;
         }
 

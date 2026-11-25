@@ -5122,6 +5122,9 @@ MonoBehaviour:
   DialogueManager: {fileID: 603143303}
   _slideFilmDialogue: Storage_Box2
   IsFinshBadGuest: 0
+  _firstDrawer: {fileID: 1024896437}
+  _secondDrawer: {fileID: 2020785536}
+  _drawerTolerance: 0.5
 --- !u!1001 &1075421376
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -49,6 +49,16 @@ public class S7S2TestPanel : MonoBehaviour
     private bool _dirty = false;
     private string _saveMessage = "";
 
+    private void Awake()
+    {
+        // 전시용 체험판에서는 관람객이 F1~F6 테스트 기능을 쓰지 못하게 끈다
+        if (ExhibitionBuild.Enabled)
+        {
+            S7S2Test.Reset();
+            enabled = false;
+        }
+    }
+
     private void Start()
     {
         S7S2Test.Reset();

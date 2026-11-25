@@ -19,8 +19,40 @@ public class Sequence4Scene2ScriptPagePreviewController : MonoBehaviour
 
     private void Start()
     {
+        if (inventoryManager == null)
+            inventoryManager = InventoryManager.Instance;
+
+        // 미리보기 UI가 연결되지 않은 씬(예: 4-2 퍼즐 해결 후 씬)에서는 4-2 퍼즐 씬과 같은 모양으로 직접 만든다
+        if ((previewPanel == null || previewImage == null) && inventoryManager != null)
+            CreatePreviewUI(inventoryManager.transform);
+
         if (previewPanel != null)
             previewPanel.SetActive(false);
+    }
+
+    /// <summary>4-2 퍼즐 씬의 Previewpanel과 같은 구성: 화면 전체 반투명 흰 판 + 가운데 700x900 이미지.</summary>
+    private void CreatePreviewUI(Transform canvasRoot)
+    {
+        var panel = new GameObject("Previewpanel", typeof(RectTransform), typeof(Image));
+        var panelRect = (RectTransform)panel.transform;
+        panelRect.SetParent(canvasRoot, false);
+        panelRect.SetAsLastSibling();
+        panelRect.anchorMin = Vector2.zero;
+        panelRect.anchorMax = Vector2.one;
+        panelRect.offsetMin = Vector2.zero;
+        panelRect.offsetMax = Vector2.zero;
+        panel.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.392f);
+
+        var image = new GameObject("PreviewImage", typeof(RectTransform), typeof(Image));
+        var imageRect = (RectTransform)image.transform;
+        imageRect.SetParent(panelRect, false);
+        imageRect.anchorMin = imageRect.anchorMax = new Vector2(0.5f, 0.5f);
+        imageRect.anchoredPosition = Vector2.zero;
+        imageRect.sizeDelta = new Vector2(700f, 900f);
+
+        previewPanel = panel;
+        previewImage = image.GetComponent<Image>();
+        previewImage.preserveAspect = true;
     }
 
     private void Update()
